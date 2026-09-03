@@ -1,3 +1,8 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
 <title>beèri printers · Card Personalization</title>
 <meta name="description" content="Secure card personalization for banks, financial institutions and card issuers worldwide: encoding, embossing, mailing and fulfillment from beèri printers.">
 <meta name="keywords" content="Card Personalization Services, Secure Card Personalization, Payment Card Personalization, Bank Card Personalization, Smart Card Personalization, Card Encoding Services, Card Fulfillment Services, Card Personalization Europe">
@@ -33,7 +38,7 @@
   --f-logo:    'Montserrat',sans-serif;
   --logo-wt:   700;
   --italic:    italic;
-  --h1-size:   clamp(3.2rem,7.5vw,6rem);
+  --h1-size:   clamp(2.1rem,8vw,6rem);
   --h1-ls:     -.01em;
   --h2-size:   clamp(1.75rem,3.5vw,2.6rem);
   --ls-wide:   .12em;
@@ -48,14 +53,14 @@
   --lh-mult:1.06;
   --f-display:'Heebo',sans-serif; --f-body:'Heebo',sans-serif;
   --f-util:'Heebo',sans-serif;    --f-logo:'Heebo',sans-serif; --logo-wt:800;
-  --italic:normal; --h1-size:clamp(2.7rem,6.2vw,4.8rem); --h1-ls:0;
+  --italic:normal; --h1-size:clamp(2rem,7vw,4.8rem); --h1-ls:0;
   --h2-size:clamp(1.6rem,3.1vw,2.25rem); --ls-logo:0;
 }
 :root[lang="ar"]{
   --lh-mult:1.12;
   --f-display:'Cairo',sans-serif; --f-body:'Cairo',sans-serif;
   --f-util:'Cairo',sans-serif;
-  --italic:normal; --h1-size:clamp(2.6rem,6vw,4.6rem); --h1-ls:0;
+  --italic:normal; --h1-size:clamp(1.95rem,6.8vw,4.6rem); --h1-ls:0;
   --h2-size:clamp(1.55rem,3vw,2.15rem);
   /* Arabic is a connected script — tracking breaks joining */
   --ls-wide:0; --ls-btn:0; --ls-label:0; --ls-logo:0;
@@ -64,7 +69,7 @@
 :root[lang="el"]{
   --f-display:'Roboto Condensed',sans-serif; --f-body:'Roboto',system-ui,sans-serif;
   --f-util:'Roboto',sans-serif;
-  --h1-size:clamp(2.4rem,5.4vw,4.2rem); --h1-ls:0;
+  --h1-size:clamp(1.8rem,6.2vw,4.2rem); --h1-ls:0;
   --h2-size:clamp(1.55rem,3vw,2.2rem);
 }
 @media (prefers-color-scheme: dark) {
@@ -92,7 +97,8 @@
 
 /* ── RESET ──────────────────────────────────────────────── */
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
-html{scroll-behavior:smooth;}
+[hidden]{display:none!important;}
+html{scroll-behavior:smooth;color-scheme:light dark;}
 body{font-family:var(--f-body);font-size:16px;line-height:calc(1.6 * var(--lh-mult));color:var(--text);background:var(--bg);}
 img{max-width:100%;display:block;}
 a{color:inherit;}
@@ -340,14 +346,11 @@ h1,h2,h3,h4{font-family:var(--f-display);text-wrap:balance;}
   .logo-sub{display:none;}
   body{padding-bottom:56px;}
 }
-/* At 320px the h1 clamp minimum is wider than the viewport for a single long
-   word ("Personalization", "Εξατομίκευση"), so step the display scale down. */
-@media(max-width:380px){
-  :root{--h1-size:clamp(2rem,8.6vw,2.6rem);}
-  :root[lang="he"],:root[lang="ar"]{--h1-size:clamp(1.95rem,8.2vw,2.5rem);}
-  :root[lang="el"]{--h1-size:clamp(1.8rem,7.6vw,2.3rem);}
-}
+
 </style>
+</head>
+
+<body>
 
 <a class="skip-link" href="#home" data-i18n="a11y.skip">Skip to main content</a>
 
@@ -1808,3 +1811,6 @@ if (form && success) {
   });
 }
 </script>
+
+</body>
+</html>

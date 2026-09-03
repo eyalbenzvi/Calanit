@@ -22,6 +22,7 @@ python3 fetch_fonts.py   # once: cache the webfonts into ./fonts (needs network)
 python3 wrap.py          # regenerate test.html from ../index.html — rerun after any edit
 python3 test_suite.py    # 155 functional cases
 python3 contrast.py      # WCAG AA audit, both themes (exit 1 on failure)
+python3 wordfit.py       # headings whose longest word cannot fit (exit 1 on failure)
 ```
 
 `fetch_fonts.py` mirrors the eight font families the page requests into
@@ -49,6 +50,16 @@ if you change the font request in `index.html`.
 | Responsive | zero horizontal overflow at 10 widths × 4 languages |
 | Dark mode | no transparent text, explicit body background |
 | Clipping | no element clipping its own text at 6 widths × 4 languages |
+
+`wordfit.py` exists because clipping probes cannot catch this class of bug:
+`overflow-wrap:break-word` "solves" an overflowing heading by splitting the
+word across lines, so nothing overflows and nothing is clipped -- but the
+heading reads as "Personalizatio / n". It measures each heading's longest word
+against its content box instead, across 4 languages x 12 widths.
+
+`index.html` is a complete standalone document: it opens correctly from disk,
+can be hosted as-is, and still renders when the artifact host wraps it in its
+own skeleton. Both paths are verified.
 
 ## Note on the contact form
 

@@ -14,6 +14,7 @@
   --gold:       #C4882A;
   --gold-lt:    #D4A240;
   --brand:      #00AEEF;
+  --gold-txt:   #8A5D14;   /* gold that meets AA as small text on light */
   --text:       #0D1F30;
   --text-muted: #4A6070;
   --card-bg:    #FFFFFF;
@@ -64,6 +65,7 @@
 }
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
+    --gold-txt:   #D4A240;
     --text:       #D8E8F5;
     --text-muted: #7B9CB8;
     --card-bg:    #0F2A42;
@@ -73,6 +75,7 @@
   }
 }
 :root[data-theme="dark"] {
+  --gold-txt:   #D4A240;
   --text:       #D8E8F5;
   --text-muted: #7B9CB8;
   --card-bg:    #0F2A42;
@@ -138,7 +141,7 @@ h1,h2,h3,h4{font-family:var(--f-display);text-wrap:balance;}
 [dir="rtl"] .hero-card:nth-child(2){transform:rotate(5deg);}
 [dir="rtl"] .hero-card:nth-child(3){transform:rotate(-3deg);}
 .hero-inner{max-width:1200px;margin:0 auto;position:relative;z-index:1;}
-.hero h1{font-size:var(--h1-size);font-weight:800;color:#fff;line-height:.99;margin-bottom:.4rem;max-width:22ch;letter-spacing:var(--h1-ls);}
+.hero h1{overflow-wrap:break-word;font-size:var(--h1-size);font-weight:800;color:#fff;line-height:.99;margin-bottom:.4rem;max-width:22ch;letter-spacing:var(--h1-ls);}
 .hero h1 em{color:var(--gold);font-style:normal;}
 .hero-tagline{font-family:var(--f-display);font-size:clamp(1.15rem,2.5vw,1.65rem);font-weight:300;font-style:var(--italic);color:rgba(255,255,255,.55);margin-bottom:1.5rem;}
 .hero-body{font-size:clamp(.9rem,1.4vw,1rem);color:rgba(255,255,255,.65);max-width:52ch;margin-bottom:2.5rem;line-height:1.75;}
@@ -172,12 +175,12 @@ h1,h2,h3,h4{font-family:var(--f-display);text-wrap:balance;}
 .counter-note{grid-column:1/-1;font-size:.72rem;color:var(--text-muted);font-style:var(--italic);text-align:center;opacity:.75;}
 
 /* ── SERVICES ───────────────────────────────────────────── */
-.services-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:1.1rem;}
+.services-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(210px,100%),1fr));gap:1.1rem;}
 .svc-card{padding:1.6rem 1.4rem;border:1px solid rgba(255,255,255,.09);border-radius:6px;background:rgba(255,255,255,.04);transition:background .2s,border-color .2s,transform .2s;}
 .svc-card:hover{background:rgba(255,255,255,.09);border-color:rgba(196,136,42,.4);transform:translateY(-2px);}
 .svc-icon{width:38px;height:38px;margin-bottom:.9rem;color:var(--gold);}
 [dir="rtl"] .svc-icon.mir{transform:scaleX(-1);}
-.svc-card h3{font-family:var(--f-util);font-size:.88rem;font-weight:600;color:#fff;margin-bottom:.4rem;line-height:1.35;}
+.svc-card h3{font-family:var(--f-util);font-size:.88rem;font-weight:600;color:#fff;margin-bottom:.4rem;line-height:1.35;overflow-wrap:break-word;}
 .svc-card p{font-size:.79rem;color:rgba(255,255,255,.5);line-height:1.6;}
 
 /* ── STEPS ──────────────────────────────────────────────── */
@@ -189,14 +192,14 @@ h1,h2,h3,h4{font-family:var(--f-display);text-wrap:balance;}
 .step-num{width:54px;height:54px;border-radius:50%;background:var(--card-bg);border:2.5px solid var(--gold);display:flex;align-items:center;justify-content:center;margin:0 auto 1rem;font-family:var(--f-display);font-size:.95rem;font-weight:700;color:var(--navy-lt);font-variant-numeric:tabular-nums;}
 @media(prefers-color-scheme:dark){:root:not([data-theme="light"]) .step-num{color:#7BB8E8;}}
 :root[data-theme="dark"] .step-num{color:#7BB8E8;}
-.step h3{font-family:var(--f-util);font-size:.8rem;font-weight:700;color:var(--text);margin-bottom:.35rem;line-height:1.35;}
+.step h3{font-family:var(--f-util);font-size:.8rem;font-weight:700;color:var(--text);margin-bottom:.35rem;line-height:1.35;overflow-wrap:break-word;}
 .step p{font-size:.75rem;color:var(--text-muted);line-height:1.55;}
 
 /* ── SECURITY ───────────────────────────────────────────── */
 .security-grid{display:grid;grid-template-columns:1fr 1fr;gap:3.5rem;align-items:start;}
 .cert-row{display:flex;gap:.65rem;flex-wrap:wrap;margin-bottom:1.4rem;}
 .cert-badge{padding:.4rem .9rem;border:1.5px solid var(--gold);border-radius:3px;font-family:var(--f-display);font-size:.78rem;font-weight:700;letter-spacing:var(--ls-badge);color:var(--gold);text-transform:uppercase;}
-.cert-note{font-size:.7rem;color:rgba(255,255,255,.35);font-style:var(--italic);line-height:1.55;margin-top:.3rem;}
+.cert-note{font-size:.7rem;color:rgba(255,255,255,.6);font-style:var(--italic);line-height:1.55;margin-top:.3rem;}
 .sec-list{list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:.7rem;}
 .sec-list li{display:flex;align-items:flex-start;gap:.55rem;font-size:.855rem;color:rgba(255,255,255,.7);line-height:1.45;}
 .sec-list li::before{content:'';flex-shrink:0;width:18px;height:18px;margin-top:1px;background:var(--gold);border-radius:50%;mask-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 18 18'%3E%3Cpath d='M4 9l4 4 6-7' stroke='%23071E38' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round' fill='none'/%3E%3C/svg%3E");-webkit-mask-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 18 18'%3E%3Cpath d='M4 9l4 4 6-7' stroke='%23071E38' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round' fill='none'/%3E%3C/svg%3E");mask-size:contain;-webkit-mask-size:contain;mask-repeat:no-repeat;-webkit-mask-repeat:no-repeat;}
@@ -204,7 +207,7 @@ h1,h2,h3,h4{font-family:var(--f-display);text-wrap:balance;}
 /* ── CAPABILITIES ───────────────────────────────────────── */
 .cap-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.1rem;}
 .cap-card{padding:1.6rem 1.5rem;background:var(--card-bg);border:1px solid var(--border);border-radius:6px;border-inline-start:3px solid var(--gold);}
-.cap-card h3{font-family:var(--f-util);font-size:.875rem;font-weight:700;color:var(--navy-lt);margin-bottom:.4rem;line-height:1.35;}
+.cap-card h3{font-family:var(--f-util);font-size:.875rem;font-weight:700;color:var(--navy-lt);margin-bottom:.4rem;line-height:1.35;overflow-wrap:break-word;}
 @media(prefers-color-scheme:dark){:root:not([data-theme="light"]) .cap-card h3{color:#7BB8E8;}}
 :root[data-theme="dark"] .cap-card h3{color:#7BB8E8;}
 .cap-card p{font-size:.8rem;color:var(--text-muted);line-height:1.6;}
@@ -214,13 +217,13 @@ h1,h2,h3,h4{font-family:var(--f-display);text-wrap:balance;}
 .why-card{padding:1.9rem 1.75rem;border:1px solid rgba(255,255,255,.09);border-radius:6px;background:rgba(255,255,255,.04);transition:background .2s;}
 .why-card:hover{background:rgba(255,255,255,.08);}
 .why-icon{width:42px;height:42px;color:var(--gold);margin-bottom:1.1rem;}
-.why-card h3{font-family:var(--f-display);font-size:1.1rem;font-weight:700;color:#fff;letter-spacing:var(--ls-why);text-transform:uppercase;margin-bottom:.55rem;}
+.why-card h3{font-family:var(--f-display);font-size:1.1rem;font-weight:700;color:#fff;letter-spacing:var(--ls-why);text-transform:uppercase;margin-bottom:.55rem;overflow-wrap:break-word;}
 .why-card p{font-size:.825rem;color:rgba(255,255,255,.58);line-height:1.68;}
 
 /* ── REFERENCES ─────────────────────────────────────────── */
 .ref-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1.25rem;}
 .ref-card{padding:1.9rem;background:var(--card-bg);border:1px solid var(--border);border-radius:6px;}
-.ref-type{font-family:var(--f-util);font-size:.72rem;font-weight:600;letter-spacing:var(--ls-ref);text-transform:uppercase;color:var(--gold);margin-bottom:.6rem;}
+.ref-type{font-family:var(--f-util);font-size:.72rem;font-weight:600;letter-spacing:var(--ls-ref);text-transform:uppercase;color:var(--gold-txt);margin-bottom:.6rem;}
 .ref-card h3{font-family:var(--f-display);font-size:1.1rem;font-weight:700;color:var(--navy);margin-bottom:.9rem;line-height:1.25;}
 @media(prefers-color-scheme:dark){:root:not([data-theme="light"]) .ref-card h3{color:#7BB8E8;}}
 :root[data-theme="dark"] .ref-card h3{color:#7BB8E8;}
@@ -230,7 +233,7 @@ h1,h2,h3,h4{font-family:var(--f-display);text-wrap:balance;}
 /* ── CTA BAND ───────────────────────────────────────────── */
 .cta-band{background:var(--gold);padding:3rem clamp(1.5rem,4vw,3rem);text-align:center;}
 .cta-band h2{font-family:var(--f-display);font-size:clamp(1.6rem,3vw,2.3rem);font-weight:800;color:var(--navy);margin-bottom:.45rem;}
-.cta-band p{font-size:.9rem;color:rgba(7,30,56,.72);max-width:56ch;margin:0 auto 1.4rem;}
+.cta-band p{font-size:.9rem;color:rgba(7,30,56,.92);max-width:56ch;margin:0 auto 1.4rem;}
 .btn-dark{font-family:var(--f-display);font-size:.92rem;font-weight:700;letter-spacing:var(--ls-btn);text-transform:uppercase;color:var(--gold);background:var(--navy);border:none;padding:.9rem 2rem;border-radius:3px;cursor:pointer;text-decoration:none;display:inline-block;transition:background .2s,transform .15s;}
 .btn-dark:hover{background:var(--navy-mid);transform:translateY(-2px);}
 
@@ -243,7 +246,7 @@ h1,h2,h3,h4{font-family:var(--f-display);text-wrap:balance;}
 .contact-form{display:grid;grid-template-columns:1fr 1fr;gap:.9rem;}
 .full{grid-column:1/-1;}
 .fg{display:flex;flex-direction:column;gap:.3rem;}
-.fg label{font-family:var(--f-util);font-size:.7rem;font-weight:600;letter-spacing:var(--ls-label);text-transform:uppercase;color:rgba(255,255,255,.45);}
+.fg label{font-family:var(--f-util);font-size:.7rem;font-weight:600;letter-spacing:var(--ls-label);text-transform:uppercase;color:rgba(255,255,255,.66);}
 .fg input,.fg select,.fg textarea{background:rgba(255,255,255,.06);border:1.5px solid rgba(255,255,255,.14);border-radius:4px;padding:.7rem .95rem;font-family:var(--f-body);font-size:.875rem;color:#fff;outline:none;transition:border-color .2s,background .2s;width:100%;}
 .fg input::placeholder,.fg textarea::placeholder{color:rgba(255,255,255,.28);}
 .fg input:focus,.fg select:focus,.fg textarea:focus{border-color:var(--gold);background:rgba(255,255,255,.09);}
@@ -254,7 +257,7 @@ h1,h2,h3,h4{font-family:var(--f-display);text-wrap:balance;}
 .skip-link:focus{position:fixed;inset-block-start:0;inset-inline-start:0;width:auto;height:auto;margin:0;clip-path:none;z-index:300;background:var(--gold);color:var(--navy);font-family:var(--f-util);font-weight:600;font-size:.85rem;padding:.7rem 1.1rem;border-end-end-radius:4px;text-decoration:none;}
 .fg select option{background:#0F2A42;color:#fff;}
 .fg textarea{resize:vertical;min-height:110px;}
-.svc-checks-label{font-family:var(--f-util);font-size:.7rem;font-weight:600;letter-spacing:var(--ls-label);text-transform:uppercase;color:rgba(255,255,255,.45);grid-column:1/-1;margin-top:.35rem;}
+.svc-checks-label{font-family:var(--f-util);font-size:.7rem;font-weight:600;letter-spacing:var(--ls-label);text-transform:uppercase;color:rgba(255,255,255,.66);grid-column:1/-1;margin-top:.35rem;}
 .svc-checks{grid-column:1/-1;display:grid;grid-template-columns:1fr 1fr;gap:.45rem;}
 .chk{font-size:.8rem;color:rgba(255,255,255,.62);display:flex;align-items:center;gap:.5rem;cursor:pointer;}
 .chk input{accent-color:var(--gold);width:auto;}
@@ -265,13 +268,13 @@ h1,h2,h3,h4{font-family:var(--f-display);text-wrap:balance;}
 .form-success p{font-size:.875rem;color:rgba(255,255,255,.65);line-height:1.68;}
 
 /* ── FOOTER ─────────────────────────────────────────────── */
-.footer{background:#040F1D;padding:3rem clamp(1.5rem,4vw,3rem) 1.4rem;color:rgba(255,255,255,.4);}
+.footer{background:#040F1D;padding:3rem clamp(1.5rem,4vw,3rem) 1.4rem;color:rgba(255,255,255,.66);}
 .footer-inner{max-width:1200px;margin:0 auto;}
 .footer-top{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:2.5rem;padding-bottom:2.25rem;border-bottom:1px solid rgba(255,255,255,.07);margin-bottom:1.4rem;}
-.footer-brand p{font-size:.78rem;color:rgba(255,255,255,.35);margin-top:.65rem;line-height:1.6;max-width:30ch;}
+.footer-brand p{font-size:.78rem;color:rgba(255,255,255,.62);margin-top:.65rem;line-height:1.6;max-width:30ch;}
 .footer-col h4{font-family:var(--f-display);font-size:.76rem;font-weight:700;letter-spacing:var(--ls-ref);text-transform:uppercase;color:rgba(255,255,255,.5);margin-bottom:.9rem;}
 .footer-col ul{list-style:none;display:flex;flex-direction:column;gap:.45rem;}
-.footer-col a{font-size:.78rem;color:rgba(255,255,255,.38);text-decoration:none;transition:color .2s;}
+.footer-col a{font-size:.78rem;color:rgba(255,255,255,.64);text-decoration:none;transition:color .2s;}
 .footer-col a:hover{color:rgba(255,255,255,.8);}
 .footer-bottom{display:flex;justify-content:space-between;align-items:center;font-size:.72rem;flex-wrap:wrap;gap:.5rem;}
 
@@ -318,7 +321,19 @@ h1,h2,h3,h4{font-family:var(--f-display);text-wrap:balance;}
   .footer-bottom{flex-direction:column;text-align:center;}
   .mobile-cta-bar{display:block;}
   .logo-sub{display:none;}
-  body{padding-bottom:50px;}
+  body{padding-bottom:56px;}
+}
+/* Narrowest phones: two service columns cannot hold a long compound word
+   (e.g. Greek "Εξατομίκευση") without clipping, so drop to one. */
+@media(max-width:430px){
+  .services-grid{grid-template-columns:1fr;}
+}
+/* At 320px the h1 clamp minimum is wider than the viewport for a single long
+   word ("Personalization", "Εξατομίκευση"), so step the display scale down. */
+@media(max-width:380px){
+  :root{--h1-size:clamp(2rem,8.6vw,2.6rem);}
+  :root[lang="he"],:root[lang="ar"]{--h1-size:clamp(1.95rem,8.2vw,2.5rem);}
+  :root[lang="el"]{--h1-size:clamp(1.8rem,7.6vw,2.3rem);}
 }
 </style>
 
@@ -853,7 +868,7 @@ h1,h2,h3,h4{font-family:var(--f-display);text-wrap:balance;}
           </svg>
           <span style="font-family:var(--f-logo);font-weight:var(--logo-wt);font-size:.98rem;letter-spacing:var(--ls-logo);color:rgba(255,255,255,.8);line-height:1.05;" data-i18n="brand.name">beèri printers</span>
         </div>
-        <p data-i18n="foot.tag">Professional card personalization services for banks, financial institutions and card issuers worldwide.</p>
+        <p data-i18n="foot.tag">Card personalization for banks, financial institutions and card issuers worldwide.</p>
       </div>
       <div class="footer-col">
         <h4 data-i18n="nav.services">Services</h4>
@@ -999,7 +1014,7 @@ T.en = {
 "f.desc":"Project Description","f.desc.ph":"Briefly describe your project, timeline, specific requirements or questions...",
 "f.submit":"Submit Project Brief","f.ok.t":"Thank You",
 "f.ok.p":"Your project brief has been received. A member of our personalization team will respond within one business day.",
-"foot.tag":"Professional card personalization services for banks, financial institutions and card issuers worldwide.",
+"foot.tag":"Card personalization for banks, financial institutions and card issuers worldwide.",
 "foot.company":"Company","foot.k2":"Submit an RFQ","foot.k3":"Talk to Our Team",
 "foot.copy":"© 2026 beèri printers. All rights reserved.",
 "foot.strip":"Card Personalization · Encoding · Fulfillment · Worldwide Distribution",
@@ -1153,7 +1168,7 @@ T.he = {
 "f.desc":"תיאור הפרויקט","f.desc.ph":"תארו בקצרה את הפרויקט, לוחות הזמנים, דרישות מיוחדות או שאלות...",
 "f.submit":"שליחת אפיון הפרויקט","f.ok.t":"תודה רבה",
 "f.ok.p":"אפיון הפרויקט התקבל. נציג מצוות הפרסונליזציה שלנו יחזור אליכם בתוך יום עסקים אחד.",
-"foot.tag":"שירותי פרסונליזציה מקצועיים לכרטיסים, לבנקים, גופים פיננסיים ומנפיקי כרטיסים בכל העולם.",
+"foot.tag":"פרסונליזציה של כרטיסים לבנקים, גופים פיננסיים ומנפיקי כרטיסים בכל העולם.",
 "foot.company":"החברה","foot.k2":"בקשה להצעת מחיר","foot.k3":"שיחה עם הצוות",
 "foot.copy":"© 2026 דפוס בארי. כל הזכויות שמורות.",
 "foot.strip":"פרסונליזציה של כרטיסים · קידוד · השלמת שירות · הפצה עולמית",
@@ -1307,7 +1322,7 @@ T.ar = {
 "f.desc":"وصف المشروع","f.desc.ph":"اذكروا بإيجاز مشروعكم والجدول الزمني والمتطلبات الخاصة أو أي أسئلة…",
 "f.submit":"إرسال ملخص المشروع","f.ok.t":"شكرًا لكم",
 "f.ok.p":"تم استلام ملخص مشروعكم. سيتواصل معكم أحد أعضاء فريق التخصيص لدينا خلال يوم عمل واحد.",
-"foot.tag":"خدمات احترافية لتخصيص البطاقات للبنوك والمؤسسات المالية وجهات إصدار البطاقات عالميًا.",
+"foot.tag":"تخصيص البطاقات للبنوك والمؤسسات المالية وجهات إصدار البطاقات حول العالم.",
 "foot.company":"الشركة","foot.k2":"طلب عرض سعر","foot.k3":"تحدث مع فريقنا",
 "foot.copy":"© 2026 beèri printers. جميع الحقوق محفوظة.",
 "foot.strip":"تخصيص البطاقات · الترميز · تجهيز الطلبات · التوزيع العالمي",
@@ -1461,7 +1476,7 @@ T.el = {
 "f.desc":"Περιγραφή Έργου","f.desc.ph":"Περιγράψτε συνοπτικά το έργο, το χρονοδιάγραμμα, ειδικές απαιτήσεις ή ερωτήσεις...",
 "f.submit":"Υποβολή Brief Έργου","f.ok.t":"Σας Ευχαριστούμε",
 "f.ok.p":"Το brief του έργου σας ελήφθη. Μέλος της ομάδας εξατομίκευσής μας θα απαντήσει εντός μιας εργάσιμης ημέρας.",
-"foot.tag":"Επαγγελματικές υπηρεσίες εξατομίκευσης καρτών για τράπεζες, χρηματοπιστωτικά ιδρύματα και εκδότες καρτών παγκοσμίως.",
+"foot.tag":"Εξατομίκευση καρτών για τράπεζες, χρηματοπιστωτικά ιδρύματα και εκδότες καρτών παγκοσμίως.",
 "foot.company":"Εταιρεία","foot.k2":"Αίτηση Προσφοράς","foot.k3":"Μιλήστε με την Ομάδα μας",
 "foot.copy":"© 2026 beèri printers. Με την επιφύλαξη παντός δικαιώματος.",
 "foot.strip":"Εξατομίκευση Καρτών · Κωδικοποίηση · Fulfillment · Παγκόσμια Διανομή",

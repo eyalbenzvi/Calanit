@@ -76,7 +76,7 @@ with sync_playwright() as p:
             leak = pg.evaluate("""()=>{const en=window.T.en,cur=window.T[document.documentElement.lang];
                 return [...document.querySelectorAll('[data-i18n]')].map(e=>e.getAttribute('data-i18n'))
                 .filter(k=>en[k]&&cur[k]&&en[k]===cur[k]&&/[A-Za-z]{4}/.test(en[k])
-                    &&!/^(ISO|PCI|SLA|Visa|Mastercard|American Express|beèri printers)/.test(en[k]))}""")
+                    &&!/^(ISO|PCI|SLA|Visa|Mastercard|American Express|be’eri printers)/.test(en[k]))}""")
             chk(f'[{lang}] no untranslated leakage', len(leak)<=2, str(leak[:8]))
         pg.close()
 

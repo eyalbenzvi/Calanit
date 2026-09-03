@@ -1,5 +1,5 @@
 <title>beèri printers · Card Personalization</title>
-<meta name="description" content="beèri printers — professional card personalization services including secure data handling, encoding, embossing, mailing and fulfillment for banks and financial institutions worldwide.">
+<meta name="description" content="Secure card personalization for banks, financial institutions and card issuers worldwide: encoding, embossing, mailing and fulfillment from beèri printers.">
 <meta name="keywords" content="Card Personalization Services, Secure Card Personalization, Payment Card Personalization, Bank Card Personalization, Smart Card Personalization, Card Encoding Services, Card Fulfillment Services, Card Personalization Europe">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -105,17 +105,17 @@ h1,h2,h3,h4{font-family:var(--f-display);text-wrap:balance;}
 .nav-links a:hover{color:#fff;background:rgba(255,255,255,.08);}
 .btn-nav{font-family:var(--f-display);font-size:.82rem;font-weight:700;letter-spacing:var(--ls-btn);text-transform:uppercase;color:var(--navy);background:var(--gold);border:none;padding:.5rem 1.1rem;border-radius:3px;cursor:pointer;text-decoration:none;transition:background .2s,transform .15s;white-space:nowrap;display:inline-block;}
 .btn-nav:hover{background:var(--gold-lt);transform:translateY(-1px);}
-.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:4px;}
+.hamburger{display:none;flex-direction:column;justify-content:center;align-items:center;gap:5px;cursor:pointer;background:none;border:none;width:44px;height:44px;margin-inline-end:-10px;}
 .hamburger span{display:block;width:22px;height:2px;background:#fff;border-radius:2px;}
 .mobile-menu{display:none;position:fixed;top:64px;left:0;right:0;background:var(--navy);padding:1.25rem 1.5rem;z-index:199;flex-direction:column;gap:.15rem;border-bottom:1px solid rgba(255,255,255,.08);}
 .mobile-menu.open{display:flex;}
 .mobile-menu a{font-family:var(--f-util);font-size:.9rem;font-weight:500;color:rgba(255,255,255,.75);text-decoration:none;padding:.65rem .5rem;border-bottom:1px solid rgba(255,255,255,.05);}
-.mobile-cta-bar{display:none;position:fixed;bottom:0;left:0;right:0;z-index:150;padding:.8rem 1rem;background:var(--gold);text-align:center;}
-.mobile-cta-bar a{font-family:var(--f-display);font-size:.88rem;font-weight:700;letter-spacing:var(--ls-btn);text-transform:uppercase;color:var(--navy);text-decoration:none;}
+.mobile-cta-bar{display:none;position:fixed;bottom:0;left:0;right:0;z-index:150;background:var(--gold);text-align:center;}
+.mobile-cta-bar a{display:flex;align-items:center;justify-content:center;min-height:48px;padding:.5rem 1rem;font-family:var(--f-display);font-size:.88rem;font-weight:700;letter-spacing:var(--ls-btn);text-transform:uppercase;color:var(--navy);text-decoration:none;}
 
 /* ── LANGUAGE SWITCHER ──────────────────────────────────── */
 .lang{position:relative;flex-shrink:0;}
-.lang-btn{display:flex;align-items:center;gap:.35rem;font-family:var(--f-util);font-size:.75rem;font-weight:600;color:rgba(255,255,255,.72);background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.14);border-radius:4px;padding:.38rem .6rem;cursor:pointer;transition:background .2s,border-color .2s,color .2s;}
+.lang-btn{display:flex;align-items:center;justify-content:center;min-height:34px;gap:.35rem;font-family:var(--f-util);font-size:.75rem;font-weight:600;color:rgba(255,255,255,.72);background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.14);border-radius:4px;padding:.38rem .6rem;cursor:pointer;transition:background .2s,border-color .2s,color .2s;}
 .lang-btn:hover{background:rgba(255,255,255,.13);color:#fff;border-color:rgba(255,255,255,.28);}
 .lang-btn svg{width:14px;height:14px;flex-shrink:0;}
 .lang-btn .chev{width:9px;height:9px;opacity:.6;transition:transform .2s;}
@@ -248,6 +248,12 @@ h1,h2,h3,h4{font-family:var(--f-display);text-wrap:balance;}
 .fg input::placeholder,.fg textarea::placeholder{color:rgba(255,255,255,.28);}
 .fg input:focus,.fg select:focus,.fg textarea:focus{border-color:var(--gold);background:rgba(255,255,255,.09);}
 .fg input.err,.fg select.err,.fg textarea.err{border-color:#E4685A;}
+.fg-err{font-family:var(--f-util);font-size:.7rem;font-weight:600;color:#F2907F;}
+.form-note{font-size:.8rem;line-height:1.6;color:rgba(255,255,255,.55);grid-column:1/-1;}
+.form-note a{color:var(--gold-lt);}
+.form-fail{grid-column:1/-1;font-size:.82rem;color:#F2907F;border:1px solid rgba(228,104,90,.5);background:rgba(228,104,90,.1);border-radius:4px;padding:.7rem .9rem;}
+.skip-link{position:absolute;width:1px;height:1px;margin:-1px;padding:0;overflow:hidden;clip-path:inset(50%);white-space:nowrap;border:0;}
+.skip-link:focus{position:fixed;inset-block-start:0;inset-inline-start:0;width:auto;height:auto;margin:0;clip-path:none;z-index:300;background:var(--gold);color:var(--navy);font-family:var(--f-util);font-weight:600;font-size:.85rem;padding:.7rem 1.1rem;border-end-end-radius:4px;text-decoration:none;}
 .fg select option{background:#0F2A42;color:#fff;}
 .fg textarea{resize:vertical;min-height:110px;}
 .svc-checks-label{font-family:var(--f-util);font-size:.7rem;font-weight:600;letter-spacing:var(--ls-label);text-transform:uppercase;color:rgba(255,255,255,.45);grid-column:1/-1;margin-top:.35rem;}
@@ -273,8 +279,10 @@ h1,h2,h3,h4{font-family:var(--f-display);text-wrap:balance;}
 
 /* ── SCROLL REVEAL ──────────────────────────────────────── */
 @media(prefers-reduced-motion:no-preference){
-  .reveal{opacity:0;transform:translateY(18px);transition:opacity .5s ease,transform .5s ease;}
-  .reveal.visible{opacity:1;transform:translateY(0);}
+  /* .js is set by script only when the reveal observer is about to run, so
+     no-JS (or a JS error before that point) leaves all content visible. */
+  :root.js .reveal{opacity:0;transform:translateY(18px);transition:opacity .5s ease,transform .5s ease;}
+  :root.js .reveal.visible{opacity:1;transform:translateY(0);}
 }
 
 /* ── RESPONSIVE ─────────────────────────────────────────── */
@@ -299,6 +307,9 @@ h1,h2,h3,h4{font-family:var(--f-display);text-wrap:balance;}
   .hero-cards{display:none;}
 }
 @media(max-width:620px){
+  .lang-btn{min-height:44px;padding:.5rem .7rem;}
+  .chk{min-height:32px;}
+  .chk input{width:18px;height:18px;}
   .steps-grid{grid-template-columns:1fr 1fr;}
   .cap-grid{grid-template-columns:1fr;}
   .why-grid{grid-template-columns:1fr;}
@@ -313,10 +324,12 @@ h1,h2,h3,h4{font-family:var(--f-display);text-wrap:balance;}
 }
 </style>
 
+<a class="skip-link" href="#home" data-i18n="a11y.skip">Skip to main content</a>
+
 <!-- NAV -->
 <header class="nav">
   <div class="nav-inner">
-    <a href="#home" class="nav-logo" data-i18n-aria="brand.aria" aria-label="beèri printers — Card Personalization">
+    <a href="#home" class="nav-logo" data-i18n-aria="brand.aria" aria-label="beèri printers, Card Personalization">
       <svg class="logo-mark" viewBox="0 0 25.06 27.52" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
         <path fill="#00AEEF" d="M11.25 13.14L15.97 0.17C16.34 0.24 16.7 0.33 17.05 0.44L12.33 13.41C12.82 13.57 13.31 13.76 13.77 13.99L18.49 1.02C18.76 1.16 19.03 1.32 19.3 1.48L14.58 14.45C15.09 14.78 15.58 15.15 16.02 15.56L20.74 2.6C20.94 2.78 21.13 2.97 21.31 3.17L16.59 16.14C17.11 16.72 17.57 17.36 17.94 18.05L22.66 5.09C22.78 5.32 22.89 5.54 22.99 5.78L18.27 18.73C18.79 19.92 19.08 21.23 19.08 22.6L22.26 13.88C23.97 15.29 25.06 17.43 25.06 19.82C25.06 24.08 21.61 27.52 17.36 27.52L3.81 27.52L3.81 12.98L2.83 12.98L7.55 0L9.32 0L4.6 12.98L5.65 12.98L10.38 0L11.95 0L7.23 12.98L8.48 12.98L13.21 0L14.16 0C14.3 0 14.44 0 14.58 0.01L9.85 12.99C10.33 13.01 10.79 13.06 11.25 13.14Z"/>
         <path fill="#00AEEF" d="M1.97 12.98L0 12.98L4.72 0L6.7 0L1.97 12.98Z"/>
@@ -349,7 +362,7 @@ h1,h2,h3,h4{font-family:var(--f-display);text-wrap:balance;}
       </div>
     </div>
     <a href="#contact" class="btn-nav" data-i18n="nav.cta">Discuss Your Project</a>
-    <button class="hamburger" id="ham" data-i18n-aria="nav.menu" aria-label="Menu"><span></span><span></span><span></span></button>
+    <button class="hamburger" id="ham" type="button" aria-expanded="false" aria-controls="mob-menu" data-i18n-aria="nav.menu" aria-label="Menu"><span></span><span></span><span></span></button>
   </div>
 </header>
 
@@ -375,10 +388,10 @@ h1,h2,h3,h4{font-family:var(--f-display);text-wrap:balance;}
     <p class="eyebrow" style="margin-bottom:1.2rem;" data-i18n="hero.eyebrow">beèri printers · Card Personalization Services</p>
     <h1 data-i18n-html="hero.h1">Secure Card<br><em>Personalization</em></h1>
     <p class="hero-tagline" data-i18n="hero.tagline">Proven Experience. Reliable Delivery.</p>
-    <p class="hero-body" data-i18n="hero.body">Professional card personalization services backed by decades of operational experience, secure processes and rigorous quality control — serving banks, financial institutions and card issuers worldwide.</p>
+    <p class="hero-body" data-i18n="hero.body">Card personalization backed by decades of operational experience, secure processes and rigorous quality control, for banks, financial institutions and card issuers worldwide.</p>
     <div class="hero-ctas">
       <a href="#contact" class="btn-primary" data-i18n="nav.cta">Discuss Your Project</a>
-      <a href="#services" class="btn-ghost" data-i18n="hero.cta2">Explore Our Capabilities</a>
+      <a href="#services" class="btn-ghost" data-i18n="hero.cta2">View Our Services</a>
     </div>
   </div>
 </section>
@@ -390,9 +403,9 @@ h1,h2,h3,h4{font-family:var(--f-display);text-wrap:balance;}
       <div class="reveal">
         <p class="eyebrow" data-i18n="about.eyebrow">About beèri printers</p>
         <h2 class="section-hdr" style="margin-bottom:1rem;" data-i18n="about.h2">A Trusted Partner for Complex Card Operations</h2>
-        <p data-i18n="about.p1">beèri printers is an experienced printing and personalization organization with a long track record delivering secure, high-quality card personalization services to banks, government bodies and major commercial organizations.</p>
-        <p data-i18n="about.p2">Operating in environments that demand the highest standards of data security and production quality, beèri printers combines industrial capability with the precision required by the financial and identity card sectors.</p>
-        <p data-i18n="about.p3">From initial data intake through to final delivery, every process is designed to protect cardholder data, maintain chain-of-custody integrity, and meet international compliance requirements.</p>
+        <p data-i18n="about.p1">beèri printers is an established printing and card personalization business, with a long record of secure, high-quality delivery for banks, government bodies and major commercial organizations.</p>
+        <p data-i18n="about.p2">Working in environments that demand rigorous data security and production quality, beèri printers combines industrial capacity with the precision the financial and identity card sectors require.</p>
+        <p data-i18n="about.p3">From initial data intake to final delivery, every process is designed to protect cardholder data, maintain chain-of-custody integrity and meet international compliance requirements.</p>
       </div>
       <div class="reveal" style="transition-delay:.1s;">
         <div class="counters">
@@ -408,7 +421,7 @@ h1,h2,h3,h4{font-family:var(--f-display);text-wrap:balance;}
             <div class="counter-value">60+</div>
             <div class="counter-label" data-i18n="about.c3">Major Organizations Served</div>
           </div>
-          <p class="counter-note" data-i18n="about.note">Figures are indicative, subject to final verification with beèri printers.</p>
+          <p class="counter-note" data-i18n="about.note">Figures are indicative.</p>
         </div>
       </div>
     </div>
@@ -429,68 +442,68 @@ h1,h2,h3,h4{font-family:var(--f-display);text-wrap:balance;}
 
       <div class="svc-card reveal">
         <svg class="svc-icon" viewBox="0 0 38 38" fill="none" aria-hidden="true"><rect x="3" y="9" width="32" height="20" rx="3" stroke="currentColor" stroke-width="1.8"/><line x1="9" y1="16" x2="21" y2="16" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><line x1="9" y1="21" x2="16" y2="21" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><rect x="23" y="18" width="9" height="6" rx="1" stroke="currentColor" stroke-width="1.5"/></svg>
-        <h3 data-i18n="s1.t">Variable Data Printing</h3>
-        <p data-i18n="s1.p">High-speed printing of unique data — names, account numbers, expiry dates — tailored to each individual card.</p>
+        <h3 data-i18n="s1.t">Graphical Personalization</h3>
+        <p data-i18n="s1.p">High-speed printing of card-unique data: cardholder name, PAN, expiration date and service code.</p>
       </div>
 
       <div class="svc-card reveal">
         <svg class="svc-icon" viewBox="0 0 38 38" fill="none" aria-hidden="true"><circle cx="19" cy="14" r="6.5" stroke="currentColor" stroke-width="1.8"/><path d="M5 33c0-6.5 28-6.5 28 0" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M26 12l2 2 4-4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
         <h3 data-i18n="s2.t">Cardholder Data Personalization</h3>
-        <p data-i18n="s2.p">Accurate application of individual cardholder information with full data integrity and audit trail.</p>
+        <p data-i18n="s2.p">Accurate application of cardholder data with full data integrity and a complete audit trail.</p>
       </div>
 
       <div class="svc-card reveal">
         <svg class="svc-icon" viewBox="0 0 38 38" fill="none" aria-hidden="true"><rect x="3" y="11" width="32" height="16" rx="3" stroke="currentColor" stroke-width="1.8"/><line x1="3" y1="19" x2="35" y2="19" stroke="currentColor" stroke-width="1.4" opacity=".4"/><rect x="9" y="22" width="5" height="2.5" rx=".8" fill="currentColor" opacity=".6"/><rect x="17" y="22" width="5" height="2.5" rx=".8" fill="currentColor" opacity=".6"/><rect x="25" y="22" width="5" height="2.5" rx=".8" fill="currentColor" opacity=".6"/></svg>
-        <h3 data-i18n="s3.t">Encoding</h3>
-        <p data-i18n="s3.p">Magnetic stripe, chip programming and contactless personalization for payment and identity cards.</p>
+        <h3 data-i18n="s3.t">Encoding &amp; Chip Personalization</h3>
+        <p data-i18n="s3.p">ISO/IEC 7811 magnetic stripe encoding, contact chip personalization and contactless configuration for payment and identity cards.</p>
       </div>
 
       <div class="svc-card reveal">
         <svg class="svc-icon" viewBox="0 0 38 38" fill="none" aria-hidden="true"><rect x="5" y="7" width="28" height="24" rx="3" stroke="currentColor" stroke-width="1.8"/><line x1="5" y1="16" x2="33" y2="16" stroke="currentColor" stroke-width="1.4" opacity=".35"/><text x="9" y="26" font-size="9" font-family="monospace" fill="currentColor" font-weight="bold" letter-spacing="1.5">4564</text></svg>
-        <h3 data-i18n="s4.t">Data Embossing &amp; Printing</h3>
-        <p data-i18n="s4.p">Physical embossing and thermal printing of cardholder data to industry specifications.</p>
+        <h3 data-i18n="s4.t">Embossing &amp; Indent Printing</h3>
+        <p data-i18n="s4.p">Embossing to ISO/IEC 7811 character sets, with indent printing and thermal printing of cardholder data.</p>
       </div>
 
       <div class="svc-card reveal">
         <svg class="svc-icon mir" viewBox="0 0 38 38" fill="none" aria-hidden="true"><rect x="3" y="13" width="16" height="12" rx="2" stroke="currentColor" stroke-width="1.8"/><rect x="19" y="9" width="16" height="20" rx="2" stroke="currentColor" stroke-width="1.8"/><line x1="13" y1="19" x2="19" y2="19" stroke="currentColor" stroke-width="1.8"/><path d="M16 17l3 2-3 2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
         <h3 data-i18n="s5.t">Card-to-Carrier Matching</h3>
-        <p data-i18n="s5.p">Automated verification ensuring each card is matched to the correct carrier document before dispatch.</p>
+        <p data-i18n="s5.p">Automated verification confirms every card is matched to the correct carrier before dispatch, with mismatches rejected and reconciled.</p>
       </div>
 
       <div class="svc-card reveal">
         <svg class="svc-icon" viewBox="0 0 38 38" fill="none" aria-hidden="true"><rect x="10" y="18" width="18" height="14" rx="2" stroke="currentColor" stroke-width="1.8"/><path d="M13 18v-4a6 6 0 0112 0v4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><circle cx="19" cy="25" r="2.5" fill="currentColor" opacity=".65"/></svg>
-        <h3 data-i18n="s6.t">PIN / Secure Info Handling</h3>
-        <p data-i18n="s6.p">Secure generation and delivery of PIN mailers and sensitive credentials, compliant with security standards.</p>
+        <h3 data-i18n="s6.t">PIN &amp; Secure Information Handling</h3>
+        <p data-i18n="s6.p">Secure generation and delivery of PIN mailers and other sensitive credentials under strict access control.</p>
       </div>
 
       <div class="svc-card reveal">
         <svg class="svc-icon" viewBox="0 0 38 38" fill="none" aria-hidden="true"><rect x="3" y="9" width="32" height="20" rx="3" stroke="currentColor" stroke-width="1.8"/><path d="M3 13l16 10 16-10" stroke="currentColor" stroke-width="1.8"/></svg>
         <h3 data-i18n="s7.t">Mailing &amp; Fulfillment</h3>
-        <p data-i18n="s7.p">Complete mailing services including address verification, envelope insertion and postal preparation.</p>
+        <p data-i18n="s7.p">Mailing services covering address validation, envelope insertion and postal preparation.</p>
       </div>
 
       <div class="svc-card reveal">
         <svg class="svc-icon" viewBox="0 0 38 38" fill="none" aria-hidden="true"><rect x="7" y="16" width="24" height="16" rx="2" stroke="currentColor" stroke-width="1.8"/><path d="M7 20l12-12 12 12" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><line x1="14" y1="26" x2="24" y2="26" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
-        <h3 data-i18n="s8.t">Packaging</h3>
-        <p data-i18n="s8.p">Custom and branded packaging solutions designed to protect card integrity during transit.</p>
+        <h3 data-i18n="s8.t">Packaging &amp; Insertion</h3>
+        <p data-i18n="s8.p">Custom and branded packaging that protects card integrity in transit.</p>
       </div>
 
       <div class="svc-card reveal">
         <svg class="svc-icon mir" viewBox="0 0 38 38" fill="none" aria-hidden="true"><line x1="7" y1="11" x2="31" y2="11" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><line x1="7" y1="19" x2="23" y2="19" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><line x1="7" y1="27" x2="17" y2="27" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M27 22v10m-4-4l4 4 4-4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
         <h3 data-i18n="s9.t">Sorting</h3>
-        <p data-i18n="s9.p">Automated and manual sorting by branch, region, card type or any client-specified criteria.</p>
+        <p data-i18n="s9.p">Sorting by branch, region, postcode, card product or client-specified criteria, with per-consignment manifests.</p>
       </div>
 
       <div class="svc-card reveal">
         <svg class="svc-icon mir" viewBox="0 0 38 38" fill="none" aria-hidden="true"><circle cx="19" cy="19" r="13" stroke="currentColor" stroke-width="1.8"/><path d="M7 19h12M15 15l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M12 19c0-5 7-12 14-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" opacity=".5"/></svg>
-        <h3 data-i18n="s10.t">Preparation for Distribution</h3>
-        <p data-i18n="s10.p">Distribution-ready preparation — manifests, documentation and chain-of-custody records.</p>
+        <h3 data-i18n="s10.t">Secure Dispatch &amp; Chain of Custody</h3>
+        <p data-i18n="s10.p">Distribution-ready preparation: manifests, documentation and signed chain-of-custody records.</p>
       </div>
 
       <div class="svc-card reveal">
         <svg class="svc-icon mir" viewBox="0 0 38 38" fill="none" aria-hidden="true"><rect x="5" y="5" width="19" height="28" rx="2" stroke="currentColor" stroke-width="1.8"/><rect x="14" y="5" width="19" height="28" rx="2" stroke="currentColor" stroke-width="1.8" opacity=".45"/><line x1="10" y1="14" x2="18" y2="14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><line x1="10" y1="19" x2="16" y2="19" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
-        <h3 data-i18n="s11.t">Additional Personalized Materials</h3>
-        <p data-i18n="s11.p">Personalized inserts, welcome letters and ancillary documents as part of the complete card package.</p>
+        <h3 data-i18n="s11.t">Welcome Packs &amp; Regulatory Inserts</h3>
+        <p data-i18n="s11.p">Personalized inserts, welcome letters and ancillary documents within the card package.</p>
       </div>
 
     </div>
@@ -505,7 +518,7 @@ h1,h2,h3,h4{font-family:var(--f-display);text-wrap:balance;}
     <div class="section-hdr reveal" style="text-align:center;">
       <p class="eyebrow" data-i18n="how.eyebrow">Process</p>
       <h2 data-i18n="how.h2">How It Works</h2>
-      <p style="color:var(--text-muted);margin:0 auto;" data-i18n="how.intro">A structured, secure workflow from project brief to delivery — designed around operational transparency and data protection at every stage.</p>
+      <p style="color:var(--text-muted);margin:0 auto;" data-i18n="how.intro">A structured, secure workflow from project brief to delivery, designed around operational transparency and data protection at every stage.</p>
     </div>
     <div class="steps-wrap reveal">
       <div class="steps-line" aria-hidden="true"></div>
@@ -518,12 +531,12 @@ h1,h2,h3,h4{font-family:var(--f-display);text-wrap:balance;}
         <div class="step">
           <div class="step-num">02</div>
           <h3 data-i18n="step2.t">Secure Data &amp; Card Intake</h3>
-          <p data-i18n="step2.p">Cardholder data and card stock are received through controlled, secure intake procedures.</p>
+          <p data-i18n="step2.p">Cardholder data is received over encrypted transfer and acknowledged; card stock is booked in, counted and stored under controlled access.</p>
         </div>
         <div class="step">
           <div class="step-num">03</div>
-          <h3 data-i18n="step3.t">Data Processing</h3>
-          <p data-i18n="step3.p">Data is validated, formatted and prepared for production in a secured processing environment.</p>
+          <h3 data-i18n="step3.t">Data Preparation</h3>
+          <p data-i18n="step3.p">Data is validated, reconciled and prepared for production in a secured processing environment.</p>
         </div>
         <div class="step">
           <div class="step-num">04</div>
@@ -533,12 +546,12 @@ h1,h2,h3,h4{font-family:var(--f-display);text-wrap:balance;}
         <div class="step">
           <div class="step-num">05</div>
           <h3 data-i18n="step5.t">Quality Control &amp; Matching</h3>
-          <p data-i18n="step5.p">Every card is verified against its data record. Card-to-carrier matching confirms accuracy.</p>
+          <p data-i18n="step5.p">Every card is verified against its source record, and card-to-carrier matching is reconciled before release.</p>
         </div>
         <div class="step">
           <div class="step-num">06</div>
           <h3 data-i18n="step6.t">Packaging &amp; Delivery</h3>
-          <p data-i18n="step6.p">Cards are packaged, sorted and dispatched per client specifications with full documentation.</p>
+          <p data-i18n="step6.p">Cards are packed in sealed, tamper-evident consignments and dispatched to client specifications, with full documentation.</p>
         </div>
       </div>
     </div>
@@ -555,26 +568,42 @@ h1,h2,h3,h4{font-family:var(--f-display);text-wrap:balance;}
       <p class="eyebrow" data-i18n="sec.eyebrow">Security &amp; Compliance</p>
       <h2 style="color:#fff;" data-i18n="sec.h2">Security and Quality Built into Every Process</h2>
     </div>
+    <!-- ==================================================================
+         CLIENT SIGN-OFF REQUIRED BEFORE LAUNCH — CERTIFICATION CLAIMS
+         The three badges below and the notes beside them are compliance
+         claims. Confirm each against the actual certificates and replace
+         or remove any that is not currently held:
+           * ISO 9001:2015        - certificate no. + body + valid-to
+           * ISO/IEC 27001:2022   - certificate no. + body + valid-to
+           * PCI CP&P             - assessed scope, facility, CPSA, valid-to.
+                                    This is PCI Card Production & Provisioning,
+                                    NOT PCI DSS. If not certified, remove this
+                                    badge and state the assessment roadmap.
+         Scheme vendor certification (Mastercard Vendor Certification /
+         Visa Card Vendor Programme) is a separate gate that many issuers
+         require contractually - add badges if held.
+         ================================================================== -->
     <div class="security-grid">
       <div class="reveal">
-        <p style="color:rgba(255,255,255,.62);font-size:.9rem;line-height:1.78;margin-bottom:2rem;" data-i18n="sec.p">For banks, financial institutions and government bodies, card personalization is a security-critical operation. beèri printers' production environment is built around protecting cardholder data, card integrity and business continuity at every stage.</p>
+        <p style="color:rgba(255,255,255,.62);font-size:.9rem;line-height:1.78;margin-bottom:2rem;" data-i18n="sec.p">For banks, financial institutions and government bodies, card personalization is a security-critical operation. beèri printers operates a production environment built around protecting cardholder data, card integrity and business continuity at every stage.</p>
         <div class="cert-row">
-          <div class="cert-badge">ISO 9001</div>
-          <div class="cert-badge">ISO/IEC 27001</div>
-          <div class="cert-badge" data-i18n="sec.cert3">PCI Standards</div>
+          <div class="cert-badge">ISO 9001:2015</div>
+          <div class="cert-badge">ISO/IEC 27001:2022</div>
+          <div class="cert-badge" data-i18n="sec.cert3">PCI CP&amp;P</div>
         </div>
-        <p class="cert-note" data-i18n="sec.note">Certification details, scope and current status are available upon formal request. All standards subject to verification prior to publication.</p>
+        <p class="cert-note" style="font-style:normal;color:rgba(255,255,255,.55);margin-bottom:.55rem;" data-i18n="sec.pci">Card personalization is governed by the PCI Card Production and Provisioning Security Requirements — Physical and Logical — which are assessed per facility and are distinct from PCI DSS. Our current scope and status are provided on request.</p>
+        <p class="cert-note" data-i18n="sec.note">Certificates, assessment scope statements and current validity dates are provided in full with our RFQ pack and on request.</p>
       </div>
       <div class="reveal" style="transition-delay:.12s;">
         <ul class="sec-list">
-          <li data-i18n="sec.l1">Secure data handling</li>
-          <li data-i18n="sec.l2">Controlled production environment</li>
-          <li data-i18n="sec.l3">Access controls &amp; monitoring</li>
-          <li data-i18n="sec.l4">Quality assurance procedures</li>
-          <li data-i18n="sec.l5">Full batch traceability</li>
-          <li data-i18n="sec.l6">Confidentiality protocols</li>
-          <li data-i18n="sec.l7">Secure information processing</li>
-          <li data-i18n="sec.l8">Chain-of-custody integrity</li>
+          <li data-i18n="sec.l1">Encrypted data transfer and controlled intake</li>
+          <li data-i18n="sec.l2">Access-controlled, monitored production area</li>
+          <li data-i18n="sec.l3">Role-based access control and activity logging</li>
+          <li data-i18n="sec.l4">Documented quality assurance procedures</li>
+          <li data-i18n="sec.l5">Batch-level traceability and reconciliation</li>
+          <li data-i18n="sec.l6">Confidentiality agreements and staff screening</li>
+          <li data-i18n="sec.l7">Controlled handling of personalization data</li>
+          <li data-i18n="sec.l8">Signed chain-of-custody on every consignment</li>
         </ul>
       </div>
     </div>
@@ -586,19 +615,19 @@ h1,h2,h3,h4{font-family:var(--f-display);text-wrap:balance;}
   <div class="section-inner">
     <div class="section-hdr reveal">
       <p class="eyebrow" data-i18n="cap.eyebrow">Operational Capabilities</p>
-      <h2 data-i18n="cap.h2">Built for Commercial-Scale Projects</h2>
-      <p style="color:var(--text-muted);" data-i18n="cap.intro">beèri printers has the production capacity, flexibility and operational discipline to support significant card personalization programs — from pilot runs to large-scale rollouts.</p>
+      <h2 data-i18n="cap.h2">Built for Large-Scale Card Programs</h2>
+      <p style="color:var(--text-muted);" data-i18n="cap.intro">beèri printers has the production capacity, flexibility and operational discipline to support large card personalization programs — from pilot runs to national rollouts.</p>
     </div>
     <div class="cap-grid">
       <div class="cap-card reveal"><h3 data-i18n="cap1.t">High-Volume Production</h3><p data-i18n="cap1.p">Industrial-scale capacity supporting large card issuance programs with consistent throughput and quality.</p></div>
-      <div class="cap-card reveal"><h3 data-i18n="cap2.t">Flexible Production Runs</h3><p data-i18n="cap2.p">Scalable from targeted pilot batches to full national-scale issuance without process compromise.</p></div>
-      <div class="cap-card reveal"><h3 data-i18n="cap3.t">Fast Response Capability</h3><p data-i18n="cap3.p">Rapid mobilization for urgent issuance requirements, emergency replacement or time-sensitive programs.</p></div>
-      <div class="cap-card reveal"><h3 data-i18n="cap4.t">Project-Based SLA</h3><p data-i18n="cap4.p">Service level agreements tailored to project specifications, agreed upfront and tracked throughout production.</p></div>
-      <div class="cap-card reveal"><h3 data-i18n="cap5.t">Batch Management</h3><p data-i18n="cap5.p">Structured batch control with reconciliation at every stage — from data intake through to final dispatch.</p></div>
-      <div class="cap-card reveal"><h3 data-i18n="cap6.t">Integrated Fulfillment</h3><p data-i18n="cap6.p">Complete fulfillment including branded packaging, insertion, sorting and distribution-ready preparation.</p></div>
+      <div class="cap-card reveal"><h3 data-i18n="cap2.t">Flexible Production Runs</h3><p data-i18n="cap2.p">Scalable from targeted pilot batches to full national-scale issuance without weakening process controls.</p></div>
+      <div class="cap-card reveal"><h3 data-i18n="cap3.t">Rapid Response</h3><p data-i18n="cap3.p">Fast mobilization for urgent issuance, emergency replacements or time-sensitive programs.</p></div>
+      <div class="cap-card reveal"><h3 data-i18n="cap4.t">Project-Based SLA</h3><p data-i18n="cap4.p">Service-level agreements tailored to project specifications, agreed up front and tracked throughout production.</p></div>
+      <div class="cap-card reveal"><h3 data-i18n="cap5.t">Batch Management</h3><p data-i18n="cap5.p">Structured batch control with reconciliation at every stage, from data intake to final dispatch.</p></div>
+      <div class="cap-card reveal"><h3 data-i18n="cap6.t">Integrated Fulfillment</h3><p data-i18n="cap6.p">Fulfillment covering branded packaging, insertion, sorting and distribution-ready preparation.</p></div>
       <div class="cap-card reveal"><h3 data-i18n="cap7.t">Multi-Stage Quality Control</h3><p data-i18n="cap7.p">Automated verification and manual inspection integrated throughout the production workflow.</p></div>
-      <div class="cap-card reveal"><h3 data-i18n="cap8.t">International Shipment Readiness</h3><p data-i18n="cap8.p">Experience preparing card deliveries for cross-border dispatch, including required documentation and protocols.</p></div>
-      <div class="cap-card reveal"><h3 data-i18n="cap9.t">Multi-Format Card Support</h3><p data-i18n="cap9.p">Credit, debit, prepaid, loyalty, identity and smart cards across standard and custom formats.</p></div>
+      <div class="cap-card reveal"><h3 data-i18n="cap8.t">Cross-Border Dispatch</h3><p data-i18n="cap8.p">Card deliveries prepared for cross-border dispatch, with the required shipping and customs documentation.</p></div>
+      <div class="cap-card reveal"><h3 data-i18n="cap9.t">Multi-Format Card Support</h3><p data-i18n="cap9.p">Credit, debit, prepaid, loyalty, identity and smart cards — magnetic stripe, contact chip, contactless and dual-interface, to ISO/IEC 7810 ID-1, 7811, 7816 and 14443.</p></div>
     </div>
   </div>
 </section>
@@ -616,32 +645,32 @@ h1,h2,h3,h4{font-family:var(--f-display);text-wrap:balance;}
       <div class="why-card reveal">
         <svg class="why-icon" viewBox="0 0 44 44" fill="none" aria-hidden="true"><circle cx="22" cy="22" r="16" stroke="currentColor" stroke-width="1.5" opacity=".25"/><path d="M11 30c0-8 11-20 21-10" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><circle cx="32" cy="20" r="3" fill="currentColor"/></svg>
         <h3 data-i18n="why1.t">Experience</h3>
-        <p data-i18n="why1.p">Decades of operational experience in printing, data personalization and card production — working with some of the region's most demanding organizations.</p>
+        <p data-i18n="why1.p">Decades of operational experience in printing, data personalization and card production for organizations with demanding security and deadline requirements.</p>
       </div>
       <div class="why-card reveal">
         <svg class="why-icon" viewBox="0 0 44 44" fill="none" aria-hidden="true"><path d="M22 5l13 7v13c0 8-13 14-13 14S9 33 9 25V12z" stroke="currentColor" stroke-width="2" fill="none"/><path d="M15 22l5 5 9-9" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
         <h3 data-i18n="why2.t">Security</h3>
-        <p data-i18n="why2.p">Operations built around protecting cardholder data, with controlled facility access, secure handling and process-level security controls throughout.</p>
+        <p data-i18n="why2.p">Operations built around protecting cardholder data: controlled facility access, secure handling and process-level controls at every stage.</p>
       </div>
       <div class="why-card reveal">
         <svg class="why-icon" viewBox="0 0 44 44" fill="none" aria-hidden="true"><circle cx="22" cy="22" r="13" stroke="currentColor" stroke-width="2"/><path d="M15 22l5 5 9-9" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
         <h3 data-i18n="why3.t">Quality</h3>
-        <p data-i18n="why3.p">Multi-stage quality assurance embedded in every production run — from data verification to finished card inspection and card-to-carrier matching.</p>
+        <p data-i18n="why3.p">Multi-stage quality assurance in every production run, from data verification to finished-card inspection and card-to-carrier matching.</p>
       </div>
       <div class="why-card reveal">
         <svg class="why-icon" viewBox="0 0 44 44" fill="none" aria-hidden="true"><rect x="7" y="15" width="9" height="16" rx="1.5" stroke="currentColor" stroke-width="2"/><rect x="20" y="9" width="9" height="22" rx="1.5" stroke="currentColor" stroke-width="2"/><rect x="33" y="19" width="9" height="12" rx="1.5" stroke="currentColor" stroke-width="2"/><line x1="5" y1="36" x2="44" y2="36" stroke="currentColor" stroke-width="1.5" opacity=".3"/></svg>
         <h3 data-i18n="why4.t">Flexibility</h3>
-        <p data-i18n="why4.p">Adaptable to different card types, volumes, timelines and delivery configurations — without compromising on process integrity.</p>
+        <p data-i18n="why4.p">Adaptable to different card types, volumes, timelines and delivery configurations, with no compromise to process integrity.</p>
       </div>
       <div class="why-card reveal">
         <svg class="why-icon" viewBox="0 0 44 44" fill="none" aria-hidden="true"><rect x="7" y="12" width="30" height="20" rx="3" stroke="currentColor" stroke-width="2"/><path d="M14 24l5 5 11-11" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M22 7v5M35 13l-3 3M9 13l3 3" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
         <h3 data-i18n="why5.t">Reliability</h3>
-        <p data-i18n="why5.p">A proven track record delivering on time to large organizations with complex logistics, regulatory requirements and zero tolerance for card issuance errors.</p>
+        <p data-i18n="why5.p">On-time delivery for large organizations with complex logistics, strict regulatory requirements and zero tolerance for issuance errors.</p>
       </div>
       <div class="why-card reveal">
         <svg class="why-icon" viewBox="0 0 44 44" fill="none" aria-hidden="true"><circle cx="22" cy="22" r="13" stroke="currentColor" stroke-width="2"/><line x1="22" y1="9" x2="22" y2="14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><line x1="22" y1="30" x2="22" y2="35" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><line x1="9" y1="22" x2="14" y2="22" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><line x1="30" y1="22" x2="35" y2="22" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><circle cx="22" cy="22" r="4" fill="currentColor" opacity=".35"/><circle cx="22" cy="22" r="2" fill="currentColor"/></svg>
         <h3 data-i18n="why6.t">One Operational Partner</h3>
-        <p data-i18n="why6.p">Personalization, QC, packaging, fulfillment and distribution coordinated under one professional partner — reducing complexity and integration overhead.</p>
+        <p data-i18n="why6.p">Personalization, QC, packaging, fulfillment and distribution coordinated by a single partner, reducing complexity and integration overhead.</p>
       </div>
     </div>
   </div>
@@ -653,7 +682,7 @@ h1,h2,h3,h4{font-family:var(--f-display);text-wrap:balance;}
     <div class="section-hdr reveal">
       <p class="eyebrow" data-i18n="ref.eyebrow">References</p>
       <h2 data-i18n="ref.h2">Project Experience</h2>
-      <p style="color:var(--text-muted);" data-i18n="ref.intro">beèri printers has supported major organizations across the financial, government and commercial sectors. Representative project profiles are shown below — detailed references available upon request.</p>
+      <p style="color:var(--text-muted);" data-i18n="ref.intro">beèri printers has supported major organizations across the financial, government and commercial sectors. Representative project profiles are shown below; detailed references are available on request.</p>
     </div>
     <div class="ref-grid">
       <div class="ref-card reveal">
@@ -673,7 +702,7 @@ h1,h2,h3,h4{font-family:var(--f-display);text-wrap:balance;}
       <div class="ref-card reveal">
         <div class="ref-type" data-i18n="ref3.type">Loyalty &amp; Commercial</div>
         <h3 data-i18n="ref3.t">Retail Loyalty Card Program</h3>
-        <p class="ref-row"><strong data-i18n="ref.lbl.project">Project:</strong> <span data-i18n="ref3.project">Personalization and mailing for a major consumer loyalty card issuance</span></p>
+        <p class="ref-row"><strong data-i18n="ref.lbl.project">Project:</strong> <span data-i18n="ref3.project">Personalization and mailing for a major consumer loyalty card program</span></p>
         <p class="ref-row"><strong data-i18n="ref.lbl.services">Services:</strong> <span data-i18n="ref3.services">Variable data printing, personalization, packaging, insertion and mailing</span></p>
         <p class="ref-row"><strong data-i18n="ref.lbl.scope">Scope:</strong> <span data-i18n="ref3.scope">High-volume batch program with time-sensitive distribution windows</span></p>
       </div>
@@ -691,8 +720,8 @@ h1,h2,h3,h4{font-family:var(--f-display);text-wrap:balance;}
 <!-- CTA BAND -->
 <div class="cta-band">
   <div style="max-width:1200px;margin:0 auto;">
-    <h2 data-i18n="cta.h2">Ready to discuss your card personalization requirements?</h2>
-    <p data-i18n="cta.p">Tell us about your project. Our team will respond promptly with information relevant to your specific program.</p>
+    <h2 data-i18n="cta.h2">Ready to Discuss Your Card Personalization Requirements?</h2>
+    <p data-i18n="cta.p">Tell us about your project. Our team will respond within one business day with information relevant to your program.</p>
     <a href="#contact" class="btn-dark" data-i18n="how.cta">Submit Your Project Brief</a>
   </div>
 </div>
@@ -703,59 +732,112 @@ h1,h2,h3,h4{font-family:var(--f-display);text-wrap:balance;}
     <div class="reveal">
       <p class="eyebrow" data-i18n="nav.contact">Contact</p>
       <h2 data-i18n="form.h2">Discuss Your Project</h2>
-      <p data-i18n="form.p1">Complete the form with your project details and a member of beèri printers' personalization team will respond within one business day.</p>
-      <p data-i18n="form.p2">For initial enquiries, project briefs or RFQ submissions, this is the fastest route to a meaningful conversation.</p>
-      <p class="form-intro-note" data-i18n="form.note">All information submitted through this form is treated as confidential and used solely to assess and respond to your enquiry.</p>
+      <p data-i18n="form.p1">Complete the form with your project details and a member of our personalization team will respond within one business day.</p>
+      <p data-i18n="form.p2">For initial inquiries, project briefs or RFQ submissions, this is the fastest route to a technical response.</p>
+      <p class="form-intro-note" data-i18n="form.note">All information submitted through this form is treated as confidential and used solely to assess and respond to your inquiry.</p>
     </div>
     <div class="reveal" style="transition-delay:.1s;">
       <form class="contact-form" id="projectForm" novalidate>
-        <div class="fg"><label for="f-name" data-i18n="f.name">Name *</label><input type="text" id="f-name" name="name" data-i18n-ph="f.name.ph" placeholder="Your full name" required></div>
-        <div class="fg"><label for="f-company" data-i18n="f.company">Company *</label><input type="text" id="f-company" name="company" data-i18n-ph="f.company.ph" placeholder="Organization name" required></div>
-        <div class="fg"><label for="f-country" data-i18n="f.country">Country *</label><input type="text" id="f-country" name="country" data-i18n-ph="f.country.ph" placeholder="Country" required></div>
-        <div class="fg"><label for="f-email" data-i18n="f.email">Business Email *</label><input type="email" id="f-email" name="email" dir="ltr" placeholder="name@company.com" required></div>
+        <div class="fg"><label for="f-name" data-i18n="f.name">Name *</label><input type="text" id="f-name" name="name" aria-required="true" aria-describedby="e-name" data-i18n-ph="f.name.ph" placeholder="Your full name" required><span class="fg-err" id="e-name" data-i18n="err.required" hidden>This field is required</span></div>
+        <div class="fg"><label for="f-company" data-i18n="f.company">Company *</label><input type="text" id="f-company" name="company" aria-required="true" aria-describedby="e-company" data-i18n-ph="f.company.ph" placeholder="Organization name" required><span class="fg-err" id="e-company" data-i18n="err.required" hidden>This field is required</span></div>
+        <div class="fg"><label for="f-country" data-i18n="f.country">Country *</label><input type="text" id="f-country" name="country" aria-required="true" aria-describedby="e-country" data-i18n-ph="f.country.ph" placeholder="Country of operation" required><span class="fg-err" id="e-country" data-i18n="err.required" hidden>This field is required</span></div>
+        <div class="fg"><label for="f-email" data-i18n="f.email">Business Email *</label><input type="email" id="f-email" name="email" dir="ltr" placeholder="name@company.com" required aria-required="true" aria-describedby="e-email"><span class="fg-err" id="e-email" data-i18n="err.email" hidden>Enter a valid business email address</span></div>
         <div class="fg full"><label for="f-phone" data-i18n="f.phone">Phone</label><input type="tel" id="f-phone" name="phone" dir="ltr" placeholder="+00 000 000 0000"></div>
-        <div class="fg full"><label for="f-cardtype" data-i18n="f.cardtype">Type of Card / Application</label>
+        <div class="fg full"><label for="f-cardtype" data-i18n="f.cardtype">Card Type / Application</label>
           <select id="f-cardtype" name="card_type">
             <option value="" disabled selected data-i18n="f.cardtype.ph">Select card type</option>
-            <option data-i18n="ct1">Payment Card (Credit / Debit)</option>
-            <option data-i18n="ct2">Prepaid Card</option>
-            <option data-i18n="ct3">Identity Card</option>
-            <option data-i18n="ct4">Smart Card</option>
-            <option data-i18n="ct5">Loyalty Card</option>
-            <option data-i18n="ct6">Transport / Access Card</option>
-            <option data-i18n="ct7">Health / Insurance Card</option>
-            <option data-i18n="ct8">Other</option>
+            <option value="payment" data-i18n="ct1">Payment Card (Credit / Debit)</option>
+            <option value="prepaid" data-i18n="ct2">Prepaid Card</option>
+            <option value="identity" data-i18n="ct3">Identity Card</option>
+            <option value="smart" data-i18n="ct4">Smart Card</option>
+            <option value="loyalty" data-i18n="ct5">Loyalty Card</option>
+            <option value="transport" data-i18n="ct6">Transport / Access Card</option>
+            <option value="health" data-i18n="ct7">Health / Insurance Card</option>
+            <option value="other" data-i18n="ct8">Other</option>
           </select>
         </div>
-        <div class="fg full"><label for="f-qty" data-i18n="f.qty">Estimated Annual Quantity</label>
+        <div class="fg"><label for="f-tech" data-i18n="f.tech">Card Technology</label>
+          <select id="f-tech" name="card_technology">
+            <option value="" disabled selected data-i18n="f.tech.ph">Select technology</option>
+            <option value="mag-only" data-i18n="tech1">Magnetic stripe only</option>
+            <option value="contact-emv" data-i18n="tech2">Contact chip (EMV)</option>
+            <option value="contactless" data-i18n="tech3">Contactless only</option>
+            <option value="dual-interface" data-i18n="tech4">Dual-interface (contact + contactless)</option>
+            <option value="identity" data-i18n="tech5">Identity / government chip</option>
+            <option value="none" data-i18n="tech6">No chip or stripe</option>
+          </select>
+        </div>
+        <div class="fg"><label for="f-scheme" data-i18n="f.scheme">Card Scheme</label>
+          <select id="f-scheme" name="card_scheme">
+            <option value="" disabled selected data-i18n="f.scheme.ph">Select scheme</option>
+            <option value="visa" data-i18n="sch1">Visa</option>
+            <option value="mastercard" data-i18n="sch2">Mastercard</option>
+            <option value="amex" data-i18n="sch3">American Express</option>
+            <option value="domestic" data-i18n="sch4">Domestic scheme</option>
+            <option value="closed-loop" data-i18n="sch5">Non-payment / closed loop</option>
+            <option value="undetermined" data-i18n="sch6">Not yet determined</option>
+          </select>
+        </div>
+        <div class="fg"><label for="f-qty" data-i18n="f.qty">Estimated Annual Quantity</label>
           <select id="f-qty" name="quantity">
             <option value="" disabled selected data-i18n="f.qty.ph">Select quantity range</option>
-            <option data-i18n="q1">Under 10,000</option>
-            <option data-i18n="q2">10,000 – 50,000</option>
-            <option data-i18n="q3">50,000 – 100,000</option>
-            <option data-i18n="q4">100,000 – 500,000</option>
-            <option data-i18n="q5">500,000+</option>
+            <option value="under-10k" data-i18n="q1">Under 10,000</option>
+            <option value="10k-50k" data-i18n="q2">10,000–50,000</option>
+            <option value="50k-100k" data-i18n="q3">50,000–100,000</option>
+            <option value="100k-500k" data-i18n="q4">100,000–500,000</option>
+            <option value="500k-2m" data-i18n="q5">500,000–2,000,000</option>
+            <option value="2m-plus" data-i18n="q6">2,000,000+</option>
+          </select>
+        </div>
+        <div class="fg"><label for="f-pin" data-i18n="f.pin">PIN Requirement</label>
+          <select id="f-pin" name="pin_requirement">
+            <option value="" disabled selected data-i18n="f.pin.ph">Select PIN requirement</option>
+            <option value="mailer" data-i18n="pin1">PIN mailer required</option>
+            <option value="cardholder-set" data-i18n="pin2">PIN set by cardholder</option>
+            <option value="generate-and-mailer" data-i18n="pin3">PIN generation and mailer</option>
+            <option value="none" data-i18n="pin4">No PIN required</option>
+          </select>
+        </div>
+        <div class="fg"><label for="f-golive" data-i18n="f.golive">Target Go-Live</label>
+          <select id="f-golive" name="go_live">
+            <option value="" disabled selected data-i18n="f.golive.ph">Select timeframe</option>
+            <option value="lt-3m" data-i18n="gl1">Within 3 months</option>
+            <option value="3-6m" data-i18n="gl2">3–6 months</option>
+            <option value="6-12m" data-i18n="gl3">6–12 months</option>
+            <option value="12m-plus" data-i18n="gl4">12+ months / planning</option>
+          </select>
+        </div>
+        <div class="fg"><label for="f-current" data-i18n="f.current">Current Arrangement</label>
+          <select id="f-current" name="current_arrangement">
+            <option value="" disabled selected data-i18n="f.current.ph">Select current arrangement</option>
+            <option value="in-house" data-i18n="cur1">In-house personalization</option>
+            <option value="existing-bureau" data-i18n="cur2">Existing bureau, seeking alternative</option>
+            <option value="new-program" data-i18n="cur3">New program</option>
+            <option value="dr-second-source" data-i18n="cur4">Disaster-recovery second source</option>
           </select>
         </div>
         <div class="svc-checks-label" data-i18n="f.svcs">Services Required (select all that apply)</div>
         <div class="svc-checks">
           <label class="chk"><input type="checkbox" name="svc" value="personalization"> <span data-i18n="chk1">Card Personalization</span></label>
-          <label class="chk"><input type="checkbox" name="svc" value="encoding"> <span data-i18n="chk2">Encoding</span></label>
-          <label class="chk"><input type="checkbox" name="svc" value="embossing"> <span data-i18n="chk3">Embossing / Printing</span></label>
+          <label class="chk"><input type="checkbox" name="svc" value="encoding"> <span data-i18n="chk2">Encoding &amp; Chip Personalization</span></label>
+          <label class="chk"><input type="checkbox" name="svc" value="embossing"> <span data-i18n="chk3">Embossing &amp; Indent Printing</span></label>
           <label class="chk"><input type="checkbox" name="svc" value="matching"> <span data-i18n="chk4">Card-to-Carrier Matching</span></label>
-          <label class="chk"><input type="checkbox" name="svc" value="pin"> <span data-i18n="chk5">PIN / Secure Info Handling</span></label>
+          <label class="chk"><input type="checkbox" name="svc" value="pin"> <span data-i18n="chk5">PIN &amp; Secure Information Handling</span></label>
           <label class="chk"><input type="checkbox" name="svc" value="mailing"> <span data-i18n="chk6">Mailing &amp; Fulfillment</span></label>
           <label class="chk"><input type="checkbox" name="svc" value="packaging"> <span data-i18n="chk7">Packaging &amp; Sorting</span></label>
-          <label class="chk"><input type="checkbox" name="svc" value="distribution"> <span data-i18n="chk8">Distribution Preparation</span></label>
+          <label class="chk"><input type="checkbox" name="svc" value="distribution"> <span data-i18n="chk8">Secure Dispatch &amp; Distribution</span></label>
         </div>
         <div class="fg full"><label for="f-desc" data-i18n="f.desc">Project Description</label>
           <textarea id="f-desc" name="description" data-i18n-ph="f.desc.ph" placeholder="Briefly describe your project, timeline, specific requirements or questions..."></textarea>
         </div>
-        <button type="submit" class="btn-submit" data-i18n="f.submit">Submit Your Project</button>
+        <label class="chk full" style="align-items:flex-start;gap:.6rem;margin-top:.5rem;"><input type="checkbox" id="f-consent" name="consent" required aria-required="true" aria-describedby="e-consent" style="margin-top:.2rem;"><span data-i18n="f.consent">I agree that be&egrave;ri printers may process these details in order to respond to my enquiry.</span></label>
+        <span class="fg-err full" id="e-consent" data-i18n="err.consent" hidden>Please confirm this to continue</span>
+        <p class="form-fail" id="formFail" data-i18n="err.fail" hidden>We could not send your brief just now. Please try again, or contact us directly.</p>
+        <button type="submit" class="btn-submit" data-i18n="f.submit">Submit Project Brief</button>
       </form>
-      <div class="form-success" id="formSuccess">
+      <div class="form-success" id="formSuccess" role="status" aria-live="polite">
         <h3 data-i18n="f.ok.t">Thank You</h3>
-        <p data-i18n="f.ok.p">Your project brief has been received. A member of beèri printers' personalization team will be in touch within one business day.</p>
+        <p data-i18n="f.ok.p">Your project brief has been received. A member of our personalization team will respond within one business day.</p>
       </div>
     </div>
   </div>
@@ -779,7 +861,7 @@ h1,h2,h3,h4{font-family:var(--f-display);text-wrap:balance;}
         <h4 data-i18n="nav.services">Services</h4>
         <ul>
           <li><a href="#services" data-i18n="chk1">Card Personalization</a></li>
-          <li><a href="#services" data-i18n="chk2">Encoding</a></li>
+          <li><a href="#services" data-i18n="chk2">Encoding &amp; Chip Personalization</a></li>
           <li><a href="#services" data-i18n="chk6">Mailing &amp; Fulfillment</a></li>
           <li><a href="#services" data-i18n="chk7">Packaging &amp; Sorting</a></li>
         </ul>
@@ -804,12 +886,12 @@ h1,h2,h3,h4{font-family:var(--f-display);text-wrap:balance;}
     </div>
     <div class="footer-bottom">
       <span data-i18n="foot.copy">&copy; 2026 beèri printers. All rights reserved.</span>
-      <span data-i18n="foot.strip">Card Personalization · Secure · Reliable · International</span>
+      <span data-i18n="foot.strip">Card Personalization · Encoding · Fulfillment · Worldwide Distribution</span>
     </div>
   </div>
 </footer>
 
-<div class="mobile-cta-bar"><a href="#contact" data-i18n="foot.mob">Contact / Request Information</a></div>
+<div class="mobile-cta-bar"><a href="#contact" data-i18n="foot.mob">Request Information</a></div>
 
 <script>
 /* ── TRANSLATIONS ───────────────────────────────────────── */
@@ -817,8 +899,8 @@ var T = {};
 
 T.en = {
 "meta.title":"beèri printers · Card Personalization",
-"meta.desc":"beèri printers — professional card personalization services including secure data handling, encoding, embossing, mailing and fulfillment for banks and financial institutions worldwide.",
-"brand.name":"beèri printers","brand.sub":"Card Personalization","brand.aria":"beèri printers — Card Personalization",
+"meta.desc":"Secure card personalization for banks, financial institutions and card issuers worldwide: encoding, embossing, mailing and fulfillment from beèri printers.",
+"brand.name":"beèri printers","brand.sub":"Card Personalization","brand.aria":"beèri printers, Card Personalization",
 "lang.aria":"Language","nav.menu":"Menu",
 "nav.about":"About","nav.services":"Services","nav.how":"How It Works","nav.security":"Security",
 "nav.capabilities":"Capabilities","nav.why":"Why beèri","nav.references":"References","nav.contact":"Contact",
@@ -827,62 +909,62 @@ T.en = {
 "hero.eyebrow":"beèri printers · Card Personalization Services",
 "hero.h1":"Secure Card<br><em>Personalization</em>",
 "hero.tagline":"Proven Experience. Reliable Delivery.",
-"hero.body":"Professional card personalization services backed by decades of operational experience, secure processes and rigorous quality control — serving banks, financial institutions and card issuers worldwide.",
-"hero.cta2":"Explore Our Capabilities",
+"hero.body":"Card personalization backed by decades of operational experience, secure processes and rigorous quality control, for banks, financial institutions and card issuers worldwide.",
+"hero.cta2":"View Our Services",
 "about.eyebrow":"About beèri printers","about.h2":"A Trusted Partner for Complex Card Operations",
-"about.p1":"beèri printers is an experienced printing and personalization organization with a long track record delivering secure, high-quality card personalization services to banks, government bodies and major commercial organizations.",
-"about.p2":"Operating in environments that demand the highest standards of data security and production quality, beèri printers combines industrial capability with the precision required by the financial and identity card sectors.",
-"about.p3":"From initial data intake through to final delivery, every process is designed to protect cardholder data, maintain chain-of-custody integrity, and meet international compliance requirements.",
+"about.p1":"beèri printers is an established printing and card personalization business, with a long record of secure, high-quality delivery for banks, government bodies and major commercial organizations.",
+"about.p2":"Working in environments that demand rigorous data security and production quality, beèri printers combines industrial capacity with the precision the financial and identity card sectors require.",
+"about.p3":"From initial data intake to final delivery, every process is designed to protect cardholder data, maintain chain-of-custody integrity and meet international compliance requirements.",
 "about.c1":"Years of Experience","about.c2":"Cards Personalized","about.c3":"Major Organizations Served",
-"about.note":"Figures are indicative, subject to final verification with beèri printers.",
+"about.note":"Figures are indicative.",
 "svc.eyebrow":"What We Do","svc.h2":"Personalization Services",
 "svc.intro":"End-to-end card personalization — from secure data handling to physical production and distribution. Every service is delivered within a controlled, audited environment.",
-"s1.t":"Variable Data Printing","s1.p":"High-speed printing of unique data — names, account numbers, expiry dates — tailored to each individual card.",
-"s2.t":"Cardholder Data Personalization","s2.p":"Accurate application of individual cardholder information with full data integrity and audit trail.",
-"s3.t":"Encoding","s3.p":"Magnetic stripe, chip programming and contactless personalization for payment and identity cards.",
-"s4.t":"Data Embossing & Printing","s4.p":"Physical embossing and thermal printing of cardholder data to industry specifications.",
-"s5.t":"Card-to-Carrier Matching","s5.p":"Automated verification ensuring each card is matched to the correct carrier document before dispatch.",
-"s6.t":"PIN / Secure Info Handling","s6.p":"Secure generation and delivery of PIN mailers and sensitive credentials, compliant with security standards.",
-"s7.t":"Mailing & Fulfillment","s7.p":"Complete mailing services including address verification, envelope insertion and postal preparation.",
-"s8.t":"Packaging","s8.p":"Custom and branded packaging solutions designed to protect card integrity during transit.",
-"s9.t":"Sorting","s9.p":"Automated and manual sorting by branch, region, card type or any client-specified criteria.",
-"s10.t":"Preparation for Distribution","s10.p":"Distribution-ready preparation — manifests, documentation and chain-of-custody records.",
-"s11.t":"Additional Personalized Materials","s11.p":"Personalized inserts, welcome letters and ancillary documents as part of the complete card package.",
+"s1.t":"Graphical Personalization","s1.p":"High-speed printing of card-unique data: cardholder name, PAN, expiration date and service code.",
+"s2.t":"Cardholder Data Personalization","s2.p":"Accurate application of cardholder data with full data integrity and a complete audit trail.",
+"s3.t":"Encoding & Chip Personalization","s3.p":"ISO/IEC 7811 magnetic stripe encoding, contact chip personalization and contactless configuration for payment and identity cards.",
+"s4.t":"Embossing & Indent Printing","s4.p":"Embossing to ISO/IEC 7811 character sets, with indent printing and thermal printing of cardholder data.",
+"s5.t":"Card-to-Carrier Matching","s5.p":"Automated verification confirms every card is matched to the correct carrier before dispatch, with mismatches rejected and reconciled.",
+"s6.t":"PIN & Secure Information Handling","s6.p":"Secure generation and delivery of PIN mailers and other sensitive credentials under strict access control.",
+"s7.t":"Mailing & Fulfillment","s7.p":"Mailing services covering address validation, envelope insertion and postal preparation.",
+"s8.t":"Packaging & Insertion","s8.p":"Custom and branded packaging that protects card integrity in transit.",
+"s9.t":"Sorting","s9.p":"Sorting by branch, region, postcode, card product or client-specified criteria, with per-consignment manifests.",
+"s10.t":"Secure Dispatch & Chain of Custody","s10.p":"Distribution-ready preparation: manifests, documentation and signed chain-of-custody records.",
+"s11.t":"Welcome Packs & Regulatory Inserts","s11.p":"Personalized inserts, welcome letters and ancillary documents within the card package.",
 "how.eyebrow":"Process","how.h2":"How It Works",
-"how.intro":"A structured, secure workflow from project brief to delivery — designed around operational transparency and data protection at every stage.",
+"how.intro":"A structured, secure workflow from project brief to delivery, designed around operational transparency and data protection at every stage.",
 "step1.t":"Customer Requirements","step1.p":"Project scope, volumes, card specifications and security requirements are agreed and documented.",
-"step2.t":"Secure Data & Card Intake","step2.p":"Cardholder data and card stock are received through controlled, secure intake procedures.",
-"step3.t":"Data Processing","step3.p":"Data is validated, formatted and prepared for production in a secured processing environment.",
+"step2.t":"Secure Data & Card Intake","step2.p":"Cardholder data is received over encrypted transfer and acknowledged; card stock is booked in, counted and stored under controlled access.",
+"step3.t":"Data Preparation","step3.p":"Data is validated, reconciled and prepared for production in a secured processing environment.",
 "step4.t":"Personalization","step4.p":"Cards are encoded, printed and embossed with full batch traceability throughout production.",
-"step5.t":"Quality Control & Matching","step5.p":"Every card is verified against its data record. Card-to-carrier matching confirms accuracy.",
-"step6.t":"Packaging & Delivery","step6.p":"Cards are packaged, sorted and dispatched per client specifications with full documentation.",
+"step5.t":"Quality Control & Matching","step5.p":"Every card is verified against its source record, and card-to-carrier matching is reconciled before release.",
+"step6.t":"Packaging & Delivery","step6.p":"Cards are packed in sealed, tamper-evident consignments and dispatched to client specifications, with full documentation.",
 "how.cta":"Submit Your Project Brief",
 "sec.eyebrow":"Security & Compliance","sec.h2":"Security and Quality Built into Every Process",
-"sec.p":"For banks, financial institutions and government bodies, card personalization is a security-critical operation. beèri printers' production environment is built around protecting cardholder data, card integrity and business continuity at every stage.",
-"sec.cert3":"PCI Standards",
-"sec.note":"Certification details, scope and current status are available upon formal request. All standards subject to verification prior to publication.",
-"sec.l1":"Secure data handling","sec.l2":"Controlled production environment","sec.l3":"Access controls & monitoring","sec.l4":"Quality assurance procedures",
-"sec.l5":"Full batch traceability","sec.l6":"Confidentiality protocols","sec.l7":"Secure information processing","sec.l8":"Chain-of-custody integrity",
-"cap.eyebrow":"Operational Capabilities","cap.h2":"Built for Commercial-Scale Projects",
-"cap.intro":"beèri printers has the production capacity, flexibility and operational discipline to support significant card personalization programs — from pilot runs to large-scale rollouts.",
+"sec.p":"For banks, financial institutions and government bodies, card personalization is a security-critical operation. beèri printers operates a production environment built around protecting cardholder data, card integrity and business continuity at every stage.",
+"sec.cert3":"PCI CP&P",
+"sec.note":"Certificates, assessment scope statements and current validity dates are provided in full with our RFQ pack and on request.",
+"sec.l1":"Encrypted data transfer and controlled intake","sec.l2":"Access-controlled, monitored production area","sec.l3":"Role-based access control and activity logging","sec.l4":"Documented quality assurance procedures",
+"sec.l5":"Batch-level traceability and reconciliation","sec.l6":"Confidentiality agreements and staff screening","sec.l7":"Controlled handling of personalization data","sec.l8":"Signed chain-of-custody on every consignment",
+"cap.eyebrow":"Operational Capabilities","cap.h2":"Built for Large-Scale Card Programs",
+"cap.intro":"beèri printers has the production capacity, flexibility and operational discipline to support large card personalization programs — from pilot runs to national rollouts.",
 "cap1.t":"High-Volume Production","cap1.p":"Industrial-scale capacity supporting large card issuance programs with consistent throughput and quality.",
-"cap2.t":"Flexible Production Runs","cap2.p":"Scalable from targeted pilot batches to full national-scale issuance without process compromise.",
-"cap3.t":"Fast Response Capability","cap3.p":"Rapid mobilization for urgent issuance requirements, emergency replacement or time-sensitive programs.",
-"cap4.t":"Project-Based SLA","cap4.p":"Service level agreements tailored to project specifications, agreed upfront and tracked throughout production.",
-"cap5.t":"Batch Management","cap5.p":"Structured batch control with reconciliation at every stage — from data intake through to final dispatch.",
-"cap6.t":"Integrated Fulfillment","cap6.p":"Complete fulfillment including branded packaging, insertion, sorting and distribution-ready preparation.",
+"cap2.t":"Flexible Production Runs","cap2.p":"Scalable from targeted pilot batches to full national-scale issuance without weakening process controls.",
+"cap3.t":"Rapid Response","cap3.p":"Fast mobilization for urgent issuance, emergency replacements or time-sensitive programs.",
+"cap4.t":"Project-Based SLA","cap4.p":"Service-level agreements tailored to project specifications, agreed up front and tracked throughout production.",
+"cap5.t":"Batch Management","cap5.p":"Structured batch control with reconciliation at every stage, from data intake to final dispatch.",
+"cap6.t":"Integrated Fulfillment","cap6.p":"Fulfillment covering branded packaging, insertion, sorting and distribution-ready preparation.",
 "cap7.t":"Multi-Stage Quality Control","cap7.p":"Automated verification and manual inspection integrated throughout the production workflow.",
-"cap8.t":"International Shipment Readiness","cap8.p":"Experience preparing card deliveries for cross-border dispatch, including required documentation and protocols.",
-"cap9.t":"Multi-Format Card Support","cap9.p":"Credit, debit, prepaid, loyalty, identity and smart cards across standard and custom formats.",
+"cap8.t":"Cross-Border Dispatch","cap8.p":"Card deliveries prepared for cross-border dispatch, with the required shipping and customs documentation.",
+"cap9.t":"Multi-Format Card Support","cap9.p":"Credit, debit, prepaid, loyalty, identity and smart cards — magnetic stripe, contact chip, contactless and dual-interface, to ISO/IEC 7810 ID-1, 7811, 7816 and 14443.",
 "why.eyebrow":"Why Choose Us","why.h2":"Why Work with beèri printers?",
-"why1.t":"Experience","why1.p":"Decades of operational experience in printing, data personalization and card production — working with some of the region's most demanding organizations.",
-"why2.t":"Security","why2.p":"Operations built around protecting cardholder data, with controlled facility access, secure handling and process-level security controls throughout.",
-"why3.t":"Quality","why3.p":"Multi-stage quality assurance embedded in every production run — from data verification to finished card inspection and card-to-carrier matching.",
-"why4.t":"Flexibility","why4.p":"Adaptable to different card types, volumes, timelines and delivery configurations — without compromising on process integrity.",
-"why5.t":"Reliability","why5.p":"A proven track record delivering on time to large organizations with complex logistics, regulatory requirements and zero tolerance for card issuance errors.",
-"why6.t":"One Operational Partner","why6.p":"Personalization, QC, packaging, fulfillment and distribution coordinated under one professional partner — reducing complexity and integration overhead.",
+"why1.t":"Experience","why1.p":"Decades of operational experience in printing, data personalization and card production for organizations with demanding security and deadline requirements.",
+"why2.t":"Security","why2.p":"Operations built around protecting cardholder data: controlled facility access, secure handling and process-level controls at every stage.",
+"why3.t":"Quality","why3.p":"Multi-stage quality assurance in every production run, from data verification to finished-card inspection and card-to-carrier matching.",
+"why4.t":"Flexibility","why4.p":"Adaptable to different card types, volumes, timelines and delivery configurations, with no compromise to process integrity.",
+"why5.t":"Reliability","why5.p":"On-time delivery for large organizations with complex logistics, strict regulatory requirements and zero tolerance for issuance errors.",
+"why6.t":"One Operational Partner","why6.p":"Personalization, QC, packaging, fulfillment and distribution coordinated by a single partner, reducing complexity and integration overhead.",
 "ref.eyebrow":"References","ref.h2":"Project Experience",
-"ref.intro":"beèri printers has supported major organizations across the financial, government and commercial sectors. Representative project profiles are shown below — detailed references available upon request.",
+"ref.intro":"beèri printers has supported major organizations across the financial, government and commercial sectors. Representative project profiles are shown below; detailed references are available on request.",
 "ref.lbl.project":"Project:","ref.lbl.services":"Services:","ref.lbl.scope":"Scope:",
 "ref1.type":"Financial Sector","ref1.t":"Leading Financial Institution",
 "ref1.project":"Annual personalization and fulfillment program for payment cards",
@@ -893,43 +975,86 @@ T.en = {
 "ref2.services":"Secure data processing, encoding, personalization, sorting and delivery",
 "ref2.scope":"High-security, time-critical rollout with strict compliance requirements",
 "ref3.type":"Loyalty & Commercial","ref3.t":"Retail Loyalty Card Program",
-"ref3.project":"Personalization and mailing for a major consumer loyalty card issuance",
+"ref3.project":"Personalization and mailing for a major consumer loyalty card program",
 "ref3.services":"Variable data printing, personalization, packaging, insertion and mailing",
 "ref3.scope":"High-volume batch program with time-sensitive distribution windows",
 "ref4.type":"Card Manufacturer Partner","ref4.t":"Regional Personalization Outsourcing",
 "ref4.project":"Ongoing outsourced personalization for a card manufacturer without in-market production capability",
 "ref4.services":"Full personalization workflow, QC, packaging and regional distribution",
 "ref4.scope":"Flexible capacity arrangement supporting variable volumes across multiple programs",
-"cta.h2":"Ready to discuss your card personalization requirements?",
-"cta.p":"Tell us about your project. Our team will respond promptly with information relevant to your specific program.",
+"cta.h2":"Ready to Discuss Your Card Personalization Requirements?",
+"cta.p":"Tell us about your project. Our team will respond within one business day with information relevant to your program.",
 "form.h2":"Discuss Your Project",
-"form.p1":"Complete the form with your project details and a member of beèri printers' personalization team will respond within one business day.",
-"form.p2":"For initial enquiries, project briefs or RFQ submissions, this is the fastest route to a meaningful conversation.",
-"form.note":"All information submitted through this form is treated as confidential and used solely to assess and respond to your enquiry.",
+"form.p1":"Complete the form with your project details and a member of our personalization team will respond within one business day.",
+"form.p2":"For initial inquiries, project briefs or RFQ submissions, this is the fastest route to a technical response.",
+"form.note":"All information submitted through this form is treated as confidential and used solely to assess and respond to your inquiry.",
 "f.name":"Name *","f.name.ph":"Your full name","f.company":"Company *","f.company.ph":"Organization name",
-"f.country":"Country *","f.country.ph":"Country","f.email":"Business Email *","f.phone":"Phone",
-"f.cardtype":"Type of Card / Application","f.cardtype.ph":"Select card type",
+"f.country":"Country *","f.country.ph":"Country of operation","f.email":"Business Email *","f.phone":"Phone",
+"f.cardtype":"Card Type / Application","f.cardtype.ph":"Select card type",
 "ct1":"Payment Card (Credit / Debit)","ct2":"Prepaid Card","ct3":"Identity Card","ct4":"Smart Card",
 "ct5":"Loyalty Card","ct6":"Transport / Access Card","ct7":"Health / Insurance Card","ct8":"Other",
 "f.qty":"Estimated Annual Quantity","f.qty.ph":"Select quantity range",
-"q1":"Under 10,000","q2":"10,000 – 50,000","q3":"50,000 – 100,000","q4":"100,000 – 500,000","q5":"500,000+",
+"q1":"Under 10,000","q2":"10,000–50,000","q3":"50,000–100,000","q4":"100,000–500,000","q5":"500,000–2,000,000",
 "f.svcs":"Services Required (select all that apply)",
-"chk1":"Card Personalization","chk2":"Encoding","chk3":"Embossing / Printing","chk4":"Card-to-Carrier Matching",
-"chk5":"PIN / Secure Info Handling","chk6":"Mailing & Fulfillment","chk7":"Packaging & Sorting","chk8":"Distribution Preparation",
+"chk1":"Card Personalization","chk2":"Encoding & Chip Personalization","chk3":"Embossing & Indent Printing","chk4":"Card-to-Carrier Matching",
+"chk5":"PIN & Secure Information Handling","chk6":"Mailing & Fulfillment","chk7":"Packaging & Sorting","chk8":"Secure Dispatch & Distribution",
 "f.desc":"Project Description","f.desc.ph":"Briefly describe your project, timeline, specific requirements or questions...",
-"f.submit":"Submit Your Project","f.ok.t":"Thank You",
-"f.ok.p":"Your project brief has been received. A member of beèri printers' personalization team will be in touch within one business day.",
+"f.submit":"Submit Project Brief","f.ok.t":"Thank You",
+"f.ok.p":"Your project brief has been received. A member of our personalization team will respond within one business day.",
 "foot.tag":"Professional card personalization services for banks, financial institutions and card issuers worldwide.",
 "foot.company":"Company","foot.k2":"Submit an RFQ","foot.k3":"Talk to Our Team",
 "foot.copy":"© 2026 beèri printers. All rights reserved.",
-"foot.strip":"Card Personalization · Secure · Reliable · International",
-"foot.mob":"Contact / Request Information"
+"foot.strip":"Card Personalization · Encoding · Fulfillment · Worldwide Distribution",
+"foot.mob":"Request Information",
+"a11y.skip":"Skip to main content",
+"err.required":"This field is required",
+"err.email":"Enter a valid business email address",
+"err.fail":"We could not send your brief just now. Please try again, or contact us directly.",
+"f.sending":"Sending…",
+"f.tech":"Card Technology",
+"f.tech.ph":"Select technology",
+"tech1":"Magnetic stripe only",
+"tech2":"Contact chip (EMV)",
+"tech3":"Contactless only",
+"tech4":"Dual-interface (contact + contactless)",
+"tech5":"Identity / government chip",
+"tech6":"No chip or stripe",
+"f.scheme":"Card Scheme",
+"f.scheme.ph":"Select scheme",
+"sch1":"Visa",
+"sch2":"Mastercard",
+"sch3":"American Express",
+"sch4":"Domestic scheme",
+"sch5":"Non-payment / closed loop",
+"sch6":"Not yet determined",
+"f.pin":"PIN Requirement",
+"f.pin.ph":"Select PIN requirement",
+"pin1":"PIN mailer required",
+"pin2":"PIN set by cardholder",
+"pin3":"PIN generation and mailer",
+"pin4":"No PIN required",
+"f.golive":"Target Go-Live",
+"f.golive.ph":"Select timeframe",
+"gl1":"Within 3 months",
+"gl2":"3–6 months",
+"gl3":"6–12 months",
+"gl4":"12+ months / planning",
+"f.current":"Current Arrangement",
+"f.current.ph":"Select current arrangement",
+"cur1":"In-house personalization",
+"cur2":"Existing bureau, seeking alternative",
+"cur3":"New program",
+"cur4":"Disaster-recovery second source",
+"q6":"2,000,000+",
+"f.consent":"I agree that beèri printers may process these details in order to respond to my enquiry.",
+"err.consent":"Please confirm this to continue",
+"sec.pci":"Card personalization is governed by the PCI Card Production and Provisioning Security Requirements — Physical and Logical — which are assessed per facility and are distinct from PCI DSS. Our current scope and status are provided on request."
 };
 
 T.he = {
 "meta.title":"דפוס בארי · פרסונליזציה של כרטיסים",
-"meta.desc":"דפוס בארי — שירותי פרסונליזציה מקצועיים לכרטיסים, הכוללים טיפול מאובטח בנתונים, קידוד, הטבעה, משלוח והשלמת שירות לבנקים ולגופים פיננסיים בכל העולם.",
-"brand.name":"דפוס בארי","brand.sub":"פרסונליזציה של כרטיסים","brand.aria":"דפוס בארי — פרסונליזציה של כרטיסים",
+"meta.desc":"פרסונליזציה מאובטחת של כרטיסים לבנקים, גופים פיננסיים ומנפיקי כרטיסים בכל העולם: קידוד, הטבעה, משלוח והשלמת שירות מדפוס בארי.",
+"brand.name":"דפוס בארי","brand.sub":"פרסונליזציה של כרטיסים","brand.aria":"דפוס בארי, פרסונליזציה של כרטיסים",
 "lang.aria":"שפה","nav.menu":"תפריט",
 "nav.about":"אודות","nav.services":"שירותים","nav.how":"איך זה עובד","nav.security":"אבטחה",
 "nav.capabilities":"יכולות","nav.why":"למה אנחנו","nav.references":"לקוחות","nav.contact":"צור קשר",
@@ -938,55 +1063,55 @@ T.he = {
 "hero.eyebrow":"דפוס בארי · שירותי פרסונליזציה של כרטיסים",
 "hero.h1":"פרסונליזציה מאובטחת<br><em>של כרטיסים</em>",
 "hero.tagline":"ניסיון מוכח. אספקה אמינה.",
-"hero.body":"שירותי פרסונליזציה מקצועיים לכרטיסים, הנשענים על עשרות שנות ניסיון תפעולי, תהליכים מאובטחים ובקרת איכות קפדנית — עבור בנקים, גופים פיננסיים ומנפיקי כרטיסים בכל העולם.",
-"hero.cta2":"גלו את היכולות שלנו",
+"hero.body":"פרסונליזציה של כרטיסים הנשענת על עשרות שנות ניסיון תפעולי, תהליכים מאובטחים ובקרת איכות קפדנית — עבור בנקים, גופים פיננסיים ומנפיקי כרטיסים בכל העולם.",
+"hero.cta2":"לצפייה בשירותים שלנו",
 "about.eyebrow":"אודות דפוס בארי","about.h2":"שותף מנוסה ואמין לפרויקטי כרטיסים מורכבים",
-"about.p1":"דפוס בארי הוא בית דפוס ופרסונליזציה מנוסה, בעל היסטוריה ארוכה של אספקת שירותי פרסונליזציה מאובטחים ואיכותיים לכרטיסים — לבנקים, לגופים ממשלתיים ולארגונים מסחריים גדולים.",
+"about.p1":"דפוס בארי הוא בית דפוס ופרסונליזציה מבוסס, בעל רקורד ארוך של אספקה מאובטחת ואיכותית לבנקים, לגופים ממשלתיים ולארגונים מסחריים גדולים.",
 "about.p2":"הפעילות מתנהלת בסביבות הדורשות את הסטנדרטים הגבוהים ביותר של אבטחת מידע ואיכות ייצור, ודפוס בארי משלב יכולת תעשייתית עם הדיוק הנדרש בתחומי הכרטיסים הפיננסיים והזיהוי.",
 "about.p3":"משלב קליטת הנתונים הראשוני ועד האספקה הסופית, כל תהליך מתוכנן להגן על נתוני מחזיקי הכרטיסים, לשמור על שלמות שרשרת השמירה ולעמוד בדרישות רגולציה בינלאומיות.",
 "about.c1":"שנות ניסיון","about.c2":"כרטיסים בפרסונליזציה","about.c3":"ארגונים גדולים",
-"about.note":"הנתונים אינדיקטיביים ומותנים באישור סופי מול דפוס בארי.",
+"about.note":"הנתונים אינדיקטיביים.",
 "svc.eyebrow":"מה אנחנו עושים","svc.h2":"שירותי פרסונליזציה",
 "svc.intro":"פרסונליזציה מקצה לקצה — מטיפול מאובטח בנתונים ועד ייצור פיזי והפצה. כל שירות מסופק בסביבה מבוקרת ומפוקחת.",
-"s1.t":"הדפסת נתונים משתנים","s1.p":"הדפסה במהירות גבוהה של נתונים ייחודיים — שמות, מספרי חשבון ותאריכי תפוגה — לכל כרטיס בנפרד.",
-"s2.t":"פרסונליזציה של נתוני מחזיק הכרטיס","s2.p":"הטמעה מדויקת של פרטי מחזיק הכרטיס, בשלמות נתונים מלאה ועם מסלול ביקורת.",
-"s3.t":"קידוד","s3.p":"פס מגנטי, תכנות שבב ופרסונליזציה ללא מגע לכרטיסי תשלום וזיהוי.",
-"s4.t":"הטבעת נתונים והדפסה","s4.p":"הטבעה פיזית והדפסה תרמית של נתוני מחזיק הכרטיס לפי מפרטי התעשייה.",
-"s5.t":"התאמת כרטיס למסמך","s5.p":"אימות אוטומטי המבטיח שכל כרטיס מותאם למסמך הנכון לפני המשלוח.",
-"s6.t":"טיפול בקודי PIN ומידע רגיש","s6.p":"הפקה ואספקה מאובטחות של מסמכי PIN ואישורים רגישים, בהתאם לתקני אבטחה.",
-"s7.t":"משלוח והשלמת שירות","s7.p":"שירותי משלוח מלאים, כולל אימות כתובות, הכנסה למעטפות והכנה לדואר.",
-"s8.t":"אריזה","s8.p":"פתרונות אריזה מותאמים וממותגים, שנועדו לשמור על שלמות הכרטיס בהובלה.",
-"s9.t":"מיון","s9.p":"מיון אוטומטי וידני לפי סניף, אזור, סוג כרטיס או כל קריטריון שהלקוח מגדיר.",
-"s10.t":"הכנה להפצה","s10.p":"הכנה מלאה להפצה — רשימות משלוח, תיעוד ורשומות שרשרת שמירה.",
-"s11.t":"חומרים מותאמים נוספים","s11.p":"עלוני מידע מותאמים, מכתבי פתיחה ומסמכים נלווים כחלק מחבילת הכרטיס השלמה.",
+"s1.t":"פרסונליזציה גרפית","s1.p":"הדפסה במהירות גבוהה של נתונים ייחודיים לכל כרטיס: שם המחזיק, מספר הכרטיס (PAN), תאריך תפוגה וקוד שירות.",
+"s2.t":"פרסונליזציה של נתוני מחזיק הכרטיס","s2.p":"הטמעה מדויקת של נתוני מחזיק הכרטיס, בשלמות נתונים מלאה ועם מסלול ביקורת שלם.",
+"s3.t":"קידוד ופרסונליזציה של שבב","s3.p":"קידוד פס מגנטי לפי ISO/IEC 7811, פרסונליזציה של שבב מגע והגדרת ממשק ללא מגע לכרטיסי תשלום וזיהוי.",
+"s4.t":"הטבעה והדפסת אינדנט","s4.p":"הטבעה לפי מערכות התווים של ISO/IEC 7811, בתוספת הדפסת אינדנט והדפסה תרמית של נתוני מחזיק הכרטיס.",
+"s5.t":"התאמת כרטיס למסמך","s5.p":"אימות אוטומטי מאשר שכל כרטיס מותאם למסמך הנכון לפני המשלוח; אי-התאמות נדחות ומתועדות.",
+"s6.t":"קודי PIN וטיפול במידע רגיש","s6.p":"הפקה ואספקה מאובטחות של מסמכי PIN ואישורים רגישים אחרים, תחת בקרת גישה מוקפדת.",
+"s7.t":"משלוח והשלמת שירות","s7.p":"שירותי משלוח הכוללים אימות כתובות, הכנסה למעטפות והכנה לדואר.",
+"s8.t":"אריזה והכנסה למעטפות","s8.p":"אריזה מותאמת וממותגת השומרת על שלמות הכרטיס בהובלה.",
+"s9.t":"מיון","s9.p":"מיון לפי סניף, אזור, מיקוד, סוג כרטיס או קריטריון שהלקוח מגדיר, בליווי רשימת פריטים לכל משלוח.",
+"s10.t":"משלוח מאובטח ושרשרת שמירה","s10.p":"הכנה מלאה להפצה: רשימות משלוח, תיעוד ורשומות שרשרת שמירה חתומות.",
+"s11.t":"חבילות פתיחה ועלוני חובה","s11.p":"עלונים מותאמים, מכתבי פתיחה ומסמכים נלווים בתוך חבילת הכרטיס.",
 "how.eyebrow":"התהליך","how.h2":"איך זה עובד",
 "how.intro":"תהליך עבודה מובנה ומאובטח, מהגדרת הפרויקט ועד האספקה — בנוי סביב שקיפות תפעולית והגנת מידע בכל שלב.",
 "step1.t":"אפיון דרישות הלקוח","step1.p":"היקף הפרויקט, הכמויות, מפרטי הכרטיס ודרישות האבטחה מוסכמים ומתועדים.",
-"step2.t":"קליטה מאובטחת של נתונים וכרטיסים","step2.p":"נתוני מחזיקי הכרטיסים ומלאי הכרטיסים נקלטים בנהלי קליטה מבוקרים ומאובטחים.",
-"step3.t":"עיבוד נתונים","step3.p":"הנתונים עוברים אימות, פורמוט והכנה לייצור בסביבת עיבוד מאובטחת.",
+"step2.t":"קליטה מאובטחת של נתונים וכרטיסים","step2.p":"נתוני מחזיקי הכרטיסים נקלטים בהעברה מוצפנת ומאושרים; מלאי הכרטיסים נרשם, נספר ומאוחסן תחת גישה מבוקרת.",
+"step3.t":"הכנת נתונים","step3.p":"הנתונים עוברים אימות, התאמה והכנה לייצור בסביבת עיבוד מאובטחת.",
 "step4.t":"פרסונליזציה","step4.p":"הכרטיסים מקודדים, מודפסים ומוטבעים עם עקיבות מלאה של האצווה בכל שלבי הייצור.",
-"step5.t":"בקרת איכות והתאמה","step5.p":"כל כרטיס מאומת מול רשומת הנתונים שלו, והתאמת כרטיס-למסמך מאשרת דיוק מלא.",
-"step6.t":"אריזה ואספקה","step6.p":"הכרטיסים נארזים, ממויינים ונשלחים בהתאם למפרט הלקוח, בליווי תיעוד מלא.",
+"step5.t":"בקרת איכות והתאמה","step5.p":"כל כרטיס מאומת מול רשומת המקור שלו, והתאמת כרטיס-למסמך מתואמת לפני השחרור.",
+"step6.t":"אריזה ואספקה","step6.p":"הכרטיסים נארזים במשלוחים אטומים עם חיווי פתיחה ונשלחים בהתאם למפרט הלקוח, בליווי תיעוד מלא.",
 "how.cta":"שליחת אפיון פרויקט",
 "sec.eyebrow":"אבטחה ורגולציה","sec.h2":"אבטחה ואיכות מוטמעות בכל תהליך",
-"sec.p":"עבור בנקים, גופים פיננסיים וגופים ממשלתיים, פרסונליזציה של כרטיסים היא פעילות קריטית מבחינת אבטחה. סביבת הייצור של דפוס בארי בנויה סביב הגנה על נתוני מחזיקי הכרטיסים, שלמות הכרטיס והמשכיות עסקית בכל שלב.",
-"sec.cert3":"תקני PCI",
-"sec.note":"פרטי התקנים, ההיקף והמצב העדכני זמינים לפי בקשה רשמית. כל התקנים כפופים לאימות לפני פרסום.",
-"sec.l1":"טיפול מאובטח בנתונים","sec.l2":"סביבת ייצור מבוקרת","sec.l3":"בקרת גישה וניטור","sec.l4":"נהלי אבטחת איכות",
-"sec.l5":"עקיבות מלאה לאצוות","sec.l6":"נהלי סודיות","sec.l7":"עיבוד מידע מאובטח","sec.l8":"שלמות שרשרת השמירה",
-"cap.eyebrow":"יכולות תפעוליות","cap.h2":"בנוי לפרויקטים בהיקף מסחרי",
-"cap.intro":"לדפוס בארי יש את קיבולת הייצור, הגמישות והמשמעת התפעולית לתמוך בתוכניות פרסונליזציה משמעותיות — מהרצות פיילוט ועד פריסות בהיקף רחב.",
+"sec.p":"עבור בנקים, גופים פיננסיים וגופים ממשלתיים, פרסונליזציה של כרטיסים היא פעילות קריטית מבחינת אבטחה. דפוס בארי מפעיל סביבת ייצור הבנויה סביב הגנה על נתוני מחזיקי הכרטיסים, שלמות הכרטיס והמשכיות עסקית בכל שלב.",
+"sec.cert3":"PCI CP&P",
+"sec.note":"תעודות, הצהרות היקף ההסמכה ותאריכי התוקף העדכניים מסופקים במלואם בחבילת ההצעה ולפי בקשה.",
+"sec.l1":"העברת נתונים מוצפנת וקליטה מבוקרת","sec.l2":"אזור ייצור מבוקר ומנוטר","sec.l3":"בקרת גישה מבוססת הרשאות ותיעוד פעילות","sec.l4":"נהלי אבטחת איכות מתועדים",
+"sec.l5":"עקיבות והתאמה ברמת האצווה","sec.l6":"הסכמי סודיות וסינון עובדים","sec.l7":"טיפול מבוקר בנתוני הפרסונליזציה","sec.l8":"שרשרת שמירה חתומה בכל משלוח",
+"cap.eyebrow":"יכולות תפעוליות","cap.h2":"בנוי לתוכניות כרטיסים בהיקף רחב",
+"cap.intro":"לדפוס בארי יש את קיבולת הייצור, הגמישות והמשמעת התפעולית לתמוך בתוכניות פרסונליזציה גדולות — מהרצות פיילוט ועד פריסות בהיקף ארצי.",
 "cap1.t":"ייצור בהיקפים גדולים","cap1.p":"קיבולת בהיקף תעשייתי התומכת בתוכניות הנפקה גדולות, בתפוקה ואיכות עקביות.",
-"cap2.t":"הרצות ייצור גמישות","cap2.p":"התאמה מאצוות פיילוט ממוקדות ועד הנפקה בהיקף ארצי, בלי להתפשר על התהליך.",
-"cap3.t":"יכולת תגובה מהירה","cap3.p":"היערכות מהירה לצורכי הנפקה דחופים, החלפות חירום או תוכניות רגישות לזמן.",
+"cap2.t":"הרצות ייצור גמישות","cap2.p":"התאמה מאצוות פיילוט ממוקדות ועד הנפקה בהיקף ארצי, בלי להחליש את בקרות התהליך.",
+"cap3.t":"תגובה מהירה","cap3.p":"היערכות מהירה לצורכי הנפקה דחופים, החלפות חירום או תוכניות רגישות לזמן.",
 "cap4.t":"SLA מותאם לפרויקט","cap4.p":"הסכמי רמת שירות המותאמים למפרט הפרויקט, מוסכמים מראש ונמדדים לאורך הייצור.",
 "cap5.t":"ניהול אצוות","cap5.p":"בקרת אצוות מובנית עם התאמה בכל שלב — מקליטת הנתונים ועד המשלוח הסופי.",
 "cap6.t":"השלמת שירות משולבת","cap6.p":"מערך שלם הכולל אריזה ממותגת, הכנסה למעטפות, מיון והכנה להפצה.",
 "cap7.t":"בקרת איכות רב-שלבית","cap7.p":"אימות אוטומטי ובדיקה ידנית משולבים לאורך כל תהליך הייצור.",
-"cap8.t":"היערכות למשלוחים בינלאומיים","cap8.p":"ניסיון בהכנת משלוחי כרטיסים ליעדים חוצי גבולות, כולל התיעוד והנהלים הנדרשים.",
-"cap9.t":"תמיכה במגוון פורמטים","cap9.p":"כרטיסי אשראי, דביט, נטענים, מועדון, זיהוי וכרטיסים חכמים — בפורמטים תקניים ומותאמים.",
+"cap8.t":"משלוח חוצה גבולות","cap8.p":"משלוחי כרטיסים המוכנים לשליחה חוצת גבולות, בליווי תיעוד השילוח והמכס הנדרש.",
+"cap9.t":"תמיכה במגוון פורמטים","cap9.p":"כרטיסי אשראי, דביט, נטענים, מועדון, זיהוי וכרטיסים חכמים — פס מגנטי, שבב מגע, ללא מגע ודו-ממשקי, לפי ISO/IEC 7810 ID-1, 7811, 7816 ו-14443.",
 "why.eyebrow":"למה לבחור בנו","why.h2":"למה לעבוד עם דפוס בארי?",
-"why1.t":"ניסיון","why1.p":"עשרות שנות ניסיון תפעולי בדפוס, בפרסונליזציה של נתונים ובייצור כרטיסים — בעבודה עם הארגונים התובעניים באזור.",
+"why1.t":"ניסיון","why1.p":"עשרות שנות ניסיון תפעולי בדפוס, בפרסונליזציה של נתונים ובייצור כרטיסים, עבור ארגונים עם דרישות אבטחה ולוחות זמנים תובעניים.",
 "why2.t":"אבטחה","why2.p":"הפעילות בנויה סביב הגנה על נתוני מחזיקי הכרטיסים: גישה מבוקרת למתקן, טיפול מאובטח ובקרות אבטחה בכל תהליך.",
 "why3.t":"איכות","why3.p":"אבטחת איכות רב-שלבית מוטמעת בכל הרצת ייצור — מאימות נתונים ועד בדיקת הכרטיס המוגמר והתאמת כרטיס-למסמך.",
 "why4.t":"גמישות","why4.p":"התאמה לסוגי כרטיסים, כמויות, לוחות זמנים ותצורות אספקה שונות — בלי לפגוע בשלמות התהליך.",
@@ -1004,7 +1129,7 @@ T.he = {
 "ref2.services":"עיבוד נתונים מאובטח, קידוד, פרסונליזציה, מיון ואספקה",
 "ref2.scope":"פריסה בטחונית ורגישה לזמן, עם דרישות רגולציה מחמירות",
 "ref3.type":"מועדוני לקוחות ומסחר","ref3.t":"תוכנית כרטיסי מועדון בקמעונאות",
-"ref3.project":"פרסונליזציה ומשלוח בדואר להנפקת כרטיסי מועדון צרכני גדולה",
+"ref3.project":"פרסונליזציה ומשלוח בדואר לתוכנית כרטיסי מועדון צרכני גדולה",
 "ref3.services":"הדפסת נתונים משתנים, פרסונליזציה, אריזה, הכנסה למעטפות ומשלוח",
 "ref3.scope":"תוכנית אצוות בהיקף גדול עם חלונות הפצה רגישים לזמן",
 "ref4.type":"שותפות עם יצרן כרטיסים","ref4.t":"מיקור חוץ אזורי לפרסונליזציה",
@@ -1012,140 +1137,226 @@ T.he = {
 "ref4.services":"תהליך פרסונליזציה מלא, בקרת איכות, אריזה והפצה אזורית",
 "ref4.scope":"הסדר קיבולת גמיש התומך בכמויות משתנות במספר תוכניות",
 "cta.h2":"מוכנים לדבר על דרישות הפרסונליזציה שלכם?",
-"cta.p":"ספרו לנו על הפרויקט. הצוות שלנו יחזור אליכם במהירות עם מידע רלוונטי לתוכנית שלכם.",
+"cta.p":"ספרו לנו על הפרויקט. הצוות שלנו יחזור אליכם בתוך יום עסקים אחד עם מידע רלוונטי לתוכנית שלכם.",
 "form.h2":"בואו נדבר על הפרויקט",
-"form.p1":"מלאו את הטופס עם פרטי הפרויקט, ונציג מצוות הפרסונליזציה של דפוס בארי יחזור אליכם בתוך יום עסקים אחד.",
+"form.p1":"מלאו את הטופס עם פרטי הפרויקט, ונציג מצוות הפרסונליזציה שלנו יחזור אליכם בתוך יום עסקים אחד.",
 "form.p2":"לפניות ראשוניות, אפיוני פרויקט או בקשות להצעת מחיר — זו הדרך המהירה לשיחה מעשית.",
 "form.note":"כל המידע שנשלח בטופס זה נשמר בסודיות ומשמש אך ורק לבחינת הפנייה ולמענה עליה.",
 "f.name":"שם *","f.name.ph":"שם מלא","f.company":"חברה *","f.company.ph":"שם הארגון",
-"f.country":"מדינה *","f.country.ph":"מדינה","f.email":"אימייל עסקי *","f.phone":"טלפון",
+"f.country":"מדינה *","f.country.ph":"מדינת הפעילות","f.email":"אימייל עסקי *","f.phone":"טלפון",
 "f.cardtype":"סוג כרטיס / יישום","f.cardtype.ph":"בחרו סוג כרטיס",
 "ct1":"כרטיס תשלום (אשראי / דביט)","ct2":"כרטיס נטען","ct3":"כרטיס זיהוי","ct4":"כרטיס חכם",
 "ct5":"כרטיס מועדון","ct6":"כרטיס תחבורה / גישה","ct7":"כרטיס בריאות / ביטוח","ct8":"אחר",
 "f.qty":"כמות שנתית מוערכת","f.qty.ph":"בחרו טווח כמויות",
-"q1":"עד 10,000","q2":"10,000 – 50,000","q3":"50,000 – 100,000","q4":"100,000 – 500,000","q5":"500,000+",
+"q1":"עד 10,000","q2":"10,000–50,000","q3":"50,000–100,000","q4":"100,000–500,000","q5":"500,000–2,000,000",
 "f.svcs":"שירותים נדרשים (ניתן לבחור כמה)",
-"chk1":"פרסונליזציה של כרטיסים","chk2":"קידוד","chk3":"הטבעה / הדפסה","chk4":"התאמת כרטיס למסמך",
-"chk5":"טיפול בקודי PIN ומידע רגיש","chk6":"משלוח והשלמת שירות","chk7":"אריזה ומיון","chk8":"הכנה להפצה",
+"chk1":"פרסונליזציה של כרטיסים","chk2":"קידוד ופרסונליזציה של שבב","chk3":"הטבעה והדפסת אינדנט","chk4":"התאמת כרטיס למסמך",
+"chk5":"קודי PIN וטיפול במידע רגיש","chk6":"משלוח והשלמת שירות","chk7":"אריזה ומיון","chk8":"משלוח מאובטח והפצה",
 "f.desc":"תיאור הפרויקט","f.desc.ph":"תארו בקצרה את הפרויקט, לוחות הזמנים, דרישות מיוחדות או שאלות...",
-"f.submit":"שליחת הפרויקט","f.ok.t":"תודה רבה",
-"f.ok.p":"אפיון הפרויקט התקבל. נציג מצוות הפרסונליזציה של דפוס בארי ייצור עמכם קשר בתוך יום עסקים אחד.",
+"f.submit":"שליחת אפיון הפרויקט","f.ok.t":"תודה רבה",
+"f.ok.p":"אפיון הפרויקט התקבל. נציג מצוות הפרסונליזציה שלנו יחזור אליכם בתוך יום עסקים אחד.",
 "foot.tag":"שירותי פרסונליזציה מקצועיים לכרטיסים, לבנקים, גופים פיננסיים ומנפיקי כרטיסים בכל העולם.",
 "foot.company":"החברה","foot.k2":"בקשה להצעת מחיר","foot.k3":"שיחה עם הצוות",
 "foot.copy":"© 2026 דפוס בארי. כל הזכויות שמורות.",
-"foot.strip":"פרסונליזציה של כרטיסים · מאובטח · אמין · בינלאומי",
-"foot.mob":"צור קשר / בקשת מידע"
+"foot.strip":"פרסונליזציה של כרטיסים · קידוד · השלמת שירות · הפצה עולמית",
+"foot.mob":"בקשת מידע",
+"a11y.skip":"דלגו לתוכן הראשי",
+"err.required":"שדה חובה",
+"err.email":"הזינו כתובת אימייל עסקית תקינה",
+"err.fail":"לא הצלחנו לשלוח את הפנייה כרגע. נסו שוב או פנו אלינו ישירות.",
+"f.sending":"שולח…",
+"f.tech":"טכנולוגיית הכרטיס",
+"f.tech.ph":"בחרו טכנולוגיה",
+"tech1":"פס מגנטי בלבד",
+"tech2":"שבב מגע (EMV)",
+"tech3":"ללא מגע בלבד",
+"tech4":"דו-ממשקי (מגע וללא מגע)",
+"tech5":"שבב זיהוי / ממשלתי",
+"tech6":"בלי שבב ובלי פס מגנטי",
+"f.scheme":"סכמת הכרטיס",
+"f.scheme.ph":"בחרו סכמה",
+"sch1":"Visa",
+"sch2":"Mastercard",
+"sch3":"American Express",
+"sch4":"סכמה מקומית",
+"sch5":"לא תשלומי / מערכת סגורה",
+"sch6":"טרם נקבע",
+"f.pin":"דרישת PIN",
+"f.pin.ph":"בחרו דרישת PIN",
+"pin1":"נדרש מסמך PIN",
+"pin2":"PIN שנקבע על ידי המחזיק",
+"pin3":"הפקת PIN ומסמך נלווה",
+"pin4":"לא נדרש PIN",
+"f.golive":"יעד לתחילת הפעלה",
+"f.golive.ph":"בחרו טווח זמן",
+"gl1":"בתוך 3 חודשים",
+"gl2":"3–6 חודשים",
+"gl3":"6–12 חודשים",
+"gl4":"12+ חודשים / בתכנון",
+"f.current":"המצב הקיים",
+"f.current.ph":"בחרו את המצב הקיים",
+"cur1":"פרסונליזציה פנים-ארגונית",
+"cur2":"ספק קיים, מחפשים חלופה",
+"cur3":"תוכנית חדשה",
+"cur4":"ספק גיבוי להתאוששות",
+"q6":"2,000,000+",
+"f.consent":"אני מאשר/ת לדפוס בארי לעשות שימוש בפרטים אלה לצורך מענה לפנייה.",
+"err.consent":"נדרש אישור כדי להמשיך",
+"sec.pci":"פרסונליזציה של כרטיסים כפופה לדרישות PCI Card Production and Provisioning — פיזיות ולוגיות — הנבדקות פר מתקן ונפרדות מ-PCI DSS. ההיקף והמצב העדכניים שלנו מסופקים לפי בקשה."
 };
 
 T.ar = {
 "meta.title":"beèri printers · تخصيص البطاقات",
-"meta.desc":"beèri printers — خدمات احترافية لتخصيص البطاقات تشمل المعالجة الآمنة للبيانات والبرمجة والنقش والإرسال البريدي والتنفيذ للبنوك والمؤسسات المالية في جميع أنحاء العالم.",
-"brand.name":"beèri printers","brand.sub":"تخصيص البطاقات","brand.aria":"beèri printers — تخصيص البطاقات",
+"meta.desc":"beèri printers — تخصيص آمن للبطاقات للبنوك والمؤسسات المالية وجهات إصدار البطاقات حول العالم: الترميز والطبع البارز والإرسال البريدي وتجهيز الطلبات.",
+"brand.name":"beèri printers","brand.sub":"تخصيص البطاقات","brand.aria":"beèri printers، تخصيص البطاقات",
 "lang.aria":"اللغة","nav.menu":"القائمة",
-"nav.about":"من نحن","nav.services":"خدماتنا","nav.how":"كيف نعمل","nav.security":"الأمان",
+"nav.about":"من نحن","nav.services":"خدماتنا","nav.how":"كيف نعمل","nav.security":"الأمن",
 "nav.capabilities":"القدرات","nav.why":"لماذا نحن","nav.references":"مراجعنا","nav.contact":"اتصل بنا",
-"nav.cta":"لنتحدث عن مشروعك",
-"mob.about":"عن beèri printers","mob.services":"خدمات التخصيص","mob.security":"الأمان والجودة","mob.why":"لماذا beèri printers",
+"nav.cta":"لنتحدث عن مشروعكم",
+"mob.about":"عن beèri printers","mob.services":"خدمات التخصيص","mob.security":"الأمن والجودة","mob.why":"لماذا beèri printers",
 "hero.eyebrow":"beèri printers · خدمات تخصيص البطاقات",
 "hero.h1":"تخصيص البطاقات<br><em>بأمان تام</em>",
-"hero.tagline":"خبرة مُثبتة. تسليم موثوق.",
-"hero.body":"خدمات احترافية لتخصيص البطاقات مدعومة بعقود من الخبرة التشغيلية وعمليات آمنة ورقابة صارمة على الجودة — لخدمة البنوك والمؤسسات المالية وجهات إصدار البطاقات في جميع أنحاء العالم.",
-"hero.cta2":"استكشف قدراتنا",
+"hero.tagline":"خبرة مثبتة، وتسليم موثوق.",
+"hero.body":"تخصيص البطاقات مدعوم بعقود من الخبرة التشغيلية وعمليات آمنة ورقابة صارمة على الجودة، للبنوك والمؤسسات المالية وجهات إصدار البطاقات حول العالم.",
+"hero.cta2":"تعرّفوا على خدماتنا",
 "about.eyebrow":"عن beèri printers","about.h2":"شريك موثوق لعمليات البطاقات المعقدة",
-"about.p1":"beèri printers هي مؤسسة طباعة وتخصيص ذات خبرة واسعة وسجل حافل في تقديم خدمات تخصيص البطاقات الآمنة وعالية الجودة للبنوك والجهات الحكومية والمؤسسات التجارية الكبرى.",
-"about.p2":"نعمل في بيئات تتطلب أعلى معايير أمن البيانات وجودة الإنتاج، حيث تجمع beèri printers بين القدرة الصناعية والدقة التي يتطلبها قطاع البطاقات المالية وبطاقات الهوية.",
-"about.p3":"من استلام البيانات الأولي وحتى التسليم النهائي، صُمّمت كل عملية لحماية بيانات حاملي البطاقات والحفاظ على سلامة سلسلة الحيازة وتلبية متطلبات الامتثال الدولية.",
-"about.c1":"سنة خبرة","about.c2":"بطاقة مخصّصة","about.c3":"مؤسسة كبرى",
-"about.note":"الأرقام إرشادية وتخضع للتحقق النهائي مع beèri printers.",
+"about.p1":"beèri printers مؤسسة متخصصة في الطباعة وتخصيص البطاقات، ذات خبرة واسعة وسجل حافل في تقديم خدمات تخصيص البطاقات الآمنة وعالية الجودة للبنوك والجهات الحكومية والمؤسسات التجارية الكبرى.",
+"about.p2":"تعمل beèri printers في بيئات تتطلب أعلى معايير أمن البيانات وجودة الإنتاج، وتجمع بين القدرة الصناعية والدقة التي يتطلبها قطاعا البطاقات المالية وبطاقات الهوية.",
+"about.p3":"من الاستلام الأولي للبيانات وحتى التسليم النهائي، تُصمَّم كل عملية لحماية بيانات حاملي البطاقات والحفاظ على سلامة سلسلة الحيازة وتلبية متطلبات الامتثال الدولية.",
+"about.c1":"سنة خبرة","about.c2":"بطاقة مخصصة","about.c3":"مؤسسة كبرى",
+"about.note":"الأرقام إرشادية.",
 "svc.eyebrow":"ما نقوم به","svc.h2":"خدمات التخصيص",
 "svc.intro":"تخصيص شامل للبطاقات — من المعالجة الآمنة للبيانات إلى الإنتاج المادي والتوزيع. تُقدَّم كل خدمة في بيئة خاضعة للرقابة والتدقيق.",
-"s1.t":"طباعة البيانات المتغيرة","s1.p":"طباعة عالية السرعة لبيانات فريدة — الأسماء وأرقام الحسابات وتواريخ الانتهاء — لكل بطاقة على حدة.",
-"s2.t":"تخصيص بيانات حامل البطاقة","s2.p":"تطبيق دقيق لبيانات حامل البطاقة مع سلامة كاملة للبيانات ومسار تدقيق.",
-"s3.t":"البرمجة والتشفير","s3.p":"الشريط المغناطيسي وبرمجة الشرائح والتخصيص اللاتلامسي لبطاقات الدفع والهوية.",
-"s4.t":"نقش البيانات والطباعة","s4.p":"نقش مادي وطباعة حرارية لبيانات حامل البطاقة وفق مواصفات الصناعة.",
-"s5.t":"مطابقة البطاقة بالمستند","s5.p":"تحقق آلي يضمن مطابقة كل بطاقة بالمستند الصحيح قبل الإرسال.",
-"s6.t":"معالجة الأرقام السرية والمعلومات الحساسة","s6.p":"إنشاء وتسليم آمن لمستندات الأرقام السرية والبيانات الحساسة، بما يتوافق مع معايير الأمان.",
-"s7.t":"الإرسال البريدي والتنفيذ","s7.p":"خدمات بريدية كاملة تشمل التحقق من العناوين والإدخال في المظاريف والتحضير البريدي.",
-"s8.t":"التغليف","s8.p":"حلول تغليف مخصصة وتحمل العلامة التجارية لحماية سلامة البطاقة أثناء النقل.",
-"s9.t":"الفرز","s9.p":"فرز آلي ويدوي حسب الفرع أو المنطقة أو نوع البطاقة أو أي معيار يحدده العميل.",
-"s10.t":"التحضير للتوزيع","s10.p":"تحضير جاهز للتوزيع — بيانات الشحن والتوثيق وسجلات سلسلة الحيازة.",
-"s11.t":"مواد مخصصة إضافية","s11.p":"إدخالات مخصصة ورسائل ترحيب ومستندات مساندة كجزء من حزمة البطاقة الكاملة.",
+"s1.t":"التخصيص الجرافيكي","s1.p":"طباعة عالية السرعة لبيانات فريدة لكل بطاقة: اسم حامل البطاقة ورقم البطاقة (PAN) وتاريخ الانتهاء ورمز الخدمة.",
+"s2.t":"تخصيص بيانات حامل البطاقة","s2.p":"تسجيل بيانات حامل البطاقة بدقة تامة مع سلامة كاملة للبيانات وسجل تدقيق شامل.",
+"s3.t":"الترميز وتخصيص الشريحة","s3.p":"ترميز الشريط المغناطيسي وفق ISO/IEC 7811 وتخصيص الشريحة التلامسية وتهيئة الواجهة اللاتلامسية لبطاقات الدفع والهوية.",
+"s4.t":"الطبع البارز والطباعة الغائرة","s4.p":"طبع بارز وفق مجموعات الحروف في ISO/IEC 7811، مع طباعة غائرة وطباعة حرارية لبيانات حامل البطاقة.",
+"s5.t":"مطابقة البطاقة مع المستند المرافق","s5.p":"تحقق آلي يؤكد مطابقة كل بطاقة مع المستند المرافق الصحيح قبل الإرسال، مع رفض أي عدم تطابق وتسويته.",
+"s6.t":"الأرقام السرية والتعامل مع المعلومات الحساسة","s6.p":"إنشاء مظاريف الأرقام السرية وغيرها من البيانات الحساسة وتسليمها بشكل آمن، تحت رقابة وصول مشددة.",
+"s7.t":"الإرسال البريدي وتجهيز الطلبات","s7.p":"خدمات بريدية تشمل التحقق من العناوين وإدراج المحتويات في المظاريف والتحضير للإرسال البريدي.",
+"s8.t":"التغليف والإدراج","s8.p":"تغليف مخصص يحمل هوية العلامة التجارية ويحمي سلامة البطاقة أثناء النقل.",
+"s9.t":"الفرز","s9.p":"الفرز حسب الفرع أو المنطقة أو الرمز البريدي أو نوع البطاقة أو أي معيار يحدده العميل، مع كشوف لكل إرسالية.",
+"s10.t":"الإرسال الآمن وسلسلة الحيازة","s10.p":"تحضير جاهز للتوزيع: كشوف الشحن والمستندات وسجلات سلسلة الحيازة الموقّعة.",
+"s11.t":"حزم الترحيب والمطبوعات التنظيمية","s11.p":"مطبوعات مرفقة مخصصة ورسائل ترحيب ومستندات مساندة داخل حزمة البطاقة.",
 "how.eyebrow":"سير العمل","how.h2":"كيف نعمل",
 "how.intro":"سير عمل منظم وآمن من تحديد المشروع حتى التسليم — مبني على الشفافية التشغيلية وحماية البيانات في كل مرحلة.",
-"step1.t":"تحديد متطلبات العميل","step1.p":"يتم الاتفاق على نطاق المشروع والكميات ومواصفات البطاقة ومتطلبات الأمان وتوثيقها.",
-"step2.t":"استلام آمن للبيانات والبطاقات","step2.p":"تُستلَم بيانات حاملي البطاقات ومخزون البطاقات وفق إجراءات استلام آمنة وخاضعة للرقابة.",
-"step3.t":"معالجة البيانات","step3.p":"يتم التحقق من البيانات وتنسيقها وتحضيرها للإنتاج في بيئة معالجة مؤمّنة.",
-"step4.t":"التخصيص","step4.p":"تُبرمَج البطاقات وتُطبَع وتُنقَش مع تتبّع كامل للدفعات خلال الإنتاج.",
-"step5.t":"مراقبة الجودة والمطابقة","step5.p":"يتم التحقق من كل بطاقة مقابل سجل بياناتها، وتؤكّد مطابقة البطاقة بالمستند دقّة العملية.",
-"step6.t":"التغليف والتسليم","step6.p":"تُغلَّف البطاقات وتُفرَز وتُرسَل وفق مواصفات العميل مع توثيق كامل.",
-"how.cta":"أرسل ملخص مشروعك",
-"sec.eyebrow":"الأمان والامتثال","sec.h2":"الأمان والجودة مدمجان في كل عملية",
-"sec.p":"بالنسبة للبنوك والمؤسسات المالية والجهات الحكومية، يُعد تخصيص البطاقات عملية حرجة من الناحية الأمنية. بيئة الإنتاج في beèri printers مبنية على حماية بيانات حاملي البطاقات وسلامة البطاقة واستمرارية العمل في كل مرحلة.",
-"sec.cert3":"معايير PCI",
-"sec.note":"تفاصيل الشهادات ونطاقها وحالتها الحالية متاحة بناءً على طلب رسمي. تخضع جميع المعايير للتحقق قبل النشر.",
-"sec.l1":"معالجة آمنة للبيانات","sec.l2":"بيئة إنتاج خاضعة للرقابة","sec.l3":"ضوابط الوصول والمراقبة","sec.l4":"إجراءات ضمان الجودة",
-"sec.l5":"تتبّع كامل للدفعات","sec.l6":"بروتوكولات السرية","sec.l7":"معالجة آمنة للمعلومات","sec.l8":"سلامة سلسلة الحيازة",
-"cap.eyebrow":"القدرات التشغيلية","cap.h2":"مُهيّأ للمشاريع بالحجم التجاري",
-"cap.intro":"تتمتع beèri printers بالقدرة الإنتاجية والمرونة والانضباط التشغيلي لدعم برامج تخصيص البطاقات الكبيرة — من التجارب الأولية إلى الإطلاق واسع النطاق.",
-"cap1.t":"إنتاج بكميات كبيرة","cap1.p":"قدرة بحجم صناعي تدعم برامج إصدار البطاقات الكبيرة بإنتاجية وجودة ثابتة.",
-"cap2.t":"دفعات إنتاج مرنة","cap2.p":"قابلية التوسّع من دفعات تجريبية محدودة إلى إصدار على نطاق وطني دون المساس بالعملية.",
-"cap3.t":"قدرة استجابة سريعة","cap3.p":"تجهيز سريع لاحتياجات الإصدار العاجلة أو الاستبدال الطارئ أو البرامج الحساسة زمنياً.",
-"cap4.t":"اتفاقية مستوى خدمة لكل مشروع","cap4.p":"اتفاقيات مستوى خدمة مصممة وفق مواصفات المشروع، يُتفق عليها مسبقاً وتُتابع خلال الإنتاج.",
-"cap5.t":"إدارة الدفعات","cap5.p":"ضبط منظم للدفعات مع مطابقة في كل مرحلة — من استلام البيانات حتى الإرسال النهائي.",
-"cap6.t":"خدمات تنفيذ متكاملة","cap6.p":"تنفيذ كامل يشمل التغليف بالعلامة التجارية والإدخال والفرز والتحضير للتوزيع.",
-"cap7.t":"مراقبة جودة متعددة المراحل","cap7.p":"تحقق آلي وفحص يدوي مدمجان في كل مراحل سير الإنتاج.",
-"cap8.t":"الجهوزية للشحن الدولي","cap8.p":"خبرة في تحضير شحنات البطاقات للإرسال عبر الحدود، بما يشمل المستندات والبروتوكولات المطلوبة.",
-"cap9.t":"دعم أنواع بطاقات متعددة","cap9.p":"بطاقات ائتمان وخصم ومدفوعة مسبقاً وولاء وهوية وبطاقات ذكية بأنواع قياسية ومخصصة.",
+"step1.t":"تحديد متطلبات العميل","step1.p":"يُتفق على نطاق المشروع والكميات ومواصفات البطاقة ومتطلبات الأمن، وتُوثَّق جميعها.",
+"step2.t":"استلام آمن للبيانات والبطاقات","step2.p":"تُستلَم بيانات حاملي البطاقات عبر نقل مشفّر ويتم الإقرار باستلامها؛ ويُسجَّل مخزون البطاقات ويُعَد ويُخزَّن تحت وصول محكوم.",
+"step3.t":"تحضير البيانات","step3.p":"يتم التحقق من البيانات وتسويتها وتحضيرها للإنتاج في بيئة معالجة مؤمّنة.",
+"step4.t":"التخصيص","step4.p":"يتم ترميز البطاقات وطباعتها وطبعها بالحروف البارزة مع تتبع كامل للدفعات خلال الإنتاج.",
+"step5.t":"مراقبة الجودة والمطابقة","step5.p":"يتم التحقق من كل بطاقة مقارنةً بسجلها الأصلي، وتُسوّى مطابقتها مع المستند المرافق قبل الإفراج عنها.",
+"step6.t":"التغليف والتسليم","step6.p":"تُغلَّف البطاقات في إرساليات مختومة تُظهر أي عبث، وتُرسَل وفق مواصفات العميل مع توثيق كامل.",
+"how.cta":"أرسلوا ملخص مشروعكم",
+"sec.eyebrow":"الأمن والامتثال","sec.h2":"الأمن والجودة مدمجان في كل عملية",
+"sec.p":"بالنسبة للبنوك والمؤسسات المالية والجهات الحكومية، يُعد تخصيص البطاقات عملية بالغة الحساسية من الناحية الأمنية. بيئة الإنتاج في beèri printers مبنية على حماية بيانات حاملي البطاقات وسلامة البطاقة واستمرارية العمل في كل مرحلة.",
+"sec.cert3":"PCI CP&P",
+"sec.note":"تُقدَّم الشهادات وبيانات نطاق التقييم وتواريخ الصلاحية الحالية كاملةً مع حزمة عرض السعر وعند الطلب.",
+"sec.l1":"نقل مشفّر للبيانات واستلام محكوم","sec.l2":"منطقة إنتاج خاضعة للرقابة والمراقبة","sec.l3":"ضبط الوصول حسب الأدوار وتسجيل الأنشطة","sec.l4":"إجراءات موثَّقة لضمان الجودة",
+"sec.l5":"تتبّع وتسوية على مستوى الدفعة","sec.l6":"اتفاقيات سرية وتدقيق خلفيات الموظفين","sec.l7":"تعامل محكوم مع بيانات التخصيص","sec.l8":"سلسلة حيازة موقّعة لكل إرسالية",
+"cap.eyebrow":"القدرات التشغيلية","cap.h2":"جاهزية تشغيلية لبرامج البطاقات واسعة النطاق",
+"cap.intro":"تتمتع beèri printers بالطاقة الإنتاجية والمرونة والانضباط التشغيلي لدعم برامج تخصيص البطاقات الكبيرة — من التجارب الأولية إلى الإطلاق على نطاق وطني.",
+"cap1.t":"إنتاج بكميات كبيرة","cap1.p":"طاقة إنتاجية بحجم صناعي تدعم برامج إصدار البطاقات الكبيرة بإنتاجية ثابتة وجودة متسقة.",
+"cap2.t":"دفعات إنتاج مرنة","cap2.p":"قابلية للتوسع من دفعات تجريبية محدودة إلى إصدار على نطاق وطني دون إضعاف ضوابط العملية.",
+"cap3.t":"استجابة سريعة","cap3.p":"قدرة على التعبئة السريعة للموارد لتلبية احتياجات الإصدار العاجلة أو الاستبدال الطارئ أو البرامج الحساسة زمنيًا.",
+"cap4.t":"اتفاقيات مستوى الخدمة لكل مشروع","cap4.p":"اتفاقيات مستوى خدمة مصممة وفق مواصفات المشروع، يُتفق عليها مسبقًا وتُتابع خلال الإنتاج.",
+"cap5.t":"إدارة الدفعات","cap5.p":"ضبط منهجي للدفعات مع تسوية ومطابقة في كل مرحلة — من استلام البيانات حتى الإرسال النهائي.",
+"cap6.t":"تجهيز متكامل للطلبات","cap6.p":"تجهيز كامل للطلبات يشمل التغليف الحامل للعلامة التجارية وإدراج المحتويات في المظاريف والفرز والتحضير للتوزيع.",
+"cap7.t":"مراقبة جودة متعددة المراحل","cap7.p":"تحقق آلي وفحص يدوي مدمجان في جميع مراحل سير العمل الإنتاجي.",
+"cap8.t":"الإرسال عبر الحدود","cap8.p":"إرساليات بطاقات مُحضَّرة للإرسال عبر الحدود، مع مستندات الشحن والجمارك المطلوبة.",
+"cap9.t":"دعم أنواع بطاقات متعددة","cap9.p":"بطاقات ائتمان وخصم ومسبقة الدفع وولاء وهوية وبطاقات ذكية — شريط مغناطيسي وشريحة تلامسية ولاتلامسية ومزدوجة الواجهة، وفق ISO/IEC 7810 ID-1 و7811 و7816 و14443.",
 "why.eyebrow":"لماذا تختارنا","why.h2":"لماذا العمل مع beèri printers؟",
-"why1.t":"الخبرة","why1.p":"عقود من الخبرة التشغيلية في الطباعة وتخصيص البيانات وإنتاج البطاقات — بالعمل مع أكثر المؤسسات تطلّباً في المنطقة.",
-"why2.t":"الأمان","why2.p":"عمليات مبنية على حماية بيانات حاملي البطاقات، مع وصول محكوم إلى المرافق ومعالجة آمنة وضوابط أمنية على مستوى العمليات.",
-"why3.t":"الجودة","why3.p":"ضمان جودة متعدد المراحل مدمج في كل دفعة إنتاج — من التحقق من البيانات إلى فحص البطاقة النهائية والمطابقة بالمستند.",
+"why1.t":"الخبرة","why1.p":"عقود من الخبرة التشغيلية في الطباعة وتخصيص البيانات وإنتاج البطاقات، لمؤسسات ذات متطلبات أمنية وزمنية صارمة.",
+"why2.t":"الأمن","why2.p":"عمليات مبنية على حماية بيانات حاملي البطاقات، مع وصول محكوم إلى المرافق ومعالجة آمنة وضوابط أمنية على مستوى العمليات.",
+"why3.t":"الجودة","why3.p":"ضمان جودة متعدد المراحل مدمج في كل دفعة إنتاج — من التحقق من البيانات إلى الفحص النهائي للبطاقة ومطابقتها مع المستند المرافق.",
 "why4.t":"المرونة","why4.p":"قابلية التكيّف مع أنواع البطاقات والكميات والجداول الزمنية وتكوينات التسليم المختلفة — دون المساس بسلامة العملية.",
-"why5.t":"الموثوقية","why5.p":"سجل مُثبت في التسليم في الوقت المحدد لمؤسسات كبرى ذات لوجستيات معقدة ومتطلبات تنظيمية ولا تتحمل أي خطأ في الإصدار.",
-"why6.t":"شريك تشغيلي واحد","why6.p":"التخصيص ومراقبة الجودة والتغليف والتنفيذ والتوزيع منسّقة عبر شريك مهني واحد — لتقليل التعقيد وأعباء التكامل.",
-"ref.eyebrow":"مراجع","ref.h2":"خبرة المشاريع",
+"why5.t":"الموثوقية","why5.p":"سجل حافل بالتسليم في المواعيد المحددة لمؤسسات كبرى ذات عمليات لوجستية معقدة ومتطلبات تنظيمية صارمة لا تتحمل أي خطأ في إصدار البطاقات.",
+"why6.t":"شريك تشغيلي واحد","why6.p":"التخصيص ومراقبة الجودة والتغليف وتجهيز الطلبات والتوزيع بتنسيق كامل لدى شريك مهني واحد — لتقليل التعقيد وأعباء التكامل.",
+"ref.eyebrow":"المراجع","ref.h2":"سجل مشاريعنا",
 "ref.intro":"دعمت beèri printers مؤسسات كبرى في القطاعات المالية والحكومية والتجارية. تُعرض أدناه نماذج تمثيلية للمشاريع — والمراجع التفصيلية متاحة عند الطلب.",
 "ref.lbl.project":"المشروع:","ref.lbl.services":"الخدمات:","ref.lbl.scope":"النطاق:",
 "ref1.type":"القطاع المالي","ref1.t":"مؤسسة مالية رائدة",
 "ref1.project":"برنامج سنوي لتخصيص وتنفيذ بطاقات الدفع",
-"ref1.services":"معالجة البيانات، التخصيص، مطابقة البطاقة بالمستند، التغليف والتوزيع",
-"ref1.scope":"برنامج متعدد السنوات بدورات إنتاج متكررة واتفاقيات خدمة محددة",
+"ref1.services":"معالجة البيانات والتخصيص ومطابقة البطاقة مع المستند المرافق والتغليف والتوزيع",
+"ref1.scope":"برنامج متعدد السنوات بدورات إنتاج متكررة واتفاقيات مستوى خدمة محددة",
 "ref2.type":"الحكومة والهوية","ref2.t":"برنامج هوية للقطاع العام",
-"ref2.project":"تخصيص واسع النطاق لبطاقات الهوية والبطاقات الذكية لبرنامج حكومي",
-"ref2.services":"معالجة آمنة للبيانات، البرمجة، التخصيص، الفرز والتسليم",
-"ref2.scope":"إطلاق عالي الأمان وحسّاس زمنياً بمتطلبات امتثال صارمة",
+"ref2.project":"تخصيص واسع النطاق لبطاقات الهوية والبطاقات الذكية لبرنامج بتكليف حكومي",
+"ref2.services":"معالجة آمنة للبيانات وترميز البطاقات وتخصيصها وفرزها وتسليمها",
+"ref2.scope":"إطلاق بمستوى أمني عالٍ وحساسية زمنية عالية، بمتطلبات امتثال صارمة",
 "ref3.type":"الولاء والتجارة","ref3.t":"برنامج بطاقات ولاء للتجزئة",
-"ref3.project":"تخصيص وإرسال بريدي لإصدار كبير لبطاقات ولاء المستهلكين",
-"ref3.services":"طباعة البيانات المتغيرة، التخصيص، التغليف، الإدخال والإرسال البريدي",
-"ref3.scope":"برنامج دفعات بكميات كبيرة مع نوافذ توزيع حسّاسة زمنياً",
-"ref4.type":"شريك لمصنّع بطاقات","ref4.t":"إسناد التخصيص إقليمياً",
-"ref4.project":"تخصيص مُسنَد بشكل مستمر لمصنّع بطاقات لا يمتلك قدرة إنتاج في السوق المحلي",
-"ref4.services":"سير عمل تخصيص كامل، مراقبة الجودة، التغليف والتوزيع الإقليمي",
-"ref4.scope":"ترتيب طاقة مرن يدعم كميات متغيرة عبر برامج متعددة",
-"cta.h2":"هل أنت مستعد لمناقشة احتياجات تخصيص البطاقات؟",
-"cta.p":"أخبرنا عن مشروعك. سيتواصل فريقنا معك سريعاً بمعلومات تتعلق ببرنامجك تحديداً.",
-"form.h2":"لنتحدث عن مشروعك",
-"form.p1":"أكمل النموذج بتفاصيل مشروعك وسيتواصل معك أحد أعضاء فريق التخصيص في beèri printers خلال يوم عمل واحد.",
+"ref3.project":"تخصيص بطاقات ولاء المستهلكين وإرسالها بريديًا في إصدار واسع النطاق",
+"ref3.services":"طباعة البيانات المتغيرة والتخصيص والتغليف والإدراج في المظاريف والإرسال البريدي",
+"ref3.scope":"برنامج دفعات بكميات كبيرة مع نوافذ توزيع حساسة زمنيًا",
+"ref4.type":"شريك لمصنّع بطاقات","ref4.t":"الإسناد الخارجي للتخصيص إقليميًا",
+"ref4.project":"أعمال تخصيص مُسنَدة بصفة مستمرة لمصنع بطاقات لا يمتلك طاقة إنتاجية داخل السوق",
+"ref4.services":"سير عمل تخصيص كامل ومراقبة الجودة والتغليف والتوزيع الإقليمي",
+"ref4.scope":"ترتيب مرن للطاقة الإنتاجية يدعم كميات متغيرة عبر برامج متعددة",
+"cta.h2":"هل أنتم مستعدون لمناقشة احتياجاتكم في تخصيص البطاقات؟",
+"cta.p":"أخبرونا عن مشروعكم. سيتواصل فريقنا معكم خلال يوم عمل واحد بمعلومات تتعلق ببرنامجكم تحديدًا.",
+"form.h2":"لنتحدث عن مشروعكم",
+"form.p1":"أكملوا النموذج بتفاصيل مشروعكم وسيتواصل معكم أحد أعضاء فريق التخصيص لدينا خلال يوم عمل واحد.",
 "form.p2":"للاستفسارات الأولية أو ملخصات المشاريع أو طلبات عروض الأسعار، هذه أسرع طريقة لبدء حوار جدي.",
-"form.note":"تُعامَل جميع المعلومات المُرسلة عبر هذا النموذج بسرية وتُستخدم فقط لتقييم استفسارك والرد عليه.",
+"form.note":"تُعامَل جميع المعلومات المُرسلة عبر هذا النموذج بسرية وتُستخدم فقط لتقييم استفساركم والرد عليه.",
 "f.name":"الاسم *","f.name.ph":"الاسم الكامل","f.company":"الشركة *","f.company.ph":"اسم المؤسسة",
-"f.country":"الدولة *","f.country.ph":"الدولة","f.email":"البريد الإلكتروني للعمل *","f.phone":"الهاتف",
-"f.cardtype":"نوع البطاقة / الاستخدام","f.cardtype.ph":"اختر نوع البطاقة",
-"ct1":"بطاقة دفع (ائتمان / خصم)","ct2":"بطاقة مدفوعة مسبقاً","ct3":"بطاقة هوية","ct4":"بطاقة ذكية",
-"ct5":"بطاقة ولاء","ct6":"بطاقة نقل / وصول","ct7":"بطاقة صحية / تأمين","ct8":"أخرى",
-"f.qty":"الكمية السنوية التقديرية","f.qty.ph":"اختر نطاق الكمية",
-"q1":"أقل من 10,000","q2":"10,000 – 50,000","q3":"50,000 – 100,000","q4":"100,000 – 500,000","q5":"500,000+",
-"f.svcs":"الخدمات المطلوبة (اختر كل ما ينطبق)",
-"chk1":"تخصيص البطاقات","chk2":"البرمجة والتشفير","chk3":"النقش / الطباعة","chk4":"مطابقة البطاقة بالمستند",
-"chk5":"معالجة الأرقام السرية والمعلومات الحساسة","chk6":"الإرسال البريدي والتنفيذ","chk7":"التغليف والفرز","chk8":"التحضير للتوزيع",
-"f.desc":"وصف المشروع","f.desc.ph":"اذكر بإيجاز مشروعك والجدول الزمني والمتطلبات الخاصة أو أي أسئلة...",
-"f.submit":"أرسل مشروعك","f.ok.t":"شكراً لك",
-"f.ok.p":"تم استلام ملخص مشروعك. سيتواصل معك أحد أعضاء فريق التخصيص في beèri printers خلال يوم عمل واحد.",
-"foot.tag":"خدمات احترافية لتخصيص البطاقات للبنوك والمؤسسات المالية وجهات إصدار البطاقات عالمياً.",
+"f.country":"الدولة *","f.country.ph":"دولة التشغيل","f.email":"بريد العمل الإلكتروني *","f.phone":"الهاتف",
+"f.cardtype":"نوع البطاقة / الاستخدام","f.cardtype.ph":"اختاروا نوع البطاقة",
+"ct1":"بطاقة دفع (ائتمان / خصم)","ct2":"بطاقة مسبقة الدفع","ct3":"بطاقة هوية","ct4":"بطاقة ذكية",
+"ct5":"بطاقة ولاء","ct6":"بطاقة مواصلات / دخول","ct7":"بطاقة صحية / تأمين","ct8":"أخرى",
+"f.qty":"الكمية السنوية التقديرية","f.qty.ph":"اختاروا نطاق الكمية",
+"q1":"أقل من 10,000","q2":"10,000–50,000","q3":"50,000–100,000","q4":"100,000–500,000","q5":"500,000–2,000,000",
+"f.svcs":"الخدمات المطلوبة (اختاروا كل ما ينطبق)",
+"chk1":"تخصيص البطاقات","chk2":"الترميز وتخصيص الشريحة","chk3":"الطبع البارز / الطباعة الغائرة","chk4":"مطابقة البطاقة مع المستند",
+"chk5":"الأرقام السرية / البيانات الحساسة","chk6":"الإرسال البريدي والتجهيز","chk7":"التغليف والفرز","chk8":"الإرسال الآمن والتوزيع",
+"f.desc":"وصف المشروع","f.desc.ph":"اذكروا بإيجاز مشروعكم والجدول الزمني والمتطلبات الخاصة أو أي أسئلة…",
+"f.submit":"إرسال ملخص المشروع","f.ok.t":"شكرًا لكم",
+"f.ok.p":"تم استلام ملخص مشروعكم. سيتواصل معكم أحد أعضاء فريق التخصيص لدينا خلال يوم عمل واحد.",
+"foot.tag":"خدمات احترافية لتخصيص البطاقات للبنوك والمؤسسات المالية وجهات إصدار البطاقات عالميًا.",
 "foot.company":"الشركة","foot.k2":"طلب عرض سعر","foot.k3":"تحدث مع فريقنا",
 "foot.copy":"© 2026 beèri printers. جميع الحقوق محفوظة.",
-"foot.strip":"تخصيص البطاقات · آمن · موثوق · دولي",
-"foot.mob":"اتصل بنا / طلب معلومات"
+"foot.strip":"تخصيص البطاقات · الترميز · تجهيز الطلبات · التوزيع العالمي",
+"foot.mob":"طلب معلومات",
+"a11y.skip":"الانتقال إلى المحتوى الرئيسي",
+"err.required":"هذا الحقل مطلوب",
+"err.email":"أدخلوا بريدًا إلكترونيًا صحيحًا",
+"err.fail":"لم نتمكن من إرسال طلبكم الآن. حاولوا مرة أخرى أو تواصلوا معنا مباشرة.",
+"f.sending":"جارٍ الإرسال…",
+"f.tech":"تقنية البطاقة",
+"f.tech.ph":"اختاروا التقنية",
+"tech1":"شريط مغناطيسي فقط",
+"tech2":"شريحة تلامسية (EMV)",
+"tech3":"لاتلامسية فقط",
+"tech4":"مزدوجة الواجهة (تلامسية ولاتلامسية)",
+"tech5":"شريحة هوية / حكومية",
+"tech6":"بدون شريحة أو شريط",
+"f.scheme":"شبكة البطاقة",
+"f.scheme.ph":"اختاروا الشبكة",
+"sch1":"Visa",
+"sch2":"Mastercard",
+"sch3":"American Express",
+"sch4":"شبكة محلية",
+"sch5":"غير دفعية / نظام مغلق",
+"sch6":"لم يُحدَّد بعد",
+"f.pin":"متطلبات الرقم السري",
+"f.pin.ph":"اختاروا متطلبات الرقم السري",
+"pin1":"مطلوب مظروف رقم سري",
+"pin2":"رقم سري يحدده حامل البطاقة",
+"pin3":"إنشاء الرقم السري والمظروف",
+"pin4":"لا يلزم رقم سري",
+"f.golive":"موعد الانطلاق المستهدف",
+"f.golive.ph":"اختاروا الإطار الزمني",
+"gl1":"خلال 3 أشهر",
+"gl2":"3–6 أشهر",
+"gl3":"6–12 شهرًا",
+"gl4":"أكثر من 12 شهرًا / في التخطيط",
+"f.current":"الترتيب الحالي",
+"f.current.ph":"اختاروا الترتيب الحالي",
+"cur1":"تخصيص داخلي",
+"cur2":"مزوّد حالي، نبحث عن بديل",
+"cur3":"برنامج جديد",
+"cur4":"مصدر ثانٍ للتعافي من الكوارث",
+"q6":"أكثر من 2,000,000",
+"f.consent":"أوافق على أن تستخدم beèri printers هذه البيانات للرد على استفساري.",
+"err.consent":"يلزم الموافقة للمتابعة",
+"sec.pci":"يخضع تخصيص البطاقات لمتطلبات PCI Card Production and Provisioning — المادية والمنطقية — التي تُقيَّم لكل منشأة على حدة وتختلف عن PCI DSS. ويُقدَّم نطاقنا وحالتنا الحاليان عند الطلب."
 };
 
 T.el = {
@@ -1245,7 +1456,7 @@ T.el = {
 "ct1":"Κάρτα Πληρωμών (Πιστωτική / Χρεωστική)","ct2":"Προπληρωμένη Κάρτα","ct3":"Κάρτα Ταυτότητας","ct4":"Έξυπνη Κάρτα",
 "ct5":"Κάρτα Πιστότητας","ct6":"Κάρτα Μεταφορών / Πρόσβασης","ct7":"Κάρτα Υγείας / Ασφάλισης","ct8":"Άλλο",
 "f.qty":"Εκτιμώμενη Ετήσια Ποσότητα","f.qty.ph":"Επιλέξτε εύρος ποσότητας",
-"q1":"Κάτω από 10.000","q2":"10.000 – 50.000","q3":"50.000 – 100.000","q4":"100.000 – 500.000","q5":"500.000+",
+"q1":"Κάτω από 10.000","q2":"10.000 – 50.000","q3":"50.000 – 100.000","q4":"100.000 – 500.000","q5":"500.000–2.000.000",
 "f.svcs":"Απαιτούμενες Υπηρεσίες (επιλέξτε όσες ισχύουν)",
 "chk1":"Εξατομίκευση Καρτών","chk2":"Κωδικοποίηση","chk3":"Ανάγλυφη Εκτύπωση","chk4":"Αντιστοίχιση Κάρτας-Εντύπου",
 "chk5":"Διαχείριση PIN / Ευαίσθητων Πληροφοριών","chk6":"Ταχυδρομική Αποστολή & Εκτέλεση","chk7":"Συσκευασία & Ταξινόμηση","chk8":"Προετοιμασία Διανομής",
@@ -1256,7 +1467,50 @@ T.el = {
 "foot.company":"Εταιρεία","foot.k2":"Αίτηση Προσφοράς","foot.k3":"Μιλήστε με την Ομάδα μας",
 "foot.copy":"© 2026 beèri printers. Με την επιφύλαξη παντός δικαιώματος.",
 "foot.strip":"Εξατομίκευση Καρτών · Ασφαλής · Αξιόπιστη · Διεθνής",
-"foot.mob":"Επικοινωνία / Αίτημα Πληροφοριών"
+"foot.mob":"Επικοινωνία / Αίτημα Πληροφοριών",
+"a11y.skip":"Μετάβαση στο κύριο περιεχόμενο",
+"err.required":"Το πεδίο είναι υποχρεωτικό",
+"err.email":"Εισαγάγετε έγκυρο email εργασίας",
+"err.fail":"Δεν μπορέσαμε να στείλουμε το αίτημά σας. Δοκιμάστε ξανά ή επικοινωνήστε μαζί μας.",
+"f.sending":"Αποστολή…",
+"f.tech":"Τεχνολογία Κάρτας",
+"f.tech.ph":"Επιλέξτε τεχνολογία",
+"tech1":"Μόνο μαγνητική ταινία",
+"tech2":"Επαφικό chip (EMV)",
+"tech3":"Μόνο ανέπαφη",
+"tech4":"Διπλής διεπαφής (επαφική και ανέπαφη)",
+"tech5":"Chip ταυτότητας / κρατικό",
+"tech6":"Χωρίς chip ή ταινία",
+"f.scheme":"Σχήμα Κάρτας",
+"f.scheme.ph":"Επιλέξτε σχήμα",
+"sch1":"Visa",
+"sch2":"Mastercard",
+"sch3":"American Express",
+"sch4":"Εθνικό σχήμα",
+"sch5":"Μη πληρωμών / κλειστού κυκλώματος",
+"sch6":"Δεν έχει καθοριστεί",
+"f.pin":"Απαίτηση PIN",
+"f.pin.ph":"Επιλέξτε απαίτηση PIN",
+"pin1":"Απαιτείται έντυπο PIN",
+"pin2":"PIN από τον κάτοχο",
+"pin3":"Δημιουργία PIN και έντυπο",
+"pin4":"Δεν απαιτείται PIN",
+"f.golive":"Στόχος Έναρξης",
+"f.golive.ph":"Επιλέξτε χρονικό πλαίσιο",
+"gl1":"Εντός 3 μηνών",
+"gl2":"3–6 μήνες",
+"gl3":"6–12 μήνες",
+"gl4":"12+ μήνες / σχεδιασμός",
+"f.current":"Τρέχουσα Διευθέτηση",
+"f.current.ph":"Επιλέξτε τρέχουσα διευθέτηση",
+"cur1":"Εσωτερική εξατομίκευση",
+"cur2":"Υπάρχων πάροχος, αναζήτηση εναλλακτικής",
+"cur3":"Νέο πρόγραμμα",
+"cur4":"Δεύτερη πηγή ανάκαμψης",
+"q6":"2.000.000+",
+"f.consent":"Συμφωνώ ότι η beèri printers μπορεί να επεξεργαστεί αυτά τα στοιχεία για να απαντήσει στο αίτημά μου.",
+"err.consent":"Απαιτείται επιβεβαίωση για συνέχεια",
+"sec.pci":"Η εξατομίκευση καρτών διέπεται από τις απαιτήσεις PCI Card Production and Provisioning — Φυσικής και Λογικής Ασφάλειας — που αξιολογούνται ανά εγκατάσταση και είναι διακριτές από το PCI DSS. Το τρέχον εύρος και η κατάστασή μας παρέχονται κατόπιν αιτήματος."
 };
 
 /* ── I18N ENGINE ────────────────────────────────────────── */
@@ -1318,64 +1572,214 @@ function initialLang(){
 
 applyLang(initialLang());
 
-/* language switcher */
-var langBtn = document.getElementById('langBtn');
+/* ── LANGUAGE SWITCHER (mouse + full keyboard) ───────────── */
+var langBtn  = document.getElementById('langBtn');
 var langMenu = document.getElementById('langMenu');
-function closeLang(){ langMenu.classList.remove('open'); langBtn.setAttribute('aria-expanded','false'); }
-langBtn.addEventListener('click', function(e){
-  e.stopPropagation();
-  var open = langMenu.classList.toggle('open');
-  langBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
-});
-langMenu.addEventListener('click', function(e){
-  var b = e.target.closest('button[data-lang]');
-  if(!b) return;
-  applyLang(b.getAttribute('data-lang'));
-  closeLang();
-});
-document.addEventListener('click', function(e){
-  if(!langMenu.contains(e.target) && e.target !== langBtn) closeLang();
-});
-document.addEventListener('keydown', function(e){ if(e.key === 'Escape') closeLang(); });
+
+if (langBtn && langMenu) {
+  var langItems = function(){ return langMenu.querySelectorAll('button[data-lang]'); };
+
+  function openLang(focusIndex){
+    langMenu.classList.add('open');
+    langBtn.setAttribute('aria-expanded','true');
+    var items = langItems();
+    if (typeof focusIndex === 'number' && items.length) {
+      items[(focusIndex + items.length) % items.length].focus();
+    }
+  }
+  function closeLang(returnFocus){
+    if (!langMenu.classList.contains('open')) return;
+    langMenu.classList.remove('open');
+    langBtn.setAttribute('aria-expanded','false');
+    if (returnFocus) langBtn.focus();
+  }
+
+  langBtn.addEventListener('click', function(ev){
+    ev.stopPropagation();
+    if (langMenu.classList.contains('open')) closeLang(false); else openLang();
+  });
+
+  langBtn.addEventListener('keydown', function(ev){
+    if (ev.key === 'ArrowDown' || ev.key === 'Enter' || ev.key === ' ') {
+      ev.preventDefault(); openLang(0);
+    } else if (ev.key === 'ArrowUp') {
+      ev.preventDefault(); openLang(-1);
+    }
+  });
+
+  langMenu.addEventListener('click', function(ev){
+    // ev.target can be a text node's parent or the container itself
+    var el = ev.target instanceof Element ? ev.target : null;
+    var b  = el && el.closest ? el.closest('button[data-lang]') : null;
+    if (!b) return;
+    applyLang(b.getAttribute('data-lang'));
+    closeLang(true);
+  });
+
+  langMenu.addEventListener('keydown', function(ev){
+    var items = langItems(), i = Array.prototype.indexOf.call(items, document.activeElement);
+    if (ev.key === 'ArrowDown')      { ev.preventDefault(); items[(i+1) % items.length].focus(); }
+    else if (ev.key === 'ArrowUp')   { ev.preventDefault(); items[(i-1+items.length) % items.length].focus(); }
+    else if (ev.key === 'Home')      { ev.preventDefault(); items[0].focus(); }
+    else if (ev.key === 'End')       { ev.preventDefault(); items[items.length-1].focus(); }
+    else if (ev.key === 'Tab')       { closeLang(false); }
+  });
+
+  document.addEventListener('click', function(ev){
+    if (!langMenu.contains(ev.target) && ev.target !== langBtn && !langBtn.contains(ev.target)) {
+      closeLang(false);
+    }
+  });
+  document.addEventListener('keydown', function(ev){
+    if (ev.key === 'Escape' && langMenu.classList.contains('open')) closeLang(true);
+  });
+}
 
 /* ── MOBILE MENU ────────────────────────────────────────── */
 var ham = document.getElementById('ham');
 var mob = document.getElementById('mob-menu');
-ham.addEventListener('click', function(){ mob.classList.toggle('open'); });
-mob.addEventListener('click', function(e){ if(e.target.tagName === 'A') mob.classList.remove('open'); });
-
-/* ── SCROLL REVEAL ──────────────────────────────────────── */
-var reveals = document.querySelectorAll('.reveal');
-if('IntersectionObserver' in window){
-  var io = new IntersectionObserver(function(entries){
-    entries.forEach(function(en){
-      if(en.isIntersecting){ en.target.classList.add('visible'); io.unobserve(en.target); }
-    });
-  }, {threshold:0.08, rootMargin:'0px 0px -40px 0px'});
-  for(var r=0;r<reveals.length;r++) io.observe(reveals[r]);
-}else{
-  for(var r2=0;r2<reveals.length;r2++) reveals[r2].classList.add('visible');
+if (ham && mob) {
+  function setMenu(open){
+    mob.classList.toggle('open', open);
+    ham.setAttribute('aria-expanded', open ? 'true' : 'false');
+  }
+  ham.addEventListener('click', function(){ setMenu(!mob.classList.contains('open')); });
+  mob.addEventListener('click', function(ev){
+    if (ev.target && ev.target.tagName === 'A') setMenu(false);
+  });
+  document.addEventListener('keydown', function(ev){
+    if (ev.key === 'Escape' && mob.classList.contains('open')) { setMenu(false); ham.focus(); }
+  });
 }
 
-/* ── FORM ───────────────────────────────────────────────── */
-var form = document.getElementById('projectForm');
+/* ── SCROLL REVEAL ──────────────────────────────────────── */
+/* The .js class gates the opacity:0 rule, so everything above stays visible
+   if scripting is unavailable or anything earlier threw. */
+document.documentElement.classList.add('js');
+var reveals = document.querySelectorAll('.reveal');
+function showAll(){ for (var i=0;i<reveals.length;i++) reveals[i].classList.add('visible'); }
+if ('IntersectionObserver' in window) {
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(en){
+      if (en.isIntersecting) { en.target.classList.add('visible'); io.unobserve(en.target); }
+    });
+  }, {threshold:0.08, rootMargin:'0px 0px -40px 0px'});
+  for (var r=0;r<reveals.length;r++) io.observe(reveals[r]);
+  // Safety net: if anything prevents the observer firing, reveal on load.
+  window.addEventListener('load', function(){
+    setTimeout(function(){
+      for (var i=0;i<reveals.length;i++) {
+        var b = reveals[i].getBoundingClientRect();
+        if (b.top < window.innerHeight && b.bottom > 0) reveals[i].classList.add('visible');
+      }
+    }, 300);
+  });
+} else {
+  showAll();
+}
+
+/* ── CONTACT FORM ───────────────────────────────────────────────────────
+   FORM_ENDPOINT must be set to a URL that accepts a POST of the project
+   brief as JSON. Until it is, the form reports a send failure rather than
+   showing a false confirmation — an enquiry is never silently discarded.
+   ─────────────────────────────────────────────────────────────────────── */
+var FORM_ENDPOINT = null;   /* e.g. 'https://example.com/api/rfq' */
+
+var form    = document.getElementById('projectForm');
 var success = document.getElementById('formSuccess');
-form.addEventListener('submit', function(e){
-  e.preventDefault();
-  var required = ['f-name','f-company','f-country','f-email'];
-  var ok = true, firstBad = null;
-  for(var i=0;i<required.length;i++){
-    var el = document.getElementById(required[i]);
-    var bad = !el.value.trim() || (el.type === 'email' && !/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(el.value.trim()));
+
+if (form && success) {
+  var REQUIRED = [
+    {id:'f-name',    err:'e-name'},
+    {id:'f-company', err:'e-company'},
+    {id:'f-country', err:'e-country'},
+    {id:'f-email',   err:'e-email', email:true},
+    {id:'f-consent', err:'e-consent', check:true}
+  ];
+  var EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
+
+  function mark(el, errEl, bad){
     el.classList.toggle('err', bad);
-    if(bad){ ok = false; if(!firstBad) firstBad = el; }
+    el.setAttribute('aria-invalid', bad ? 'true' : 'false');
+    if (errEl) errEl.hidden = !bad;
   }
-  if(!ok){ firstBad.focus(); return; }
-  form.style.display = 'none';
-  success.style.display = 'block';
-  success.scrollIntoView({behavior:'smooth', block:'center'});
-});
-form.addEventListener('input', function(e){
-  if(e.target.classList.contains('err')) e.target.classList.remove('err');
-});
+
+  function validate(){
+    var firstBad = null;
+    for (var i=0;i<REQUIRED.length;i++){
+      var f  = REQUIRED[i];
+      var el = document.getElementById(f.id);
+      if (!el) continue;
+      var bad;
+      if (f.check) {
+        bad = !el.checked;
+      } else {
+        var v = el.value.trim();
+        bad = !v || (f.email && !EMAIL_RE.test(v));
+      }
+      mark(el, document.getElementById(f.err), bad);
+      if (bad && !firstBad) firstBad = el;
+    }
+    return firstBad;
+  }
+
+  function failNotice(show){
+    var box = document.getElementById('formFail');
+    if (box) box.hidden = !show;
+  }
+
+  form.addEventListener('submit', function(ev){
+    ev.preventDefault();
+    failNotice(false);
+    var firstBad = validate();
+    if (firstBad) { firstBad.focus(); return; }
+
+    var btn = form.querySelector('.btn-submit');
+    var payload = {};
+    new FormData(form).forEach(function(val, key){
+      if (payload[key] === undefined) payload[key] = val;
+      else if (Array.isArray(payload[key])) payload[key].push(val);
+      else payload[key] = [payload[key], val];
+    });
+    payload.language = document.documentElement.lang || 'en';
+
+    function done(){
+      form.hidden = true;
+      success.hidden = false;
+      success.style.display = 'block';
+      success.scrollIntoView({behavior:'smooth', block:'center'});
+    }
+    function failed(){
+      failNotice(true);
+      if (btn) { btn.disabled = false; btn.textContent = (T[document.documentElement.lang]||T.en)['f.submit']; }
+    }
+
+    if (!FORM_ENDPOINT) { failed(); return; }
+
+    if (btn) {
+      btn.disabled = true;
+      btn.textContent = (T[document.documentElement.lang]||T.en)['f.sending'];
+    }
+    fetch(FORM_ENDPOINT, {
+      method:'POST',
+      headers:{'Content-Type':'application/json'},
+      body:JSON.stringify(payload)
+    }).then(function(res){ if (res.ok) done(); else failed(); })
+      .catch(failed);
+  });
+
+  form.addEventListener('change', function(ev){
+    var el = ev.target;
+    if (el && el.id === 'f-consent' && el.checked) {
+      mark(el, document.getElementById('e-consent'), false);
+    }
+  });
+  form.addEventListener('input', function(ev){
+    var el = ev.target;
+    if (el && el.classList && el.classList.contains('err')) {
+      var f = REQUIRED.filter(function(x){ return x.id === el.id; })[0];
+      mark(el, f ? document.getElementById(f.err) : null, false);
+    }
+  });
+}
 </script>

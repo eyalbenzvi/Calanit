@@ -23,6 +23,7 @@ python3 wrap.py          # regenerate test.html from ../index.html — rerun aft
 python3 test_suite.py    # 155 functional cases
 python3 contrast.py      # WCAG AA audit, both themes (exit 1 on failure)
 python3 wordfit.py       # headings whose longest word cannot fit (exit 1 on failure)
+python3 widows.py        # widows / conspicuously short final lines
 ```
 
 `fetch_fonts.py` mirrors the eight font families the page requests into
@@ -56,6 +57,13 @@ if you change the font request in `index.html`.
 word across lines, so nothing overflows and nothing is clipped -- but the
 heading reads as "Personalizatio / n". It measures each heading's longest word
 against its content box instead, across 4 languages x 12 widths.
+
+`widows.py` measures real line boxes (a Range per word, grouped by line top)
+and reports blocks whose final line holds one short word or is under a fifth of
+the measure. Like `wordfit.py` this is invisible to overflow probes -- nothing
+overflows, the text simply reads as unbalanced. Some residue is expected and
+acceptable: a short last line inside a narrow two-column card is ordinary
+typography, not a defect.
 
 `index.html` is a complete standalone document: it opens correctly from disk,
 can be hosted as-is, and still renders when the artifact host wraps it in its

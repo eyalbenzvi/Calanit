@@ -106,6 +106,16 @@ a{color:inherit;}
 
 /* ── TYPE ───────────────────────────────────────────────── */
 h1,h2,h3,h4{font-family:var(--f-display);text-wrap:balance;}
+/* ── TEXT FLOW ───────────────────────────────────────────────
+   Short blocks are balanced across their lines; running text uses `pretty`,
+   which specifically avoids leaving a single short word on the last line.
+   Both degrade to normal wrapping in browsers that lack them. */
+.eyebrow,.hero-tagline,.cert-badge,.counter-label,.ref-type,.svc-checks-label,
+.fg label,.footer-col h4,.logo-sub,.chk span,.form-success h3,
+.btn-primary,.btn-ghost,.btn-nav,.btn-dark,.btn-submit,.mobile-cta-bar a,
+.nav-links a,.mobile-menu a,.lang-menu button{text-wrap:balance;}
+p,li,.hero-body,.ref-row,.form-fail,.fg-err,.footer-col a{text-wrap:pretty;}
+
 .eyebrow{font-family:var(--f-util);font-size:.75rem;font-weight:600;letter-spacing:var(--ls-wide);text-transform:uppercase;color:var(--brand);}
 .s-white .eyebrow,.s-light .eyebrow{color:var(--brand-txt);}
 
@@ -418,7 +428,7 @@ h1,h2,h3,h4{font-family:var(--f-display);text-wrap:balance;}
     <div class="hero-card"></div>
   </div>
   <div class="hero-inner">
-    <p class="eyebrow" style="margin-bottom:1.2rem;" data-i18n="hero.eyebrow">be’eri printers · Card Personalization Services</p>
+    <p class="eyebrow" style="margin-bottom:1.2rem;" data-i18n="hero.eyebrow">be’eri printers · Card Personalization Services</p>
     <h1 data-i18n-html="hero.h1">Secure Card<br><em>Personalization</em></h1>
     <p class="hero-tagline" data-i18n="hero.tagline">Proven Experience. Reliable Delivery.</p>
     <p class="hero-body" data-i18n="hero.body">Card personalization backed by decades of operational experience, secure processes and rigorous quality control, for banks, financial institutions and card issuers worldwide.</p>
@@ -919,7 +929,7 @@ h1,h2,h3,h4{font-family:var(--f-display);text-wrap:balance;}
     </div>
     <div class="footer-bottom">
       <span data-i18n="foot.copy">&copy; 2026 be’eri printers. All rights reserved.</span>
-      <span data-i18n="foot.strip">Card Personalization · Encoding · Fulfillment · Worldwide Distribution</span>
+      <span data-i18n="foot.strip">Card Personalization · Encoding · Fulfillment · Worldwide Distribution</span>
     </div>
   </div>
 </footer>
@@ -939,7 +949,7 @@ T.en = {
 "nav.capabilities":"Capabilities","nav.why":"Why be’eri","nav.references":"References","nav.contact":"Contact",
 "nav.cta":"Discuss Your Project",
 "mob.about":"About be’eri printers","mob.services":"Personalization Services","mob.security":"Security & Quality","mob.why":"Why be’eri printers",
-"hero.eyebrow":"be’eri printers · Card Personalization Services",
+"hero.eyebrow":"be’eri printers · Card Personalization Services",
 "hero.h1":"Secure Card<br><em>Personalization</em>",
 "hero.tagline":"Proven Experience. Reliable Delivery.",
 "hero.body":"Card personalization backed by decades of operational experience, secure processes and rigorous quality control, for banks, financial institutions and card issuers worldwide.",
@@ -1037,7 +1047,7 @@ T.en = {
 "foot.tag":"Card personalization for banks, financial institutions and card issuers worldwide.",
 "foot.company":"Company","foot.k2":"Submit an RFQ","foot.k3":"Talk to Our Team",
 "foot.copy":"© 2026 be’eri printers. All rights reserved.",
-"foot.strip":"Card Personalization · Encoding · Fulfillment · Worldwide Distribution",
+"foot.strip":"Card Personalization · Encoding · Fulfillment · Worldwide Distribution",
 "foot.mob":"Request Information",
 "a11y.skip":"Skip to main content",
 "err.required":"This field is required",
@@ -1093,7 +1103,7 @@ T.he = {
 "nav.capabilities":"יכולות","nav.why":"למה אנחנו","nav.references":"לקוחות","nav.contact":"צור קשר",
 "nav.cta":"בואו נדבר על הפרויקט",
 "mob.about":"אודות דפוס בארי","mob.services":"שירותי פרסונליזציה","mob.security":"אבטחה ואיכות","mob.why":"למה דפוס בארי",
-"hero.eyebrow":"דפוס בארי · שירותי פרסונליזציה של כרטיסים",
+"hero.eyebrow":"דפוס בארי · שירותי פרסונליזציה של כרטיסים",
 "hero.h1":"פרסונליזציה מאובטחת<br><em>של כרטיסים</em>",
 "hero.tagline":"ניסיון מוכח. אספקה אמינה.",
 "hero.body":"פרסונליזציה של כרטיסים הנשענת על עשרות שנות ניסיון תפעולי, תהליכים מאובטחים ובקרת איכות קפדנית — עבור בנקים, גופים פיננסיים ומנפיקי כרטיסים בכל העולם.",
@@ -1191,7 +1201,7 @@ T.he = {
 "foot.tag":"פרסונליזציה של כרטיסים לבנקים, גופים פיננסיים ומנפיקי כרטיסים בכל העולם.",
 "foot.company":"החברה","foot.k2":"בקשה להצעת מחיר","foot.k3":"שיחה עם הצוות",
 "foot.copy":"© 2026 דפוס בארי. כל הזכויות שמורות.",
-"foot.strip":"פרסונליזציה של כרטיסים · קידוד · השלמת שירות · הפצה עולמית",
+"foot.strip":"פרסונליזציה של כרטיסים · קידוד · השלמת שירות · הפצה עולמית",
 "foot.mob":"בקשת מידע",
 "a11y.skip":"דלגו לתוכן הראשי",
 "err.required":"שדה חובה",
@@ -1247,7 +1257,7 @@ T.ar = {
 "nav.capabilities":"القدرات","nav.why":"لماذا نحن","nav.references":"مراجعنا","nav.contact":"اتصل بنا",
 "nav.cta":"لنتحدث عن مشروعكم",
 "mob.about":"عن be’eri printers","mob.services":"خدمات التخصيص","mob.security":"الأمن والجودة","mob.why":"لماذا be’eri printers",
-"hero.eyebrow":"be’eri printers · خدمات تخصيص البطاقات",
+"hero.eyebrow":"be’eri printers · خدمات تخصيص البطاقات",
 "hero.h1":"تخصيص البطاقات<br><em>بأمان تام</em>",
 "hero.tagline":"خبرة مثبتة، وتسليم موثوق.",
 "hero.body":"تخصيص البطاقات مدعوم بعقود من الخبرة التشغيلية وعمليات آمنة ورقابة صارمة على الجودة، للبنوك والمؤسسات المالية وجهات إصدار البطاقات حول العالم.",
@@ -1345,7 +1355,7 @@ T.ar = {
 "foot.tag":"تخصيص البطاقات للبنوك والمؤسسات المالية وجهات إصدار البطاقات حول العالم.",
 "foot.company":"الشركة","foot.k2":"طلب عرض سعر","foot.k3":"تحدث مع فريقنا",
 "foot.copy":"© 2026 be’eri printers. جميع الحقوق محفوظة.",
-"foot.strip":"تخصيص البطاقات · الترميز · تجهيز الطلبات · التوزيع العالمي",
+"foot.strip":"تخصيص البطاقات · الترميز · تجهيز الطلبات · التوزيع العالمي",
 "foot.mob":"طلب معلومات",
 "a11y.skip":"الانتقال إلى المحتوى الرئيسي",
 "err.required":"هذا الحقل مطلوب",
@@ -1401,7 +1411,7 @@ T.el = {
 "nav.capabilities":"Δυνατότητες","nav.why":"Γιατί Εμάς","nav.references":"Αναφορές","nav.contact":"Επικοινωνία",
 "nav.cta":"Συζητήστε το Έργο σας",
 "mob.about":"Σχετικά με εμάς","mob.services":"Υπηρεσίες Εξατομίκευσης","mob.security":"Ασφάλεια & Ποιότητα","mob.why":"Γιατί be’eri printers",
-"hero.eyebrow":"be’eri printers · Υπηρεσίες Εξατομίκευσης Καρτών",
+"hero.eyebrow":"be’eri printers · Υπηρεσίες Εξατομίκευσης Καρτών",
 "hero.h1":"Ασφαλής<br><em>Εξατομίκευση Καρτών</em>",
 "hero.tagline":"Αποδεδειγμένη Εμπειρία. Αξιόπιστη Παράδοση.",
 "hero.body":"Εξατομίκευση καρτών με δεκαετίες λειτουργικής εμπειρίας, ασφαλείς διαδικασίες και αυστηρό ποιοτικό έλεγχο, για τράπεζες, χρηματοπιστωτικά ιδρύματα και εκδότες καρτών παγκοσμίως.",
@@ -1499,7 +1509,7 @@ T.el = {
 "foot.tag":"Εξατομίκευση καρτών για τράπεζες, χρηματοπιστωτικά ιδρύματα και εκδότες καρτών παγκοσμίως.",
 "foot.company":"Εταιρεία","foot.k2":"Αίτηση Προσφοράς","foot.k3":"Μιλήστε με την Ομάδα μας",
 "foot.copy":"© 2026 be’eri printers. Με την επιφύλαξη παντός δικαιώματος.",
-"foot.strip":"Εξατομίκευση Καρτών · Κωδικοποίηση · Fulfillment · Παγκόσμια Διανομή",
+"foot.strip":"Εξατομίκευση Καρτών · Κωδικοποίηση · Fulfillment · Παγκόσμια Διανομή",
 "foot.mob":"Αίτημα Πληροφοριών",
 "a11y.skip":"Μετάβαση στο κύριο περιεχόμενο",
 "err.required":"Το πεδίο είναι υποχρεωτικό",

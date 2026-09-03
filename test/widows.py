@@ -12,9 +12,10 @@ from playwright.sync_api import sync_playwright
 
 JS = r"""
 () => {
-  const SEL = 'p,h1,h2,h3,h4,li,label,span.ref-cell,a.btn-nav,.btn-primary,.btn-ghost,'
+  const SEL = 'p,h1,h2,h3,h4,li,label,a.btn-nav,.btn-primary,.btn-ghost,'
             + '.btn-dark,.btn-submit,.cert-badge,.counter-label,.ref-type,.svc-checks-label,'
-            + '.mobile-cta-bar a,.chk span,.step h3,.eyebrow,.hero-tagline';
+            + '.mobile-cta-bar a,.chk span,.step h3,.eyebrow,.hero-tagline,'
+            + '.footer-bottom span,.footer-col a,.ref-row span,.logo-sub';
   const out = [];
   document.querySelectorAll(SEL).forEach(el => {
     // only leaf text blocks

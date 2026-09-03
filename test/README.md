@@ -24,6 +24,7 @@ python3 test_suite.py    # 155 functional cases
 python3 contrast.py      # WCAG AA audit, both themes (exit 1 on failure)
 python3 wordfit.py       # headings whose longest word cannot fit (exit 1 on failure)
 python3 widows.py        # widows / conspicuously short final lines
+python3 consistency.py   # components whose instances render differently
 ```
 
 `fetch_fonts.py` mirrors the eight font families the page requests into
@@ -64,6 +65,14 @@ the measure. Like `wordfit.py` this is invisible to overflow probes -- nothing
 overflows, the text simply reads as unbalanced. Some residue is expected and
 acceptable: a short last line inside a narrow two-column card is ordinary
 typography, not a defect.
+
+`consistency.py` compares the computed style of every instance of each
+repeated component class. More than one signature means either an intentional
+variant or a cascade collision -- a generic descendant rule out-specifying the
+component class. This is the check that would have caught `.eyebrow` rendering
+at four different sizes because `.section-hdr p` (0,1,1) beat `.eyebrow`
+(0,1,0). Expect some intentional variants in its output (light vs dark
+grounds, centred sections); read it as a list to triage, not a pass/fail.
 
 `index.html` is a complete standalone document: it opens correctly from disk,
 can be hosted as-is, and still renders when the artifact host wraps it in its

@@ -14,7 +14,7 @@ JS = """()=>{const out=[];
      ';font-style:'+cs.fontStyle+';letter-spacing:'+cs.letterSpacing+';text-transform:'+cs.textTransform;
    document.body.appendChild(probe);
    let worst=null;
-   (el.innerText||el.textContent||'').split(/\\s+/).filter(Boolean).forEach(w=>{
+   (el.innerText||el.textContent||'').split(/[ \\t\\n\\r]+/).filter(Boolean).forEach(w=>{
      probe.textContent=w;
      const ww=probe.getBoundingClientRect().width;
      if(ww>box+0.5&&(!worst||ww>worst.w))worst={word:w,w:Math.round(ww),box:Math.round(box)};});

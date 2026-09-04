@@ -49,15 +49,15 @@ if you change the font request in `index.html`.
 | Form | required-field flagging, email validation, error clearing on input, focus to first invalid, unconfigured submit reports failure rather than false success, stubbed endpoint shows success, stable `<option>` values, `aria-required`/`aria-describedby`, live-region success panel |
 | Reveal animations | all content visible after scrolling, nothing hidden under `prefers-reduced-motion` |
 | No JavaScript | hero, services and form still present and visible |
-| Responsive | zero horizontal overflow at 10 widths × 4 languages |
+| Responsive | zero horizontal overflow at 10 widths × 3 languages |
 | Dark mode | no transparent text, explicit body background |
-| Clipping | no element clipping its own text at 6 widths × 4 languages |
+| Clipping | no element clipping its own text at 6 widths × 3 languages |
 
 `wordfit.py` exists because clipping probes cannot catch this class of bug:
 `overflow-wrap:break-word` "solves" an overflowing heading by splitting the
 word across lines, so nothing overflows and nothing is clipped -- but the
 heading reads as "Personalizatio / n". It measures each heading's longest word
-against its content box instead, across 4 languages x 12 widths.
+against its content box instead, across 3 languages x 12 widths.
 
 `widows.py` measures real line boxes (a Range per word, grouped by line top)
 and reports blocks whose final line holds one short word or is under a fifth of

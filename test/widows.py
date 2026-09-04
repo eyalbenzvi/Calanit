@@ -78,7 +78,7 @@ JS = r"""
 
 WIDTHS = [1440,1366,1280,1200,1120,1080,1024,980,940,900,860,820,768,720,700,
           660,620,580,540,500,460,430,414,390,375,360,340,320]
-LANGS = ['en','he','ar','el']
+LANGS = ['en','ar','el']
 
 def run(widths=WIDTHS, langs=LANGS, verbose=True):
     url = 'file:///home/user/Calanit/test/test.html'

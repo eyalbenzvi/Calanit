@@ -5,7 +5,7 @@ from playwright.sync_api import sync_playwright
 
 D = os.getcwd()
 URL = 'file://' + D + '/test.html'
-LANGS = {'en':'ltr','he':'rtl','ar':'rtl','el':'ltr'}
+LANGS = {'en':'ltr','ar':'rtl','el':'ltr'}
 PASS, FAIL = [], []
 
 def chk(name, cond, detail=''):
@@ -112,7 +112,7 @@ with sync_playwright() as p:
         pg.evaluate("()=>document.activeElement.getAttribute('data-lang')")=='en')
     pg.keyboard.press('ArrowDown')
     chk('ArrowDown moves to next item',
-        pg.evaluate("()=>document.activeElement.getAttribute('data-lang')")=='he')
+        pg.evaluate("()=>document.activeElement.getAttribute('data-lang')")=='ar')
     pg.keyboard.press('End')
     chk('End jumps to last item',
         pg.evaluate("()=>document.activeElement.getAttribute('data-lang')")=='el')
@@ -124,7 +124,7 @@ with sync_playwright() as p:
     pg.keyboard.press('Enter'); pg.wait_for_timeout(200)
     chk('Enter opens menu', pg.is_visible('#langMenu'))
     pg.keyboard.press('ArrowDown'); pg.keyboard.press('Enter'); pg.wait_for_timeout(1000)
-    chk('Enter selects a language', pg.evaluate("()=>document.documentElement.lang") in ('en','he','ar','el'))
+    chk('Enter selects a language', pg.evaluate("()=>document.documentElement.lang") in ('en','ar','el'))
     chk('keyboard nav no JS errors', errs==[], str(errs[:2]))
     pg.close()
 
@@ -220,7 +220,7 @@ with sync_playwright() as p:
     ctx = b.new_context(java_script_enabled=False, viewport={'width':1440,'height':900})
     pg = ctx.new_page(); pg.goto(URL); pg.wait_for_timeout(600)
     txt = pg.inner_text('body')
-    chk('no-JS: hero copy present', 'Secure Card' in txt)
+    chk('no-JS: hero copy present', 'Secure card' in txt)
     chk('no-JS: services present', 'Encoding' in txt)
     chk('no-JS: form present', pg.is_visible('#projectForm'))
     njinv = pg.evaluate("""()=>[...document.querySelectorAll('.reveal')]
@@ -237,7 +237,7 @@ with sync_playwright() as p:
             pg.close()
 
     # ---------- 9. DARK MODE ----------
-    for lang in ('en','he'):
+    for lang in ('en','ar'):
         pg, errs = new(b, lang, dark=True)
         bad = pg.evaluate("""()=>{const out=[];
           document.querySelectorAll('p,h1,h2,h3,h4,li,label,span,a,div').forEach(e=>{

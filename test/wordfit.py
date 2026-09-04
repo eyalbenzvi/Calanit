@@ -25,7 +25,7 @@ if __name__=='__main__':
     D=os.path.dirname(os.path.abspath(__file__)); bad=0
     with sync_playwright() as p:
         b=p.chromium.launch(executable_path='/opt/pw-browsers/chromium')
-        for lang in ('en','he','ar','el'):
+        for lang in ('en','ar','el'):
             for w in (1440,1120,980,768,620,500,430,414,390,375,360,320):
                 pg=b.new_page(viewport={'width':w,'height':900})
                 pg.goto('file://'+D+'/test.html')

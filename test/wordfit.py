@@ -2,6 +2,7 @@
 condition that forces an ugly mid-word break. Clipping probes miss this
 because overflow-wrap:break-word 'solves' the overflow by breaking the word."""
 import os, sys
+from _harness import page_url, launch
 from playwright.sync_api import sync_playwright
 JS = """()=>{const out=[];
  document.querySelectorAll('h1,h2,h3,.btn-primary,.btn-ghost,.btn-nav,.cta-band h2').forEach(el=>{
@@ -24,11 +25,11 @@ JS = """()=>{const out=[];
 if __name__=='__main__':
     D=os.path.dirname(os.path.abspath(__file__)); bad=0
     with sync_playwright() as p:
-        b=p.chromium.launch(executable_path='/opt/pw-browsers/chromium')
+        b = launch(p)
         for lang in ('en','ar','el'):
             for w in (1440,1120,980,768,620,500,430,414,390,375,360,320):
                 pg=b.new_page(viewport={'width':w,'height':900})
-                pg.goto('file://'+D+'/test.html')
+                pg.goto(page_url())
                 pg.evaluate("l=>localStorage.setItem('beeri-lang',l)",lang); pg.reload()
                 pg.wait_for_timeout(420)
                 pg.evaluate("()=>document.querySelectorAll('.reveal').forEach(e=>e.classList.add('visible'))")

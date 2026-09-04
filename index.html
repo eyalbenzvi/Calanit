@@ -1,14 +1,48 @@
 <!doctype html>
+<!--
+  Be’eri Printers — card personalization landing page.
+  Static single page: no build step, no server-side code, no dependencies
+  to install. Deploy by copying index.html and assets/ to any web root.
+
+  Editing content, adding a language, the launch checklist and the
+  recommended HTTP response headers are all in docs/HANDOVER.md.
+  Run tools/preflight.py before every deploy — it fails on unset
+  configuration and on translation tables that have drifted apart.
+-->
 <html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#071E38">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<!-- The page loads nothing from a third party, so everything is locked to
+     'self'. Two notes for whoever maintains this:
+       * 'unsafe-inline' is required only because the CSS and JS are inline in
+         this file. tools/csp_hash.py prints a stricter hash-based policy.
+       * Setting CONFIG.FORM_ENDPOINT to a cross-origin URL requires adding
+         that origin to connect-src, or the browser will block the POST.
+     frame-ancestors cannot be set from a meta tag — serve it as a response
+     header (docs/HANDOVER.md lists the full recommended header set). -->
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data:; connect-src 'self'; form-action 'none'; base-uri 'none'">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
 <title>Be’eri Printers · Card Personalization</title>
 <meta name="description" content="Secure card personalization for banks, financial institutions and card issuers worldwide: encoding, embossing, mailing and fulfillment from Be’eri Printers.">
+<!-- Social preview. og:image and canonical must be absolute URLs, so the
+     placeholder below has to be replaced with the live origin before launch;
+     tools/preflight.py fails while it is still here. -->
+<link rel="canonical" href="https://REPLACE-WITH-LIVE-ORIGIN/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Be’eri Printers">
+<meta property="og:title" content="Be’eri Printers · Card Personalization">
+<meta property="og:description" content="Secure card personalization for banks, financial institutions and card issuers worldwide: encoding, embossing, mailing and fulfillment.">
+<meta property="og:image" content="https://REPLACE-WITH-LIVE-ORIGIN/assets/og-image.png">
+<meta property="og:locale" content="en_US">
+<meta property="og:locale:alternate" content="ar_AR">
+<meta property="og:locale:alternate" content="el_GR">
+<meta name="twitter:card" content="summary_large_image">
 <meta name="keywords" content="Card Personalization Services, Secure Card Personalization, Payment Card Personalization, Bank Card Personalization, Smart Card Personalization, Card Encoding Services, Card Fulfillment Services, Card Personalization Europe">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,700;0,800;1,300&family=Barlow:wght@500;600;700&family=Inter:wght@400&family=Montserrat:wght@700&family=Cairo:wght@400;500;600;700;800&family=Roboto+Condensed:ital,wght@0,400;0,700;0,800;1,300&family=Roboto:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="assets/fonts/fonts.css">
 
 <style>
 /* ── TOKENS ─────────────────────────────────────────────── */
@@ -174,7 +208,8 @@ p,li,.hero-body,.form-fail,.fg-err,.footer-col a,.footer-bottom span{text-wrap:p
 .hero-inner{max-width:1200px;margin:0 auto;position:relative;z-index:1;}
 .hero h1{overflow-wrap:break-word;font-size:var(--h1-size);font-weight:800;color:#fff;line-height:.99;margin-bottom:.4rem;max-width:22ch;letter-spacing:var(--h1-ls);}
 :root[lang="el"] .hero h1{max-width:28ch;}   /* fits the phrase on one line */
-.hero h1 em{color:var(--gold);font-style:normal;}
+.hero h1 em{color:var(--gold);font-style:normal;display:block;}
+:root[lang="el"] .hero h1 em{display:inline;}
 .hero-tagline{font-family:var(--f-display);font-size:clamp(1.15rem,2.5vw,1.65rem);font-weight:300;font-style:var(--italic);color:rgba(255,255,255,.55);margin-bottom:1.5rem;}
 .hero-body{font-size:clamp(.9rem,1.4vw,1rem);color:rgba(255,255,255,.65);max-width:52ch;margin-bottom:2.5rem;line-height:calc(1.75 * var(--lh-mult));}
 .hero-ctas{display:flex;gap:1rem;flex-wrap:wrap;}
@@ -293,6 +328,7 @@ p,li,.hero-body,.form-fail,.fg-err,.footer-col a,.footer-bottom span{text-wrap:p
 .chk:has(input.err){outline:1.5px solid #E4685A;outline-offset:3px;border-radius:4px;}
 .fg-err{font-family:var(--f-util);font-size:.7rem;font-weight:600;color:#F2907F;min-height:1.1em;visibility:hidden;}
 .fg-err.is-shown{visibility:visible;}
+.bot-trap{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap;}
 .form-fail{grid-column:1/-1;font-size:.82rem;color:#F2907F;border:1px solid rgba(228,104,90,.5);background:rgba(228,104,90,.1);border-radius:4px;padding:.7rem .9rem;}
 .skip-link{position:absolute;width:1px;height:1px;margin:-1px;padding:0;overflow:hidden;clip-path:inset(50%);white-space:nowrap;border:0;}
 .skip-link:focus{position:fixed;inset-block-start:0;inset-inline-start:0;width:auto;height:auto;margin:0;clip-path:none;z-index:300;background:var(--gold);color:var(--navy);font-family:var(--f-util);font-weight:600;font-size:.85rem;padding:.7rem 1.1rem;border-end-end-radius:4px;text-decoration:none;}
@@ -320,6 +356,8 @@ p,li,.hero-body,.form-fail,.fg-err,.footer-col a,.footer-bottom span{text-wrap:p
 .footer-col ul{list-style:none;display:flex;flex-direction:column;gap:.45rem;}
 .footer-col a{font-size:.78rem;color:rgba(255,255,255,.64);text-decoration:none;transition:color .2s;}
 .footer-col a:hover{color:rgba(255,255,255,.8);}
+.foot-privacy{color:var(--slate);text-decoration:underline;}
+.foot-privacy:hover{color:#fff;}
 .footer-bottom{display:flex;justify-content:space-between;align-items:center;font-size:.72rem;flex-wrap:wrap;gap:.5rem;}
 
 /* ── SCROLL REVEAL ──────────────────────────────────────── */
@@ -462,7 +500,7 @@ p,li,.hero-body,.form-fail,.fg-err,.footer-col a,.footer-bottom span{text-wrap:p
   </div>
   <div class="hero-inner">
     <p class="eyebrow" style="margin-bottom:1.2rem;" data-i18n="hero.eyebrow">Be’eri Printers · card personalization services</p>
-    <h1 data-i18n-html="hero.h1">Secure card<br><em>personalization</em></h1>
+    <h1><span data-i18n="hero.h1a">Secure card</span> <em data-i18n="hero.h1b">personalization</em></h1>
     <p class="hero-tagline" data-i18n="hero.tagline">Proven experience. Reliable delivery.</p>
     <p class="hero-body" data-i18n="hero.body">Card personalization backed by decades of operational experience, secure processes and rigorous quality control, for banks, financial institutions and card issuers worldwide.</p>
     <div class="hero-ctas">
@@ -816,11 +854,11 @@ p,li,.hero-body,.form-fail,.fg-err,.footer-col a,.footer-bottom span{text-wrap:p
     </div>
     <div class="reveal" style="transition-delay:.1s;">
       <form class="contact-form" id="projectForm" novalidate>
-        <div class="fg"><label for="f-name" data-i18n="f.name">Name *</label><input type="text" id="f-name" name="name" aria-required="true" aria-describedby="e-name" data-i18n-ph="f.name.ph" placeholder="Your full name" required><span class="fg-err" id="e-name" data-i18n="err.required">This field is required</span></div>
-        <div class="fg"><label for="f-company" data-i18n="f.company">Company *</label><input type="text" id="f-company" name="company" aria-required="true" aria-describedby="e-company" data-i18n-ph="f.company.ph" placeholder="Organization name" required><span class="fg-err" id="e-company" data-i18n="err.required">This field is required</span></div>
-        <div class="fg"><label for="f-country" data-i18n="f.country">Country *</label><input type="text" id="f-country" name="country" aria-required="true" aria-describedby="e-country" data-i18n-ph="f.country.ph" placeholder="Country of operation" required><span class="fg-err" id="e-country" data-i18n="err.required">This field is required</span></div>
-        <div class="fg"><label for="f-email" data-i18n="f.email">Business email *</label><input type="email" id="f-email" name="email" dir="ltr" placeholder="name@company.com" required aria-required="true" aria-describedby="e-email"><span class="fg-err" id="e-email" data-i18n="err.email">Please enter a valid business email address</span></div>
-        <div class="fg full"><label for="f-phone" data-i18n="f.phone">Phone</label><input type="tel" id="f-phone" name="phone" dir="ltr" placeholder="+00 000 000 0000"></div>
+        <div class="fg"><label for="f-name" data-i18n="f.name">Name *</label><input type="text" id="f-name" name="name" autocomplete="name" maxlength="120" aria-required="true" aria-describedby="e-name" data-i18n-ph="f.name.ph" placeholder="Your full name" required><span class="fg-err" id="e-name" data-i18n="err.required">This field is required</span></div>
+        <div class="fg"><label for="f-company" data-i18n="f.company">Company *</label><input type="text" id="f-company" name="company" autocomplete="organization" maxlength="160" aria-required="true" aria-describedby="e-company" data-i18n-ph="f.company.ph" placeholder="Organization name" required><span class="fg-err" id="e-company" data-i18n="err.required">This field is required</span></div>
+        <div class="fg"><label for="f-country" data-i18n="f.country">Country *</label><input type="text" id="f-country" name="country" autocomplete="country-name" maxlength="80" aria-required="true" aria-describedby="e-country" data-i18n-ph="f.country.ph" placeholder="Country of operation" required><span class="fg-err" id="e-country" data-i18n="err.required">This field is required</span></div>
+        <div class="fg"><label for="f-email" data-i18n="f.email">Business email *</label><input type="email" id="f-email" name="email" dir="ltr" autocomplete="email" maxlength="254" placeholder="name@company.com" required aria-required="true" aria-describedby="e-email"><span class="fg-err" id="e-email" data-i18n="err.email">Please enter a valid business email address</span></div>
+        <div class="fg full"><label for="f-phone" data-i18n="f.phone">Phone</label><input type="tel" id="f-phone" name="phone" dir="ltr" autocomplete="tel" maxlength="40" placeholder="+00 000 000 0000"></div>
         <div class="fg full"><label for="f-cardtype" data-i18n="f.cardtype">Card type / application</label>
           <select id="f-cardtype" name="card_type">
             <option value="" disabled selected data-i18n="f.cardtype.ph">Select card type</option>
@@ -906,11 +944,13 @@ p,li,.hero-body,.form-fail,.fg-err,.footer-col a,.footer-bottom span{text-wrap:p
           <label class="chk"><input type="checkbox" name="svc" value="distribution"> <span data-i18n="chk8">Secure dispatch &amp; chain of custody</span></label>
         </div>
         <div class="fg full"><label for="f-desc" data-i18n="f.desc">Project description</label>
-          <textarea id="f-desc" name="description" data-i18n-ph="f.desc.ph" placeholder="Briefly describe your project, timeline, specific requirements or questions…"></textarea>
+          <textarea id="f-desc" name="description" maxlength="4000" data-i18n-ph="f.desc.ph" placeholder="Briefly describe your project, timeline, specific requirements or questions…"></textarea>
         </div>
+        <div class="bot-trap" aria-hidden="true"><label for="f-ref2">Do not fill this in</label><input type="text" id="f-ref2" name="_ref2" tabindex="-1" autocomplete="off"></div>
+        <noscript><p class="form-fail" style="display:block" data-i18n="err.nojs">This form needs JavaScript to send. Please enable it, or contact us by the details in the footer.</p></noscript>
         <label class="chk full" style="align-items:flex-start;gap:.6rem;margin-top:.5rem;"><input type="checkbox" id="f-consent" name="consent" required aria-required="true" aria-describedby="e-consent" style="margin-top:.2rem;"><span data-i18n="f.consent">I agree that Be’eri Printers may process these details in order to respond to my inquiry.</span></label>
         <span class="fg-err full" id="e-consent" data-i18n="err.consent">Please confirm this to continue</span>
-        <p class="form-fail" id="formFail" data-i18n="err.fail" hidden>We were unable to send your brief. Please try again, or contact us directly.</p>
+        <p class="form-fail" id="formFail" role="alert" data-i18n="err.fail" hidden>We were unable to send your brief. Please try again, or contact us directly.</p>
         <button type="submit" class="btn-submit" data-i18n="f.submit">Submit project brief</button>
       </form>
       <div class="form-success" id="formSuccess" role="status" aria-live="polite">
@@ -964,6 +1004,7 @@ p,li,.hero-body,.form-fail,.fg-err,.footer-col a,.footer-bottom span{text-wrap:p
     </div>
     <div class="footer-bottom">
       <span data-i18n="foot.copy">&copy; 2026 Be’eri Printers. All rights reserved.</span>
+      <a class="foot-privacy" id="privacyLink" href="#" data-i18n="foot.privacy" hidden>Privacy notice</a>
       <span data-i18n="foot.strip">Card personalization · encoding · fulfillment · worldwide distribution</span>
     </div>
   </div>
@@ -972,6 +1013,24 @@ p,li,.hero-body,.form-fail,.fg-err,.footer-col a,.footer-bottom span{text-wrap:p
 <div class="mobile-cta-bar"><a href="#contact" data-i18n="foot.mob">Request information</a></div>
 
 <script>
+/* ══════════════════════════════════════════════════════════════════════
+   SITE CONFIG — the only two values that have to be set before launch.
+   Everything else on this page is content, and content lives in the
+   translation tables below. See docs/HANDOVER.md.
+   ══════════════════════════════════════════════════════════════════════ */
+var CONFIG = {
+  /* URL that accepts a POST of the project brief as JSON. While this is
+     null the form reports a send failure instead of a false confirmation,
+     so an inquiry is never silently discarded. A cross-origin URL also has
+     to be added to connect-src in the CSP meta tag in <head>. */
+  FORM_ENDPOINT: null,
+
+  /* URL of the company privacy notice. The footer link stays hidden while
+     this is empty. Required wherever GDPR applies, because the form
+     collects personal data behind a consent checkbox. */
+  PRIVACY_URL: ''
+};
+
 /* ── TRANSLATIONS ───────────────────────────────────────── */
 var T = {};
 
@@ -985,7 +1044,8 @@ T.en = {
 "nav.cta":"Discuss your project",
 "mob.about":"About Be’eri Printers","mob.services":"Personalization services","mob.security":"Security & quality","mob.why":"Why Be’eri Printers",
 "hero.eyebrow":"Be’eri Printers · card personalization services",
-"hero.h1":"Secure card<br><em>personalization</em>",
+"hero.h1a":"Secure card",
+"hero.h1b":"personalization",
 "hero.tagline":"Proven experience. Reliable delivery.",
 "hero.body":"Card personalization backed by decades of operational experience, secure processes and rigorous quality control, for banks, financial institutions and card issuers worldwide.",
 "hero.cta2":"View our services",
@@ -1081,9 +1141,10 @@ T.en = {
 "f.ok.p":"Your project brief has been received. A member of our personalization team will respond within one business day.",
 "foot.tag":"Card personalization for banks, financial institutions and card issuers worldwide.",
 "foot.company":"Company","foot.k2":"Submit an RFQ","foot.k3":"Talk to our team",
-"foot.copy":"© 2026 Be’eri Printers. All rights reserved.",
+"foot.copy":"© {year} Be’eri Printers. All rights reserved.",
 "foot.strip":"Card personalization · encoding · fulfillment · worldwide distribution",
 "foot.mob":"Request information",
+"foot.privacy":"Privacy notice",
 "a11y.skip":"Skip to main content",
 "err.required":"This field is required",
 "err.email":"Please enter a valid business email address",
@@ -1126,6 +1187,7 @@ T.en = {
 "q6":"2,000,000+",
 "f.consent":"I agree that Be’eri Printers may process these details in order to respond to my inquiry.",
 "err.consent":"Please confirm this to continue",
+"err.nojs":"This form needs JavaScript to send. Please enable it, or contact us by the details in the footer.",
 "sec.pci":"Card personalization is governed by the PCI Card Production and Provisioning Security Requirements — Physical and Logical — which are assessed per facility and are distinct from PCI DSS. Our current scope and status are provided on request."
 };
 
@@ -1140,7 +1202,8 @@ T.ar = {
 "nav.cta":"لنتحدث عن مشروعكم",
 "mob.about":"عن Be’eri Printers","mob.services":"خدمات التخصيص","mob.security":"الأمن والجودة","mob.why":"لماذا Be’eri Printers",
 "hero.eyebrow":"Be’eri Printers · خدمات تخصيص البطاقات",
-"hero.h1":"تخصيص البطاقات<br><em>بشكل آمن تمامًا</em>",
+"hero.h1a":"تخصيص البطاقات",
+"hero.h1b":"بشكل آمن تمامًا",
 "hero.tagline":"خبرة مثبتة. تسليم موثوق.",
 "hero.body":"تخصيص البطاقات مدعوم بعقود من الخبرة التشغيلية وعمليات آمنة ورقابة صارمة على الجودة، للبنوك والمؤسسات المالية وجهات إصدار البطاقات حول العالم.",
 "hero.cta2":"تعرّفوا على خدماتنا",
@@ -1236,9 +1299,10 @@ T.ar = {
 "f.ok.p":"تم استلام ملخص مشروعكم. سيتواصل معكم أحد أعضاء فريق التخصيص لدينا خلال يوم عمل واحد.",
 "foot.tag":"تخصيص البطاقات للبنوك والمؤسسات المالية وجهات إصدار البطاقات حول العالم.",
 "foot.company":"الشركة","foot.k2":"طلب عرض سعر","foot.k3":"تحدثوا مع فريقنا",
-"foot.copy":"© 2026 Be’eri Printers. جميع الحقوق محفوظة.",
+"foot.copy":"© {year} Be’eri Printers. جميع الحقوق محفوظة.",
 "foot.strip":"تخصيص البطاقات · الترميز · تجهيز الطلبات · التوزيع العالمي",
 "foot.mob":"طلب معلومات",
+"foot.privacy":"إشعار الخصوصية",
 "a11y.skip":"الانتقال إلى المحتوى الرئيسي",
 "err.required":"هذا الحقل مطلوب",
 "err.email":"أدخلوا بريدًا إلكترونيًا صحيحًا للعمل",
@@ -1281,6 +1345,7 @@ T.ar = {
 "q6":"أكثر من 2,000,000",
 "f.consent":"أوافق على أن تستخدم Be’eri Printers هذه البيانات للرد على استفساري.",
 "err.consent":"يلزم الموافقة للمتابعة",
+"err.nojs":"يحتاج هذا النموذج إلى JavaScript للإرسال. يُرجى تمكينه أو التواصل معنا عبر البيانات الموجودة في التذييل.",
 "sec.pci":"يخضع تخصيص البطاقات لمتطلبات PCI Card Production and Provisioning الأمنية — المادية والمنطقية — التي تُقيَّم لكل منشأة على حدة وتختلف عن PCI DSS. ويُقدَّم نطاقنا وحالتنا الحاليان عند الطلب."
 };
 
@@ -1294,7 +1359,8 @@ T.el = {
 "nav.cta":"Συζητήστε το έργο σας",
 "mob.about":"Σχετικά με εμάς","mob.services":"Υπηρεσίες εξατομίκευσης","mob.security":"Ασφάλεια & ποιότητα","mob.why":"Γιατί Be’eri Printers",
 "hero.eyebrow":"Be’eri Printers · Υπηρεσίες εξατομίκευσης καρτών",
-"hero.h1":"Ασφαλής <em>εξατομίκευση καρτών</em>",
+"hero.h1a":"Ασφαλής",
+"hero.h1b":"εξατομίκευση καρτών",
 "hero.tagline":"Αποδεδειγμένη εμπειρία. Αξιόπιστη παράδοση.",
 "hero.body":"Εξατομίκευση καρτών με δεκαετίες λειτουργικής εμπειρίας, ασφαλείς διαδικασίες και αυστηρό ποιοτικό έλεγχο, για τράπεζες, χρηματοπιστωτικά ιδρύματα και εκδότες καρτών παγκοσμίως.",
 "hero.cta2":"Δείτε τις υπηρεσίες μας",
@@ -1390,9 +1456,10 @@ T.el = {
 "f.ok.p":"Το brief του έργου σας ελήφθη. Μέλος της ομάδας εξατομίκευσής μας θα απαντήσει εντός μιας εργάσιμης ημέρας.",
 "foot.tag":"Εξατομίκευση καρτών για τράπεζες, χρηματοπιστωτικά ιδρύματα και εκδότες καρτών παγκοσμίως.",
 "foot.company":"Εταιρεία","foot.k2":"Αίτηση προσφοράς","foot.k3":"Μιλήστε με την ομάδα μας",
-"foot.copy":"© 2026 Be’eri Printers. Με την επιφύλαξη παντός δικαιώματος.",
+"foot.copy":"© {year} Be’eri Printers. Με την επιφύλαξη παντός δικαιώματος.",
 "foot.strip":"Εξατομίκευση καρτών · κωδικοποίηση · fulfillment · παγκόσμια διανομή",
 "foot.mob":"Αίτημα πληροφοριών",
+"foot.privacy":"Δήλωση απορρήτου",
 "a11y.skip":"Μετάβαση στο κύριο περιεχόμενο",
 "err.required":"Το πεδίο είναι υποχρεωτικό",
 "err.email":"Εισαγάγετε έγκυρο email εργασίας",
@@ -1435,6 +1502,7 @@ T.el = {
 "q6":"2.000.000+",
 "f.consent":"Συμφωνώ ότι η Be’eri Printers μπορεί να επεξεργαστεί αυτά τα στοιχεία για να απαντήσει στο αίτημά μου.",
 "err.consent":"Απαιτείται επιβεβαίωση για να συνεχίσετε",
+"err.nojs":"Η φόρμα χρειάζεται JavaScript για να σταλεί. Ενεργοποιήστε την ή επικοινωνήστε μαζί μας με τα στοιχεία στο υποσέλιδο.",
 "sec.pci":"Η εξατομίκευση καρτών διέπεται από τις απαιτήσεις PCI Card Production and Provisioning — Φυσικής και Λογικής Ασφάλειας — που αξιολογούνται ανά εγκατάσταση και είναι διακριτές από το PCI DSS. Το τρέχον εύρος και η κατάστασή μας παρέχονται κατόπιν αιτήματος."
 };
 
@@ -1446,7 +1514,7 @@ var LANGS = {
 };
 var STORE = 'beeri-lang';
 
-function applyLang(lang){
+function applyLang(lang, fromUser){
   if(!T[lang]) lang = 'en';
   var t = T[lang], root = document.documentElement;
 
@@ -1458,11 +1526,17 @@ function applyLang(lang){
   if(md && t['meta.desc']) md.setAttribute('content', t['meta.desc']);
 
   var i, els, v;
+  var YEAR = String(new Date().getFullYear());
   els = document.querySelectorAll('[data-i18n]');
-  for(i=0;i<els.length;i++){ v = t[els[i].getAttribute('data-i18n')]; if(v != null) els[i].textContent = v; }
+  for(i=0;i<els.length;i++){
+    v = t[els[i].getAttribute('data-i18n')];
+    if(v != null) els[i].textContent = v.replace('{year}', YEAR);
+  }
 
-  els = document.querySelectorAll('[data-i18n-html]');
-  for(i=0;i<els.length;i++){ v = t[els[i].getAttribute('data-i18n-html')]; if(v != null) els[i].innerHTML = v; }
+  /* Deliberately no innerHTML path: every translated value is written with
+     textContent or setAttribute, so no string in the tables above can inject
+     markup. Content that needs emphasis gets its own element and its own
+     key, as the hero headline does. */
 
   els = document.querySelectorAll('[data-i18n-ph]');
   for(i=0;i<els.length;i++){ v = t[els[i].getAttribute('data-i18n-ph')]; if(v != null) els[i].setAttribute('placeholder', v); }
@@ -1479,17 +1553,48 @@ function applyLang(lang){
   }
 
   try{ localStorage.setItem(STORE, lang); }catch(e){}
+
+  /* Reflect an explicit choice in the URL so it can be linked and shared.
+     Deliberately not done on the initial load: a ?lang= written on every
+     visit would shadow the visitor's stored preference on the next reload.
+     replaceState can throw on a file:// origin, hence the guard. */
+  try{
+    if(fromUser && window.history && history.replaceState){
+      var u = new URL(window.location.href);
+      if(u.searchParams.get('lang') !== lang){
+        u.searchParams.set('lang', lang);
+        history.replaceState(null, '', u.pathname + u.search + u.hash);
+      }
+    }
+  }catch(e){}
 }
 
 function initialLang(){
-  // English is the default. Only a visitor's own explicit choice overrides it;
-  // browser language is deliberately not auto-detected.
+  // English is the default. Only an explicit choice overrides it — a ?lang=
+  // link first, then a previous visit. Browser language is deliberately not
+  // auto-detected. Both sources are validated against T, so neither can put
+  // an arbitrary value into the lang/dir attributes.
+  try{
+    var q = new URLSearchParams(window.location.search).get('lang');
+    if(q && T[q]) return q;
+  }catch(e){}
   var saved = null;
   try{ saved = localStorage.getItem(STORE); }catch(e){}
   return (saved && T[saved]) ? saved : 'en';
 }
 
 applyLang(initialLang());
+
+/* ── PRIVACY NOTICE LINK ────────────────────────────────────────────────
+   Shown only once CONFIG.PRIVACY_URL is set, so the page never ships a
+   link that goes nowhere. */
+(function(){
+  var pl = document.getElementById('privacyLink');
+  if(pl && CONFIG.PRIVACY_URL){
+    pl.setAttribute('href', CONFIG.PRIVACY_URL);
+    pl.hidden = false;
+  }
+})();
 
 /* ── LANGUAGE SWITCHER (mouse + full keyboard) ───────────── */
 var langBtn  = document.getElementById('langBtn');
@@ -1531,7 +1636,7 @@ if (langBtn && langMenu) {
     var el = ev.target instanceof Element ? ev.target : null;
     var b  = el && el.closest ? el.closest('button[data-lang]') : null;
     if (!b) return;
-    applyLang(b.getAttribute('data-lang'));
+    applyLang(b.getAttribute('data-lang'), true);
     closeLang(true);
   });
 
@@ -1610,13 +1715,7 @@ if ('IntersectionObserver' in window) {
   showAll();
 }
 
-/* ── CONTACT FORM ───────────────────────────────────────────────────────
-   FORM_ENDPOINT must be set to a URL that accepts a POST of the project
-   brief as JSON. Until it is, the form reports a send failure rather than
-   showing a false confirmation — an enquiry is never silently discarded.
-   ─────────────────────────────────────────────────────────────────────── */
-var FORM_ENDPOINT = null;   /* e.g. 'https://example.com/api/rfq' */
-
+/* ── CONTACT FORM ─────────────────────────────────────────────────────── */
 var form    = document.getElementById('projectForm');
 var success = document.getElementById('formSuccess');
 
@@ -1667,9 +1766,15 @@ if (form && success) {
     var firstBad = validate();
     if (firstBad) { firstBad.focus(); return; }
 
+    // A filled bot trap means an automated submission. Report the same
+    // failure a human would see rather than explaining the trap.
+    var trap = document.getElementById('f-ref2');
+    if (trap && trap.value) { failNotice(true); return; }
+
     var btn = form.querySelector('.btn-submit');
     var payload = {};
     new FormData(form).forEach(function(val, key){
+      if (key.charAt(0) === '_') return;          // the bot trap stays local
       if (payload[key] === undefined) payload[key] = val;
       else if (Array.isArray(payload[key])) payload[key].push(val);
       else payload[key] = [payload[key], val];
@@ -1687,13 +1792,13 @@ if (form && success) {
       if (btn) { btn.disabled = false; btn.textContent = (T[document.documentElement.lang]||T.en)['f.submit']; }
     }
 
-    if (!FORM_ENDPOINT) { failed(); return; }
+    if (!CONFIG.FORM_ENDPOINT) { failed(); return; }
 
     if (btn) {
       btn.disabled = true;
       btn.textContent = (T[document.documentElement.lang]||T.en)['f.sending'];
     }
-    fetch(FORM_ENDPOINT, {
+    fetch(CONFIG.FORM_ENDPOINT, {
       method:'POST',
       headers:{'Content-Type':'application/json'},
       body:JSON.stringify(payload)

@@ -8,6 +8,9 @@ Nothing overflows or clips in these cases, which is why overflow probes
 cannot see them.
 """
 import os, sys, json
+from _harness import page_url, launch
+
+URL = page_url()
 from playwright.sync_api import sync_playwright
 
 JS = r"""
@@ -81,10 +84,10 @@ WIDTHS = [1440,1366,1280,1200,1120,1080,1024,980,940,900,860,820,768,720,700,
 LANGS = ['en','ar','el']
 
 def run(widths=WIDTHS, langs=LANGS, verbose=True):
-    url = 'file:///home/user/Calanit/test/test.html'
+    url = URL
     found = {}
     with sync_playwright() as p:
-        b = p.chromium.launch(executable_path='/opt/pw-browsers/chromium')
+        b = launch(p)
         for lang in langs:
             for w in widths:
                 pg = b.new_page(viewport={'width': w, 'height': 1000})

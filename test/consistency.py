@@ -8,6 +8,9 @@ distinct signature is either an intentional variant or a cascade collision
 check that would have caught the eyebrow rendering at four different sizes.
 """
 import os, sys, json
+from _harness import page_url, launch
+
+URL = page_url()
 from playwright.sync_api import sync_playwright
 
 PROPS = ['fontSize','fontWeight','fontFamily','lineHeight','letterSpacing','color',
@@ -59,10 +62,10 @@ JS = """
 
 def run(width=1440, lang='en', scheme='light'):
     with sync_playwright() as p:
-        b = p.chromium.launch(executable_path='/opt/pw-browsers/chromium')
+        b = launch(p)
         pg = b.new_page(viewport={'width': width, 'height': 1000})
         pg.emulate_media(color_scheme=scheme)
-        pg.goto('file:///home/user/Calanit/test/test.html')
+        pg.goto(URL)
         if lang != 'en':
             pg.evaluate("l=>localStorage.setItem('beeri-lang',l)", lang); pg.reload()
         pg.wait_for_timeout(600)

@@ -1,6 +1,7 @@
 """WCAG contrast audit that composites the full semi-transparent background
 chain down to an opaque base before comparing."""
 import os, sys
+from _harness import page_url, launch
 from playwright.sync_api import sync_playwright
 
 def lin(c):
@@ -20,6 +21,9 @@ def blend(fg,fa,bg): return tuple(fa*f+(1-fa)*b for f,b in zip(fg,bg))
 JS = """()=>{const out=[];const seen=new Set();
  document.querySelectorAll('p,li,label,span,a,h1,h2,h3,h4,div,button').forEach(el=>{
   const t=(el.textContent||'').trim(); if(!t||el.children.length)return;
+  // clipped-but-present text: the skip link only shows on focus, the bot
+  // trap never shows at all. Neither is read by a sighted visitor.
+  if(el.closest('.skip-link,.bot-trap,[aria-hidden="true"]'))return;
   const cs=getComputedStyle(el);
   if(cs.display==='none'||cs.visibility==='hidden')return;
   if(!el.offsetParent&&cs.position!=='fixed')return;
@@ -52,9 +56,9 @@ def audit(pg, base):
     return rows, fails
 
 if __name__ == '__main__':
-    URL='file://'+os.getcwd()+'/test.html'
+    URL = page_url()
     with sync_playwright() as p:
-        b=p.chromium.launch(executable_path='/opt/pw-browsers/chromium')
+        b = launch(p)
         bad=0
         for scheme, base in (('light',(255,255,255)), ('dark',(10,10,10))):
             pg=b.new_page(viewport={'width':1440,'height':900})

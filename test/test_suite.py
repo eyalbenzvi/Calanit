@@ -1,10 +1,10 @@
 #!/usr/bin/env python3
 """Comprehensive functional test suite for the beeri printers landing page."""
 import os, re, sys
+from _harness import page_url, launch
 from playwright.sync_api import sync_playwright
 
-D = os.getcwd()
-URL = 'file://' + D + '/test.html'
+URL = page_url()
 LANGS = {'en':'ltr','ar':'rtl','el':'ltr'}
 PASS, FAIL = [], []
 
@@ -25,7 +25,7 @@ def new(b, lang=None, w=1440, h=900, dark=False):
     return pg, errs
 
 with sync_playwright() as p:
-    b = p.chromium.launch(executable_path='/opt/pw-browsers/chromium')
+    b = launch(p)
 
     # ---------- 1. STATIC INTEGRITY ----------
     pg, errs = new(b)
@@ -166,14 +166,29 @@ with sync_playwright() as p:
     pg.check('input[value="encoding"]')
     pg.check('#f-consent')
     pg.click('.btn-submit'); pg.wait_for_timeout(600)
-    # FORM_ENDPOINT is unset by default: the page must report a send failure
+    # CONFIG.FORM_ENDPOINT is unset by default: the page must report a send failure
     # rather than show a false confirmation that discards the enquiry.
     chk('unconfigured submit shows failure, not fake success',
         pg.is_visible('#formFail') and not pg.is_visible('#formSuccess'))
-    # with an endpoint configured and the network stubbed, success must show
+    # The CSP allows connect-src 'self' only, so a cross-origin endpoint is
+    # refused by the browser. That is the documented default and worth
+    # asserting: it is what stops an injected script from exfiltrating the
+    # brief to somewhere else.
+    pg.evaluate("()=>{ CONFIG.FORM_ENDPOINT='https://exfil.test/collect'; }")
+    pg.route('**/exfil.test/**', lambda route: route.fulfill(status=200, body='{"ok":true}'))
+    pg.click('.btn-submit'); pg.wait_for_timeout(700)
+    chk('CSP blocks a cross-origin endpoint',
+        pg.is_visible('#formFail') and not pg.is_visible('#formSuccess'))
+    chk('a blocked send reports failure rather than losing the brief',
+        pg.is_visible('#formFail'))
+    csp_refusals = [e for e in errs if 'Content Security Policy' in e]
+    chk('the block came from the CSP', len(csp_refusals) > 0, str(errs[:2]))
+    del errs[:]
+
+    # With a same-origin endpoint — the recommended arrangement, no CORS and
+    # no CSP change needed — the success panel must replace the form.
     pg.route('**/api/rfq', lambda route: route.fulfill(status=200, body='{"ok":true}'))
-    pg.evaluate("()=>{ FORM_ENDPOINT='https://stub.test/api/rfq'; }")
-    pg.route('**/stub.test/**', lambda route: route.fulfill(status=200, body='{"ok":true}'))
+    pg.evaluate("()=>{ CONFIG.FORM_ENDPOINT='/api/rfq'; }")
     pg.click('.btn-submit'); pg.wait_for_timeout(800)
     chk('configured submit shows success', pg.is_visible('#formSuccess'))
     chk('configured submit hides form', not pg.is_visible('#projectForm'))
@@ -254,7 +269,9 @@ with sync_playwright() as p:
     # ---------- 10. ELEMENT-LEVEL CLIPPING ----------
     CLIP = """()=>{const bad=[];
       document.querySelectorAll('h1,h2,h3,h4,p,li,label,span,a,button,div').forEach(el=>{
-        if(el.classList.contains('skip-link'))return;
+        // deliberately hidden-but-present elements: the skip link and the
+        // bot trap are clipped on purpose, and carry no visible text
+        if(el.closest('.skip-link,.bot-trap,[aria-hidden="true"]'))return;
         const cs=getComputedStyle(el);
         if(cs.display==='none'||cs.visibility==='hidden')return;
         if(!el.offsetParent&&cs.position!=='fixed')return;
@@ -271,6 +288,85 @@ with sync_playwright() as p:
             chk(f'no clipped text @{w} [{lang}]', clip==[], str(clip[:3]))
             pg.close()
 
+    # ---------- 11. HANDOVER GUARANTEES ----------
+    # These are the properties the dev team is being handed, so they are
+    # asserted rather than described.
+
+    # (a) the page must not talk to anyone but its own origin
+    pg = b.new_page(viewport={'width':1440,'height':900})
+    seen = []
+    pg.on('request', lambda r: seen.append(r.url))
+    pg.goto(URL); pg.wait_for_timeout(1200)
+    outside = [u for u in seen if not u.startswith('http://127.0.0.1')]
+    chk('no third-party requests on load', outside==[], str(outside[:3]))
+    chk('CSP meta present', pg.evaluate(
+        '()=>[...document.querySelectorAll("meta")].some(m=>'
+        '(m.httpEquiv||"").toLowerCase()==="content-security-policy")'))
+    chk('no innerHTML i18n sink',
+        pg.evaluate("()=>document.querySelectorAll('[data-i18n-html]').length")==0)
+    fonts = pg.evaluate("()=>[...document.fonts].length>0")
+    chk('self-hosted fonts loaded', fonts)
+    pg.close()
+
+    # (a2) a filled bot trap is refused, and never reaches the payload
+    pg = b.new_page(viewport={'width':1440,'height':900})
+    sent = []
+    pg.route('**/api/rfq', lambda route: (sent.append(route.request.post_data),
+                                          route.fulfill(status=200, body='{"ok":true}')))
+    pg.goto(URL); pg.wait_for_timeout(300)
+    pg.evaluate("()=>{ CONFIG.FORM_ENDPOINT='/api/rfq'; }")
+    pg.fill('#f-name','Bot'); pg.fill('#f-company','Bot Co'); pg.fill('#f-country','NA')
+    pg.fill('#f-email','bot@bots.test'); pg.check('#f-consent')
+    pg.evaluate("()=>{document.getElementById('f-ref2').value='http://spam.test'}")
+    pg.click('.btn-submit'); pg.wait_for_timeout(700)
+    chk('a filled bot trap blocks the send', sent==[] and not pg.is_visible('#formSuccess'))
+    pg.evaluate("()=>{document.getElementById('f-ref2').value=''}")
+    pg.click('.btn-submit'); pg.wait_for_timeout(700)
+    chk('a clean trap lets the send through', len(sent)==1)
+    chk('the trap field is not in the payload',
+        sent and '_ref2' not in (sent[0] or ''), str(sent[:1])[:120])
+    pg.close()
+
+    # (b) the copyright year comes from the clock, not from the translations
+    pg, errs = new(b)
+    import datetime
+    yr = str(datetime.date.today().year)
+    copy = pg.inner_text('[data-i18n="foot.copy"]')
+    chk('copyright shows the current year', yr in copy, copy)
+    chk('no {year} token leaks into rendered text',
+        '{year}' not in pg.evaluate("()=>document.body.innerText"))
+    pg.close()
+
+    # (c) the privacy link stays hidden until CONFIG.PRIVACY_URL is set
+    pg, errs = new(b)
+    chk('privacy link hidden while unconfigured', not pg.is_visible('#privacyLink'))
+    pg.close()
+    pg = b.new_page(viewport={'width':1440,'height':900})
+    pg.add_init_script("window.__privacy='/legal/privacy';")
+    pg.goto(URL); pg.wait_for_timeout(300)
+    shown = pg.evaluate("""()=>{CONFIG.PRIVACY_URL='/legal/privacy';
+        const a=document.getElementById('privacyLink');
+        a.href=CONFIG.PRIVACY_URL; a.hidden=false;
+        return a.getAttribute('href')}""")
+    chk('privacy link takes the configured URL', shown=='/legal/privacy', str(shown))
+    pg.close()
+
+    # (d) ?lang= is a shareable deep link, and only a known code is honoured
+    for q, want in (('el','el'), ('ar','ar'), ('xx','en'), ('../../etc','en')):
+        pg = b.new_page(viewport={'width':1440,'height':900})
+        pg.goto(URL + '?lang=' + q); pg.wait_for_timeout(400)
+        got = pg.evaluate("()=>document.documentElement.lang")
+        chk('?lang=%s resolves to %s' % (q, want), got==want, got)
+        pg.close()
+
+    # (e) an explicit choice reaches the URL; a plain visit leaves it clean
+    pg, errs = new(b)
+    chk('a plain visit does not add ?lang=', '?lang=' not in pg.url, pg.url)
+    pg.click('#langBtn'); pg.wait_for_timeout(150)
+    pg.click('#langMenu button[data-lang="el"]'); pg.wait_for_timeout(400)
+    chk('choosing a language updates the URL', 'lang=el' in pg.url, pg.url)
+    pg.close()
+
     b.close()
 
 print('='*70)
@@ -280,3 +376,4 @@ if FAIL:
     print('-'*70)
     for f in FAIL: print('  FAIL  ' + f)
 print('='*70)
+sys.exit(1 if FAIL else 0)

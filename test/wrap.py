@@ -1,26 +1,24 @@
 #!/usr/bin/env python3
 """Produce test.html from ../index.html.
 
-index.html is a complete standalone document, so nothing is wrapped: this only
-swaps the Google Fonts request for the local cache (see fetch_fonts.py) so
-layout assertions measure real font metrics offline. Pass --remote to keep the
-network font request.
+index.html is a complete standalone document, so nothing is wrapped: the only
+change is that asset paths climb one directory, because the copy under test
+sits in test/. The fonts, icons and images are the ones the site serves, so
+layout assertions measure exactly the metrics production uses.
 """
-import sys, re, os
+import sys, os
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.dirname(HERE)
-CACHE = os.path.join(HERE, 'fonts', 'local.css')
+ASSET = '="assets/'
 
 src = open(os.path.join(ROOT, 'index.html'), encoding='utf-8').read()
 out = next((a for a in sys.argv[1:] if not a.startswith('--')), 'test.html')
 
-if '--remote' not in sys.argv and os.path.exists(CACHE):
-    src = re.sub(r'<link rel="stylesheet" href="https://fonts\.googleapis\.com/css2[^"]*">',
-                 '<link rel="stylesheet" href="fonts/local.css">', src)
-    note = '(local fonts)'
-else:
-    note = '(remote fonts)'
+if ASSET not in src:
+    sys.exit('index.html no longer references anything under assets/ — '
+             'update this script')
+src = src.replace(ASSET, '="../assets/')
 
 open(os.path.join(HERE, out), 'w', encoding='utf-8').write(src)
-print('wrote', out, note)
+print('wrote', out)

@@ -25,7 +25,7 @@ JS = """
     const sig = {};
     props.forEach(p => sig[p] = cs[p]);
     el.className.split(/\\s+/).filter(Boolean).forEach(cls => {
-      if (/^(reveal|visible|full|open|err|js|mir|s-\\w+|sh-tight)$/.test(cls)) return;
+      if (/^(reveal|visible|full|open|err|js|mir|s-\\w+|sh-tight|is-shown|section|section-inner|section-hdr)$/.test(cls)) return;
       (byClass[cls] = byClass[cls] || []).push({
         sig: JSON.stringify(sig),
         where: (el.closest('section') || el.closest('footer') || el.closest('header') || {}).id
@@ -66,8 +66,12 @@ def run(width=1440, lang='en', scheme='light'):
         if lang != 'en':
             pg.evaluate("l=>localStorage.setItem('beeri-lang',l)", lang); pg.reload()
         pg.wait_for_timeout(600)
+        # kill transitions first, otherwise mid-animation opacity reads as a
+        # style difference and buries the real findings
+        pg.add_style_tag(content='*,*::before,*::after{transition:none!important;'
+                                 'animation:none!important}')
         pg.evaluate("()=>document.querySelectorAll('.reveal').forEach(e=>e.classList.add('visible'))")
-        pg.wait_for_timeout(150)
+        pg.wait_for_timeout(250)
         res = pg.evaluate(JS, PROPS)
         pg.close(); b.close()
     return res

@@ -120,6 +120,7 @@
   --hero-pattern:   26,74,122;
   --card-glow:      196,136,42;
   --cta-text:       7,30,56;
+  --hero-bg:        var(--navy);
 }
 :root[lang="ar"]{
   --lh-mult:1.12;
@@ -267,7 +268,7 @@ p,li,.hero-body,.form-fail,.fg-err,.footer-col a,.footer-bottom span{text-wrap:p
 @media(prefers-reduced-motion:reduce){.lang-menu{animation:none;}.hamburger span{transition:none;}}
 
 /* ── HERO ───────────────────────────────────────────────── */
-.hero{background:var(--navy);padding:clamp(6.5rem,11vw,9.5rem) clamp(1.5rem,4vw,3rem) clamp(4.5rem,8vw,7rem);position:relative;overflow:hidden;}
+.hero{background:var(--hero-bg);padding:clamp(6.5rem,11vw,9.5rem) clamp(1.5rem,4vw,3rem) clamp(4.5rem,8vw,7rem);position:relative;overflow:hidden;}
 .hero::before{content:'';position:absolute;inset:0;background-image:repeating-linear-gradient(45deg,rgba(var(--hero-pattern),.12) 0,rgba(var(--hero-pattern),.12) 1px,transparent 0,transparent 50%);background-size:28px 28px;pointer-events:none;}
 .hero-cards{position:absolute;inset-inline-end:-20px;top:50%;transform:translateY(-50%);pointer-events:none;}
 .hero-card{position:absolute;border-radius:14px;width:380px;height:240px;}
@@ -2085,7 +2086,92 @@ if (form && success) {
      dk:{brandTxt:'#8AAC58',goldTxt:'#D8AE60',text:'#EEE8D8',textMuted:'#A09470',
          cardBg:'#28200E',border:'#6A5830',bg:'#141008',bgAlt:'#1C1608',
          footerBg:'#0A0804',langBg:'#1E1608',formOptBg:'#28200E',dmAccent:'#C8D888',
-         heroPattern:'50,40,18',cardGlow:'170,128,50',ctaText:'48,38,14'}}
+         heroPattern:'50,40,18',cardGlow:'170,128,50',ctaText:'48,38,14'}},
+
+    {id:'electric', label:'Electric', labelAr:'كهربائي',  labelEl:'Ηλεκτρικό',
+     navy:'#08080C', navyMid:'#10101A', navyLt:'#282840',
+     gold:'#2088FF', goldLt:'#40A0FF', goldTxt:'#1460B0',
+     brand:'#FF6020', brandTxt:'#C84818',
+     text:'#10101A', textMuted:'#505068',
+     cardBg:'#FFFFFF', border:'#C8C8D8', bg:'#F2F2F8', bgAlt:'#FFFFFF',
+     slate:'#8888A8', navBg:'8,8,12',
+     heroBg:'linear-gradient(160deg,#06061A 0%,#08102A 50%,#0A0818 100%)',
+     footerBg:'#04040A', langBg:'#0E0E1E', formOptBg:'#18182A',
+     dmAccent:'#60B0FF', heroPattern:'20,80,200', cardGlow:'32,136,255',
+     ctaText:'8,8,12',
+     dk:{brandTxt:'#FF6020',goldTxt:'#40A0FF',text:'#D8D8F0',textMuted:'#8080A0',
+         cardBg:'#14142A',border:'#383860',bg:'#06060E',bgAlt:'#0C0C1A',
+         heroBg:'linear-gradient(160deg,#04040E 0%,#060E1E 50%,#080610 100%)',
+         footerBg:'#030308',langBg:'#0A0A18',formOptBg:'#14142A',dmAccent:'#60B0FF',
+         heroPattern:'14,50,140',cardGlow:'20,100,200',ctaText:'8,8,12'}},
+
+    {id:'blush', label:'Blush',      labelAr:'وردي',     labelEl:'Ροδαλό',
+     navy:'#2E1A28', navyMid:'#422838', navyLt:'#6A4058',
+     gold:'#D89058', goldLt:'#E8A870', goldTxt:'#906030',
+     brand:'#C86888', brandTxt:'#A04868',
+     text:'#2A1820', textMuted:'#785868',
+     cardBg:'#FFFFFF', border:'#E8D0D8', bg:'#FCF5F6', bgAlt:'#FFFFFF',
+     slate:'#C0A0AE', navBg:'46,26,40',
+     heroBg:'linear-gradient(145deg,#2E1A28 0%,#3A1830 40%,#281828 100%)',
+     footerBg:'#140A10', langBg:'#281420', formOptBg:'#341A2A',
+     dmAccent:'#F0B8C8', heroPattern:'90,50,70', cardGlow:'216,144,88',
+     ctaText:'46,26,40',
+     dk:{brandTxt:'#C86888',goldTxt:'#E8A870',text:'#F0D8E0',textMuted:'#B08898',
+         cardBg:'#301828',border:'#784860',bg:'#180A10',bgAlt:'#22101A',
+         heroBg:'linear-gradient(145deg,#1E0E18 0%,#280E20 40%,#180E18 100%)',
+         footerBg:'#0C040A',langBg:'#1A0C14',formOptBg:'#301828',dmAccent:'#F0B8C8',
+         heroPattern:'60,30,48',cardGlow:'180,110,70',ctaText:'46,26,40'}},
+
+    {id:'tundra', label:'Tundra',    labelAr:'تندرا',    labelEl:'Τούνδρα',
+     navy:'#18181C', navyMid:'#282830', navyLt:'#484858',
+     gold:'#B0B0BE', goldLt:'#C4C4D0', goldTxt:'#5A5A70',
+     brand:'#4488CC', brandTxt:'#2A6098',
+     text:'#18181E', textMuted:'#606068',
+     cardBg:'#FFFFFF', border:'#D0D0D8', bg:'#F4F4F6', bgAlt:'#FFFFFF',
+     slate:'#9090A0', navBg:'24,24,28',
+     heroBg:'#18181C',
+     footerBg:'#0A0A0E', langBg:'#1E1E24', formOptBg:'#28282E',
+     dmAccent:'#9898B0', heroPattern:'60,60,80', cardGlow:'176,176,190',
+     ctaText:'24,24,28',
+     dk:{brandTxt:'#4488CC',goldTxt:'#C4C4D0',text:'#D8D8E0',textMuted:'#808090',
+         cardBg:'#20202A',border:'#48485A',bg:'#0A0A0E',bgAlt:'#141418',
+         heroBg:'#0E0E12',
+         footerBg:'#06060A',langBg:'#14141A',formOptBg:'#20202A',dmAccent:'#9898B0',
+         heroPattern:'40,40,56',cardGlow:'120,120,140',ctaText:'24,24,28'}},
+
+    {id:'jungle', label:'Jungle',    labelAr:'أدغال',    labelEl:'Ζούγκλα',
+     navy:'#0A1A0A', navyMid:'#142E14', navyLt:'#1E5A20',
+     gold:'#C8B020', goldLt:'#D8C440', goldTxt:'#7A6A08',
+     brand:'#48C848', brandTxt:'#288A28',
+     text:'#0E1C0C', textMuted:'#4A6848',
+     cardBg:'#FFFFFF', border:'#C4DCC2', bg:'#F2F8F0', bgAlt:'#FFFFFF',
+     slate:'#82B480', navBg:'10,26,10',
+     heroBg:'linear-gradient(160deg,#082208 0%,#0A140A 40%,#142A08 100%)',
+     footerBg:'#040E04', langBg:'#0C2210', formOptBg:'#102C14',
+     dmAccent:'#80D880', heroPattern:'20,80,20', cardGlow:'200,176,32',
+     ctaText:'10,26,10',
+     dk:{brandTxt:'#48C848',goldTxt:'#D8C440',text:'#D4F0D0',textMuted:'#78AE78',
+         cardBg:'#102C14',border:'#387838',bg:'#061406',bgAlt:'#0A1E0A',
+         heroBg:'linear-gradient(160deg,#041404 0%,#060E06 40%,#0A1E06 100%)',
+         footerBg:'#020A02',langBg:'#081808',formOptBg:'#102C14',dmAccent:'#80D880',
+         heroPattern:'14,50,14',cardGlow:'160,140,24',ctaText:'10,26,10'}},
+
+    {id:'ivory', label:'Ivory',      labelAr:'عاجي',     labelEl:'Ελεφαντί',
+     navy:'#3A2E24', navyMid:'#4E3E30', navyLt:'#6E5840',
+     gold:'#C04040', goldLt:'#D05858', goldTxt:'#8A2828',
+     brand:'#C84848', brandTxt:'#982828',
+     text:'#2A2018', textMuted:'#6A5E50',
+     cardBg:'#FFFFFF', border:'#DED4C4', bg:'#FBF6EE', bgAlt:'#FFFFFF',
+     slate:'#B0A090', navBg:'58,46,36',
+     heroBg:'linear-gradient(155deg,#3A2E24 0%,#2E2018 45%,#443020 100%)',
+     footerBg:'#1A1208', langBg:'#2E2218', formOptBg:'#382A1E',
+     dmAccent:'#E8B888', heroPattern:'80,56,40', cardGlow:'192,64,64',
+     ctaText:'58,46,36',
+     dk:{brandTxt:'#C84848',goldTxt:'#D05858',text:'#EEE4D8',textMuted:'#A09080',
+         cardBg:'#28200E',border:'#6A5838',bg:'#161008',bgAlt:'#1E1608',
+         heroBg:'linear-gradient(155deg,#2A1E14 0%,#1E1408 45%,#342010 100%)',
+         footerBg:'#0C0804',langBg:'#1E1608',formOptBg:'#28200E',dmAccent:'#E8B888',
+         heroPattern:'50,34,24',cardGlow:'160,48,48',ctaText:'58,46,36'}}
   ];
 
   var SKIN_STORE = 'bp-skin';
@@ -2113,7 +2199,8 @@ if (form && success) {
       '--nav-bg':'rgba('+s.navBg+',0.97)',
       '--footer-bg':s.footerBg, '--lang-bg':s.langBg, '--form-opt-bg':s.formOptBg,
       '--dm-accent':s.dmAccent, '--hero-pattern':s.heroPattern,
-      '--card-glow':s.cardGlow, '--cta-text':s.ctaText
+      '--card-glow':s.cardGlow, '--cta-text':s.ctaText,
+      '--hero-bg':s.heroBg || 'var(--navy)'
     };
     if(s.id === 'default'){
       for(var k in props) root.style.removeProperty(k);
@@ -2133,7 +2220,8 @@ if (form && success) {
       '--bg':dk.bg, '--bg-alt':dk.bgAlt,
       '--footer-bg':dk.footerBg, '--lang-bg':dk.langBg, '--form-opt-bg':dk.formOptBg,
       '--dm-accent':dk.dmAccent, '--hero-pattern':dk.heroPattern,
-      '--card-glow':dk.cardGlow, '--cta-text':dk.ctaText
+      '--card-glow':dk.cardGlow, '--cta-text':dk.ctaText,
+      '--hero-bg':dk.heroBg || 'var(--navy)'
     };
     for(var k in props) root.style.setProperty(k, props[k]);
   }

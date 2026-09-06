@@ -218,15 +218,16 @@ p,li,.hero-body,.form-fail,.fg-err,.footer-col a,.footer-bottom span{text-wrap:p
 .s-white .eyebrow,.s-light .eyebrow{color:var(--brand-txt);}
 /* ── NAV ────────────────────────────────────────────────── */
 .nav{position:fixed;top:0;left:0;right:0;z-index:200;background:var(--nav-bg);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid rgba(255,255,255,.07);}
-.nav-inner{display:flex;align-items:center;gap:clamp(.6rem,1vw,1.2rem);justify-content:space-between;height:clamp(48px,6.5vw,84px);max-width:1200px;margin:0 auto;padding:0 clamp(1rem,2vw,2rem);}
+.nav-inner{display:flex;align-items:center;gap:clamp(.75rem,1.1vw,1.4rem);height:clamp(48px,6.5vw,84px);max-width:1200px;margin:0 auto;padding:0 clamp(1rem,2vw,2rem);}
 .nav-logo{display:flex;align-items:center;gap:10px;text-decoration:none;flex-shrink:0;}
-.logo-mark{width:clamp(20px,2.4vw,28px);height:clamp(22px,2.7vw,31px);flex-shrink:0;color:#00AEEF;}
-.logo-text{font-family:var(--f-logo);font-weight:var(--logo-wt);font-size:clamp(.85rem,1.2vw,1.05rem);letter-spacing:var(--ls-logo);color:#fff;line-height:1.05;white-space:nowrap;}
-.logo-sub{display:block;font-family:var(--f-util);font-size:.6rem;font-weight:500;letter-spacing:var(--ls-label);text-transform:uppercase;color:var(--slate);margin-top:2px;white-space:nowrap;}
+.logo-mark{width:clamp(24px,2.8vw,32px);height:clamp(26px,3.1vw,35px);flex-shrink:0;color:#00AEEF;}
+.logo-text{font-family:var(--f-logo);font-weight:var(--logo-wt);font-size:clamp(.95rem,1.35vw,1.15rem);letter-spacing:var(--ls-logo);color:#fff;line-height:1.05;white-space:nowrap;}
+.logo-sub{display:block;font-family:var(--f-util);font-size:.65rem;font-weight:500;letter-spacing:var(--ls-label);text-transform:uppercase;color:var(--slate);margin-top:2px;white-space:nowrap;}
+.nav-inner > nav{flex:1;display:flex;justify-content:center;}
 .nav-links{display:flex;gap:.25rem;list-style:none;}
-.nav-links a{font-family:var(--f-util);font-size:clamp(.68rem,.76vw,.82rem);font-weight:500;color:rgba(255,255,255,.65);text-decoration:none;padding:.3rem clamp(.25rem,.45vw,.55rem);border-radius:4px;transition:color .2s,background .2s;white-space:nowrap;}
+.nav-links a{font-family:var(--f-util);font-size:clamp(.78rem,.88vw,.92rem);font-weight:500;color:rgba(255,255,255,.65);text-decoration:none;padding:.35rem clamp(.35rem,.55vw,.65rem);border-radius:4px;transition:color .2s,background .2s;white-space:nowrap;}
 .nav-links a:hover{color:#fff;background:rgba(255,255,255,.08);}
-.btn-nav{font-family:var(--f-display);font-size:clamp(.7rem,.8vw,.84rem);font-weight:700;letter-spacing:var(--ls-btn);text-transform:uppercase;color:var(--navy);background:var(--gold);border:none;padding:clamp(.35rem,.45vw,.5rem) clamp(.7rem,.9vw,1rem);border-radius:5px;cursor:pointer;text-decoration:none;transition:background .2s,transform .15s;white-space:nowrap;display:inline-block;}
+.btn-nav{font-family:var(--f-display);font-size:clamp(.76rem,.86vw,.9rem);font-weight:700;letter-spacing:var(--ls-btn);text-transform:uppercase;color:var(--navy);background:var(--gold);border:none;padding:clamp(.4rem,.5vw,.55rem) clamp(.8rem,1vw,1.15rem);border-radius:5px;cursor:pointer;text-decoration:none;transition:background .2s,transform .15s;white-space:nowrap;display:inline-block;}
 .btn-nav:hover{background:var(--gold-lt);transform:translateY(-1px);}
 .hamburger{display:none;flex-direction:column;justify-content:center;align-items:center;gap:5px;cursor:pointer;background:none;border:none;width:40px;height:40px;margin-inline-end:-8px;}
 .hamburger span{display:block;width:22px;height:2px;background:#fff;border-radius:2px;transition:transform .2s,opacity .2s;}
@@ -241,7 +242,7 @@ p,li,.hero-body,.form-fail,.fg-err,.footer-col a,.footer-bottom span{text-wrap:p
 .mobile-cta-bar a{display:flex;align-items:center;justify-content:center;min-height:48px;padding:.5rem 1rem;font-family:var(--f-display);font-size:.88rem;font-weight:700;letter-spacing:var(--ls-btn);text-transform:uppercase;color:var(--navy);text-decoration:none;}
 /* ── LANGUAGE SWITCHER ──────────────────────────────────── */
 .lang{position:relative;flex-shrink:0;}
-.lang-btn{display:flex;align-items:center;justify-content:center;min-height:clamp(30px,3.5vw,36px);gap:.3rem;font-family:var(--f-util);font-size:clamp(.7rem,.78vw,.8rem);font-weight:600;color:rgba(255,255,255,.72);background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.14);border-radius:5px;padding:clamp(.25rem,.35vw,.4rem) clamp(.4rem,.5vw,.6rem);cursor:pointer;transition:background .2s,border-color .2s,color .2s;}
+.lang-btn{display:flex;align-items:center;justify-content:center;min-height:clamp(32px,3.8vw,38px);gap:.3rem;font-family:var(--f-util);font-size:clamp(.74rem,.82vw,.84rem);font-weight:600;color:rgba(255,255,255,.72);background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.14);border-radius:5px;padding:clamp(.28rem,.38vw,.42rem) clamp(.42rem,.55vw,.65rem);cursor:pointer;transition:background .2s,border-color .2s,color .2s;}
 .lang-btn:hover{background:rgba(255,255,255,.13);color:#fff;border-color:rgba(255,255,255,.28);}
 .lang-btn svg{width:14px;height:14px;flex-shrink:0;}
 .lang-btn .chev{width:9px;height:9px;opacity:.6;transition:transform .2s;}
@@ -892,7 +893,8 @@ p,li,.hero-body,.form-fail,.fg-err,.footer-col a,.footer-bottom span{text-wrap:p
     <div class="reveal" style="transition-delay:.1s;">
       <form class="contact-form" id="projectForm" novalidate>
         <div class="fg"><label for="f-name" data-i18n="f.name">Name *</label><input type="text" id="f-name" name="name" autocomplete="name" maxlength="120" aria-required="true" aria-describedby="e-name" data-i18n-ph="f.name.ph" placeholder="Your full name" required><span class="fg-err" id="e-name" data-i18n="err.required">This field is required</span></div>
-        <div class="fg"><label for="f-company" data-i18n="f.company">Company *</label><input type="text" id="f-company" name="company" autocomplete="organization" maxlength="160" aria-required="true" aria-describedby="e-company" data-i18n-ph="f.company.ph" placeholder="Organization name" required><span class="fg-err" id="e-company" data-i18n="err.required">This field is required</span></div>
+        <div class="fg"><label for="f-company" data-i18n="f.company">Company *</label><input type="text" id="f-company" name="organization" autocomplete="organization" maxlength="160" aria-required="true" aria-describedby="e-company" data-i18n-ph="f.company.ph" placeholder="Organization name" required><span class="fg-err" id="e-company" data-i18n="err.required">This field is required</span></div>
+        <div class="fg"><label for="f-title" data-i18n="f.title">Job title</label><input type="text" id="f-title" name="title" autocomplete="organization-title" maxlength="120" data-i18n-ph="f.title.ph" placeholder="Your role or position"></div>
         <div class="fg country-wrap"><label for="f-country" data-i18n="f.country">Country *</label><input type="text" id="f-country" name="country" autocomplete="country-name" maxlength="80" aria-required="true" aria-describedby="e-country" data-i18n-ph="f.country.ph" placeholder="Country of operation" required role="combobox" aria-autocomplete="list" aria-expanded="false" aria-controls="country-list"><ul class="country-menu" id="country-list" role="listbox"></ul><span class="fg-err" id="e-country" data-i18n="err.required">This field is required</span></div>
         <div class="fg full"><label for="f-phone" data-i18n="f.phone">Phone</label><input type="tel" id="f-phone" name="phone" dir="ltr" autocomplete="tel" maxlength="40" placeholder="+00 000 000 0000"></div>
         <div class="fg full"><label for="f-desc" data-i18n="f.desc">Project description</label>
@@ -1083,6 +1085,7 @@ T.en = {
 "form.p2":"For initial inquiries, project briefs or RFQ submissions, this is the fastest route to a technical response.",
 "form.note":"All information submitted through this form is treated as confidential and used solely to assess and respond to your inquiry.",
 "f.name":"Name *","f.name.ph":"Your full name","f.company":"Company *","f.company.ph":"Organization name",
+"f.title":"Job title","f.title.ph":"Your role or position",
 "f.country":"Country *","f.country.ph":"Country of operation","f.phone":"Phone",
 "f.desc":"Project description","f.desc.ph":"Briefly describe your project, timeline, specific requirements or questions…",
 "chk1":"Card personalization","chk2":"Encoding & chip personalization","chk6":"Mailing & fulfillment","chk7":"Packaging, insertion & sorting",
@@ -1198,6 +1201,7 @@ T.ar = {
 "form.p2":"للاستفسارات الأولية أو ملخصات المشاريع أو طلبات عروض الأسعار، هذه أسرع طريقة لبدء حوار جدي.",
 "form.note":"تُعامَل جميع المعلومات المُرسلة عبر هذا النموذج بسرية وتُستخدم فقط لتقييم استفساركم والرد عليه.",
 "f.name":"الاسم *","f.name.ph":"الاسم الكامل","f.company":"الشركة *","f.company.ph":"اسم المؤسسة",
+"f.title":"المسمى الوظيفي","f.title.ph":"منصبكم أو دوركم",
 "f.country":"الدولة *","f.country.ph":"دولة التشغيل","f.phone":"الهاتف",
 "f.desc":"وصف المشروع","f.desc.ph":"اذكروا بإيجاز مشروعكم وجدوله الزمني ومتطلباته الخاصة أو أي أسئلة…",
 "chk1":"تخصيص البطاقات","chk2":"الترميز وتخصيص الشريحة","chk6":"الإرسال البريدي وتجهيز الطلبات","chk7":"التغليف والإدراج والفرز",
@@ -1313,6 +1317,7 @@ T.el = {
 "form.p2":"Για αρχικά ερωτήματα, περιγραφές έργων ή αιτήσεις προσφοράς, αυτός είναι ο ταχύτερος τρόπος για τεχνική απάντηση.",
 "form.note":"Όλες οι πληροφορίες που υποβάλλονται μέσω αυτής της φόρμας θεωρούνται εμπιστευτικές και χρησιμοποιούνται αποκλειστικά για την αξιολόγηση και απάντηση του αιτήματός σας.",
 "f.name":"Ονοματεπώνυμο *","f.name.ph":"Πλήρες όνομα","f.company":"Εταιρεία *","f.company.ph":"Επωνυμία οργανισμού",
+"f.title":"Θέση εργασίας","f.title.ph":"Ο ρόλος ή η θέση σας",
 "f.country":"Χώρα *","f.country.ph":"Χώρα δραστηριότητας","f.phone":"Τηλέφωνο",
 "f.desc":"Περιγραφή έργου","f.desc.ph":"Περιγράψτε συνοπτικά το έργο, το χρονοδιάγραμμα, ειδικές απαιτήσεις ή ερωτήσεις...",
 "chk1":"Εξατομίκευση καρτών","chk2":"Κωδικοποίηση & εξατομίκευση chip","chk6":"Ταχυδρομική αποστολή & fulfillment","chk7":"Συσκευασία, ένθεση & ταξινόμηση",
@@ -1575,7 +1580,8 @@ if (form && success) {
     var t = T[lang] || T.en;
     var fields = [
       [t['f.name']||'Name', form.elements.name ? form.elements.name.value : ''],
-      [t['f.company']||'Company', form.elements.company ? form.elements.company.value : ''],
+      [t['f.company']||'Company', form.elements.organization ? form.elements.organization.value : ''],
+      [t['f.title']||'Job title', form.elements.title ? form.elements.title.value : ''],
       [t['f.country']||'Country', form.elements.country ? form.elements.country.value : ''],
       [t['f.phone']||'Phone', form.elements.phone ? form.elements.phone.value : ''],
       [t['f.desc']||'Description', form.elements.description ? form.elements.description.value : '']

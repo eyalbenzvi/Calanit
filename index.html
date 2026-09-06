@@ -18,8 +18,8 @@
      'self'. Two notes for whoever maintains this:
        * 'unsafe-inline' is required only because the CSS and JS are inline in
          this file. tools/csp_hash.py prints a stricter hash-based policy.
-       * Setting CONFIG.FORM_ENDPOINT to a cross-origin URL requires adding
-         that origin to connect-src, or the browser will block the POST.
+       * CONFIG.MAILTO sets the recipient for the mailto: form action.
+         If a server-side endpoint is added later, add its origin to connect-src.
      frame-ancestors cannot be set from a meta tag — serve it as a response
      header (docs/HANDOVER.md lists the full recommended header set). -->
 <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data:; connect-src 'self'; form-action 'none'; base-uri 'none'">
@@ -204,8 +204,8 @@ h1,h2,h3,h4{font-family:var(--f-display);text-wrap:balance;}
    Short blocks are balanced across their lines; running text uses `pretty`,
    which specifically avoids leaving a single short word on the last line.
    Both degrade to normal wrapping in browsers that lack them. */
-.eyebrow,.hero-tagline,.cert-badge,.counter-label,.ref-type,.svc-checks-label,
-.fg label,.footer-col h4,.logo-sub,.chk span,.form-success h3,
+.eyebrow,.hero-tagline,.cert-badge,.counter-label,.ref-type,
+.fg label,.footer-col h4,.logo-sub,.chk span,
 .btn-primary,.btn-ghost,.btn-nav,.btn-dark,.btn-submit,.mobile-cta-bar a,
 .nav-links a,.mobile-menu a,.lang-menu button{text-wrap:balance;}
 p,li,.hero-body,.form-fail,.fg-err,.footer-col a,.footer-bottom span{text-wrap:pretty;}
@@ -373,7 +373,7 @@ p,li,.hero-body,.form-fail,.fg-err,.footer-col a,.footer-bottom span{text-wrap:p
 .form-section{background:var(--navy);padding:clamp(4rem,7vw,6rem) clamp(1.5rem,4vw,3rem);}
 .form-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.65fr);gap:4rem;align-items:start;}
 .form-inner h2{font-family:var(--f-display);font-size:var(--h2-size);font-weight:700;color:#fff;line-height:1.1;margin-bottom:.9rem;margin-top:.45rem;}
-.form-inner > div > p:not(.eyebrow){font-size:.875rem;color:rgba(255,255,255,.58);line-height:calc(1.75 * var(--lh-mult));margin-bottom:.9rem;max-width:42ch;}
+.form-inner > div > p:not(.eyebrow):not(.form-intro-note){font-size:.875rem;color:rgba(255,255,255,.58);line-height:calc(1.75 * var(--lh-mult));margin-bottom:.9rem;max-width:42ch;}
 .form-intro-note{margin-top:2rem;padding-top:1.5rem;border-top:1px solid rgba(255,255,255,.08);font-size:.72rem;color:rgba(255,255,255,.6);font-style:var(--italic);line-height:calc(1.6 * var(--lh-mult));}
 .contact-form{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.9rem;}
 .full,.contact-form > noscript{grid-column:1/-1;}
@@ -399,8 +399,6 @@ p,li,.hero-body,.form-fail,.fg-err,.footer-col a,.footer-bottom span{text-wrap:p
 .country-menu li:hover,.country-menu li.active{background:rgba(255,255,255,.1);color:#fff;}
 .country-menu li mark{background:transparent;color:var(--gold);font-weight:600;}
 .fg textarea{resize:vertical;min-height:110px;}
-.svc-checks-label{font-family:var(--f-util);font-size:.7rem;font-weight:600;letter-spacing:var(--ls-label);text-transform:uppercase;color:rgba(255,255,255,.66);grid-column:1/-1;margin-top:.5rem;}
-.svc-checks{grid-column:1/-1;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.5rem;}
 .chk{font-size:.8rem;color:rgba(255,255,255,.62);display:flex;align-items:center;gap:.5rem;cursor:pointer;transition:color .15s;}
 .chk:hover{color:rgba(255,255,255,.9);}
 .chk input{accent-color:var(--gold);width:auto;}
@@ -464,8 +462,7 @@ p,li,.hero-body,.form-fail,.fg-err,.footer-col a,.footer-bottom span{text-wrap:p
   .ref-grid{grid-template-columns:1fr;}
   .form-inner{grid-template-columns:1fr;gap:2.5rem;}
   .contact-form{grid-template-columns:1fr;}
-  .full,.svc-checks,.svc-checks-label,.btn-submit{grid-column:1;}
-  .svc-checks{grid-template-columns:1fr;}
+  .full,.btn-submit{grid-column:1;}
   .cap-grid > :last-child{grid-column:1/-1;}
   .footer-top{grid-template-columns:repeat(2,minmax(0,1fr));gap:1.75rem;}
   .hero-cards{display:none;}
@@ -493,9 +490,9 @@ p,li,.hero-body,.form-fail,.fg-err,.footer-col a,.footer-bottom span{text-wrap:p
 @media print{
   .nav,.mobile-cta-bar,.mobile-menu,.skip-link,.hero-cards,.lang{display:none!important;}
   .hero,.s-dark,.s-mid,.form-section,.footer,.cta-band{background:#fff!important;color:#000!important;}
-  .hero h1,.hero h1 em,.hero-tagline,.hero-body,.section-hdr h2,.svc-card h3,.svc-card p,
-  .why-card h3,.why-card p,.sec-list li,.cert-note,.footer-col a,.footer-bottom span,
-  .form-inner h2,.form-inner > div > p{color:#000!important;}
+  .hero h1,.hero h1 em,.hero-tagline,.hero-body,.section-hdr h2,.section-hdr p,.svc-card h3,.svc-card p,
+  .why-card h3,.why-card p,.sec-list li,.cert-note,.cert-badge,.footer-col a,.footer-bottom span,
+  .form-inner h2,.form-inner > div > p,.form-intro-note,.chk,.fg label{color:#000!important;}
   .svc-card,.why-card,.cap-card,.ref-card,.counter-item{border:1px solid #999!important;background:#fff!important;break-inside:avoid;}
   .section{padding:1.25rem 0!important;}
   .reveal{opacity:1!important;transform:none!important;}
@@ -516,7 +513,7 @@ p,li,.hero-body,.form-fail,.fg-err,.footer-col a,.footer-bottom span{text-wrap:p
       <span class="logo-text" data-i18n="brand.name">be’eri printers</span>
       <span class="logo-sub" data-i18n="brand.sub">Card personalization</span>
     </a>
-    <nav aria-label="Main">
+    <nav data-i18n-aria="nav.main" aria-label="Main navigation">
       <ul class="nav-links">
         <li><a href="#about" data-i18n="nav.about">About</a></li>
         <li><a href="#services" data-i18n="nav.services">Services</a></li>
@@ -543,7 +540,7 @@ p,li,.hero-body,.form-fail,.fg-err,.footer-col a,.footer-bottom span{text-wrap:p
     <button class="hamburger" id="ham" type="button" aria-expanded="false" aria-controls="mob-menu" data-i18n-aria="nav.menu" aria-label="Menu"><span></span><span></span><span></span></button>
   </div>
 </header>
-<nav class="mobile-menu" id="mob-menu" aria-label="Mobile">
+<nav class="mobile-menu" id="mob-menu" data-i18n-aria="nav.mobile" aria-label="Mobile navigation">
   <a href="#about" data-i18n="mob.about">About Be’eri Printers</a>
   <a href="#services" data-i18n="mob.services">Personalization services</a>
   <a href="#how-it-works" data-i18n="nav.how">How it works</a>
@@ -872,7 +869,7 @@ p,li,.hero-body,.form-fail,.fg-err,.footer-col a,.footer-bottom span{text-wrap:p
   </div>
 </section>
 <!-- CTA BAND -->
-<section class="cta-band" aria-label="Call to action">
+<section class="cta-band" data-i18n-aria="cta.aria" aria-label="Call to action">
   <div style="max-width:1200px;margin:0 auto;">
     <h2 data-i18n="cta.h2">Ready to discuss your card personalization requirements?</h2>
     <p data-i18n="cta.p">Tell us about your project. Our team will respond within one business day with information relevant to your program.</p>
@@ -897,7 +894,7 @@ p,li,.hero-body,.form-fail,.fg-err,.footer-col a,.footer-bottom span{text-wrap:p
         <div class="fg country-wrap"><label for="f-country" data-i18n="f.country">Country *</label><input type="text" id="f-country" name="country" autocomplete="country-name" maxlength="80" aria-required="true" aria-invalid="false" aria-describedby="e-country" data-i18n-ph="f.country.ph" placeholder="Country of operation" required role="combobox" aria-autocomplete="list" aria-expanded="false" aria-controls="country-list"><ul class="country-menu" id="country-list" role="listbox"></ul><span class="fg-err" id="e-country" data-i18n="err.required">This field is required</span></div>
         <div class="fg full"><label for="f-phone" data-i18n="f.phone">Phone</label><input type="tel" id="f-phone" name="phone" dir="ltr" autocomplete="tel" maxlength="40" placeholder="+00 000 000 0000"></div>
         <div class="fg full"><label for="f-desc" data-i18n="f.desc">Project description</label>
-          <textarea id="f-desc" name="description" maxlength="4000" data-i18n-ph="f.desc.ph" placeholder="Briefly describe your project, timeline, specific requirements or questions…"></textarea>
+          <textarea id="f-desc" name="description" maxlength="1500" data-i18n-ph="f.desc.ph" placeholder="Briefly describe your project, timeline, specific requirements or questions…"></textarea>
         </div>
         <div class="bot-trap" aria-hidden="true"><label for="f-ref2">Do not fill this in</label><input type="text" id="f-ref2" name="_ref2" tabindex="-1" autocomplete="off"></div>
         <noscript><p class="form-fail" style="display:block" data-i18n="err.nojs">This form needs JavaScript to open your email client. Please enable it, or email headoffice@beeriprint.co.il directly.</p></noscript>
@@ -991,7 +988,7 @@ T.en = {
 "meta.title":"Be’eri Printers · Card Personalization",
 "meta.desc":"Secure card personalization for banks, financial institutions and card issuers worldwide: encoding, embossing, mailing and fulfillment from Be’eri Printers.",
 "brand.name":"be’eri printers","brand.sub":"Card personalization","brand.aria":"Be’eri Printers, card personalization",
-"lang.aria":"Language","nav.menu":"Menu",
+"lang.aria":"Language","nav.menu":"Menu","nav.main":"Main navigation","nav.mobile":"Mobile navigation",
 "nav.about":"About","nav.services":"Services","nav.how":"How it works","nav.security":"Security",
 "nav.capabilities":"Capabilities","nav.why":"Why Be’eri","nav.references":"References","nav.contact":"Contact",
 "nav.cta":"Discuss your project",
@@ -1073,6 +1070,7 @@ T.en = {
 "ref4.project":"Ongoing outsourced personalization for a card manufacturer without in-market production capability",
 "ref4.services":"Full personalization workflow, QC, packaging and regional distribution",
 "ref4.scope":"Flexible capacity arrangement supporting variable volumes across multiple programs",
+"cta.aria":"Call to action",
 "cta.h2":"Ready to discuss your card personalization requirements?",
 "cta.p":"Tell us about your project. Our team will respond within one business day with information relevant to your program.",
 "form.h2":"Discuss your project",
@@ -1105,7 +1103,7 @@ T.ar = {
 "meta.title":"Be’eri Printers · تخصيص البطاقات",
 "meta.desc":"Be’eri Printers — تخصيص آمن للبطاقات للبنوك والمؤسسات المالية وجهات إصدار البطاقات حول العالم: الترميز والطبع البارز والإرسال البريدي وتجهيز الطلبات.",
 "brand.name":"be’eri printers","brand.sub":"تخصيص البطاقات","brand.aria":"Be’eri Printers، تخصيص البطاقات",
-"lang.aria":"اللغة","nav.menu":"القائمة",
+"lang.aria":"اللغة","nav.menu":"القائمة","nav.main":"التنقل الرئيسي","nav.mobile":"القائمة المحمولة",
 "nav.about":"من نحن","nav.services":"خدماتنا","nav.how":"كيف نعمل","nav.security":"الأمن",
 "nav.capabilities":"القدرات","nav.why":"لماذا نحن","nav.references":"مراجعنا","nav.contact":"اتصل بنا",
 "nav.cta":"لنتحدث عن مشروعكم",
@@ -1187,6 +1185,7 @@ T.ar = {
 "ref4.project":"أعمال تخصيص مُسنَدة بصفة مستمرة لمصنع بطاقات لا يمتلك طاقة إنتاجية داخل السوق",
 "ref4.services":"سير عمل تخصيص كامل ومراقبة الجودة والتغليف والتوزيع الإقليمي",
 "ref4.scope":"ترتيب مرن للطاقة الإنتاجية يدعم كميات متغيرة عبر برامج متعددة",
+"cta.aria":"دعوة للتواصل",
 "cta.h2":"هل أنتم مستعدون لمناقشة احتياجاتكم في تخصيص البطاقات؟",
 "cta.p":"أخبرونا عن مشروعكم. سيتواصل فريقنا معكم خلال يوم عمل واحد بمعلومات تتعلق ببرنامجكم تحديدًا.",
 "form.h2":"لنتحدث عن مشروعكم",
@@ -1219,7 +1218,7 @@ T.el = {
 "meta.title":"Be’eri Printers · Εξατομίκευση Καρτών",
 "meta.desc":"Ασφαλής εξατομίκευση καρτών για τράπεζες, χρηματοπιστωτικά ιδρύματα και εκδότες καρτών παγκοσμίως: κωδικοποίηση, ανάγλυφη αποτύπωση, ταχυδρομική αποστολή και fulfillment από την Be’eri Printers.",
 "brand.name":"be’eri printers","brand.sub":"Εξατομίκευση καρτών","brand.aria":"Be’eri Printers, Εξατομίκευση καρτών",
-"lang.aria":"Γλώσσα","nav.menu":"Μενού",
+"lang.aria":"Γλώσσα","nav.menu":"Μενού","nav.main":"Κύρια πλοήγηση","nav.mobile":"Πλοήγηση κινητού",
 "nav.about":"Σχετικά","nav.services":"Υπηρεσίες","nav.how":"Διαδικασία","nav.security":"Ασφάλεια",
 "nav.capabilities":"Δυνατότητες","nav.why":"Γιατί εμάς","nav.references":"Αναφορές","nav.contact":"Επικοινωνία",
 "nav.cta":"Συζητήστε το έργο σας",
@@ -1301,6 +1300,7 @@ T.el = {
 "ref4.project":"Συνεχής ανάθεση εξατομίκευσης για κατασκευαστή καρτών χωρίς τοπική παραγωγική δυνατότητα",
 "ref4.services":"Πλήρης ροή εξατομίκευσης, ποιοτικός έλεγχος, συσκευασία και περιφερειακή διανομή",
 "ref4.scope":"Ευέλικτη διευθέτηση δυναμικότητας για μεταβλητούς όγκους σε πολλαπλά προγράμματα",
+"cta.aria":"Πρόσκληση για επικοινωνία",
 "cta.h2":"Έτοιμοι να συζητήσουμε τις ανάγκες εξατομίκευσης καρτών σας;",
 "cta.p":"Πείτε μας για το έργο σας. Η ομάδα μας θα απαντήσει εντός μιας εργάσιμης ημέρας με πληροφορίες σχετικές με το πρόγραμμά σας.",
 "form.h2":"Συζητήστε το έργο σας",
@@ -1473,6 +1473,7 @@ if (ham && mob) {
   function setMenu(open){
     mob.classList.toggle('open', open);
     ham.setAttribute('aria-expanded', open ? 'true' : 'false');
+    document.body.style.overflow = open ? 'hidden' : '';
   }
   ham.addEventListener('click', function(){ setMenu(!mob.classList.contains('open')); });
   mob.addEventListener('click', function(ev){
@@ -1586,6 +1587,12 @@ if (form) {
     var mailto = 'mailto:' + CONFIG.MAILTO
       + '?subject=' + encodeURIComponent(subject)
       + '&body=' + encodeURIComponent(body);
+    if (mailto.length > 2000) {
+      var maxBody = 2000 - ('mailto:' + CONFIG.MAILTO + '?subject=' + encodeURIComponent(subject) + '&body=').length;
+      var trimmed = body;
+      while (encodeURIComponent(trimmed).length > maxBody && trimmed.length > 0) trimmed = trimmed.substring(0, trimmed.length - 50);
+      mailto = 'mailto:' + CONFIG.MAILTO + '?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(trimmed);
+    }
     window.location.href = mailto;
   });
   form.addEventListener('change', function(ev){
@@ -1653,6 +1660,7 @@ if (form) {
       for (var i = 0; i < items.length && i < 12; i++){
         var li = document.createElement('li');
         li.setAttribute('role','option');
+        li.id = 'co-' + i;
         li.setAttribute('data-val', items[i]);
         var q = inp.value.trim().toLowerCase();
         var pos = items[i].toLowerCase().indexOf(q);
@@ -1669,7 +1677,7 @@ if (form) {
       inp.setAttribute('aria-expanded','true');
     }
     function esc(s){return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');}
-    function close(){ menu.classList.remove('open'); inp.setAttribute('aria-expanded','false'); idx=-1; }
+    function close(){ menu.classList.remove('open'); inp.setAttribute('aria-expanded','false'); inp.removeAttribute('aria-activedescendant'); idx=-1; }
     function pick(val){ inp.value = val; close(); mark(inp, document.getElementById('e-country'), false); }
     function search(){
       var q = inp.value.trim();
@@ -1697,7 +1705,7 @@ if (form) {
       else if (ev.key === 'Escape') { close(); return; }
       else return;
       for (var i=0;i<items.length;i++) items[i].classList.toggle('active', i===idx);
-      if (items[idx]) items[idx].scrollIntoView({block:'nearest'});
+      if (items[idx]) { items[idx].scrollIntoView({block:'nearest'}); inp.setAttribute('aria-activedescendant', items[idx].id); }
     });
     menu.addEventListener('mousedown', function(ev){
       ev.preventDefault();
@@ -2040,6 +2048,7 @@ if (form) {
     }
   });
   list.addEventListener('click', function(ev){
+    ev.stopPropagation();
     var btn = ev.target.closest ? ev.target.closest('[data-skin]') : null;
     if(!btn) return;
     var id = btn.getAttribute('data-skin');

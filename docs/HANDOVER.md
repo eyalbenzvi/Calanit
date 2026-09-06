@@ -139,11 +139,10 @@ below is outstanding, so it is the gate, not this list.
 
 ### Blocking — the page must not go live without these
 
-1. **`CONFIG.FORM_ENDPOINT`** (top of the `<script>` in `index.html`).
-   Currently `null`. While it is null, every submission shows the visitor a
-   send-failure notice. That is deliberate: losing a lead silently behind a
-   fake "thank you" is worse than an honest error. See
-   [The contact form](#the-contact-form) below for what the endpoint has to do.
+1. **`CONFIG.MAILTO`** (top of the `<script>` in `index.html`).
+   Currently `headoffice@beeriprint.co.il`. The contact form builds a
+   `mailto:` URI from the filled fields and opens the visitor's email client.
+   Change this value if the receiving inbox moves.
 
 2. **`CONFIG.PRIVACY_URL`.** Currently empty, which keeps the footer privacy
    link hidden. The form collects a name, company, country, email, phone and
@@ -201,65 +200,31 @@ confirm the real value before it is stated.
 
 ## The contact form
 
-The form validates in the browser, then `POST`s the fields as JSON to
-`CONFIG.FORM_ENDPOINT`. On a non-2xx response or a network error it shows the
-failure notice and re-enables the button, so the visitor knows to retry.
+The form validates in the browser, then builds a `mailto:` URI from the
+filled fields and opens the visitor's email client via
+`window.location.href`. The email is addressed to `CONFIG.MAILTO`
+(`headoffice@beeriprint.co.il`), with a localized subject line and the
+form data formatted as a readable text body.
 
-Payload shape (keys are the `name` attributes; fields starting with `_` are
-stripped and never sent):
+Field labels in the email body use the visitor's current language (the
+same labels shown in the UI). Select fields send their visible text (the
+translated option label), not machine values, so the email is
+human-readable in every language.
 
-```json
-{
-  "name": "…", "company": "…", "country": "…", "email": "…", "phone": "…",
-  "card_type": "payment", "card_technology": "contact-emv",
-  "card_scheme": "…", "pin_requirement": "…",
-  "annual_quantity": "…", "go_live": "…", "current_arrangement": "…",
-  "services": ["encoding", "mailing"],
-  "description": "…", "consent": "on",
-  "language": "en"
-}
-```
+No server-side endpoint is needed. The browser's `mailto:` handler
+(Outlook, Gmail, Apple Mail, etc.) composes the message, and the visitor
+sends it themselves.
 
-The select fields send stable machine values (`payment`, `contact-emv`), not
-the translated labels, so a submission means the same thing in all three
-languages.
-
-**Use a same-origin endpoint** such as `/api/rfq`. That needs no CORS
-configuration, keeps `connect-src 'self'` intact, and does not disclose the
-backend. If the endpoint must be cross-origin (a third-party form service, a
-different API host), two things have to change:
-
-1. add its origin to `connect-src` in the CSP meta tag **and** in the response
-   header, otherwise the browser blocks the request — `test_suite.py` asserts
-   that this block happens, because it is what stops an injected script from
-   posting the brief somewhere else;
-2. the endpoint has to return `Access-Control-Allow-Origin` for the site.
-
-The endpoint is a public, unauthenticated write path, so it needs:
-
-- **rate limiting** per IP and a global cap — a form on a public page will be
-  found by bots within days;
-- **server-side validation** of every field, including length caps. The
-  browser enforces `maxlength`, `type="email"` and the required fields, but a
-  client-side check is a convenience, never a control;
-- **output escaping** wherever the submission is displayed — a CRM, a
-  notification email, a Slack message. `description` is free text from a
-  stranger;
-- **no reflection** of submitted content back into an HTML response;
-- **TLS** and a retention period consistent with the privacy notice.
-
-The page includes a hidden bot-trap field (`_ref2`). A submission that fills
-it is refused locally and never sent. This filters crude bots only — it is not
-a substitute for rate limiting, and it is not a CAPTCHA.
+The page includes a hidden bot-trap field (`_ref2`). A submission that
+fills it is refused locally and the mailto never opens.
 
 ### Without JavaScript
 
 The whole page renders and reads correctly with scripting off: all content is
 in the markup, and the language switcher, mobile drawer and reveal animations
-degrade to a static English page. The form is the exception — it cannot send,
-and shows a `<noscript>` notice saying so and pointing at the footer contact
-details (item 4 above). If a no-script submit path matters, give the `<form>` a
-real `action` and `method="post"` and relax `form-action` in the CSP.
+degrade to a static English page. The form is the exception — it needs
+JavaScript to build the mailto URI, and shows a `<noscript>` notice saying
+so and giving the email address for direct contact.
 
 ---
 

@@ -185,7 +185,7 @@
 .skin-panel-hdr h4{font-family:var(--f-util);font-size:.72rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--text-muted);margin:0;}
 .skin-close{background:none;border:none;cursor:pointer;color:var(--text-muted);padding:2px;line-height:1;}
 .skin-close:hover{color:var(--text);}
-.skin-list{display:flex;flex-direction:column;gap:.4rem;}
+.skin-list{display:flex;flex-direction:column;gap:.4rem;max-height:calc(100vh - 220px);overflow-y:auto;scrollbar-width:thin;}
 .skin-opt{display:flex;align-items:center;gap:.7rem;padding:.45rem .55rem;border:1.5px solid transparent;border-radius:6px;background:none;cursor:pointer;font-family:var(--f-util);font-size:.82rem;font-weight:500;color:var(--text);transition:border-color .15s,background .15s;text-align:start;width:100%;}
 .skin-opt:hover{background:var(--bg);border-color:var(--border);}
 .skin-opt[aria-current="true"]{border-color:var(--gold);background:var(--bg);}
@@ -229,7 +229,7 @@ p,li,.hero-body,.form-fail,.fg-err,.footer-col a,.footer-bottom span{text-wrap:p
 .nav{position:fixed;top:0;left:0;right:0;z-index:200;background:var(--nav-bg);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid rgba(255,255,255,.07);}
 .nav-inner{display:flex;align-items:center;gap:.75rem;justify-content:space-between;height:64px;max-width:1200px;margin:0 auto;padding:0 clamp(1.25rem,3vw,2.5rem);}
 .nav-logo{display:flex;align-items:center;gap:10px;text-decoration:none;flex-shrink:0;}
-.logo-mark{width:24px;height:27px;flex-shrink:0;color:var(--brand);}
+.logo-mark{width:24px;height:27px;flex-shrink:0;color:#00AEEF;}
 .logo-text{font-family:var(--f-logo);font-weight:var(--logo-wt);font-size:1.05rem;letter-spacing:var(--ls-logo);color:#fff;line-height:1.05;white-space:nowrap;}
 .logo-sub{display:block;font-family:var(--f-util);font-size:.55rem;font-weight:500;letter-spacing:var(--ls-label);text-transform:uppercase;color:var(--slate);margin-top:2px;white-space:nowrap;}
 .nav-links{display:flex;gap:.1rem;list-style:none;}
@@ -922,7 +922,7 @@ p,li,.hero-body,.form-fail,.fg-err,.footer-col a,.footer-bottom span{text-wrap:p
     <div class="reveal">
       <p class="eyebrow" data-i18n="nav.contact">Contact</p>
       <h2 data-i18n="form.h2">Discuss your project</h2>
-      <p data-i18n="form.p1">Complete the form with your project details and a member of our personalization team will respond within one business day.</p>
+      <p data-i18n="form.p1">Fill in your project details below and send them to our team via email. A member of our personalization team will respond within one business day.</p>
       <p data-i18n="form.p2">For initial inquiries, project briefs or RFQ submissions, this is the fastest route to a technical response.</p>
       <p class="form-intro-note" data-i18n="form.note">All information submitted through this form is treated as confidential and used solely to assess and respond to your inquiry.</p>
     </div>
@@ -1021,11 +1021,11 @@ p,li,.hero-body,.form-fail,.fg-err,.footer-col a,.footer-bottom span{text-wrap:p
           <textarea id="f-desc" name="description" maxlength="4000" data-i18n-ph="f.desc.ph" placeholder="Briefly describe your project, timeline, specific requirements or questions…"></textarea>
         </div>
         <div class="bot-trap" aria-hidden="true"><label for="f-ref2">Do not fill this in</label><input type="text" id="f-ref2" name="_ref2" tabindex="-1" autocomplete="off"></div>
-        <noscript><p class="form-fail" style="display:block" data-i18n="err.nojs">This form needs JavaScript to send. Please enable it, or contact us by the details in the footer.</p></noscript>
+        <noscript><p class="form-fail" style="display:block" data-i18n="err.nojs">This form needs JavaScript to open your email client. Please enable it, or email headoffice@beeriprint.co.il directly.</p></noscript>
         <label class="chk full" style="align-items:flex-start;gap:.6rem;margin-top:.5rem;"><input type="checkbox" id="f-consent" name="consent" required aria-required="true" aria-describedby="e-consent" style="margin-top:.2rem;"><span data-i18n="f.consent">I agree that Be’eri Printers may process these details in order to respond to my inquiry.</span></label>
         <span class="fg-err full" id="e-consent" data-i18n="err.consent">Please confirm this to continue</span>
         <p class="form-fail" id="formFail" role="alert" data-i18n="err.fail" hidden>We were unable to send your brief. Please try again, or contact us directly.</p>
-        <button type="submit" class="btn-submit" data-i18n="f.submit">Submit project brief</button>
+        <button type="submit" class="btn-submit" data-i18n="f.submit">Send project brief via email</button>
       </form>
       <div class="form-success" id="formSuccess" role="status" aria-live="polite">
         <h3 data-i18n="f.ok.t">Thank you</h3>
@@ -1043,7 +1043,7 @@ p,li,.hero-body,.form-fail,.fg-err,.footer-col a,.footer-bottom span{text-wrap:p
     <div class="footer-top">
       <div class="footer-brand">
         <div style="display:flex;align-items:center;gap:9px;margin-bottom:.5rem;">
-          <svg width="21" height="23" viewBox="0 0 25.06 27.52" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <svg width="21" height="23" viewBox="0 0 25.06 27.52" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" style="color:#00AEEF">
             <path fill="currentColor" d="M11.25 13.14L15.97 0.17C16.34 0.24 16.7 0.33 17.05 0.44L12.33 13.41C12.82 13.57 13.31 13.76 13.77 13.99L18.49 1.02C18.76 1.16 19.03 1.32 19.3 1.48L14.58 14.45C15.09 14.78 15.58 15.15 16.02 15.56L20.74 2.6C20.94 2.78 21.13 2.97 21.31 3.17L16.59 16.14C17.11 16.72 17.57 17.36 17.94 18.05L22.66 5.09C22.78 5.32 22.89 5.54 22.99 5.78L18.27 18.73C18.79 19.92 19.08 21.23 19.08 22.6L22.26 13.88C23.97 15.29 25.06 17.43 25.06 19.82C25.06 24.08 21.61 27.52 17.36 27.52L3.81 27.52L3.81 12.98L2.83 12.98L7.55 0L9.32 0L4.6 12.98L5.65 12.98L10.38 0L11.95 0L7.23 12.98L8.48 12.98L13.21 0L14.16 0C14.3 0 14.44 0 14.58 0.01L9.85 12.99C10.33 13.01 10.79 13.06 11.25 13.14Z"/>
             <path fill="currentColor" d="M1.97 12.98L0 12.98L4.72 0L6.7 0L1.97 12.98Z"/>
           </svg>
@@ -1108,11 +1108,9 @@ p,li,.hero-body,.form-fail,.fg-err,.footer-col a,.footer-bottom span{text-wrap:p
    translation tables below. See docs/HANDOVER.md.
    ══════════════════════════════════════════════════════════════════════ */
 var CONFIG = {
-  /* URL that accepts a POST of the project brief as JSON. While this is
-     null the form reports a send failure instead of a false confirmation,
-     so an inquiry is never silently discarded. A cross-origin URL also has
-     to be added to connect-src in the CSP meta tag in <head>. */
-  FORM_ENDPOINT: null,
+  /* Email address for the contact form. The form builds a mailto: URI
+     from the filled fields and opens the visitor's email client. */
+  MAILTO: 'headoffice@beeriprint.co.il',
 
   /* URL of the company privacy notice. The footer link stays hidden while
      this is empty. Required wherever GDPR applies, because the form
@@ -1212,7 +1210,7 @@ T.en = {
 "cta.h2":"Ready to discuss your card personalization requirements?",
 "cta.p":"Tell us about your project. Our team will respond within one business day with information relevant to your program.",
 "form.h2":"Discuss your project",
-"form.p1":"Complete the form with your project details and a member of our personalization team will respond within one business day.",
+"form.p1":"Fill in your project details below and send them to our team via email. A member of our personalization team will respond within one business day.",
 "form.p2":"For initial inquiries, project briefs or RFQ submissions, this is the fastest route to a technical response.",
 "form.note":"All information submitted through this form is treated as confidential and used solely to assess and respond to your inquiry.",
 "f.name":"Name *","f.name.ph":"Your full name","f.company":"Company *","f.company.ph":"Organization name",
@@ -1226,8 +1224,9 @@ T.en = {
 "chk1":"Card personalization","chk2":"Encoding & chip personalization","chk3":"Embossing & indent printing","chk4":"Card-to-carrier matching",
 "chk5":"PIN & secure information handling","chk6":"Mailing & fulfillment","chk7":"Packaging, insertion & sorting","chk8":"Secure dispatch & chain of custody",
 "f.desc":"Project description","f.desc.ph":"Briefly describe your project, timeline, specific requirements or questions…",
-"f.submit":"Submit project brief","f.ok.t":"Thank you",
+"f.submit":"Send project brief via email","f.ok.t":"Thank you",
 "f.ok.p":"Your project brief has been received. A member of our personalization team will respond within one business day.",
+"mail.subject":"Project Brief — Be’eri Printers",
 "foot.tag":"Card personalization for banks, financial institutions and card issuers worldwide.",
 "foot.company":"Company","foot.k2":"Submit an RFQ","foot.k3":"Talk to our team",
 "foot.copy":"© {year} Be’eri Printers. All rights reserved.",
@@ -1277,7 +1276,7 @@ T.en = {
 "q6":"2,000,000+",
 "f.consent":"I agree that Be’eri Printers may process these details in order to respond to my inquiry.",
 "err.consent":"Please confirm this to continue",
-"err.nojs":"This form needs JavaScript to send. Please enable it, or contact us by the details in the footer.",
+"err.nojs":"This form needs JavaScript to open your email client. Please enable it, or email headoffice@beeriprint.co.il directly.",
 "sec.pci":"Card personalization is governed by the PCI Card Production and Provisioning Security Requirements — Physical and Logical — which are assessed per facility and are distinct from PCI DSS. Our current scope and status are provided on request."
 };
 
@@ -1371,7 +1370,7 @@ T.ar = {
 "cta.h2":"هل أنتم مستعدون لمناقشة احتياجاتكم في تخصيص البطاقات؟",
 "cta.p":"أخبرونا عن مشروعكم. سيتواصل فريقنا معكم خلال يوم عمل واحد بمعلومات تتعلق ببرنامجكم تحديدًا.",
 "form.h2":"لنتحدث عن مشروعكم",
-"form.p1":"أكملوا النموذج بتفاصيل مشروعكم وسيتواصل معكم أحد أعضاء فريق التخصيص لدينا خلال يوم عمل واحد.",
+"form.p1":"املأوا تفاصيل مشروعكم أدناه وأرسلوها إلى فريقنا عبر البريد الإلكتروني. سيتواصل معكم أحد أعضاء فريق التخصيص لدينا خلال يوم عمل واحد.",
 "form.p2":"للاستفسارات الأولية أو ملخصات المشاريع أو طلبات عروض الأسعار، هذه أسرع طريقة لبدء حوار جدي.",
 "form.note":"تُعامَل جميع المعلومات المُرسلة عبر هذا النموذج بسرية وتُستخدم فقط لتقييم استفساركم والرد عليه.",
 "f.name":"الاسم *","f.name.ph":"الاسم الكامل","f.company":"الشركة *","f.company.ph":"اسم المؤسسة",
@@ -1385,8 +1384,9 @@ T.ar = {
 "chk1":"تخصيص البطاقات","chk2":"الترميز وتخصيص الشريحة","chk3":"الطبع البارز والطباعة الغائرة","chk4":"مطابقة البطاقة مع المستند المرافق",
 "chk5":"الأرقام السرية والمعلومات الحساسة","chk6":"الإرسال البريدي وتجهيز الطلبات","chk7":"التغليف والإدراج والفرز","chk8":"الإرسال الآمن وسلسلة الحيازة",
 "f.desc":"وصف المشروع","f.desc.ph":"اذكروا بإيجاز مشروعكم وجدوله الزمني ومتطلباته الخاصة أو أي أسئلة…",
-"f.submit":"إرسال ملخص المشروع","f.ok.t":"شكرًا لكم",
+"f.submit":"إرسال ملخص المشروع بالبريد الإلكتروني","f.ok.t":"شكرًا لكم",
 "f.ok.p":"تم استلام ملخص مشروعكم. سيتواصل معكم أحد أعضاء فريق التخصيص لدينا خلال يوم عمل واحد.",
+"mail.subject":"ملخص مشروع — Be’eri Printers",
 "foot.tag":"تخصيص البطاقات للبنوك والمؤسسات المالية وجهات إصدار البطاقات حول العالم.",
 "foot.company":"الشركة","foot.k2":"طلب عرض سعر","foot.k3":"تحدثوا مع فريقنا",
 "foot.copy":"© {year} Be’eri Printers. جميع الحقوق محفوظة.",
@@ -1436,7 +1436,7 @@ T.ar = {
 "q6":"أكثر من 2,000,000",
 "f.consent":"أوافق على أن تستخدم Be’eri Printers هذه البيانات للرد على استفساري.",
 "err.consent":"يلزم الموافقة للمتابعة",
-"err.nojs":"يحتاج هذا النموذج إلى JavaScript للإرسال. يُرجى تمكينه أو التواصل معنا عبر البيانات الموجودة في التذييل.",
+"err.nojs":"يحتاج هذا النموذج إلى JavaScript لفتح برنامج البريد الإلكتروني. يُرجى تمكينه أو الإرسال مباشرة إلى headoffice@beeriprint.co.il.",
 "sec.pci":"يخضع تخصيص البطاقات لمتطلبات PCI Card Production and Provisioning الأمنية — المادية والمنطقية — التي تُقيَّم لكل منشأة على حدة وتختلف عن PCI DSS. ويُقدَّم نطاقنا وحالتنا الحاليان عند الطلب."
 };
 
@@ -1529,7 +1529,7 @@ T.el = {
 "cta.h2":"Έτοιμοι να συζητήσουμε τις ανάγκες εξατομίκευσης καρτών σας;",
 "cta.p":"Πείτε μας για το έργο σας. Η ομάδα μας θα απαντήσει εντός μιας εργάσιμης ημέρας με πληροφορίες σχετικές με το πρόγραμμά σας.",
 "form.h2":"Συζητήστε το έργο σας",
-"form.p1":"Συμπληρώστε τη φόρμα με τις λεπτομέρειες του έργου σας και μέλος της ομάδας εξατομίκευσής μας θα απαντήσει εντός μιας εργάσιμης ημέρας.",
+"form.p1":"Συμπληρώστε τα στοιχεία του έργου σας παρακάτω και στείλτε τα στην ομάδα μας μέσω email. Μέλος της ομάδας εξατομίκευσής μας θα απαντήσει εντός μιας εργάσιμης ημέρας.",
 "form.p2":"Για αρχικά ερωτήματα, περιγραφές έργων ή αιτήσεις προσφοράς, αυτός είναι ο ταχύτερος τρόπος για τεχνική απάντηση.",
 "form.note":"Όλες οι πληροφορίες που υποβάλλονται μέσω αυτής της φόρμας θεωρούνται εμπιστευτικές και χρησιμοποιούνται αποκλειστικά για την αξιολόγηση και απάντηση του αιτήματός σας.",
 "f.name":"Ονοματεπώνυμο *","f.name.ph":"Πλήρες όνομα","f.company":"Εταιρεία *","f.company.ph":"Επωνυμία οργανισμού",
@@ -1543,8 +1543,9 @@ T.el = {
 "chk1":"Εξατομίκευση καρτών","chk2":"Κωδικοποίηση & εξατομίκευση chip","chk3":"Ανάγλυφη αποτύπωση & εκτύπωση indent","chk4":"Αντιστοίχιση κάρτας-εντύπου",
 "chk5":"Διαχείριση PIN & ασφαλών πληροφοριών","chk6":"Ταχυδρομική αποστολή & fulfillment","chk7":"Συσκευασία, ένθεση & ταξινόμηση","chk8":"Ασφαλής αποστολή & αλυσίδα κατοχής",
 "f.desc":"Περιγραφή έργου","f.desc.ph":"Περιγράψτε συνοπτικά το έργο, το χρονοδιάγραμμα, ειδικές απαιτήσεις ή ερωτήσεις...",
-"f.submit":"Υποβολή brief έργου","f.ok.t":"Σας ευχαριστούμε",
+"f.submit":"Αποστολή brief έργου μέσω email","f.ok.t":"Σας ευχαριστούμε",
 "f.ok.p":"Το brief του έργου σας ελήφθη. Μέλος της ομάδας εξατομίκευσής μας θα απαντήσει εντός μιας εργάσιμης ημέρας.",
+"mail.subject":"Brief Έργου — Be’eri Printers",
 "foot.tag":"Εξατομίκευση καρτών για τράπεζες, χρηματοπιστωτικά ιδρύματα και εκδότες καρτών παγκοσμίως.",
 "foot.company":"Εταιρεία","foot.k2":"Αίτηση προσφοράς","foot.k3":"Μιλήστε με την ομάδα μας",
 "foot.copy":"© {year} Be’eri Printers. Με την επιφύλαξη παντός δικαιώματος.",
@@ -1594,7 +1595,7 @@ T.el = {
 "q6":"2.000.000+",
 "f.consent":"Συμφωνώ ότι η Be’eri Printers μπορεί να επεξεργαστεί αυτά τα στοιχεία για να απαντήσει στο αίτημά μου.",
 "err.consent":"Απαιτείται επιβεβαίωση για να συνεχίσετε",
-"err.nojs":"Η φόρμα χρειάζεται JavaScript για να σταλεί. Ενεργοποιήστε την ή επικοινωνήστε μαζί μας με τα στοιχεία στο υποσέλιδο.",
+"err.nojs":"Η φόρμα χρειάζεται JavaScript για να ανοίξει το email σας. Ενεργοποιήστε την ή στείλτε email στο headoffice@beeriprint.co.il.",
 "sec.pci":"Η εξατομίκευση καρτών διέπεται από τις απαιτήσεις PCI Card Production and Provisioning — Φυσικής και Λογικής Ασφάλειας — που αξιολογούνται ανά εγκατάσταση και είναι διακριτές από το PCI DSS. Το τρέχον εύρος και η κατάστασή μας παρέχονται κατόπιν αιτήματος."
 };
 
@@ -1865,44 +1866,60 @@ if (form && success) {
     var firstBad = validate();
     if (firstBad) { firstBad.focus(); return; }
 
-    // A filled bot trap means an automated submission. Report the same
-    // failure a human would see rather than explaining the trap.
     var trap = document.getElementById('f-ref2');
     if (trap && trap.value) { failNotice(true); return; }
 
-    var btn = form.querySelector('.btn-submit');
-    var payload = {};
-    new FormData(form).forEach(function(val, key){
-      if (key.charAt(0) === '_') return;          // the bot trap stays local
-      if (payload[key] === undefined) payload[key] = val;
-      else if (Array.isArray(payload[key])) payload[key].push(val);
-      else payload[key] = [payload[key], val];
-    });
-    payload.language = document.documentElement.lang || 'en';
+    var lang = document.documentElement.lang || 'en';
+    var t = T[lang] || T.en;
 
-    function done(){
-      form.hidden = true;
-      success.hidden = false;
-      success.style.display = 'block';
-      success.scrollIntoView({behavior:'smooth', block:'center'});
-    }
-    function failed(){
-      failNotice(true);
-      if (btn) { btn.disabled = false; btn.textContent = (T[document.documentElement.lang]||T.en)['f.submit']; }
+    function selectedText(sel){
+      if(!sel) return '';
+      var opt = sel.options[sel.selectedIndex];
+      return (opt && opt.value) ? opt.textContent : '';
     }
 
-    if (!CONFIG.FORM_ENDPOINT) { failed(); return; }
-
-    if (btn) {
-      btn.disabled = true;
-      btn.textContent = (T[document.documentElement.lang]||T.en)['f.sending'];
+    function checkedLabels(name){
+      var boxes = form.querySelectorAll('input[name="'+name+'"]:checked');
+      var labels = [];
+      for(var i=0;i<boxes.length;i++){
+        var sp = boxes[i].parentElement && boxes[i].parentElement.querySelector('span');
+        labels.push(sp ? sp.textContent : boxes[i].value);
+      }
+      return labels.join(', ');
     }
-    fetch(CONFIG.FORM_ENDPOINT, {
-      method:'POST',
-      headers:{'Content-Type':'application/json'},
-      body:JSON.stringify(payload)
-    }).then(function(res){ if (res.ok) done(); else failed(); })
-      .catch(failed);
+
+    var fields = [
+      [t['f.name']||'Name', form.elements.name ? form.elements.name.value : ''],
+      [t['f.company']||'Company', form.elements.company ? form.elements.company.value : ''],
+      [t['f.country']||'Country', form.elements.country ? form.elements.country.value : ''],
+      [t['f.email']||'Email', form.elements.email ? form.elements.email.value : ''],
+      [t['f.phone']||'Phone', form.elements.phone ? form.elements.phone.value : ''],
+      [t['f.cardtype']||'Card type', selectedText(form.elements.card_type)],
+      [t['f.tech']||'Card technology', selectedText(form.elements.card_technology)],
+      [t['f.scheme']||'Card scheme', selectedText(form.elements.card_scheme)],
+      [t['f.qty']||'Quantity', selectedText(form.elements.quantity)],
+      [t['f.pin']||'PIN requirement', selectedText(form.elements.pin_requirement)],
+      [t['f.golive']||'Target go-live', selectedText(form.elements.go_live)],
+      [t['f.current']||'Current arrangement', selectedText(form.elements.current_arrangement)],
+      [t['f.svcs']||'Services', checkedLabels('svc')],
+      [t['f.desc']||'Description', form.elements.description ? form.elements.description.value : '']
+    ];
+
+    var body = '';
+    for(var i=0;i<fields.length;i++){
+      var val = (fields[i][1]||'').replace(/\s+$/,'');
+      if(val){
+        var label = fields[i][0].replace(/\s*\*$/,'');
+        body += label + ': ' + val + '\n';
+      }
+    }
+
+    var subject = t['mail.subject'] || 'Project Brief — Be’eri Printers';
+    var mailto = 'mailto:' + CONFIG.MAILTO
+      + '?subject=' + encodeURIComponent(subject)
+      + '&body=' + encodeURIComponent(body);
+
+    window.location.href = mailto;
   });
 
   form.addEventListener('change', function(ev){

@@ -184,9 +184,9 @@ if '--content' not in sys.argv:
         err('the CONFIG block is missing')
     else:
         body = cfg.group(1)
-        if re.search(r'FORM_ENDPOINT:\s*null', body):
-            err('CONFIG.FORM_ENDPOINT is still null — the contact form cannot '
-                'send, and every submission reports a failure to the visitor')
+        if re.search(r"MAILTO:\s*''", body):
+            err('CONFIG.MAILTO is still empty — the contact form cannot '
+                'open the visitor\'s email client')
         if re.search(r"PRIVACY_URL:\s*''", body):
             err('CONFIG.PRIVACY_URL is still empty — the footer privacy link '
                 'stays hidden, and the form collects personal data')

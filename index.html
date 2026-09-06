@@ -54,8 +54,7 @@
     <meta name="twitter:description" content="Secure card personalization for banks, financial institutions and card issuers worldwide.">
     <meta name="twitter:image" content="https://REPLACE-WITH-LIVE-ORIGIN/assets/og-image.png">
     <meta name="twitter:image:alt" content="Be’eri Printers — secure card personalization services">
-<link rel="preload" href="assets/fonts/fonts.css" as="style">
-    <link rel="stylesheet" href="assets/fonts/fonts.css">
+<link rel="stylesheet" href="assets/fonts/fonts.css">
     <script type="application/ld+json">
     {"@context":"https://schema.org","@type":"Organization",
      "name":"Be’eri Printers",
@@ -187,7 +186,7 @@
 .skin-swatch::before,.skin-swatch::after{content:'';position:absolute;top:0;width:50%;height:100%;}
 .skin-swatch::before{inset-inline-start:0;}
 .skin-swatch::after{inset-inline-end:0;}
-@media(max-width:620px){.skin-toggle{bottom:calc(56px + .75rem);}}
+@media(max-width:620px){.skin-toggle{bottom:calc(56px + .75rem);}.skin-panel{bottom:calc(56px + .75rem + 60px);max-height:calc(100vh - 56px - 80px);}}
 /* ── RESET ──────────────────────────────────────────────── */
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
 [hidden]{display:none!important;}
@@ -266,7 +265,7 @@ p,li,.hero-body,.form-fail,.fg-err,.footer-col a,.footer-bottom span{text-wrap:p
 :root[lang="el"] .hero h1{max-width:28ch;}   /* fits the phrase on one line */
 .hero h1 em{color:var(--gold);font-style:normal;display:block;}
 :root[lang="el"] .hero h1 em{display:inline;}
-.hero-tagline{font-family:var(--f-display);font-size:clamp(1.15rem,2.5vw,1.65rem);font-weight:300;font-style:var(--italic);color:rgba(255,255,255,.55);margin-bottom:1.5rem;}
+.hero-tagline{font-family:var(--f-display);font-size:clamp(1.15rem,2.5vw,1.65rem);font-weight:300;font-style:var(--italic);color:rgba(255,255,255,.62);margin-bottom:1.5rem;}
 .hero-body{font-size:clamp(.9rem,1.4vw,1rem);color:rgba(255,255,255,.65);max-width:52ch;margin-bottom:2.5rem;line-height:calc(1.75 * var(--lh-mult));}
 .hero-ctas{display:flex;gap:1rem;flex-wrap:wrap;}
 .btn-primary{font-family:var(--f-display);font-size:.92rem;font-weight:700;letter-spacing:var(--ls-btn);text-transform:uppercase;color:var(--navy);background:var(--gold);border:none;padding:.9rem 2rem;border-radius:4px;cursor:pointer;text-decoration:none;transition:background .2s,transform .15s,box-shadow .15s;display:inline-block;}
@@ -294,8 +293,8 @@ p,li,.hero-body,.form-fail,.fg-err,.footer-col a,.footer-bottom span{text-wrap:p
 .counters{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1.25rem;}
 .counter-item{text-align:center;padding:1.75rem 1rem 1.4rem;border:1px solid var(--border);border-radius:12px;background:linear-gradient(180deg,var(--card-bg) 0%,#EDF3F9 100%);box-shadow:0 4px 16px rgba(7,30,56,.08);position:relative;overflow:hidden;}
 .counter-item::after{content:'';position:absolute;bottom:0;left:15%;right:15%;height:3px;background:linear-gradient(90deg,var(--gold),var(--gold-lt));border-radius:3px 3px 0 0;}
-@media(prefers-color-scheme:dark){:root:not([data-theme="light"]) .counter-item{background:linear-gradient(180deg,var(--card-bg) 0%,#0A1E30 100%);box-shadow:0 4px 20px rgba(0,0,0,.35);} :root:not([data-theme="light"]) .counter-item::after{opacity:.7;}}
-:root[data-theme="dark"] .counter-item{background:linear-gradient(180deg,var(--card-bg) 0%,#0A1E30 100%);box-shadow:0 4px 20px rgba(0,0,0,.35);}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]) .counter-item{background:linear-gradient(180deg,var(--card-bg) 0%,var(--bg-alt) 100%);box-shadow:0 4px 20px rgba(0,0,0,.35);} :root:not([data-theme="light"]) .counter-item::after{opacity:.7;}}
+:root[data-theme="dark"] .counter-item{background:linear-gradient(180deg,var(--card-bg) 0%,var(--bg-alt) 100%);box-shadow:0 4px 20px rgba(0,0,0,.35);}
 :root[data-theme="dark"] .counter-item::after{opacity:.7;}
 .counter-value{font-family:var(--f-display);font-size:clamp(2rem,3.5vw,2.8rem);font-weight:800;color:var(--navy-lt);line-height:1;margin-bottom:.3rem;font-variant-numeric:tabular-nums;}
 @media(prefers-color-scheme:dark){:root:not([data-theme="light"]) .counter-value{color:var(--dm-accent);}}
@@ -303,18 +302,17 @@ p,li,.hero-body,.form-fail,.fg-err,.footer-col a,.footer-bottom span{text-wrap:p
 .counter-label{font-family:var(--f-util);font-size:.72rem;font-weight:600;letter-spacing:var(--ls-label);text-transform:uppercase;color:var(--text-muted);min-height:calc(3.2em * var(--lh-mult));}
 .counter-note{grid-column:1/-1;font-size:.72rem;color:var(--text-muted);font-style:var(--italic);text-align:center;opacity:.75;}
 /* ── SERVICES ───────────────────────────────────────────── */
-.services-grid{display:flex;flex-wrap:wrap;gap:1.25rem;}
-.svc-card{flex:1 1 240px;}
+.services-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:1.25rem;}
 .svc-card{padding:1.6rem 1.4rem;border:1px solid rgba(255,255,255,.12);border-radius:12px;background:rgba(255,255,255,.05);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);transition:background .2s,border-color .2s,transform .2s,box-shadow .2s;box-shadow:0 4px 16px rgba(0,0,0,.2),inset 0 1px 0 rgba(255,255,255,.08);position:relative;overflow:hidden;}
 .svc-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,transparent,rgba(var(--card-glow),.6),transparent);}
 .svc-card:hover{background:rgba(255,255,255,.1);border-color:rgba(var(--card-glow),.5);transform:translateY(-3px);box-shadow:0 10px 30px rgba(0,0,0,.3),inset 0 1px 0 rgba(255,255,255,.12);}
 .svc-icon{width:38px;height:38px;margin-bottom:.9rem;color:var(--gold);}
 [dir="rtl"] .svc-icon.mir{transform:scaleX(-1);}
 .svc-card h3{min-height:2.7em;font-family:var(--f-util);font-size:.88rem;font-weight:600;color:#fff;margin-bottom:.5rem;line-height:1.35;overflow-wrap:break-word;}
-.svc-card p{font-size:.79rem;color:rgba(255,255,255,.5);line-height:calc(1.6 * var(--lh-mult));}
+.svc-card p{font-size:.79rem;color:rgba(255,255,255,.62);line-height:calc(1.6 * var(--lh-mult));}
 /* ── STEPS ──────────────────────────────────────────────── */
 .steps-wrap{position:relative;}
-.steps-line{position:absolute;top:30px;left:calc((100% - 2.5rem)/12);right:calc((100% - 2.5rem)/12);height:2px;background:linear-gradient(to right,var(--gold),var(--gold-lt));z-index:0;}
+.steps-line{position:absolute;top:30px;inset-inline-start:calc((100% - 2.5rem)/12);inset-inline-end:calc((100% - 2.5rem)/12);height:2px;background:linear-gradient(to right,var(--gold),var(--gold-lt));z-index:0;}
 [dir="rtl"] .steps-line{background:linear-gradient(to left,var(--gold),var(--gold-lt));}
 .steps-grid{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:.5rem;position:relative;z-index:1;}
 .step{text-align:center;padding:0 .5rem;}
@@ -337,8 +335,8 @@ p,li,.hero-body,.form-fail,.fg-err,.footer-col a,.footer-bottom span{text-wrap:p
 .cap-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1.25rem;}
 .cap-card{padding:1.6rem 1.5rem;background:linear-gradient(135deg,#FDFEFF 0%,#F0F5FA 100%);border:1px solid var(--border);border-radius:12px;border-inline-start:4px solid var(--gold);box-shadow:0 4px 16px rgba(7,30,56,.08);transition:transform .2s,box-shadow .2s;}
 .cap-card:hover{transform:translateY(-3px);box-shadow:0 8px 24px rgba(7,30,56,.12);}
-@media(prefers-color-scheme:dark){:root:not([data-theme="light"]) .cap-card{background:linear-gradient(135deg,#122A42 0%,#0D1F34 100%);box-shadow:0 4px 20px rgba(0,0,0,.35);} :root:not([data-theme="light"]) .cap-card:hover{box-shadow:0 10px 30px rgba(0,0,0,.45);}}
-:root[data-theme="dark"] .cap-card{background:linear-gradient(135deg,#122A42 0%,#0D1F34 100%);box-shadow:0 4px 20px rgba(0,0,0,.35);}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]) .cap-card{background:linear-gradient(135deg,var(--card-bg) 0%,var(--bg-alt) 100%);box-shadow:0 4px 20px rgba(0,0,0,.35);} :root:not([data-theme="light"]) .cap-card:hover{box-shadow:0 10px 30px rgba(0,0,0,.45);}}
+:root[data-theme="dark"] .cap-card{background:linear-gradient(135deg,var(--card-bg) 0%,var(--bg-alt) 100%);box-shadow:0 4px 20px rgba(0,0,0,.35);}
 :root[data-theme="dark"] .cap-card:hover{box-shadow:0 10px 30px rgba(0,0,0,.45);}
 .cap-card h3{font-family:var(--f-util);font-size:.875rem;font-weight:700;color:var(--navy-lt);margin-bottom:.5rem;line-height:1.35;overflow-wrap:break-word;}
 @media(prefers-color-scheme:dark){:root:not([data-theme="light"]) .cap-card h3{color:var(--dm-accent);}}
@@ -351,13 +349,13 @@ p,li,.hero-body,.form-fail,.fg-err,.footer-col a,.footer-bottom span{text-wrap:p
 .why-card:hover{background:rgba(255,255,255,.1);border-color:rgba(var(--card-glow),.35);transform:translateY(-3px);box-shadow:0 10px 30px rgba(0,0,0,.3),inset 0 1px 0 rgba(255,255,255,.12);}
 .why-icon{width:42px;height:42px;color:var(--gold);margin-bottom:.9rem;}
 .why-card h3{font-family:var(--f-display);font-size:1.1rem;font-weight:700;color:#fff;letter-spacing:var(--ls-why);text-transform:uppercase;margin-bottom:.5rem;overflow-wrap:break-word;}
-.why-card p{font-size:.825rem;color:rgba(255,255,255,.58);line-height:calc(1.68 * var(--lh-mult));}
+.why-card p{font-size:.825rem;color:rgba(255,255,255,.65);line-height:calc(1.68 * var(--lh-mult));}
 /* ── REFERENCES ─────────────────────────────────────────── */
 .ref-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1.25rem;}
 .ref-card{padding:1.9rem;background:linear-gradient(180deg,#FFFFFF 0%,#F5F8FB 100%);border:1px solid var(--border);border-radius:12px;border-top:3px solid var(--gold);box-shadow:0 4px 16px rgba(7,30,56,.08);transition:transform .2s,box-shadow .2s;}
 .ref-card:hover{transform:translateY(-3px);box-shadow:0 8px 24px rgba(7,30,56,.12);}
-@media(prefers-color-scheme:dark){:root:not([data-theme="light"]) .ref-card{background:linear-gradient(180deg,var(--card-bg) 0%,#0A1E30 100%);box-shadow:0 4px 20px rgba(0,0,0,.35);} :root:not([data-theme="light"]) .ref-card:hover{box-shadow:0 10px 30px rgba(0,0,0,.45);}}
-:root[data-theme="dark"] .ref-card{background:linear-gradient(180deg,var(--card-bg) 0%,#0A1E30 100%);box-shadow:0 4px 20px rgba(0,0,0,.35);}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]) .ref-card{background:linear-gradient(180deg,var(--card-bg) 0%,var(--bg-alt) 100%);box-shadow:0 4px 20px rgba(0,0,0,.35);} :root:not([data-theme="light"]) .ref-card:hover{box-shadow:0 10px 30px rgba(0,0,0,.45);}}
+:root[data-theme="dark"] .ref-card{background:linear-gradient(180deg,var(--card-bg) 0%,var(--bg-alt) 100%);box-shadow:0 4px 20px rgba(0,0,0,.35);}
 :root[data-theme="dark"] .ref-card:hover{box-shadow:0 10px 30px rgba(0,0,0,.45);}
 .ref-type{font-family:var(--f-util);font-size:.72rem;font-weight:600;letter-spacing:var(--ls-ref);text-transform:uppercase;color:var(--gold-txt);margin-bottom:.6rem;}
 .ref-card h3{font-family:var(--f-display);font-size:1.1rem;font-weight:700;color:var(--navy);margin-bottom:.5rem;line-height:1.25;}
@@ -378,7 +376,7 @@ p,li,.hero-body,.form-fail,.fg-err,.footer-col a,.footer-bottom span{text-wrap:p
 .form-inner > div > p:not(.eyebrow){font-size:.875rem;color:rgba(255,255,255,.58);line-height:calc(1.75 * var(--lh-mult));margin-bottom:.9rem;max-width:42ch;}
 .form-intro-note{margin-top:2rem;padding-top:1.5rem;border-top:1px solid rgba(255,255,255,.08);font-size:.72rem;color:rgba(255,255,255,.6);font-style:var(--italic);line-height:calc(1.6 * var(--lh-mult));}
 .contact-form{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.9rem;}
-.full{grid-column:1/-1;}
+.full,.contact-form > noscript{grid-column:1/-1;}
 .fg{display:flex;flex-direction:column;gap:.3rem;}
 .fg label{font-family:var(--f-util);font-size:.7rem;font-weight:600;letter-spacing:var(--ls-label);text-transform:uppercase;color:rgba(255,255,255,.66);}
 .fg input,.fg select,.fg textarea{background:rgba(255,255,255,.06);border:1.5px solid rgba(255,255,255,.14);border-radius:4px;padding:.7rem .95rem;font-family:var(--f-body);font-size:.875rem;color:#fff;outline:none;transition:border-color .2s,background .2s;width:100%;}
@@ -395,7 +393,7 @@ p,li,.hero-body,.form-fail,.fg-err,.footer-col a,.footer-bottom span{text-wrap:p
 .skip-link:focus{position:fixed;inset-block-start:0;inset-inline-start:0;width:auto;height:auto;margin:0;clip-path:none;z-index:300;background:var(--gold);color:var(--navy);font-family:var(--f-util);font-weight:600;font-size:.85rem;padding:.7rem 1.1rem;border-end-end-radius:4px;text-decoration:none;}
 .fg select option{background:var(--form-opt-bg);color:#fff;}
 .country-wrap{position:relative;}
-.country-menu{display:none;position:absolute;top:100%;left:0;right:0;max-height:220px;overflow-y:auto;background:var(--navy);border:1.5px solid rgba(255,255,255,.18);border-radius:0 0 6px 6px;margin-top:-1px;z-index:50;list-style:none;padding:0;}
+.country-menu{display:none;position:absolute;top:100%;inset-inline-start:0;inset-inline-end:0;max-height:220px;overflow-y:auto;background:var(--navy);border:1.5px solid rgba(255,255,255,.18);border-radius:0 0 6px 6px;margin-top:-1px;z-index:50;list-style:none;padding:0;}
 .country-menu.open{display:block;}
 .country-menu li{padding:.55rem .95rem;font-family:var(--f-body);font-size:.875rem;color:rgba(255,255,255,.8);cursor:pointer;transition:background .12s;}
 .country-menu li:hover,.country-menu li.active{background:rgba(255,255,255,.1);color:#fff;}
@@ -410,9 +408,7 @@ p,li,.hero-body,.form-fail,.fg-err,.footer-col a,.footer-bottom span{text-wrap:p
 .btn-submit:hover{background:var(--gold-lt);transform:translateY(-1px);}
 .btn-submit:disabled{cursor:not-allowed;opacity:.65;}
 .btn-submit:disabled:hover{background:var(--gold);transform:none;}
-.form-success{display:none;text-align:center;padding:3rem 2rem;background:rgba(196,136,42,.1);border:1.5px solid var(--gold);border-radius:6px;}
-.form-success h3{font-family:var(--f-display);font-size:1.5rem;font-weight:700;color:var(--gold);margin-bottom:.65rem;}
-.form-success p{font-size:.875rem;color:rgba(255,255,255,.65);line-height:calc(1.68 * var(--lh-mult));}
+.btn-primary:active,.btn-ghost:active,.btn-nav:active,.btn-dark:active,.btn-submit:active:not(:disabled){transform:scale(.97);}
 /* ── FOOTER ─────────────────────────────────────────────── */
 .footer{background:var(--footer-bg);padding:3rem clamp(1.5rem,4vw,3rem) 1.4rem;color:rgba(255,255,255,.66);}
 .footer-inner{max-width:1200px;margin:0 auto;}
@@ -425,6 +421,9 @@ p,li,.hero-body,.form-fail,.fg-err,.footer-col a,.footer-bottom span{text-wrap:p
 .foot-privacy{color:var(--slate);text-decoration:underline;}
 .foot-privacy:hover{color:#fff;}
 .footer-bottom{display:flex;justify-content:space-between;align-items:center;font-size:.72rem;flex-wrap:wrap;gap:.5rem;}
+/* ── UTILITY ────────────────────────────────────────────── */
+.txt-w{color:#fff;}
+.txt-center{text-align:center;}
 /* ── SCROLL REVEAL ──────────────────────────────────────── */
 @media(prefers-reduced-motion:no-preference){
   /* .js is set by script only when the reveal observer is about to run, so
@@ -471,9 +470,6 @@ p,li,.hero-body,.form-fail,.fg-err,.footer-col a,.footer-bottom span{text-wrap:p
   .footer-top{grid-template-columns:repeat(2,minmax(0,1fr));gap:1.75rem;}
   .hero-cards{display:none;}
 }
-@media(max-width:360px){
-  .nav-inner{padding:0 1rem;gap:.5rem;}
-}
 @media(max-width:620px){
   .lang-btn{min-height:44px;padding:.5rem .7rem;}
   .chk{min-height:32px;}
@@ -489,6 +485,9 @@ p,li,.hero-body,.form-fail,.fg-err,.footer-col a,.footer-bottom span{text-wrap:p
   .mobile-cta-bar{display:block;}
   .logo-sub{display:none;}
   body{padding-bottom:56px;}
+}
+@media(max-width:360px){
+  .nav-inner{padding:0 1rem;gap:.5rem;}
 }
 /* ── PRINT ──────────────────────────────────────────────── */
 @media print{
@@ -558,7 +557,7 @@ p,li,.hero-body,.form-fail,.fg-err,.footer-col a,.footer-bottom span{text-wrap:p
 <!-- HERO -->
 <section class="hero" id="home">
   <div class="hero-cards" aria-hidden="true">
-    <img class="hero-card-img" src="img/cards-composite.png" alt="" width="1168" height="784">
+    <picture><source srcset="img/cards-composite.webp" type="image/webp"><img class="hero-card-img" src="img/cards-composite.png" alt="" width="1168" height="784" fetchpriority="high"></picture>
   </div>
   <div class="hero-inner">
     <p class="eyebrow" style="margin-bottom:1.2rem;" data-i18n="hero.eyebrow">Be’eri Printers · card personalization services</p>
@@ -610,7 +609,7 @@ p,li,.hero-body,.form-fail,.fg-err,.footer-col a,.footer-bottom span{text-wrap:p
   <div class="section-inner">
     <div class="section-hdr reveal">
       <p class="eyebrow" data-i18n="svc.eyebrow">What we do</p>
-      <h2 style="color:#fff;" data-i18n="svc.h2">Personalization services</h2>
+      <h2 class="txt-w" data-i18n="svc.h2">Personalization services</h2>
       <p style="color:rgba(255,255,255,.58);" data-i18n="svc.intro">End-to-end card personalization — from secure data handling to physical production and distribution. Every service is delivered within a controlled, audited environment.</p>
     </div>
     <div class="services-grid">
@@ -675,7 +674,7 @@ p,li,.hero-body,.form-fail,.fg-err,.footer-col a,.footer-bottom span{text-wrap:p
 <!-- HOW IT WORKS -->
 <section class="section s-light" id="how-it-works">
   <div class="section-inner">
-    <div class="section-hdr reveal" style="text-align:center;">
+    <div class="section-hdr reveal txt-center">
       <p class="eyebrow" data-i18n="how.eyebrow">Process</p>
       <h2 data-i18n="how.h2">How it works</h2>
       <p style="color:var(--text-muted);margin:0 auto;" data-i18n="how.intro">A structured, secure workflow from project brief to delivery, designed around operational transparency and data protection at every stage.</p>
@@ -726,7 +725,7 @@ p,li,.hero-body,.form-fail,.fg-err,.footer-col a,.footer-bottom span{text-wrap:p
   <div class="section-inner">
     <div class="section-hdr reveal">
       <p class="eyebrow" data-i18n="sec.eyebrow">Security &amp; compliance</p>
-      <h2 style="color:#fff;" data-i18n="sec.h2">Security and quality built into every process</h2>
+      <h2 class="txt-w" data-i18n="sec.h2">Security and quality built into every process</h2>
     </div>
     <!-- ==================================================================
          CLIENT SIGN-OFF REQUIRED BEFORE LAUNCH — CERTIFICATION CLAIMS
@@ -794,9 +793,9 @@ p,li,.hero-body,.form-fail,.fg-err,.footer-col a,.footer-bottom span{text-wrap:p
 <!-- WHY -->
 <section class="section s-mid" id="why-beeri">
   <div class="section-inner">
-    <div class="section-hdr reveal" style="text-align:center;">
+    <div class="section-hdr reveal txt-center">
       <p class="eyebrow" data-i18n="why.eyebrow">Why choose us</p>
-      <h2 style="color:#fff;" data-i18n="why.h2">Why work with Be’eri Printers?</h2>
+      <h2 class="txt-w" data-i18n="why.h2">Why work with Be’eri Printers?</h2>
     </div>
     <div class="why-grid">
       <div class="why-card reveal">
@@ -892,10 +891,10 @@ p,li,.hero-body,.form-fail,.fg-err,.footer-col a,.footer-bottom span{text-wrap:p
     </div>
     <div class="reveal" style="transition-delay:.1s;">
       <form class="contact-form" id="projectForm" novalidate>
-        <div class="fg"><label for="f-name" data-i18n="f.name">Name *</label><input type="text" id="f-name" name="name" autocomplete="name" maxlength="120" aria-required="true" aria-describedby="e-name" data-i18n-ph="f.name.ph" placeholder="Your full name" required><span class="fg-err" id="e-name" data-i18n="err.required">This field is required</span></div>
-        <div class="fg"><label for="f-company" data-i18n="f.company">Company *</label><input type="text" id="f-company" name="organization" autocomplete="organization" maxlength="160" aria-required="true" aria-describedby="e-company" data-i18n-ph="f.company.ph" placeholder="Organization name" required><span class="fg-err" id="e-company" data-i18n="err.required">This field is required</span></div>
+        <div class="fg"><label for="f-name" data-i18n="f.name">Name *</label><input type="text" id="f-name" name="name" autocomplete="name" maxlength="120" aria-required="true" aria-invalid="false" aria-describedby="e-name" data-i18n-ph="f.name.ph" placeholder="Your full name" required><span class="fg-err" id="e-name" data-i18n="err.required">This field is required</span></div>
+        <div class="fg"><label for="f-company" data-i18n="f.company">Company *</label><input type="text" id="f-company" name="organization" autocomplete="organization" maxlength="160" aria-required="true" aria-invalid="false" aria-describedby="e-company" data-i18n-ph="f.company.ph" placeholder="Organization name" required><span class="fg-err" id="e-company" data-i18n="err.required">This field is required</span></div>
         <div class="fg"><label for="f-title" data-i18n="f.title">Job title</label><input type="text" id="f-title" name="title" autocomplete="organization-title" maxlength="120" data-i18n-ph="f.title.ph" placeholder="Your role or position"></div>
-        <div class="fg country-wrap"><label for="f-country" data-i18n="f.country">Country *</label><input type="text" id="f-country" name="country" autocomplete="country-name" maxlength="80" aria-required="true" aria-describedby="e-country" data-i18n-ph="f.country.ph" placeholder="Country of operation" required role="combobox" aria-autocomplete="list" aria-expanded="false" aria-controls="country-list"><ul class="country-menu" id="country-list" role="listbox"></ul><span class="fg-err" id="e-country" data-i18n="err.required">This field is required</span></div>
+        <div class="fg country-wrap"><label for="f-country" data-i18n="f.country">Country *</label><input type="text" id="f-country" name="country" autocomplete="country-name" maxlength="80" aria-required="true" aria-invalid="false" aria-describedby="e-country" data-i18n-ph="f.country.ph" placeholder="Country of operation" required role="combobox" aria-autocomplete="list" aria-expanded="false" aria-controls="country-list"><ul class="country-menu" id="country-list" role="listbox"></ul><span class="fg-err" id="e-country" data-i18n="err.required">This field is required</span></div>
         <div class="fg full"><label for="f-phone" data-i18n="f.phone">Phone</label><input type="tel" id="f-phone" name="phone" dir="ltr" autocomplete="tel" maxlength="40" placeholder="+00 000 000 0000"></div>
         <div class="fg full"><label for="f-desc" data-i18n="f.desc">Project description</label>
           <textarea id="f-desc" name="description" maxlength="4000" data-i18n-ph="f.desc.ph" placeholder="Briefly describe your project, timeline, specific requirements or questions…"></textarea>
@@ -907,10 +906,6 @@ p,li,.hero-body,.form-fail,.fg-err,.footer-col a,.footer-bottom span{text-wrap:p
         <p class="form-fail" id="formFail" role="alert" data-i18n="err.fail" hidden>We were unable to send your brief. Please try again, or contact us directly.</p>
         <button type="submit" class="btn-submit" data-i18n="f.submit">Send project brief via email</button>
       </form>
-      <div class="form-success" id="formSuccess" role="status" aria-live="polite">
-        <h3 data-i18n="f.ok.t">Thank you</h3>
-        <p data-i18n="f.ok.p">Your project brief has been received. A member of our personalization team will respond within one business day.</p>
-      </div>
     </div>
   </div>
 </section>
@@ -1089,8 +1084,7 @@ T.en = {
 "f.country":"Country *","f.country.ph":"Country of operation","f.phone":"Phone",
 "f.desc":"Project description","f.desc.ph":"Briefly describe your project, timeline, specific requirements or questions…",
 "chk1":"Card personalization","chk2":"Encoding & chip personalization","chk6":"Mailing & fulfillment","chk7":"Packaging, insertion & sorting",
-"f.submit":"Send project brief via email","f.ok.t":"Thank you",
-"f.ok.p":"Your project brief has been received. A member of our personalization team will respond within one business day.",
+"f.submit":"Send project brief via email",
 "mail.subject":"Project Brief — Be’eri Printers",
 "foot.tag":"Card personalization for banks, financial institutions and card issuers worldwide.",
 "foot.company":"Company","foot.k2":"Submit an RFQ","foot.k3":"Talk to our team",
@@ -1102,7 +1096,6 @@ T.en = {
 "skin.title":"Color palette",
 "err.required":"This field is required",
 "err.fail":"We were unable to send your brief. Please try again, or contact us directly.",
-"f.sending":"Sending…",
 "f.consent":"I agree that Be’eri Printers may process these details in order to respond to my inquiry.",
 "err.consent":"Please confirm this to continue",
 "err.nojs":"This form needs JavaScript to open your email client. Please enable it, or email headoffice@beeriprint.co.il directly.",
@@ -1205,8 +1198,7 @@ T.ar = {
 "f.country":"الدولة *","f.country.ph":"دولة التشغيل","f.phone":"الهاتف",
 "f.desc":"وصف المشروع","f.desc.ph":"اذكروا بإيجاز مشروعكم وجدوله الزمني ومتطلباته الخاصة أو أي أسئلة…",
 "chk1":"تخصيص البطاقات","chk2":"الترميز وتخصيص الشريحة","chk6":"الإرسال البريدي وتجهيز الطلبات","chk7":"التغليف والإدراج والفرز",
-"f.submit":"إرسال ملخص المشروع بالبريد الإلكتروني","f.ok.t":"شكرًا لكم",
-"f.ok.p":"تم استلام ملخص مشروعكم. سيتواصل معكم أحد أعضاء فريق التخصيص لدينا خلال يوم عمل واحد.",
+"f.submit":"إرسال ملخص المشروع بالبريد الإلكتروني",
 "mail.subject":"ملخص مشروع — Be’eri Printers",
 "foot.tag":"تخصيص البطاقات للبنوك والمؤسسات المالية وجهات إصدار البطاقات حول العالم.",
 "foot.company":"الشركة","foot.k2":"طلب عرض سعر","foot.k3":"تحدثوا مع فريقنا",
@@ -1218,7 +1210,6 @@ T.ar = {
 "skin.title":"لوحة الألوان",
 "err.required":"هذا الحقل مطلوب",
 "err.fail":"لم نتمكن من إرسال ملخص مشروعكم الآن. حاولوا مرة أخرى أو تواصلوا معنا مباشرة.",
-"f.sending":"جارٍ الإرسال…",
 "f.consent":"أوافق على أن تستخدم Be’eri Printers هذه البيانات للرد على استفساري.",
 "err.consent":"يلزم الموافقة للمتابعة",
 "err.nojs":"يحتاج هذا النموذج إلى JavaScript لفتح برنامج البريد الإلكتروني. يُرجى تمكينه أو الإرسال مباشرة إلى headoffice@beeriprint.co.il.",
@@ -1321,8 +1312,7 @@ T.el = {
 "f.country":"Χώρα *","f.country.ph":"Χώρα δραστηριότητας","f.phone":"Τηλέφωνο",
 "f.desc":"Περιγραφή έργου","f.desc.ph":"Περιγράψτε συνοπτικά το έργο, το χρονοδιάγραμμα, ειδικές απαιτήσεις ή ερωτήσεις...",
 "chk1":"Εξατομίκευση καρτών","chk2":"Κωδικοποίηση & εξατομίκευση chip","chk6":"Ταχυδρομική αποστολή & fulfillment","chk7":"Συσκευασία, ένθεση & ταξινόμηση",
-"f.submit":"Αποστολή brief έργου μέσω email","f.ok.t":"Σας ευχαριστούμε",
-"f.ok.p":"Το brief του έργου σας ελήφθη. Μέλος της ομάδας εξατομίκευσής μας θα απαντήσει εντός μιας εργάσιμης ημέρας.",
+"f.submit":"Αποστολή brief έργου μέσω email",
 "mail.subject":"Brief Έργου — Be’eri Printers",
 "foot.tag":"Εξατομίκευση καρτών για τράπεζες, χρηματοπιστωτικά ιδρύματα και εκδότες καρτών παγκοσμίως.",
 "foot.company":"Εταιρεία","foot.k2":"Αίτηση προσφοράς","foot.k3":"Μιλήστε με την ομάδα μας",
@@ -1334,7 +1324,6 @@ T.el = {
 "skin.title":"Παλέτα χρωμάτων",
 "err.required":"Το πεδίο είναι υποχρεωτικό",
 "err.fail":"Δεν μπορέσαμε να στείλουμε το brief σας. Δοκιμάστε ξανά ή επικοινωνήστε μαζί μας απευθείας.",
-"f.sending":"Αποστολή…",
 "f.consent":"Συμφωνώ ότι η Be’eri Printers μπορεί να επεξεργαστεί αυτά τα στοιχεία για να απαντήσει στο αίτημά μου.",
 "err.consent":"Απαιτείται επιβεβαίωση για να συνεχίσετε",
 "err.nojs":"Η φόρμα χρειάζεται JavaScript για να ανοίξει το email σας. Ενεργοποιήστε την ή στείλτε email στο headoffice@beeriprint.co.il.",
@@ -1533,8 +1522,7 @@ if ('IntersectionObserver' in window) {
 }
 /* ── CONTACT FORM ─────────────────────────────────────────────────────── */
 var form    = document.getElementById('projectForm');
-var success = document.getElementById('formSuccess');
-if (form && success) {
+if (form) {
   var REQUIRED = [
     {id:'f-name',    err:'e-name'},
     {id:'f-company', err:'e-company'},

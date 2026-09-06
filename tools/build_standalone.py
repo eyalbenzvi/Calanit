@@ -80,11 +80,21 @@ src = src.replace(
     % data_uri(os.path.join(ROOT, 'assets', 'favicon.svg'), 'image/svg+xml'), 1)
 
 # ── things that cannot travel in a single file ──────────────────────────
-# The touch icon and the social preview need real URLs; a reviewer opening a
-# local file needs neither, and leaving broken references would be worse.
-src = re.sub(r'\n<link rel="apple-touch-icon"[^>]*>', '', src, count=1)
-src = re.sub(r'\n<meta property="og:image"[^>]*>', '', src, count=1)
-src = re.sub(r'\n<link rel="canonical"[^>]*>', '', src, count=1)
+# The touch icon, social preview, canonical, hreflang, structured data and
+# font preload need real URLs or a server; a reviewer opening a local file
+# needs none of them, and leaving broken references would be worse.
+src = re.sub(r'\n?\s*<link rel="apple-touch-icon"[^>]*>', '', src, count=1)
+src = re.sub(r'\n?\s*<meta property="og:image[^"]*"[^>]*>', '', src)
+src = re.sub(r'\n?\s*<link rel="canonical"[^>]*>', '', src, count=1)
+src = re.sub(r'\n?\s*<link rel="alternate"[^>]*>', '', src)
+src = re.sub(r'\n?\s*<meta property="og:url"[^>]*>', '', src, count=1)
+src = re.sub(r'\n?\s*<meta name="twitter:image[^"]*"[^>]*>', '', src)
+src = re.sub(r'\n?\s*<meta name="twitter:title"[^>]*>', '', src, count=1)
+src = re.sub(r'\n?\s*<meta name="twitter:description"[^>]*>', '', src, count=1)
+src = re.sub(r'\n?\s*<meta name="robots"[^>]*>', '', src, count=1)
+src = re.sub(r'\n?\s*<link rel="preload"[^>]*>', '', src)
+src = re.sub(r'\n?\s*<script type="application/ld\+json">.*?</script>',
+             '', src, count=1, flags=re.S)
 
 # data: fonts have to be allowed, and file:// treats every document as its own
 # opaque origin, so 'self' matches nothing — hence the explicit data:.

@@ -151,8 +151,9 @@ else:
 # anything remote outside an HTML comment would break "no third-party requests"
 stripped = re.sub(r'<!--.*?-->', '', src, flags=re.S)
 stripped = re.sub(r'/\*.*?\*/', '', stripped, flags=re.S)
-# rel="canonical" and the og:* tags are metadata, never fetched by the page
+# rel="canonical", rel="alternate" and the og:* tags are metadata, never fetched
 fetched = re.sub(r'<link[^>]+rel="canonical"[^>]*>', '', stripped)
+fetched = re.sub(r'<link[^>]+rel="alternate"[^>]*>', '', fetched)
 for u in sorted(set(re.findall(r'(?:href|src)="(https?://[^"]+)"', fetched))):
     err('the page loads a third-party resource: %s' % u)
 

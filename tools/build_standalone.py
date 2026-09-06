@@ -79,6 +79,22 @@ src = src.replace(
     '<link rel="icon" type="image/svg+xml" href="%s">'
     % data_uri(os.path.join(ROOT, 'assets', 'favicon.svg'), 'image/svg+xml'), 1)
 
+# ── inline CSS background images (img/*.jpg referenced from hero cards) ─
+def inline_css_img(m):
+    rel = m.group(1)
+    path = os.path.join(ROOT, rel)
+    if not os.path.exists(path):
+        return m.group(0)
+    ext = os.path.splitext(rel)[1].lower()
+    mime = {'jpg': 'image/jpeg', 'jpeg': 'image/jpeg', 'png': 'image/png',
+            'webp': 'image/webp', 'svg': 'image/svg+xml'}.get(ext.lstrip('.'), 'application/octet-stream')
+    return 'url(%s)' % data_uri(path, mime)
+
+src = re.sub(r'url\((img/[^)]+)\)', inline_css_img, src)
+
+# Also inline img-src in the CSP for data: images
+src = src.replace("img-src 'self' data:;", "img-src data:;", 1)
+
 # ── things that cannot travel in a single file ──────────────────────────
 # The touch icon, social preview, canonical, hreflang, structured data and
 # font preload need real URLs or a server; a reviewer opening a local file

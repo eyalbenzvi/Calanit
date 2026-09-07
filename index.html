@@ -194,7 +194,7 @@ p,li,.hero-body,.form-fail,.fg-err,.footer-col a,.footer-bottom span{text-wrap:p
 /* .ref-row holds <strong>+<span>; `pretty` is weak across that nested-inline
    boundary, and these never exceed 4 lines, so balance suits them. */
 .ref-row{text-wrap:balance;}
-.section-hdr p,.cta-band p,.form-intro-note,.counter-note,.cert-note{text-wrap:balance;}
+.section-hdr p,.cta-band p,.form-intro-note,.cert-note{text-wrap:balance;}
 .eyebrow{font-family:var(--f-util);font-size:.75rem;font-weight:600;letter-spacing:var(--ls-wide);text-transform:uppercase;color:var(--brand);}
 .s-white .eyebrow,.s-light .eyebrow{color:var(--brand-txt);}
 /* ── NAV ────────────────────────────────────────────────── */
@@ -288,7 +288,6 @@ p,li,.hero-body,.form-fail,.fg-err,.footer-col a,.footer-bottom span{text-wrap:p
 @media(prefers-color-scheme:dark){:root:not([data-theme="light"]) .counter-value{color:var(--dm-accent);}}
 :root[data-theme="dark"] .counter-value{color:var(--dm-accent);}
 .counter-label{font-family:var(--f-util);font-size:.72rem;font-weight:600;letter-spacing:var(--ls-label);text-transform:uppercase;color:var(--text-muted);min-height:calc(3.2em * var(--lh-mult));}
-.counter-note{grid-column:1/-1;font-size:.72rem;color:var(--text-muted);font-style:var(--italic);text-align:center;opacity:.75;}
 /* ── SERVICES ───────────────────────────────────────────── */
 .services-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(max(240px,calc((100% - 3.75rem)/4)),1fr));gap:1.25rem;}
 .svc-card{padding:1.6rem 1.4rem;border:1px solid rgba(255,255,255,.12);border-radius:12px;background:rgba(255,255,255,.05);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);transition:background .2s,border-color .2s,transform .2s,box-shadow .2s;box-shadow:0 4px 16px rgba(0,0,0,.2),inset 0 1px 0 rgba(255,255,255,.08);position:relative;overflow:hidden;}
@@ -586,18 +585,17 @@ p,li,.hero-body,.form-fail,.fg-err,.footer-col a,.footer-bottom span{text-wrap:p
       <div class="reveal" style="transition-delay:.1s;">
         <div class="counters">
           <div class="counter-item">
-            <div class="counter-value">30+</div>
-            <div class="counter-label" data-i18n="about.c1">Years of experience</div>
+            <div class="counter-value">1950</div>
+            <div class="counter-label" data-i18n="about.c1">Established</div>
           </div>
           <div class="counter-item">
-            <div class="counter-value">50M+</div>
+            <div class="counter-value">100M+</div>
             <div class="counter-label" data-i18n="about.c2">Cards personalized</div>
           </div>
           <div class="counter-item">
-            <div class="counter-value">60+</div>
+            <div class="counter-value">100+</div>
             <div class="counter-label" data-i18n="about.c3">Organizations served</div>
           </div>
-          <p class="counter-note" data-i18n="about.note">Figures are indicative.</p>
         </div>
       </div>
     </div>
@@ -995,8 +993,7 @@ T.en = {
 "about.p1":"Be’eri Printers is an established printing and card personalization business, with a long record of secure, high-quality delivery for banks, government bodies and major commercial organizations.",
 "about.p2":"Working in environments that demand rigorous data security and production quality, Be’eri Printers combines industrial capacity with the precision that the financial and identity card sectors require.",
 "about.p3":"From initial data intake to final delivery, every process is designed to protect cardholder data, maintain chain-of-custody integrity and meet international compliance requirements.",
-"about.c1":"Years of experience","about.c2":"Cards personalized","about.c3":"Organizations served",
-"about.note":"Figures are indicative.",
+"about.c1":"Established","about.c2":"Cards personalized","about.c3":"Organizations served",
 "svc.eyebrow":"What we do","svc.h2":"Personalization services",
 "svc.intro":"End-to-end card personalization — from secure data handling to physical production and distribution. Every service is delivered within a controlled, audited environment.",
 "s1.t":"Graphical personalization","s1.p":"High-speed printing of card-unique data: cardholder name, PAN, expiration date and service code.",
@@ -1109,8 +1106,7 @@ T.ar = {
 "about.p1":"Be’eri Printers مؤسسة متخصصة في الطباعة وتخصيص البطاقات، ذات خبرة واسعة وسجل حافل في تقديم خدمات تخصيص البطاقات الآمنة وعالية الجودة للبنوك والجهات الحكومية والمؤسسات التجارية الكبرى.",
 "about.p2":"تعمل Be’eri Printers في بيئات تتطلب أعلى معايير أمن البيانات وجودة الإنتاج، وتجمع بين القدرة الصناعية والدقة التي يتطلبها قطاعا البطاقات المالية وبطاقات الهوية.",
 "about.p3":"من الاستلام الأولي للبيانات وحتى التسليم النهائي، تُصمَّم كل عملية لحماية بيانات حاملي البطاقات والحفاظ على سلامة سلسلة الحيازة وتلبية متطلبات الامتثال الدولية.",
-"about.c1":"سنة خبرة","about.c2":"بطاقة مخصصة","about.c3":"مؤسسة عميلة",
-"about.note":"الأرقام إرشادية.",
+"about.c1":"تأسست","about.c2":"بطاقة مخصصة","about.c3":"مؤسسة عميلة",
 "svc.eyebrow":"ما نقوم به","svc.h2":"خدمات التخصيص",
 "svc.intro":"تخصيص شامل للبطاقات — من المعالجة الآمنة للبيانات إلى الإنتاج المادي والتوزيع. تُقدَّم كل خدمة في بيئة خاضعة للرقابة والتدقيق.",
 "s1.t":"التخصيص الجرافيكي","s1.p":"طباعة عالية السرعة لبيانات فريدة لكل بطاقة: اسم حامل البطاقة ورقم البطاقة (PAN) وتاريخ الانتهاء ورمز الخدمة.",
@@ -1223,8 +1219,7 @@ T.el = {
 "about.p1":"Η Be’eri Printers είναι καθιερωμένη επιχείρηση εκτύπωσης και εξατομίκευσης καρτών, με μακρά πορεία ασφαλών παραδόσεων υψηλής ποιότητας για τράπεζες, δημόσιους φορείς και μεγάλους εμπορικούς οργανισμούς.",
 "about.p2":"Λειτουργώντας σε περιβάλλοντα που απαιτούν αυστηρή ασφάλεια δεδομένων και ποιότητα παραγωγής, η Be’eri Printers συνδυάζει βιομηχανική δυναμικότητα με την ακρίβεια που απαιτεί ο τομέας χρηματοπιστωτικών καρτών και καρτών ταυτότητας.",
 "about.p3":"Από την αρχική λήψη δεδομένων έως την τελική παράδοση, κάθε διαδικασία είναι σχεδιασμένη για την προστασία των δεδομένων κατόχων καρτών, τη διατήρηση της αλυσίδας κατοχής και την τήρηση διεθνών απαιτήσεων συμμόρφωσης.",
-"about.c1":"Χρόνια εμπειρίας","about.c2":"Κάρτες εξατομικευμένες","about.c3":"Οργανισμοί-πελάτες",
-"about.note":"Τα στοιχεία είναι ενδεικτικά.",
+"about.c1":"Ιδρύθηκε","about.c2":"Κάρτες εξατομικευμένες","about.c3":"Οργανισμοί-πελάτες",
 "svc.eyebrow":"Τι κάνουμε","svc.h2":"Υπηρεσίες εξατομίκευσης",
 "svc.intro":"Ολοκληρωμένη εξατομίκευση καρτών — από την ασφαλή διαχείριση δεδομένων έως τη φυσική παραγωγή και διανομή. Κάθε υπηρεσία παρέχεται σε ελεγχόμενο περιβάλλον.",
 "s1.t":"Γραφική εξατομίκευση","s1.p":"Εκτύπωση υψηλής ταχύτητας δεδομένων μοναδικών για κάθε κάρτα: όνομα κατόχου, PAN, ημερομηνία λήξης και κωδικός υπηρεσίας.",

@@ -405,6 +405,7 @@ p,li,.hero-body,.form-fail,.fg-err,.footer-col a,.footer-bottom span{text-wrap:p
 .footer-col a:hover{color:rgba(255,255,255,.8);}
 .foot-privacy{color:var(--slate);text-decoration:underline;}
 .foot-privacy:hover{color:#fff;}
+.footer-map{padding-bottom:2rem;margin-bottom:1.4rem;border-bottom:1px solid rgba(255,255,255,.07);}
 .footer-bottom{display:flex;justify-content:space-between;align-items:center;font-size:.72rem;flex-wrap:wrap;gap:.5rem;}
 /* ── UTILITY ────────────────────────────────────────────── */
 .txt-w{color:#fff;}
@@ -484,7 +485,7 @@ p,li,.hero-body,.form-fail,.fg-err,.footer-col a,.footer-bottom span{text-wrap:p
 .form-req-legend{font-family:var(--f-util);font-size:.7rem;color:rgba(255,255,255,.45);text-align:end;margin-bottom:.3rem;grid-column:1/-1;}
 /* ── PRINT ──────────────────────────────────────────────── */
 @media print{
-  .nav,.mobile-cta-bar,.mobile-menu,.mobile-menu-scrim,.skip-link,.hero-cards,.lang,.back-top{display:none!important;}
+  .nav,.mobile-cta-bar,.mobile-menu,.mobile-menu-scrim,.skip-link,.hero-cards,.lang,.back-top,.footer-map{display:none!important;}
   .hero,.s-dark,.s-mid,.form-section,.footer,.cta-band{background:#fff!important;color:#000!important;}
   .hero h1,.hero h1 em,.hero-tagline,.hero-body,.section-hdr h2,.section-hdr p,.svc-card h3,.svc-card p,
   .why-card h3,.why-card p,.sec-list li,.cert-note,.cert-badge,.footer-col a,.footer-bottom span,
@@ -943,11 +944,15 @@ p,li,.hero-body,.form-fail,.fg-err,.footer-col a,.footer-bottom span{text-wrap:p
       <div class="footer-col">
         <h4 data-i18n="nav.contact">Contact</h4>
         <ul>
+          <li><a href="mailto:headoffice@beeriprint.co.il">headoffice@beeriprint.co.il</a></li>
+          <li><a href="tel:+97287489200" dir="ltr">+972-8-748-9200</a></li>
+          <li><span data-i18n="foot.addr">Kibbutz Be'eri, Negev, Israel 8510500</span></li>
           <li><a href="#contact" data-i18n="nav.cta">Discuss your project</a></li>
-          <li><a href="#contact" data-i18n="foot.k2">Submit an RFQ</a></li>
-          <li><a href="#contact" data-i18n="foot.k3">Talk to our team</a></li>
         </ul>
       </div>
+    </div>
+    <div class="footer-map">
+      <iframe src="https://maps.google.com/maps?q=Be%27eri+Print+Kibbutz+Be%27eri+Israel&t=&z=14&ie=UTF8&iwloc=&output=embed" width="100%" height="220" style="border:0;border-radius:8px;opacity:.85;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Be'eri Printers location"></iframe>
     </div>
     <div class="footer-bottom">
       <span data-i18n="foot.copy">&copy; 2026 Be’eri Printers. All rights reserved.</span>
@@ -1074,7 +1079,7 @@ T.en = {
 "f.submit":"Send project brief via email",
 "mail.subject":"Project Brief — Be’eri Printers",
 "foot.tag":"Card personalization for banks, financial institutions and card issuers worldwide.",
-"foot.company":"Company","foot.k2":"Submit an RFQ","foot.k3":"Talk to our team",
+"foot.company":"Company","foot.addr":"Kibbutz Be’eri, Negev, Israel 8510500",
 "foot.copy":"© {year} Be’eri Printers. All rights reserved.",
 "foot.strip":"Card personalization · encoding · fulfillment · worldwide distribution",
 "foot.mob":"Request information",
@@ -1187,7 +1192,7 @@ T.ar = {
 "f.submit":"إرسال ملخص المشروع بالبريد الإلكتروني",
 "mail.subject":"ملخص مشروع — Be’eri Printers",
 "foot.tag":"تخصيص البطاقات للبنوك والمؤسسات المالية وجهات إصدار البطاقات حول العالم.",
-"foot.company":"الشركة","foot.k2":"طلب عرض سعر","foot.k3":"تحدثوا مع فريقنا",
+"foot.company":"الشركة","foot.addr":"كيبوتس بئيري، النقب، إسرائيل 8510500",
 "foot.copy":"© {year} Be’eri Printers. جميع الحقوق محفوظة.",
 "foot.strip":"تخصيص البطاقات · الترميز · تجهيز الطلبات · التوزيع العالمي",
 "foot.mob":"طلب معلومات",
@@ -1300,7 +1305,7 @@ T.el = {
 "f.submit":"Αποστολή brief έργου μέσω email",
 "mail.subject":"Brief Έργου — Be’eri Printers",
 "foot.tag":"Εξατομίκευση καρτών για τράπεζες, χρηματοπιστωτικά ιδρύματα και εκδότες καρτών παγκοσμίως.",
-"foot.company":"Εταιρεία","foot.k2":"Αίτηση προσφοράς","foot.k3":"Μιλήστε με την ομάδα μας",
+"foot.company":"Εταιρεία","foot.addr":"Κιμπούτς Μπεερί, Νεγκέβ, Ισραήλ 8510500",
 "foot.copy":"© {year} Be’eri Printers. Με την επιφύλαξη παντός δικαιώματος.",
 "foot.strip":"Εξατομίκευση καρτών · κωδικοποίηση · fulfillment · παγκόσμια διανομή",
 "foot.mob":"Αίτημα πληροφοριών",

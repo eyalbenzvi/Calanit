@@ -898,8 +898,6 @@ p,li,.hero-body,.form-fail,.fg-err,.footer-col a,.footer-bottom span{text-wrap:p
         </div>
         <div class="bot-trap" aria-hidden="true"><label for="f-ref2">Do not fill this in</label><input type="text" id="f-ref2" name="_ref2" tabindex="-1" autocomplete="off"></div>
         <noscript><p class="form-fail" style="display:block" data-i18n="err.nojs">This form needs JavaScript to open your email client. Please enable it, or email headoffice@beeriprint.co.il directly.</p></noscript>
-        <label class="chk full" style="align-items:flex-start;gap:.6rem;margin-top:.5rem;"><input type="checkbox" id="f-consent" name="consent" required aria-required="true" aria-describedby="e-consent" style="margin-top:.2rem;"><span data-i18n="f.consent">I agree that Be’eri Printers may process these details in order to respond to my inquiry.</span></label>
-        <span class="fg-err full" id="e-consent" data-i18n="err.consent">Please confirm this to continue</span>
         <p class="form-fail" id="formFail" role="alert" data-i18n="err.fail" hidden>We were unable to send your brief. Please try again, or contact us directly.</p>
         <button type="submit" class="btn-submit" data-i18n="f.submit">Send project brief via email</button>
       </form>
@@ -978,8 +976,7 @@ var CONFIG = {
      from the filled fields and opens the visitor's email client. */
   MAILTO: 'headoffice@beeriprint.co.il',
   /* URL of the company privacy notice. The footer link stays hidden while
-     this is empty. Required wherever GDPR applies, because the form
-     collects personal data behind a consent checkbox. */
+     this is empty. */
   PRIVACY_URL: ''
 };
 /* ── TRANSLATIONS ───────────────────────────────────────── */
@@ -1094,8 +1091,6 @@ T.en = {
 "skin.title":"Color palette",
 "err.required":"This field is required",
 "err.fail":"We were unable to send your brief. Please try again, or contact us directly.",
-"f.consent":"I agree that Be’eri Printers may process these details in order to respond to my inquiry.",
-"err.consent":"Please confirm this to continue",
 "err.nojs":"This form needs JavaScript to open your email client. Please enable it, or email headoffice@beeriprint.co.il directly.",
 "sec.pci":"Card personalization is governed by the PCI Card Production and Provisioning Security Requirements — Physical and Logical — which are assessed per facility and are distinct from PCI DSS. Our current scope and status are provided on request."
 };
@@ -1209,8 +1204,6 @@ T.ar = {
 "skin.title":"لوحة الألوان",
 "err.required":"هذا الحقل مطلوب",
 "err.fail":"لم نتمكن من إرسال ملخص مشروعكم الآن. حاولوا مرة أخرى أو تواصلوا معنا مباشرة.",
-"f.consent":"أوافق على أن تستخدم Be’eri Printers هذه البيانات للرد على استفساري.",
-"err.consent":"يلزم الموافقة للمتابعة",
 "err.nojs":"يحتاج هذا النموذج إلى JavaScript لفتح برنامج البريد الإلكتروني. يُرجى تمكينه أو الإرسال مباشرة إلى headoffice@beeriprint.co.il.",
 "sec.pci":"يخضع تخصيص البطاقات لمتطلبات PCI Card Production and Provisioning الأمنية — المادية والمنطقية — التي تُقيَّم لكل منشأة على حدة وتختلف عن PCI DSS. ويُقدَّم نطاقنا وحالتنا الحاليان عند الطلب."
 };
@@ -1324,8 +1317,6 @@ T.el = {
 "skin.title":"Παλέτα χρωμάτων",
 "err.required":"Το πεδίο είναι υποχρεωτικό",
 "err.fail":"Δεν μπορέσαμε να στείλουμε το brief σας. Δοκιμάστε ξανά ή επικοινωνήστε μαζί μας απευθείας.",
-"f.consent":"Συμφωνώ ότι η Be’eri Printers μπορεί να επεξεργαστεί αυτά τα στοιχεία για να απαντήσει στο αίτημά μου.",
-"err.consent":"Απαιτείται επιβεβαίωση για να συνεχίσετε",
 "err.nojs":"Η φόρμα χρειάζεται JavaScript για να ανοίξει το email σας. Ενεργοποιήστε την ή στείλτε email στο headoffice@beeriprint.co.il.",
 "sec.pci":"Η εξατομίκευση καρτών διέπεται από τις απαιτήσεις PCI Card Production and Provisioning — Φυσικής και Λογικής Ασφάλειας — που αξιολογούνται ανά εγκατάσταση και είναι διακριτές από το PCI DSS. Το τρέχον εύρος και η κατάστασή μας παρέχονται κατόπιν αιτήματος."
 };
@@ -1527,8 +1518,7 @@ if (form) {
   var REQUIRED = [
     {id:'f-name',    err:'e-name'},
     {id:'f-company', err:'e-company'},
-    {id:'f-country', err:'e-country'},
-    {id:'f-consent', err:'e-consent', check:true}
+    {id:'f-country', err:'e-country'}
   ];
   function mark(el, errEl, bad){
     el.classList.toggle('err', bad);
@@ -1594,12 +1584,6 @@ if (form) {
       mailto = 'mailto:' + CONFIG.MAILTO + '?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(trimmed);
     }
     window.location.href = mailto;
-  });
-  form.addEventListener('change', function(ev){
-    var el = ev.target;
-    if (el && el.id === 'f-consent' && el.checked) {
-      mark(el, document.getElementById('e-consent'), false);
-    }
   });
   form.addEventListener('input', function(ev){
     var el = ev.target;

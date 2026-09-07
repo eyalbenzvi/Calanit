@@ -229,7 +229,7 @@ p,li,.hero-body,.form-fail,.fg-err,.footer-col a,.footer-bottom span{text-wrap:p
 .mobile-menu-scrim.open{display:block;}
 .mobile-menu{display:none;position:fixed;top:clamp(48px,6.5vw,84px);left:0;right:0;max-height:calc(100vh - clamp(48px,6.5vw,84px));overflow-y:auto;overscroll-behavior:contain;background:var(--navy);padding:1.25rem 1.5rem;z-index:199;flex-direction:column;gap:.25rem;border-bottom:1px solid rgba(255,255,255,.08);}
 .mobile-menu.open{display:flex;}
-.mob-lang-row{display:flex;gap:.5rem;padding:.85rem .5rem .35rem;border-top:1px solid rgba(255,255,255,.08);margin-top:.25rem;}
+.mob-lang-row{display:grid;grid-template-columns:repeat(3,1fr);gap:.4rem;padding:.35rem .25rem .75rem;border-bottom:1px solid rgba(255,255,255,.08);margin-bottom:.25rem;}
 .mob-lang-btn{flex:1;display:flex;align-items:center;justify-content:center;gap:.35rem;font-family:var(--f-util);font-size:.82rem;font-weight:600;color:rgba(255,255,255,.7);background:rgba(255,255,255,.06);border:1.5px solid rgba(255,255,255,.12);border-radius:5px;padding:.5rem;cursor:pointer;transition:background .15s,border-color .15s,color .15s;min-height:44px;}
 .mob-lang-btn:hover{background:rgba(255,255,255,.1);color:#fff;border-color:rgba(255,255,255,.25);}
 .mob-lang-btn[aria-current="true"]{color:var(--brand);border-color:var(--brand);background:rgba(0,174,239,.1);}
@@ -438,16 +438,16 @@ p,li,.hero-body,.form-fail,.fg-err,.footer-col a,.footer-bottom span{text-wrap:p
    together so the language switcher is never inaccessible. */
 @media(max-width:75em){
   .btn-nav{display:none;}
-  .lang{display:none;}
   .nav-links{display:none;}
   .nav-inner > nav{display:none;}
+  .lang{margin-inline-start:auto;}
   .hamburger{display:flex;}
 }
 @media(max-width:78em){
   :root[lang="el"] .btn-nav,:root[lang="fr"] .btn-nav,:root[lang="ro"] .btn-nav,:root[lang="sr"] .btn-nav,:root[lang="he"] .btn-nav,:root[lang="bg"] .btn-nav,:root[lang="sq"] .btn-nav{display:none;}
-  :root[lang="el"] .lang,:root[lang="fr"] .lang,:root[lang="ro"] .lang,:root[lang="sr"] .lang,:root[lang="he"] .lang,:root[lang="bg"] .lang,:root[lang="sq"] .lang{display:none;}
   :root[lang="el"] .nav-links,:root[lang="fr"] .nav-links,:root[lang="ro"] .nav-links,:root[lang="sr"] .nav-links,:root[lang="he"] .nav-links,:root[lang="bg"] .nav-links,:root[lang="sq"] .nav-links{display:none;}
   :root[lang="el"] .nav-inner > nav,:root[lang="fr"] .nav-inner > nav,:root[lang="ro"] .nav-inner > nav,:root[lang="sr"] .nav-inner > nav,:root[lang="he"] .nav-inner > nav,:root[lang="bg"] .nav-inner > nav,:root[lang="sq"] .nav-inner > nav{display:none;}
+  :root[lang="el"] .lang,:root[lang="fr"] .lang,:root[lang="ro"] .lang,:root[lang="sr"] .lang,:root[lang="he"] .lang,:root[lang="bg"] .lang,:root[lang="sq"] .lang{margin-inline-start:auto;}
   :root[lang="el"] .hamburger,:root[lang="fr"] .hamburger,:root[lang="ro"] .hamburger,:root[lang="sr"] .hamburger,:root[lang="he"] .hamburger,:root[lang="bg"] .hamburger,:root[lang="sq"] .hamburger{display:flex;}
 }
 @media(max-width:1280px){
@@ -561,6 +561,17 @@ p,li,.hero-body,.form-fail,.fg-err,.footer-col a,.footer-bottom span{text-wrap:p
 </header>
 <div class="mobile-menu-scrim" id="mob-scrim"></div>
 <nav class="mobile-menu" id="mob-menu" data-i18n-aria="nav.mobile" aria-label="Mobile navigation">
+  <div class="mob-lang-row" id="mob-lang">
+    <button type="button" class="mob-lang-btn" data-lang="en" lang="en">English</button>
+    <button type="button" class="mob-lang-btn" data-lang="he" lang="he">עברית</button>
+    <button type="button" class="mob-lang-btn" data-lang="ar" lang="ar">العربية</button>
+    <button type="button" class="mob-lang-btn" data-lang="fr" lang="fr">Français</button>
+    <button type="button" class="mob-lang-btn" data-lang="el" lang="el">Ελληνικά</button>
+    <button type="button" class="mob-lang-btn" data-lang="bg" lang="bg">Български</button>
+    <button type="button" class="mob-lang-btn" data-lang="ro" lang="ro">Română</button>
+    <button type="button" class="mob-lang-btn" data-lang="sr" lang="sr">Srpski</button>
+    <button type="button" class="mob-lang-btn" data-lang="sq" lang="sq">Shqip</button>
+  </div>
   <a href="#about" data-i18n="mob.about">About Be’eri Printers</a>
   <a href="#services" data-i18n="mob.services">Personalization services</a>
   <a href="#how-it-works" data-i18n="nav.how">How it works</a>
@@ -569,11 +580,6 @@ p,li,.hero-body,.form-fail,.fg-err,.footer-col a,.footer-bottom span{text-wrap:p
   <a href="#why-beeri" data-i18n="mob.why">Why Be’eri Printers</a>
   <a href="#references" data-i18n="nav.references">References</a>
   <a href="#contact" data-i18n="nav.contact">Contact</a>
-  <div class="mob-lang-row" id="mob-lang">
-    <button type="button" class="mob-lang-btn" data-lang="en" lang="en">English</button>
-    <button type="button" class="mob-lang-btn" data-lang="ar" lang="ar">العربية</button>
-    <button type="button" class="mob-lang-btn" data-lang="el" lang="el">Ελληνικά</button>
-  </div>
 </nav>
 <main id="main-content" tabindex="-1">
 <!-- HERO -->

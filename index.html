@@ -229,10 +229,6 @@ p,li,.hero-body,.form-fail,.fg-err,.footer-col a,.footer-bottom span{text-wrap:p
 .mobile-menu-scrim.open{display:block;}
 .mobile-menu{display:none;position:fixed;top:clamp(48px,6.5vw,84px);left:0;right:0;max-height:calc(100vh - clamp(48px,6.5vw,84px));overflow-y:auto;overscroll-behavior:contain;background:var(--navy);padding:1.25rem 1.5rem;z-index:199;flex-direction:column;gap:.25rem;border-bottom:1px solid rgba(255,255,255,.08);}
 .mobile-menu.open{display:flex;}
-.mob-lang-row{display:grid;grid-template-columns:repeat(3,1fr);gap:.4rem;padding:.35rem .25rem .75rem;border-bottom:1px solid rgba(255,255,255,.08);margin-bottom:.25rem;}
-.mob-lang-btn{flex:1;display:flex;align-items:center;justify-content:center;gap:.35rem;font-family:var(--f-util);font-size:.82rem;font-weight:600;color:rgba(255,255,255,.7);background:rgba(255,255,255,.06);border:1.5px solid rgba(255,255,255,.12);border-radius:5px;padding:.5rem;cursor:pointer;transition:background .15s,border-color .15s,color .15s;min-height:44px;}
-.mob-lang-btn:hover{background:rgba(255,255,255,.1);color:#fff;border-color:rgba(255,255,255,.25);}
-.mob-lang-btn[aria-current="true"]{color:var(--brand);border-color:var(--brand);background:rgba(0,174,239,.1);}
 .mobile-menu a{font-family:var(--f-util);font-size:.9rem;font-weight:500;color:rgba(255,255,255,.75);text-decoration:none;padding:.65rem .5rem;border-radius:4px;border-bottom:1px solid rgba(255,255,255,.05);transition:color .15s,background .15s;}
 .mobile-menu a:hover{color:#fff;background:rgba(255,255,255,.07);}
 .mobile-cta-bar{display:none;position:fixed;bottom:0;left:0;right:0;z-index:150;background:var(--gold);text-align:center;}
@@ -566,17 +562,6 @@ p,li,.hero-body,.form-fail,.fg-err,.footer-col a,.footer-bottom span{text-wrap:p
 </header>
 <div class="mobile-menu-scrim" id="mob-scrim"></div>
 <nav class="mobile-menu" id="mob-menu" data-i18n-aria="nav.mobile" aria-label="Mobile navigation">
-  <div class="mob-lang-row" id="mob-lang">
-    <button type="button" class="mob-lang-btn" data-lang="en" lang="en">English</button>
-    <button type="button" class="mob-lang-btn" data-lang="he" lang="he">עברית</button>
-    <button type="button" class="mob-lang-btn" data-lang="ar" lang="ar">العربية</button>
-    <button type="button" class="mob-lang-btn" data-lang="fr" lang="fr">Français</button>
-    <button type="button" class="mob-lang-btn" data-lang="el" lang="el">Ελληνικά</button>
-    <button type="button" class="mob-lang-btn" data-lang="bg" lang="bg">Български</button>
-    <button type="button" class="mob-lang-btn" data-lang="ro" lang="ro">Română</button>
-    <button type="button" class="mob-lang-btn" data-lang="sr" lang="sr">Srpski</button>
-    <button type="button" class="mob-lang-btn" data-lang="sq" lang="sq">Shqip</button>
-  </div>
   <a href="#about" data-i18n="mob.about">About Be’eri Printers</a>
   <a href="#services" data-i18n="mob.services">Personalization services</a>
   <a href="#how-it-works" data-i18n="nav.how">How it works</a>
@@ -2208,31 +2193,6 @@ if (ham && mob) {
       ev.preventDefault(); ham.focus();
     }
   });
-  /* ── Mobile language switcher ── */
-  var mobLang = document.getElementById('mob-lang');
-  if (mobLang) {
-    mobLang.addEventListener('click', function(ev){
-      var btn = ev.target.closest ? ev.target.closest('[data-lang]') : null;
-      if (!btn) return;
-      applyLang(btn.getAttribute('data-lang'), true);
-      updateMobLang();
-      setMenu(false);
-    });
-  }
-  function updateMobLang(){
-    if (!mobLang) return;
-    var cur = document.documentElement.getAttribute('lang') || 'en';
-    var btns = mobLang.querySelectorAll('[data-lang]');
-    for (var i = 0; i < btns.length; i++) {
-      btns[i].setAttribute('aria-current', btns[i].getAttribute('data-lang') === cur ? 'true' : 'false');
-    }
-  }
-  updateMobLang();
-  var _origApplyLang = window.applyLang;
-  window.applyLang = function(l, fromUser){
-    _origApplyLang(l, fromUser);
-    updateMobLang();
-  };
 }
 /* ── SCROLL REVEAL ──────────────────────────────────────── */
 /* The .js class gates the opacity:0 rule, so everything above stays visible

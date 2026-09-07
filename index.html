@@ -107,7 +107,7 @@
   --ls-badge:  .06em;
   --ls-ref:    .1em;
   --ls-why:    .03em;
-  /* skin-overridable (currently hardcoded values extracted to tokens) */
+  /* extended palette */
   --footer-bg:      #040F1D;
   --lang-bg:        #0B2540;
   --form-opt-bg:    #0F2A42;
@@ -169,24 +169,6 @@
   --card-glow:  170,120,30;
   --cta-text:   7,30,56;
 }
-/* ── SKIN PICKER (temporary — remove after palette is chosen) ──────── */
-.skin-toggle{position:fixed;bottom:clamp(1rem,3vw,1.5rem);inset-inline-end:clamp(1rem,3vw,1.5rem);z-index:300;width:46px;height:46px;border-radius:50%;background:var(--navy);border:2px solid var(--gold);color:var(--gold);cursor:pointer;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 18px rgba(0,0,0,.35);transition:transform .2s,box-shadow .2s;}
-.skin-toggle:hover{transform:scale(1.08);box-shadow:0 6px 24px rgba(0,0,0,.45);}
-.skin-toggle svg{width:20px;height:20px;pointer-events:none;}
-.skin-panel{position:fixed;bottom:calc(clamp(1rem,3vw,1.5rem) + 60px);inset-inline-end:clamp(1rem,3vw,1.5rem);z-index:300;background:var(--card-bg);border:1px solid var(--border);border-radius:10px;padding:1rem 1.1rem;box-shadow:0 12px 40px rgba(0,0,0,.25);min-width:210px;animation:pop .14s ease-out;}
-.skin-panel-hdr{display:flex;align-items:center;justify-content:space-between;margin-bottom:.7rem;}
-.skin-panel-hdr h4{font-family:var(--f-util);font-size:.72rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--text-muted);margin:0;}
-.skin-close{background:none;border:none;cursor:pointer;color:var(--text-muted);padding:2px;line-height:1;}
-.skin-close:hover{color:var(--text);}
-.skin-list{display:flex;flex-direction:column;gap:.4rem;max-height:calc(100vh - 220px);overflow-y:auto;scrollbar-width:thin;}
-.skin-opt{display:flex;align-items:center;gap:.7rem;padding:.45rem .55rem;border:1.5px solid transparent;border-radius:6px;background:none;cursor:pointer;font-family:var(--f-util);font-size:.82rem;font-weight:500;color:var(--text);transition:border-color .15s,background .15s;text-align:start;width:100%;}
-.skin-opt:hover{background:var(--bg);border-color:var(--border);}
-.skin-opt[aria-current="true"]{border-color:var(--gold);background:var(--bg);}
-.skin-swatch{width:26px;height:26px;border-radius:50%;flex-shrink:0;border:2px solid var(--border);overflow:hidden;position:relative;}
-.skin-swatch::before,.skin-swatch::after{content:'';position:absolute;top:0;width:50%;height:100%;}
-.skin-swatch::before{inset-inline-start:0;}
-.skin-swatch::after{inset-inline-end:0;}
-@media(max-width:620px){.skin-toggle{bottom:calc(56px + .75rem);}.skin-panel{bottom:calc(56px + .75rem + 60px);max-height:calc(100vh - 56px - 80px);}}
 /* ── RESET ──────────────────────────────────────────────── */
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
 [hidden]{display:none!important;}
@@ -228,13 +210,19 @@ p,li,.hero-body,.form-fail,.fg-err,.footer-col a,.footer-bottom span{text-wrap:p
 .nav-links a:hover{color:#fff;background:rgba(255,255,255,.08);}
 .btn-nav{font-family:var(--f-display);font-size:clamp(.76rem,.86vw,.9rem);font-weight:700;letter-spacing:var(--ls-btn);text-transform:uppercase;color:var(--navy);background:var(--gold);border:none;padding:clamp(.4rem,.5vw,.55rem) clamp(.8rem,1vw,1.15rem);border-radius:5px;cursor:pointer;text-decoration:none;transition:background .2s,transform .15s;white-space:nowrap;display:inline-block;}
 .btn-nav:hover{background:var(--gold-lt);transform:translateY(-1px);}
-.hamburger{display:none;flex-direction:column;justify-content:center;align-items:center;gap:5px;cursor:pointer;background:none;border:none;width:40px;height:40px;margin-inline-end:-8px;}
+.hamburger{display:none;flex-direction:column;justify-content:center;align-items:center;gap:5px;cursor:pointer;background:none;border:none;width:44px;height:44px;margin-inline-end:-8px;}
 .hamburger span{display:block;width:22px;height:2px;background:#fff;border-radius:2px;transition:transform .2s,opacity .2s;}
 .hamburger[aria-expanded="true"] span:nth-child(1){transform:translateY(7px) rotate(45deg);}
 .hamburger[aria-expanded="true"] span:nth-child(2){opacity:0;}
 .hamburger[aria-expanded="true"] span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
+.mobile-menu-scrim{display:none;position:fixed;inset:0;top:clamp(48px,6.5vw,84px);background:rgba(0,0,0,.45);z-index:198;backdrop-filter:blur(2px);-webkit-backdrop-filter:blur(2px);}
+.mobile-menu-scrim.open{display:block;}
 .mobile-menu{display:none;position:fixed;top:clamp(48px,6.5vw,84px);left:0;right:0;max-height:calc(100vh - clamp(48px,6.5vw,84px));overflow-y:auto;overscroll-behavior:contain;background:var(--navy);padding:1.25rem 1.5rem;z-index:199;flex-direction:column;gap:.25rem;border-bottom:1px solid rgba(255,255,255,.08);}
 .mobile-menu.open{display:flex;}
+.mob-lang-row{display:flex;gap:.5rem;padding:.85rem .5rem .35rem;border-top:1px solid rgba(255,255,255,.08);margin-top:.25rem;}
+.mob-lang-btn{flex:1;display:flex;align-items:center;justify-content:center;gap:.35rem;font-family:var(--f-util);font-size:.82rem;font-weight:600;color:rgba(255,255,255,.7);background:rgba(255,255,255,.06);border:1.5px solid rgba(255,255,255,.12);border-radius:5px;padding:.5rem;cursor:pointer;transition:background .15s,border-color .15s,color .15s;min-height:44px;}
+.mob-lang-btn:hover{background:rgba(255,255,255,.1);color:#fff;border-color:rgba(255,255,255,.25);}
+.mob-lang-btn[aria-current="true"]{color:var(--brand);border-color:var(--brand);background:rgba(0,174,239,.1);}
 .mobile-menu a{font-family:var(--f-util);font-size:.9rem;font-weight:500;color:rgba(255,255,255,.75);text-decoration:none;padding:.65rem .5rem;border-radius:4px;border-bottom:1px solid rgba(255,255,255,.05);transition:color .15s,background .15s;}
 .mobile-menu a:hover{color:#fff;background:rgba(255,255,255,.07);}
 .mobile-cta-bar{display:none;position:fixed;bottom:0;left:0;right:0;z-index:150;background:var(--gold);text-align:center;}
@@ -288,7 +276,7 @@ p,li,.hero-body,.form-fail,.fg-err,.footer-col a,.footer-bottom span{text-wrap:p
 .s-mid{background:var(--navy-mid);color:#fff;}
 .divider{display:block;width:100%;border:none;height:3px;background:linear-gradient(to right,var(--navy) 0%,var(--gold) 50%,var(--navy) 100%);}
 /* ── ABOUT ──────────────────────────────────────────────── */
-.about-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:4rem;align-items:center;}
+.about-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:2.5rem;align-items:center;}
 .about-grid > div > p:not(.eyebrow){color:var(--text-muted);margin-bottom:.9rem;font-size:.95rem;max-width:54ch;line-height:calc(1.75 * var(--lh-mult));}
 .counters{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1.25rem;}
 .counter-item{text-align:center;padding:1.75rem 1rem 1.4rem;border:1px solid var(--border);border-radius:12px;background:linear-gradient(180deg,var(--card-bg) 0%,#EDF3F9 100%);box-shadow:0 4px 16px rgba(7,30,56,.08);position:relative;overflow:hidden;}
@@ -302,7 +290,7 @@ p,li,.hero-body,.form-fail,.fg-err,.footer-col a,.footer-bottom span{text-wrap:p
 .counter-label{font-family:var(--f-util);font-size:.72rem;font-weight:600;letter-spacing:var(--ls-label);text-transform:uppercase;color:var(--text-muted);min-height:calc(3.2em * var(--lh-mult));}
 .counter-note{grid-column:1/-1;font-size:.72rem;color:var(--text-muted);font-style:var(--italic);text-align:center;opacity:.75;}
 /* ── SERVICES ───────────────────────────────────────────── */
-.services-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:1.25rem;}
+.services-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(max(240px,calc((100% - 3.75rem)/4)),1fr));gap:1.25rem;}
 .svc-card{padding:1.6rem 1.4rem;border:1px solid rgba(255,255,255,.12);border-radius:12px;background:rgba(255,255,255,.05);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);transition:background .2s,border-color .2s,transform .2s,box-shadow .2s;box-shadow:0 4px 16px rgba(0,0,0,.2),inset 0 1px 0 rgba(255,255,255,.08);position:relative;overflow:hidden;}
 .svc-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,transparent,rgba(var(--card-glow),.6),transparent);}
 .svc-card:hover{background:rgba(255,255,255,.1);border-color:rgba(var(--card-glow),.5);transform:translateY(-3px);box-shadow:0 10px 30px rgba(0,0,0,.3),inset 0 1px 0 rgba(255,255,255,.12);}
@@ -430,22 +418,18 @@ p,li,.hero-body,.form-fail,.fg-err,.footer-col a,.footer-bottom span{text-wrap:p
   :root.js .reveal.visible{opacity:1;transform:translateY(0);}
 }
 /* ── RESPONSIVE ─────────────────────────────────────────── */
-/* Phase 1: hide CTA + lang switcher to make room for links */
-@media(max-width:90em){
+/* Single breakpoint collapse: CTA, lang and nav all switch to hamburger
+   together so the language switcher is never inaccessible. */
+@media(max-width:75em){
   .btn-nav{display:none;}
   .lang{display:none;}
-}
-@media(max-width:93em){
-  :root[lang="el"] .btn-nav{display:none;}
-  :root[lang="el"] .lang{display:none;}
-}
-/* Phase 2: full hamburger collapse */
-@media(max-width:75em){
   .nav-links{display:none;}
   .nav-inner > nav{display:none;}
   .hamburger{display:flex;}
 }
 @media(max-width:78em){
+  :root[lang="el"] .btn-nav{display:none;}
+  :root[lang="el"] .lang{display:none;}
   :root[lang="el"] .nav-links{display:none;}
   :root[lang="el"] .nav-inner > nav{display:none;}
   :root[lang="el"] .hamburger{display:flex;}
@@ -486,9 +470,22 @@ p,li,.hero-body,.form-fail,.fg-err,.footer-col a,.footer-bottom span{text-wrap:p
 @media(max-width:360px){
   .nav-inner{padding:0 1rem;gap:.5rem;}
 }
+/* ── BACK TO TOP ───────────────────────────────────────── */
+.back-top{position:fixed;bottom:clamp(1rem,3vw,1.5rem);inset-inline-end:clamp(1rem,3vw,1.5rem);z-index:140;width:44px;height:44px;border-radius:50%;background:var(--navy);border:1.5px solid rgba(255,255,255,.18);color:rgba(255,255,255,.7);cursor:pointer;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 14px rgba(0,0,0,.3);opacity:0;pointer-events:none;transition:opacity .25s,transform .2s,background .15s;}
+.back-top.visible{opacity:1;pointer-events:auto;}
+.back-top:hover{background:var(--navy-mid);color:#fff;transform:translateY(-2px);}
+.back-top svg{width:20px;height:20px;}
+@media(max-width:620px){.back-top{bottom:calc(56px + .75rem);}}
+/* ── FORM SUCCESS ──────────────────────────────────────── */
+.form-ok{grid-column:1/-1;font-size:.88rem;color:#7BE8B0;border:1px solid rgba(123,232,176,.4);background:rgba(123,232,176,.08);border-radius:4px;padding:.8rem 1rem;text-align:center;font-weight:500;}
+/* ── NAV ACTIVE STATE ──────────────────────────────────── */
+.nav-links a.active{color:#fff;background:rgba(255,255,255,.08);}
+.mobile-menu a.active{color:#fff;background:rgba(255,255,255,.07);}
+/* ── REQUIRED LEGEND ───────────────────────────────────── */
+.form-req-legend{font-family:var(--f-util);font-size:.7rem;color:rgba(255,255,255,.45);text-align:end;margin-bottom:.3rem;}
 /* ── PRINT ──────────────────────────────────────────────── */
 @media print{
-  .nav,.mobile-cta-bar,.mobile-menu,.skip-link,.hero-cards,.lang{display:none!important;}
+  .nav,.mobile-cta-bar,.mobile-menu,.mobile-menu-scrim,.skip-link,.hero-cards,.lang,.back-top{display:none!important;}
   .hero,.s-dark,.s-mid,.form-section,.footer,.cta-band{background:#fff!important;color:#000!important;}
   .hero h1,.hero h1 em,.hero-tagline,.hero-body,.section-hdr h2,.section-hdr p,.svc-card h3,.svc-card p,
   .why-card h3,.why-card p,.sec-list li,.cert-note,.cert-badge,.footer-col a,.footer-bottom span,
@@ -540,6 +537,7 @@ p,li,.hero-body,.form-fail,.fg-err,.footer-col a,.footer-bottom span{text-wrap:p
     <button class="hamburger" id="ham" type="button" aria-expanded="false" aria-controls="mob-menu" data-i18n-aria="nav.menu" aria-label="Menu"><span></span><span></span><span></span></button>
   </div>
 </header>
+<div class="mobile-menu-scrim" id="mob-scrim"></div>
 <nav class="mobile-menu" id="mob-menu" data-i18n-aria="nav.mobile" aria-label="Mobile navigation">
   <a href="#about" data-i18n="mob.about">About Be’eri Printers</a>
   <a href="#services" data-i18n="mob.services">Personalization services</a>
@@ -549,8 +547,13 @@ p,li,.hero-body,.form-fail,.fg-err,.footer-col a,.footer-bottom span{text-wrap:p
   <a href="#why-beeri" data-i18n="mob.why">Why Be’eri Printers</a>
   <a href="#references" data-i18n="nav.references">References</a>
   <a href="#contact" data-i18n="nav.contact">Contact</a>
+  <div class="mob-lang-row" id="mob-lang">
+    <button type="button" class="mob-lang-btn" data-lang="en" lang="en">English</button>
+    <button type="button" class="mob-lang-btn" data-lang="ar" lang="ar">العربية</button>
+    <button type="button" class="mob-lang-btn" data-lang="el" lang="el">Ελληνικά</button>
+  </div>
 </nav>
-<main id="main-content">
+<main id="main-content" tabindex="-1">
 <!-- HERO -->
 <section class="hero" id="home">
   <div class="hero-inner">
@@ -888,6 +891,7 @@ p,li,.hero-body,.form-fail,.fg-err,.footer-col a,.footer-bottom span{text-wrap:p
     </div>
     <div class="reveal" style="transition-delay:.1s;">
       <form class="contact-form" id="projectForm" novalidate>
+        <p class="form-req-legend" data-i18n="f.legend">* = required field</p>
         <div class="fg"><label for="f-name" data-i18n="f.name">Name *</label><input type="text" id="f-name" name="name" autocomplete="name" maxlength="120" aria-required="true" aria-invalid="false" aria-describedby="e-name" data-i18n-ph="f.name.ph" placeholder="Your full name" required><span class="fg-err" id="e-name" data-i18n="err.required">This field is required</span></div>
         <div class="fg"><label for="f-company" data-i18n="f.company">Company *</label><input type="text" id="f-company" name="organization" autocomplete="organization" maxlength="160" aria-required="true" aria-invalid="false" aria-describedby="e-company" data-i18n-ph="f.company.ph" placeholder="Organization name" required><span class="fg-err" id="e-company" data-i18n="err.required">This field is required</span></div>
         <div class="fg"><label for="f-title" data-i18n="f.title">Job title</label><input type="text" id="f-title" name="title" autocomplete="organization-title" maxlength="120" data-i18n-ph="f.title.ph" placeholder="Your role or position"></div>
@@ -899,6 +903,7 @@ p,li,.hero-body,.form-fail,.fg-err,.footer-col a,.footer-bottom span{text-wrap:p
         <div class="bot-trap" aria-hidden="true"><label for="f-ref2">Do not fill this in</label><input type="text" id="f-ref2" name="_ref2" tabindex="-1" autocomplete="off"></div>
         <noscript><p class="form-fail" style="display:block" data-i18n="err.nojs">This form needs JavaScript to open your email client. Please enable it, or email headoffice@beeriprint.co.il directly.</p></noscript>
         <p class="form-fail" id="formFail" role="alert" data-i18n="err.fail" hidden>We were unable to send your brief. Please try again, or contact us directly.</p>
+        <p class="form-ok" id="formOk" role="status" data-i18n="form.ok" hidden>Your email client should now be open with the project brief. Send the email to complete your submission.</p>
         <button type="submit" class="btn-submit" data-i18n="f.submit">Send project brief via email</button>
       </form>
     </div>
@@ -953,17 +958,7 @@ p,li,.hero-body,.form-fail,.fg-err,.footer-col a,.footer-bottom span{text-wrap:p
     </div>
   </div>
 </footer>
-<!-- SKIN PICKER (temporary — remove after palette is chosen) -->
-<button class="skin-toggle" id="skinToggle" type="button" aria-label="Choose color palette" aria-expanded="false">
-  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="13.5" cy="6.5" r="2.5"/><circle cx="19" cy="13.5" r="2.5"/><circle cx="6" cy="12" r="3"/><circle cx="12" cy="19" r="2"/><path d="M12 2a10 10 0 1 0 0 20 4 4 0 0 1 0-8 4 4 0 0 0 0-8Z" opacity=".12" fill="currentColor"/></svg>
-</button>
-<div class="skin-panel" id="skinPanel" hidden>
-  <div class="skin-panel-hdr">
-    <h4 data-i18n="skin.title">Color palette</h4>
-    <button class="skin-close" id="skinClose" type="button" aria-label="Close">&times;</button>
-  </div>
-  <div class="skin-list" id="skinList"></div>
-</div>
+<button class="back-top" id="backTop" type="button" aria-label="Back to top"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 16V4"/><path d="M4 10l6-6 6 6"/></svg></button>
 <div class="mobile-cta-bar"><a href="#contact" data-i18n="foot.mob">Request information</a></div>
 <script>
 /* ══════════════════════════════════════════════════════════════════════
@@ -1088,7 +1083,8 @@ T.en = {
 "foot.mob":"Request information",
 "foot.privacy":"Privacy notice",
 "a11y.skip":"Skip to main content",
-"skin.title":"Color palette",
+"f.legend":"* = required field",
+"form.ok":"Your email client should now be open with the project brief. Send the email to complete your submission.",
 "err.required":"This field is required",
 "err.fail":"We were unable to send your brief. Please try again, or contact us directly.",
 "err.nojs":"This form needs JavaScript to open your email client. Please enable it, or email headoffice@beeriprint.co.il directly.",
@@ -1201,7 +1197,8 @@ T.ar = {
 "foot.mob":"طلب معلومات",
 "foot.privacy":"إشعار الخصوصية",
 "a11y.skip":"الانتقال إلى المحتوى الرئيسي",
-"skin.title":"لوحة الألوان",
+"f.legend":"* = حقل مطلوب",
+"form.ok":"يجب أن يكون برنامج البريد الإلكتروني مفتوحًا الآن مع ملخص المشروع. أرسلوا البريد لإتمام طلبكم.",
 "err.required":"هذا الحقل مطلوب",
 "err.fail":"لم نتمكن من إرسال ملخص مشروعكم الآن. حاولوا مرة أخرى أو تواصلوا معنا مباشرة.",
 "err.nojs":"يحتاج هذا النموذج إلى JavaScript لفتح برنامج البريد الإلكتروني. يُرجى تمكينه أو الإرسال مباشرة إلى headoffice@beeriprint.co.il.",
@@ -1314,7 +1311,8 @@ T.el = {
 "foot.mob":"Αίτημα πληροφοριών",
 "foot.privacy":"Δήλωση απορρήτου",
 "a11y.skip":"Μετάβαση στο κύριο περιεχόμενο",
-"skin.title":"Παλέτα χρωμάτων",
+"f.legend":"* = υποχρεωτικό πεδίο",
+"form.ok":"Το email σας θα πρέπει τώρα να είναι ανοιχτό με το brief του έργου. Στείλτε το email για να ολοκληρωθεί η υποβολή.",
 "err.required":"Το πεδίο είναι υποχρεωτικό",
 "err.fail":"Δεν μπορέσαμε να στείλουμε το brief σας. Δοκιμάστε ξανά ή επικοινωνήστε μαζί μας απευθείας.",
 "err.nojs":"Η φόρμα χρειάζεται JavaScript για να ανοίξει το email σας. Ενεργοποιήστε την ή στείλτε email στο headoffice@beeriprint.co.il.",
@@ -1460,32 +1458,58 @@ if (langBtn && langMenu) {
 /* ── MOBILE MENU ────────────────────────────────────────── */
 var ham = document.getElementById('ham');
 var mob = document.getElementById('mob-menu');
+var mobScrim = document.getElementById('mob-scrim');
 if (ham && mob) {
   function setMenu(open){
     mob.classList.toggle('open', open);
+    if (mobScrim) mobScrim.classList.toggle('open', open);
     ham.setAttribute('aria-expanded', open ? 'true' : 'false');
     document.body.style.overflow = open ? 'hidden' : '';
   }
   ham.addEventListener('click', function(){ setMenu(!mob.classList.contains('open')); });
+  if (mobScrim) mobScrim.addEventListener('click', function(){ setMenu(false); });
   mob.addEventListener('click', function(ev){
     if (ev.target && ev.target.tagName === 'A') setMenu(false);
   });
   document.addEventListener('keydown', function(ev){
     if (ev.key === 'Escape' && mob.classList.contains('open')) { setMenu(false); ham.focus(); }
   });
-  // Keep Tab inside the open drawer; otherwise focus lands on content the
-  // overlay is covering.
   mob.addEventListener('keydown', function(ev){
     if (ev.key !== 'Tab' || !mob.classList.contains('open')) return;
-    var links = mob.querySelectorAll('a');
-    if (!links.length) return;
-    var first = links[0], last = links[links.length - 1];
+    var focusable = mob.querySelectorAll('a, button');
+    if (!focusable.length) return;
+    var first = focusable[0], last = focusable[focusable.length - 1];
     if (!ev.shiftKey && document.activeElement === last) {
       ev.preventDefault(); setMenu(false); ham.focus();
     } else if (ev.shiftKey && document.activeElement === first) {
       ev.preventDefault(); ham.focus();
     }
   });
+  /* ── Mobile language switcher ── */
+  var mobLang = document.getElementById('mob-lang');
+  if (mobLang) {
+    mobLang.addEventListener('click', function(ev){
+      var btn = ev.target.closest ? ev.target.closest('[data-lang]') : null;
+      if (!btn) return;
+      applyLang(btn.getAttribute('data-lang'), true);
+      updateMobLang();
+      setMenu(false);
+    });
+  }
+  function updateMobLang(){
+    if (!mobLang) return;
+    var cur = document.documentElement.getAttribute('lang') || 'en';
+    var btns = mobLang.querySelectorAll('[data-lang]');
+    for (var i = 0; i < btns.length; i++) {
+      btns[i].setAttribute('aria-current', btns[i].getAttribute('data-lang') === cur ? 'true' : 'false');
+    }
+  }
+  updateMobLang();
+  var _origApplyLang = window.applyLang;
+  window.applyLang = function(l, fromUser){
+    _origApplyLang(l, fromUser);
+    updateMobLang();
+  };
 }
 /* ── SCROLL REVEAL ──────────────────────────────────────── */
 /* The .js class gates the opacity:0 rule, so everything above stays visible
@@ -1584,6 +1608,8 @@ if (form) {
       mailto = 'mailto:' + CONFIG.MAILTO + '?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(trimmed);
     }
     window.location.href = mailto;
+    var ok = document.getElementById('formOk');
+    if (ok) { ok.hidden = false; setTimeout(function(){ ok.hidden = true; }, 12000); }
   });
   form.addEventListener('input', function(ev){
     var el = ev.target;
@@ -1699,362 +1725,37 @@ if (form) {
     document.addEventListener('click', function(ev){
       if (!inp.contains(ev.target) && !menu.contains(ev.target)) close();
     });
+    inp.addEventListener('blur', function(){ setTimeout(close, 120); });
   })();
 }
-/* ── SKIN PICKER (temporary — remove after palette is chosen) ──────── */
+/* ── SCROLL SPY ────────────────────────────────────────── */
 (function(){
-  var SKINS = [
-    {id:'default', label:'Original',   labelAr:'الأصلي',   labelEl:'Αρχικό',
-     navy:'#071E38', navyMid:'#0F2F52', navyLt:'#1A4A7A',
-     gold:'#C4882A', goldLt:'#D4A240', goldTxt:'#8A5D14',
-     brand:'#00AEEF', brandTxt:'#006F99',
-     text:'#0D1F30', textMuted:'#4A6070',
-     cardBg:'#FFFFFF', border:'#D2DCE8', bg:'#F5F8FB', bgAlt:'#FFFFFF',
-     slate:'#8DA5BE', navBg:'7,30,56',
-     footerBg:'#040F1D', langBg:'#0B2540', formOptBg:'#0F2A42',
-     dmAccent:'#7BB8E8', heroPattern:'26,74,122', cardGlow:'196,136,42',
-     ctaText:'7,30,56',
-     dk:{brandTxt:'#00AEEF',goldTxt:'#D4A240',text:'#D8E8F5',textMuted:'#7B9CB8',
-         cardBg:'#0F2A42',border:'#5079A0',bg:'#071624',bgAlt:'#0A1E30',
-         footerBg:'#040E18',langBg:'#0C1E30',formOptBg:'#0F2A42',dmAccent:'#7BB8E8',
-         heroPattern:'14,42,70',cardGlow:'170,120,30',ctaText:'7,30,56'}},
-    {id:'emerald', label:'Emerald',   labelAr:'زمردي',   labelEl:'Σμαράγδι',
-     navy:'#0B261A', navyMid:'#143D2C', navyLt:'#1B6B48',
-     gold:'#D49B2A', goldLt:'#E0B24A', goldTxt:'#7A5A10',
-     brand:'#2ECB70', brandTxt:'#14804A',
-     text:'#0D2418', textMuted:'#4A7060',
-     cardBg:'#FFFFFF', border:'#C2DED0', bg:'#F2F8F5', bgAlt:'#FFFFFF',
-     slate:'#82B8A0', navBg:'11,38,26',
-     footerBg:'#041410', langBg:'#0A2E1E', formOptBg:'#0E3828',
-     dmAccent:'#7BE8B0', heroPattern:'20,90,60', cardGlow:'196,148,40',
-     ctaText:'11,38,26',
-     dk:{brandTxt:'#2ECB70',goldTxt:'#E0B24A',text:'#D4F0E4',textMuted:'#7BAE98',
-         cardBg:'#0E2E20',border:'#3A7860',bg:'#061812',bgAlt:'#0A2018',
-         footerBg:'#030E0A',langBg:'#0C2218',formOptBg:'#0E2E20',dmAccent:'#7BE8B0',
-         heroPattern:'14,60,40',cardGlow:'170,130,30',ctaText:'11,38,26'}},
-    {id:'onyx', label:'Onyx',       labelAr:'أونيكس',   labelEl:'Όνυχας',
-     navy:'#1A1614', navyMid:'#2C2624', navyLt:'#5A4E48',
-     gold:'#B87653', goldLt:'#C98F6E', goldTxt:'#7A4D33',
-     brand:'#D4956A', brandTxt:'#9C6040',
-     text:'#1F1814', textMuted:'#6E5D54',
-     cardBg:'#FFFFFF', border:'#DCD2CC', bg:'#F8F5F3', bgAlt:'#FFFFFF',
-     slate:'#B8A59E', navBg:'26,22,20',
-     footerBg:'#0F0C0A', langBg:'#221C18', formOptBg:'#2A2220',
-     dmAccent:'#E8B8A0', heroPattern:'60,44,36', cardGlow:'184,118,83',
-     ctaText:'26,22,20',
-     dk:{brandTxt:'#D4956A',goldTxt:'#C98F6E',text:'#EDE4DE',textMuted:'#A09088',
-         cardBg:'#241E1A',border:'#6E5A50',bg:'#120E0C',bgAlt:'#1A1512',
-         footerBg:'#0A0806',langBg:'#1E1814',formOptBg:'#241E1A',dmAccent:'#E8B8A0',
-         heroPattern:'50,36,28',cardGlow:'160,100,70',ctaText:'26,22,20'}},
-    {id:'royal', label:'Royal',     labelAr:'ملكي',     labelEl:'Βασιλικό',
-     navy:'#1A1035', navyMid:'#2D1B52', navyLt:'#4A2F7A',
-     gold:'#D4A240', goldLt:'#E0B95A', goldTxt:'#7A6010',
-     brand:'#7B5EBF', brandTxt:'#5E429C',
-     text:'#1A102E', textMuted:'#5F5070',
-     cardBg:'#FFFFFF', border:'#D2C8E0', bg:'#F5F3F8', bgAlt:'#FFFFFF',
-     slate:'#A898BE', navBg:'26,16,53',
-     footerBg:'#0A0718', langBg:'#1E1438', formOptBg:'#281C48',
-     dmAccent:'#B8A0E8', heroPattern:'50,30,90', cardGlow:'196,150,50',
-     ctaText:'26,16,53',
-     dk:{brandTxt:'#7B5EBF',goldTxt:'#E0B95A',text:'#E4DEF0',textMuted:'#9888B8',
-         cardBg:'#1E1438',border:'#5A4880',bg:'#0C0818',bgAlt:'#140E28',
-         footerBg:'#06040E',langBg:'#181028',formOptBg:'#1E1438',dmAccent:'#B8A0E8',
-         heroPattern:'30,18,60',cardGlow:'170,130,40',ctaText:'26,16,53'}},
-    {id:'ocean', label:'Ocean',     labelAr:'محيطي',     labelEl:'Ωκεανός',
-     navy:'#0A2628', navyMid:'#134042', navyLt:'#1A6B70',
-     gold:'#E07A5F', goldLt:'#E89880', goldTxt:'#994E3D',
-     brand:'#3AC5C9', brandTxt:'#1E8A8E',
-     text:'#0D2426', textMuted:'#4A6E70',
-     cardBg:'#FFFFFF', border:'#C2DCD8', bg:'#F2F8F7', bgAlt:'#FFFFFF',
-     slate:'#82B8B4', navBg:'10,38,40',
-     footerBg:'#041214', langBg:'#0A2830', formOptBg:'#103438',
-     dmAccent:'#7BE0E2', heroPattern:'20,80,85', cardGlow:'200,110,85',
-     ctaText:'10,38,40',
-     dk:{brandTxt:'#3AC5C9',goldTxt:'#E89880',text:'#D4F0EE',textMuted:'#7BB0AC',
-         cardBg:'#0E2C2E',border:'#3A7878',bg:'#061618',bgAlt:'#0A2022',
-         footerBg:'#030C0E',langBg:'#0C2022',formOptBg:'#0E2C2E',dmAccent:'#7BE0E2',
-         heroPattern:'14,55,58',cardGlow:'180,95,70',ctaText:'10,38,40'}},
-    {id:'slate', label:'Graphite',  labelAr:'غرافيت',   labelEl:'Γραφίτης',
-     navy:'#1F1D1B', navyMid:'#332F2B', navyLt:'#5A5248',
-     gold:'#D48C2A', goldLt:'#E0A94A', goldTxt:'#7A5510',
-     brand:'#C7975A', brandTxt:'#9B7340',
-     text:'#1E1C1A', textMuted:'#6A6258',
-     cardBg:'#FFFFFF', border:'#DCD8D2', bg:'#F7F5F3', bgAlt:'#FFFFFF',
-     slate:'#B8AEA2', navBg:'31,29,27',
-     footerBg:'#0E0C0A', langBg:'#241F1A', formOptBg:'#2E2822',
-     dmAccent:'#E8CCA0', heroPattern:'55,48,40', cardGlow:'196,130,38',
-     ctaText:'31,29,27',
-     dk:{brandTxt:'#C7975A',goldTxt:'#E0A94A',text:'#EDE8E2',textMuted:'#A09888',
-         cardBg:'#242018',border:'#6E6458',bg:'#120F0C',bgAlt:'#1A1612',
-         footerBg:'#0A0806',langBg:'#1E1A14',formOptBg:'#242018',dmAccent:'#E8CCA0',
-         heroPattern:'44,38,32',cardGlow:'170,112,30',ctaText:'31,29,27'}},
-    {id:'crimson', label:'Crimson',   labelAr:'قرمزي',    labelEl:'Πορφυρό',
-     navy:'#380E1E', navyMid:'#5A1830', navyLt:'#882848',
-     gold:'#D4644A', goldLt:'#E08068', goldTxt:'#983828',
-     brand:'#C23050', brandTxt:'#8E2040',
-     text:'#2A0E18', textMuted:'#784858',
-     cardBg:'#FFFFFF', border:'#E4CCD2', bg:'#FBF3F5', bgAlt:'#FFFFFF',
-     slate:'#C0A0AA', navBg:'56,14,30',
-     footerBg:'#1A0610', langBg:'#2E0E1E', formOptBg:'#3A1428',
-     dmAccent:'#F0A0B0', heroPattern:'100,30,55', cardGlow:'212,100,74',
-     ctaText:'56,14,30',
-     dk:{brandTxt:'#C23050',goldTxt:'#E08068',text:'#F5D8E0',textMuted:'#B87888',
-         cardBg:'#3A1428',border:'#884060',bg:'#1A060E',bgAlt:'#280C18',
-         footerBg:'#10040A',langBg:'#220A14',formOptBg:'#3A1428',dmAccent:'#F0A0B0',
-         heroPattern:'60,18,35',cardGlow:'180,80,60',ctaText:'56,14,30'}},
-    {id:'frost', label:'Frost',      labelAr:'جليدي',    labelEl:'Παγετός',
-     navy:'#1C2832', navyMid:'#2E3E52', navyLt:'#4A6480',
-     gold:'#8AA0B8', goldLt:'#9EB4C8', goldTxt:'#3A5878',
-     brand:'#3498DB', brandTxt:'#1E6CA0',
-     text:'#1A2430', textMuted:'#5A6878',
-     cardBg:'#FFFFFF', border:'#C8D4E0', bg:'#F0F3F7', bgAlt:'#FFFFFF',
-     slate:'#90A4B8', navBg:'28,40,50',
-     footerBg:'#0C1420', langBg:'#1A2838', formOptBg:'#223448',
-     dmAccent:'#88C0F0', heroPattern:'40,70,100', cardGlow:'138,160,184',
-     ctaText:'28,40,50',
-     dk:{brandTxt:'#3498DB',goldTxt:'#9EB4C8',text:'#D8E4F0',textMuted:'#7898B0',
-         cardBg:'#1A2C3E',border:'#4A6880',bg:'#0A1420',bgAlt:'#10202E',
-         footerBg:'#060C14',langBg:'#0E1A28',formOptBg:'#1A2C3E',dmAccent:'#88C0F0',
-         heroPattern:'20,44,66',cardGlow:'100,130,160',ctaText:'28,40,50'}},
-    {id:'sunset', label:'Sunset',    labelAr:'غروب',     labelEl:'Ηλιοβασίλεμα',
-     navy:'#2E1408', navyMid:'#4A2410', navyLt:'#7A3E1A',
-     gold:'#E87030', goldLt:'#F08848', goldTxt:'#A04818',
-     brand:'#F06848', brandTxt:'#C04030',
-     text:'#2A1408', textMuted:'#7A5840',
-     cardBg:'#FFFFFF', border:'#E8D4C2', bg:'#FDF6F0', bgAlt:'#FFFFFF',
-     slate:'#C4A890', navBg:'46,20,8',
-     footerBg:'#180A04', langBg:'#2E180C', formOptBg:'#3A2010',
-     dmAccent:'#F0B888', heroPattern:'100,55,25', cardGlow:'232,112,48',
-     ctaText:'46,20,8',
-     dk:{brandTxt:'#F06848',goldTxt:'#F08848',text:'#F0DED0',textMuted:'#B89070',
-         cardBg:'#2E1A0E',border:'#7A5030',bg:'#160A04',bgAlt:'#1E100A',
-         footerBg:'#0C0602',langBg:'#1E0E08',formOptBg:'#2E1A0E',dmAccent:'#F0B888',
-         heroPattern:'60,32,14',cardGlow:'200,90,40',ctaText:'46,20,8'}},
-    {id:'neon', label:'Neon',        labelAr:'نيون',     labelEl:'Νέον',
-     navy:'#0E0E18', navyMid:'#1E1E2E', navyLt:'#3A3A5A',
-     gold:'#B8D830', goldLt:'#C8E848', goldTxt:'#5A7010',
-     brand:'#E040A0', brandTxt:'#B02878',
-     text:'#12121E', textMuted:'#58586A',
-     cardBg:'#FFFFFF', border:'#D0D0D8', bg:'#F2F2F6', bgAlt:'#FFFFFF',
-     slate:'#9898AA', navBg:'14,14,24',
-     footerBg:'#060610', langBg:'#141420', formOptBg:'#1C1C2E',
-     dmAccent:'#D0F050', heroPattern:'40,40,70', cardGlow:'184,216,48',
-     ctaText:'14,14,24',
-     dk:{brandTxt:'#E040A0',goldTxt:'#C8E848',text:'#E0E0F0',textMuted:'#8888A0',
-         cardBg:'#1A1A28',border:'#4A4A68',bg:'#08080E',bgAlt:'#101018',
-         footerBg:'#04040A',langBg:'#0E0E1A',formOptBg:'#1A1A28',dmAccent:'#D0F050',
-         heroPattern:'24,24,46',cardGlow:'150,180,40',ctaText:'14,14,24'}},
-    {id:'sand', label:'Sand',        labelAr:'رملي',     labelEl:'Άμμος',
-     navy:'#30260E', navyMid:'#4E3E18', navyLt:'#7A6428',
-     gold:'#C89848', goldLt:'#D8AE60', goldTxt:'#7A5A18',
-     brand:'#8AAC58', brandTxt:'#5A7A30',
-     text:'#2A2210', textMuted:'#6A5E40',
-     cardBg:'#FFFFFF', border:'#DED4C0', bg:'#FAF7EE', bgAlt:'#FFFFFF',
-     slate:'#B8AA90', navBg:'48,38,14',
-     footerBg:'#161008', langBg:'#2A2010', formOptBg:'#342818',
-     dmAccent:'#C8D888', heroPattern:'80,65,30', cardGlow:'200,152,72',
-     ctaText:'48,38,14',
-     dk:{brandTxt:'#8AAC58',goldTxt:'#D8AE60',text:'#EEE8D8',textMuted:'#A09470',
-         cardBg:'#28200E',border:'#6A5830',bg:'#141008',bgAlt:'#1C1608',
-         footerBg:'#0A0804',langBg:'#1E1608',formOptBg:'#28200E',dmAccent:'#C8D888',
-         heroPattern:'50,40,18',cardGlow:'170,128,50',ctaText:'48,38,14'}},
-    {id:'electric', label:'Electric', labelAr:'كهربائي',  labelEl:'Ηλεκτρικό',
-     navy:'#08080C', navyMid:'#10101A', navyLt:'#282840',
-     gold:'#2088FF', goldLt:'#40A0FF', goldTxt:'#1460B0',
-     brand:'#FF6020', brandTxt:'#C84818',
-     text:'#10101A', textMuted:'#505068',
-     cardBg:'#FFFFFF', border:'#C8C8D8', bg:'#F2F2F8', bgAlt:'#FFFFFF',
-     slate:'#8888A8', navBg:'8,8,12',
-     heroBg:'linear-gradient(160deg,#06061A 0%,#08102A 50%,#0A0818 100%)',
-     footerBg:'#04040A', langBg:'#0E0E1E', formOptBg:'#18182A',
-     dmAccent:'#60B0FF', heroPattern:'20,80,200', cardGlow:'32,136,255',
-     ctaText:'8,8,12',
-     dk:{brandTxt:'#FF6020',goldTxt:'#40A0FF',text:'#D8D8F0',textMuted:'#8080A0',
-         cardBg:'#14142A',border:'#383860',bg:'#06060E',bgAlt:'#0C0C1A',
-         heroBg:'linear-gradient(160deg,#04040E 0%,#060E1E 50%,#080610 100%)',
-         footerBg:'#030308',langBg:'#0A0A18',formOptBg:'#14142A',dmAccent:'#60B0FF',
-         heroPattern:'14,50,140',cardGlow:'20,100,200',ctaText:'8,8,12'}},
-    {id:'blush', label:'Blush',      labelAr:'وردي',     labelEl:'Ροδαλό',
-     navy:'#2E1A28', navyMid:'#422838', navyLt:'#6A4058',
-     gold:'#D89058', goldLt:'#E8A870', goldTxt:'#906030',
-     brand:'#C86888', brandTxt:'#A04868',
-     text:'#2A1820', textMuted:'#785868',
-     cardBg:'#FFFFFF', border:'#E8D0D8', bg:'#FCF5F6', bgAlt:'#FFFFFF',
-     slate:'#C0A0AE', navBg:'46,26,40',
-     heroBg:'linear-gradient(145deg,#2E1A28 0%,#3A1830 40%,#281828 100%)',
-     footerBg:'#140A10', langBg:'#281420', formOptBg:'#341A2A',
-     dmAccent:'#F0B8C8', heroPattern:'90,50,70', cardGlow:'216,144,88',
-     ctaText:'46,26,40',
-     dk:{brandTxt:'#C86888',goldTxt:'#E8A870',text:'#F0D8E0',textMuted:'#B08898',
-         cardBg:'#301828',border:'#784860',bg:'#180A10',bgAlt:'#22101A',
-         heroBg:'linear-gradient(145deg,#1E0E18 0%,#280E20 40%,#180E18 100%)',
-         footerBg:'#0C040A',langBg:'#1A0C14',formOptBg:'#301828',dmAccent:'#F0B8C8',
-         heroPattern:'60,30,48',cardGlow:'180,110,70',ctaText:'46,26,40'}},
-    {id:'tundra', label:'Tundra',    labelAr:'تندرا',    labelEl:'Τούνδρα',
-     navy:'#18181C', navyMid:'#282830', navyLt:'#484858',
-     gold:'#B0B0BE', goldLt:'#C4C4D0', goldTxt:'#5A5A70',
-     brand:'#4488CC', brandTxt:'#2A6098',
-     text:'#18181E', textMuted:'#606068',
-     cardBg:'#FFFFFF', border:'#D0D0D8', bg:'#F4F4F6', bgAlt:'#FFFFFF',
-     slate:'#9090A0', navBg:'24,24,28',
-     heroBg:'#18181C',
-     footerBg:'#0A0A0E', langBg:'#1E1E24', formOptBg:'#28282E',
-     dmAccent:'#9898B0', heroPattern:'60,60,80', cardGlow:'176,176,190',
-     ctaText:'24,24,28',
-     dk:{brandTxt:'#4488CC',goldTxt:'#C4C4D0',text:'#D8D8E0',textMuted:'#808090',
-         cardBg:'#20202A',border:'#48485A',bg:'#0A0A0E',bgAlt:'#141418',
-         heroBg:'#0E0E12',
-         footerBg:'#06060A',langBg:'#14141A',formOptBg:'#20202A',dmAccent:'#9898B0',
-         heroPattern:'40,40,56',cardGlow:'120,120,140',ctaText:'24,24,28'}},
-    {id:'jungle', label:'Jungle',    labelAr:'أدغال',    labelEl:'Ζούγκλα',
-     navy:'#0A1A0A', navyMid:'#142E14', navyLt:'#1E5A20',
-     gold:'#C8B020', goldLt:'#D8C440', goldTxt:'#7A6A08',
-     brand:'#48C848', brandTxt:'#288A28',
-     text:'#0E1C0C', textMuted:'#4A6848',
-     cardBg:'#FFFFFF', border:'#C4DCC2', bg:'#F2F8F0', bgAlt:'#FFFFFF',
-     slate:'#82B480', navBg:'10,26,10',
-     heroBg:'linear-gradient(160deg,#082208 0%,#0A140A 40%,#142A08 100%)',
-     footerBg:'#040E04', langBg:'#0C2210', formOptBg:'#102C14',
-     dmAccent:'#80D880', heroPattern:'20,80,20', cardGlow:'200,176,32',
-     ctaText:'10,26,10',
-     dk:{brandTxt:'#48C848',goldTxt:'#D8C440',text:'#D4F0D0',textMuted:'#78AE78',
-         cardBg:'#102C14',border:'#387838',bg:'#061406',bgAlt:'#0A1E0A',
-         heroBg:'linear-gradient(160deg,#041404 0%,#060E06 40%,#0A1E06 100%)',
-         footerBg:'#020A02',langBg:'#081808',formOptBg:'#102C14',dmAccent:'#80D880',
-         heroPattern:'14,50,14',cardGlow:'160,140,24',ctaText:'10,26,10'}},
-    {id:'ivory', label:'Ivory',      labelAr:'عاجي',     labelEl:'Ελεφαντί',
-     navy:'#3A2E24', navyMid:'#4E3E30', navyLt:'#6E5840',
-     gold:'#C04040', goldLt:'#D05858', goldTxt:'#8A2828',
-     brand:'#C84848', brandTxt:'#982828',
-     text:'#2A2018', textMuted:'#6A5E50',
-     cardBg:'#FFFFFF', border:'#DED4C4', bg:'#FBF6EE', bgAlt:'#FFFFFF',
-     slate:'#B0A090', navBg:'58,46,36',
-     heroBg:'linear-gradient(155deg,#3A2E24 0%,#2E2018 45%,#443020 100%)',
-     footerBg:'#1A1208', langBg:'#2E2218', formOptBg:'#382A1E',
-     dmAccent:'#E8B888', heroPattern:'80,56,40', cardGlow:'192,64,64',
-     ctaText:'58,46,36',
-     dk:{brandTxt:'#C84848',goldTxt:'#D05858',text:'#EEE4D8',textMuted:'#A09080',
-         cardBg:'#28200E',border:'#6A5838',bg:'#161008',bgAlt:'#1E1608',
-         heroBg:'linear-gradient(155deg,#2A1E14 0%,#1E1408 45%,#342010 100%)',
-         footerBg:'#0C0804',langBg:'#1E1608',formOptBg:'#28200E',dmAccent:'#E8B888',
-         heroPattern:'50,34,24',cardGlow:'160,48,48',ctaText:'58,46,36'}}
-  ];
-  var SKIN_STORE = 'bp-skin';
-  var root = document.documentElement;
-  var toggle = document.getElementById('skinToggle');
-  var panel  = document.getElementById('skinPanel');
-  var list   = document.getElementById('skinList');
-  var closeBtn = document.getElementById('skinClose');
-  if(!toggle || !panel || !list) return;
-  function isDark(){
-    if(root.getAttribute('data-theme')==='dark') return true;
-    if(root.getAttribute('data-theme')==='light') return false;
-    return window.matchMedia && window.matchMedia('(prefers-color-scheme:dark)').matches;
-  }
-  function applySkin(s){
-    var props = {
-      '--navy':s.navy, '--navy-mid':s.navyMid, '--navy-lt':s.navyLt,
-      '--gold':s.gold, '--gold-lt':s.goldLt, '--gold-txt':s.goldTxt,
-      '--brand':s.brand, '--brand-txt':s.brandTxt,
-      '--text':s.text, '--text-muted':s.textMuted,
-      '--card-bg':s.cardBg, '--border':s.border, '--bg':s.bg, '--bg-alt':s.bgAlt,
-      '--slate':s.slate,
-      '--nav-bg':'rgba('+s.navBg+',0.97)',
-      '--footer-bg':s.footerBg, '--lang-bg':s.langBg, '--form-opt-bg':s.formOptBg,
-      '--dm-accent':s.dmAccent, '--hero-pattern':s.heroPattern,
-      '--card-glow':s.cardGlow, '--cta-text':s.ctaText,
-      '--hero-bg':s.heroBg || 'var(--navy)'
-    };
-    if(s.id === 'default'){
-      for(var k in props) root.style.removeProperty(k);
-    } else {
-      for(var k in props) root.style.setProperty(k, props[k]);
+  var sections = document.querySelectorAll('section[id]');
+  var navLinks = document.querySelectorAll('.nav-links a, .mobile-menu a');
+  if (!sections.length || !navLinks.length || !('IntersectionObserver' in window)) return;
+  var currentId = '';
+  var spyObs = new IntersectionObserver(function(entries){
+    entries.forEach(function(en){
+      if (en.isIntersecting) currentId = en.target.id;
+    });
+    for (var i = 0; i < navLinks.length; i++){
+      var href = navLinks[i].getAttribute('href');
+      navLinks[i].classList.toggle('active', href === '#' + currentId);
     }
-    var tc = document.querySelector('meta[name="theme-color"]');
-    if(tc) tc.setAttribute('content', s.navy);
+  }, {rootMargin:'-30% 0px -60% 0px'});
+  for (var i = 0; i < sections.length; i++) spyObs.observe(sections[i]);
+})();
+/* ── BACK TO TOP ──────────────────────────────────────── */
+(function(){
+  var btn = document.getElementById('backTop');
+  if (!btn) return;
+  var shown = false;
+  function check(){
+    var shouldShow = window.scrollY > 600;
+    if (shouldShow !== shown) { shown = shouldShow; btn.classList.toggle('visible', shown); }
   }
-  function applySkinDark(s){
-    var dk = s.dk;
-    var props = {
-      '--brand-txt':dk.brandTxt, '--gold-txt':dk.goldTxt,
-      '--text':dk.text, '--text-muted':dk.textMuted,
-      '--card-bg':dk.cardBg, '--border':dk.border,
-      '--bg':dk.bg, '--bg-alt':dk.bgAlt,
-      '--footer-bg':dk.footerBg, '--lang-bg':dk.langBg, '--form-opt-bg':dk.formOptBg,
-      '--dm-accent':dk.dmAccent, '--hero-pattern':dk.heroPattern,
-      '--card-glow':dk.cardGlow, '--cta-text':dk.ctaText,
-      '--hero-bg':dk.heroBg || 'var(--navy)'
-    };
-    for(var k in props) root.style.setProperty(k, props[k]);
-  }
-  function apply(s){
-    if(isDark() && s.dk) { applySkin(s); applySkinDark(s); }
-    else applySkin(s);
-  }
-  function getSkin(){
-    var id = null;
-    try{ id = localStorage.getItem(SKIN_STORE); }catch(e){}
-    for(var i=0;i<SKINS.length;i++) if(SKINS[i].id===id) return SKINS[i];
-    return SKINS[0];
-  }
-  function buildList(){
-    list.innerHTML = '';
-    var lang = root.getAttribute('lang') || 'en';
-    var cur = getSkin();
-    for(var i=0;i<SKINS.length;i++){
-      var s = SKINS[i];
-      var btn = document.createElement('button');
-      btn.className = 'skin-opt';
-      btn.setAttribute('data-skin', s.id);
-      btn.setAttribute('aria-current', s.id===cur.id?'true':'false');
-      var label = s.label;
-      if(lang==='ar' && s.labelAr) label = s.labelAr;
-      if(lang==='el' && s.labelEl) label = s.labelEl;
-      btn.innerHTML = '<span class="skin-swatch" style="--sw-dark:'+s.navy+';--sw-accent:'+s.gold+'"></span>'+label;
-      list.appendChild(btn);
-    }
-  }
-  var skinStyle = document.createElement('style');
-  skinStyle.textContent = '.skin-swatch::before{background:var(--sw-dark);}.skin-swatch::after{background:var(--sw-accent);}';
-  document.head.appendChild(skinStyle);
-  apply(getSkin());
-  buildList();
-  toggle.addEventListener('click', function(){
-    var open = !panel.hidden;
-    panel.hidden = open;
-    toggle.setAttribute('aria-expanded', String(!open));
-    if(!open) buildList();
-  });
-  closeBtn.addEventListener('click', function(){ panel.hidden = true; toggle.setAttribute('aria-expanded','false'); });
-  document.addEventListener('click', function(ev){
-    if(!panel.hidden && !panel.contains(ev.target) && ev.target !== toggle) {
-      panel.hidden = true; toggle.setAttribute('aria-expanded','false');
-    }
-  });
-  list.addEventListener('click', function(ev){
-    ev.stopPropagation();
-    var btn = ev.target.closest ? ev.target.closest('[data-skin]') : null;
-    if(!btn) return;
-    var id = btn.getAttribute('data-skin');
-    for(var i=0;i<SKINS.length;i++){
-      if(SKINS[i].id === id){
-        try{ localStorage.setItem(SKIN_STORE, id); }catch(e){}
-        apply(SKINS[i]);
-        buildList();
-        break;
-      }
-    }
-  });
-  if(window.matchMedia){
-    window.matchMedia('(prefers-color-scheme:dark)').addEventListener('change', function(){ apply(getSkin()); });
-  }
-  var origApply = window.applyLang;
-  if(origApply){
-    window.applyLang = function(l, fromUser){
-      origApply(l, fromUser);
-      buildList();
-    };
-  }
+  window.addEventListener('scroll', check, {passive:true});
+  btn.addEventListener('click', function(){ window.scrollTo({top:0,behavior:'smooth'}); });
 })();
 </script>
 </body>

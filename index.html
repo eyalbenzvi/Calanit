@@ -258,7 +258,7 @@ p,li,.hero-body,.form-fail,.fg-err,.footer-col a,.footer-bottom span{text-wrap:p
 /* ── HERO ───────────────────────────────────────────────── */
 .hero{background:var(--hero-bg);padding:clamp(6.5rem,11vw,9.5rem) clamp(1.5rem,4vw,3rem) clamp(4.5rem,8vw,7rem);position:relative;overflow:hidden;}
 .hero::before{content:'';position:absolute;inset:0;background-image:repeating-linear-gradient(45deg,rgba(var(--hero-pattern),.12) 0,rgba(var(--hero-pattern),.12) 1px,transparent 0,transparent 50%);background-size:28px 28px;pointer-events:none;}
-.hero-cards{position:absolute;inset-inline-end:-20px;top:50%;transform:translateY(-50%);pointer-events:none;}
+.hero-cards{position:absolute;inset-inline-end:-4%;top:50%;transform:translateY(-50%);pointer-events:none;z-index:0;}
 .hero-card-img{display:block;width:clamp(340px,38vw,560px);height:auto;filter:drop-shadow(0 8px 28px rgba(0,0,0,.45));}
 .hero-inner{max-width:1200px;margin:0 auto;position:relative;z-index:1;}
 .hero h1{overflow-wrap:break-word;font-size:var(--h1-size);font-weight:800;color:#fff;line-height:.99;margin-bottom:.4rem;max-width:22ch;letter-spacing:var(--h1-ls);}
@@ -553,10 +553,10 @@ p,li,.hero-body,.form-fail,.fg-err,.footer-col a,.footer-bottom span{text-wrap:p
 <main id="main-content">
 <!-- HERO -->
 <section class="hero" id="home">
-  <div class="hero-cards" aria-hidden="true">
-    <picture><source srcset="img/cards-composite.webp" type="image/webp"><img class="hero-card-img" src="img/cards-composite.png" alt="" width="1168" height="784" fetchpriority="high"></picture>
-  </div>
   <div class="hero-inner">
+    <div class="hero-cards" aria-hidden="true">
+      <picture><source srcset="img/cards-composite.webp" type="image/webp"><img class="hero-card-img" src="img/cards-composite.png" alt="" width="1168" height="784" fetchpriority="high"></picture>
+    </div>
     <p class="eyebrow" style="margin-bottom:1.2rem;" data-i18n="hero.eyebrow">Be’eri Printers · card personalization services</p>
     <h1><span data-i18n="hero.h1a">Secure card</span> <em data-i18n="hero.h1b">personalization</em></h1>
     <p class="hero-tagline" data-i18n="hero.tagline">Proven experience. Reliable delivery.</p>

@@ -92,6 +92,21 @@ def inline_css_img(m):
 
 src = re.sub(r'url\((img/[^)]+)\)', inline_css_img, src)
 
+
+# ── inline <img src="img/..."> and <source srcset="img/..."> ───────────
+def inline_html_img(m):
+    attr, rel = m.group(1), m.group(2)
+    path = os.path.join(ROOT, rel)
+    if not os.path.exists(path):
+        return m.group(0)
+    ext = os.path.splitext(rel)[1].lower().lstrip('.')
+    mime = {'jpg': 'image/jpeg', 'jpeg': 'image/jpeg', 'png': 'image/png',
+            'webp': 'image/webp', 'svg': 'image/svg+xml'}.get(ext, 'application/octet-stream')
+    return '%s="%s"' % (attr, data_uri(path, mime))
+
+
+src = re.sub(r'(src|srcset)="(img/[^"]+)"', inline_html_img, src)
+
 # Also inline img-src in the CSP for data: images
 src = src.replace("img-src 'self' data:;", "img-src data:;", 1)
 

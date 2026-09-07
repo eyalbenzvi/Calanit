@@ -196,7 +196,7 @@ h1,h2,h3,h4{font-family:var(--f-display);text-wrap:balance;}
    Short blocks are balanced across their lines; running text uses `pretty`,
    which specifically avoids leaving a single short word on the last line.
    Both degrade to normal wrapping in browsers that lack them. */
-.eyebrow,.hero-tagline,.cert-badge,.counter-label,.ref-type,
+.eyebrow,.hero-tagline,.cert-standard,.counter-label,.ref-type,
 .fg label,.footer-col h4,.logo-sub,.chk span,
 .btn-primary,.btn-ghost,.btn-nav,.btn-dark,.btn-submit,.mobile-cta-bar a,
 .nav-links a,.mobile-menu a,.lang-menu button{text-wrap:balance;}
@@ -321,8 +321,12 @@ p,li,.hero-body,.form-fail,.fg-err,.footer-col a,.footer-bottom span{text-wrap:p
 .step p{font-size:.75rem;color:var(--text-muted);line-height:calc(1.55 * var(--lh-mult));}
 /* ── SECURITY ───────────────────────────────────────────── */
 .security-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:4rem;align-items:start;}
-.cert-row{display:flex;gap:.65rem;flex-wrap:wrap;margin-bottom:1.4rem;}
-.cert-badge{padding:.5rem 1rem;border:1.5px solid var(--gold);border-radius:6px;font-family:var(--f-display);font-size:.78rem;font-weight:700;letter-spacing:var(--ls-badge);color:var(--gold);text-transform:uppercase;background:rgba(196,136,42,.08);box-shadow:0 2px 8px rgba(196,136,42,.12);}
+.cert-row{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-bottom:1.4rem;}
+.cert-card{padding:1.15rem 1.1rem;border:1px solid rgba(196,136,42,.18);border-radius:8px;background:rgba(196,136,42,.04);border-top:3px solid var(--gold);}
+.cert-icon{display:block;width:26px;height:26px;color:var(--gold);margin-bottom:.55rem;}
+.cert-standard{font-family:var(--f-display);font-size:.82rem;font-weight:700;letter-spacing:var(--ls-badge);color:var(--gold);text-transform:uppercase;margin-bottom:.25rem;}
+.cert-scope{font-size:.72rem;color:rgba(255,255,255,.62);line-height:calc(1.45 * var(--lh-mult));}
+.cert-meta{font-size:.65rem;color:rgba(255,255,255,.42);line-height:1.4;margin-top:.35rem;}
 .cert-pci{font-style:normal;margin-bottom:.5rem;}
 .cert-note{max-width:60ch;font-size:.7rem;color:rgba(255,255,255,.6);font-style:var(--italic);line-height:calc(1.55 * var(--lh-mult));margin-top:.3rem;}
 .sec-list{list-style:none;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.75rem;}
@@ -477,6 +481,7 @@ p,li,.hero-body,.form-fail,.fg-err,.footer-col a,.footer-bottom span{text-wrap:p
   .why-grid{grid-template-columns:1fr;}
   .counters{grid-template-columns:1fr;}
   .sec-list{grid-template-columns:1fr;}
+  .cert-row{grid-template-columns:1fr;}
   .footer-top{grid-template-columns:1fr;}
   .footer-bottom{flex-direction:column;text-align:center;}
   .mobile-cta-bar{display:block;}
@@ -504,7 +509,7 @@ p,li,.hero-body,.form-fail,.fg-err,.footer-col a,.footer-bottom span{text-wrap:p
   .nav,.mobile-cta-bar,.mobile-menu,.mobile-menu-scrim,.skip-link,.hero-cards,.lang,.back-top,.footer-map{display:none!important;}
   .hero,.s-dark,.s-mid,.form-section,.footer,.cta-band{background:#fff!important;color:#000!important;}
   .hero h1,.hero h1 em,.hero-tagline,.hero-body,.section-hdr h2,.section-hdr p,.svc-card h3,.svc-card p,
-  .why-card h3,.why-card p,.sec-list li,.cert-note,.cert-badge,.footer-col a,.footer-bottom span,
+  .why-card h3,.why-card p,.sec-list li,.cert-note,.cert-standard,.cert-scope,.cert-meta,.footer-col a,.footer-bottom span,
   .form-inner h2,.form-inner > div > p,.form-intro-note,.chk,.fg label{color:#000!important;}
   .svc-card,.why-card,.cap-card,.ref-card,.counter-item{border:1px solid #999!important;background:#fff!important;break-inside:avoid;}
   .section{padding:1.25rem 0!important;}
@@ -754,31 +759,29 @@ p,li,.hero-body,.form-fail,.fg-err,.footer-col a,.footer-bottom span{text-wrap:p
       <p class="eyebrow" data-i18n="sec.eyebrow">Security &amp; compliance</p>
       <h2 class="txt-w" data-i18n="sec.h2">Security and quality built into every process</h2>
     </div>
-    <!-- ==================================================================
-         CLIENT SIGN-OFF REQUIRED BEFORE LAUNCH — CERTIFICATION CLAIMS
-         The three badges below and the notes beside them are compliance
-         claims. Confirm each against the actual certificates and replace
-         or remove any that is not currently held:
-           * ISO 9001:2015        - certificate no. + body + valid-to
-           * ISO/IEC 27001:2022   - certificate no. + body + valid-to
-           * PCI CP&P             - assessed scope, facility, CPSA, valid-to.
-                                    This is PCI Card Production & Provisioning,
-                                    NOT PCI DSS. If not certified, remove this
-                                    badge and state the assessment roadmap.
-         Scheme vendor certification (Mastercard Vendor Certification /
-         Visa Card Vendor Programme) is a separate gate that many issuers
-         require contractually - add badges if held.
-         ================================================================== -->
     <div class="security-grid">
       <div class="reveal">
         <p style="color:rgba(255,255,255,.62);font-size:.9rem;line-height:calc(1.78 * var(--lh-mult));margin-bottom:2rem;" data-i18n="sec.p">For banks, financial institutions and government bodies, card personalization is a security-critical operation. Be’eri Printers operates a production environment built around protecting cardholder data, card integrity and business continuity at every stage.</p>
         <div class="cert-row">
-          <div class="cert-badge">ISO 9001:2015</div>
-          <div class="cert-badge">ISO/IEC 27001:2022</div>
-          <div class="cert-badge" data-i18n="sec.cert3">PCI&nbsp;CP&amp;P</div>
+          <div class="cert-card">
+            <svg class="cert-icon" viewBox="0 0 32 32" fill="none" aria-hidden="true"><path d="M16 3l10 5.5v8.5c0 6.5-10 12-10 12S6 23.5 6 17V8.5z" stroke="currentColor" stroke-width="1.5"/><path d="M12 16l3.5 3.5 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <div class="cert-standard">ISO 9001:2015</div>
+            <div class="cert-scope" data-i18n="sec.iso9001.scope">Quality management systems</div>
+          </div>
+          <div class="cert-card">
+            <svg class="cert-icon" viewBox="0 0 32 32" fill="none" aria-hidden="true"><path d="M16 3l10 5.5v8.5c0 6.5-10 12-10 12S6 23.5 6 17V8.5z" stroke="currentColor" stroke-width="1.5"/><path d="M12 16l3.5 3.5 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <div class="cert-standard">ISO/IEC 27001:2022</div>
+            <div class="cert-scope" data-i18n="sec.iso27001.scope">Information security management</div>
+            <div class="cert-meta" data-i18n="sec.iso27001.meta">Certified by IQC · #I33811 · Valid to 07/2029</div>
+          </div>
+          <div class="cert-card">
+            <svg class="cert-icon" viewBox="0 0 32 32" fill="none" aria-hidden="true"><path d="M16 3l10 5.5v8.5c0 6.5-10 12-10 12S6 23.5 6 17V8.5z" stroke="currentColor" stroke-width="1.5"/><path d="M12 16l3.5 3.5 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <div class="cert-standard" data-i18n="sec.cert3">PCI CP&amp;P</div>
+            <div class="cert-scope" data-i18n="sec.pci.scope">Card production &amp; provisioning security</div>
+          </div>
         </div>
         <p class="cert-note cert-pci" data-i18n="sec.pci">Card personalization is governed by the PCI Card Production and Provisioning Security Requirements — Physical and Logical — which are assessed per facility and are distinct from PCI DSS. Our current scope and status are provided on request.</p>
-        <p class="cert-note" data-i18n="sec.note">Certificates, assessment scope statements and current validity dates are provided in full with our RFQ pack, and are available on request.</p>
+        <p class="cert-note" data-i18n="sec.note">Full certification documentation, assessment scope statements and validity dates are provided with our RFQ pack and are available on request.</p>
       </div>
       <div class="reveal" style="transition-delay:.12s;">
         <ul class="sec-list">
@@ -1048,7 +1051,8 @@ T.en = {
 "sec.eyebrow":"Security & compliance","sec.h2":"Security and quality built into every process",
 "sec.p":"For banks, financial institutions and government bodies, card personalization is a security-critical operation. Be’eri Printers operates a production environment built around protecting cardholder data, card integrity and business continuity at every stage.",
 "sec.cert3":"PCI CP&P",
-"sec.note":"Certificates, assessment scope statements and current validity dates are provided in full with our RFQ pack, and are available on request.",
+"sec.iso9001.scope":"Quality management systems","sec.iso27001.scope":"Information security management","sec.iso27001.meta":"Certified by IQC · #I33811 · Valid to 07/2029","sec.pci.scope":"Card production & provisioning security",
+"sec.note":"Full certification documentation, assessment scope statements and validity dates are provided with our RFQ pack and are available on request.",
 "sec.l1":"Encrypted data transfer and controlled intake","sec.l2":"Access-controlled, monitored production area","sec.l3":"Role-based access control and activity logging","sec.l4":"Documented quality assurance procedures",
 "sec.l5":"Batch-level traceability and reconciliation","sec.l6":"Confidentiality agreements and staff screening","sec.l7":"Controlled handling of personalization data","sec.l8":"Signed chain of custody on every consignment",
 "cap.eyebrow":"Operational capabilities","cap.h2":"Built for large-scale card programs",
@@ -1161,7 +1165,8 @@ T.ar = {
 "sec.eyebrow":"الأمن والامتثال","sec.h2":"الأمن والجودة مدمجان في كل عملية",
 "sec.p":"بالنسبة للبنوك والمؤسسات المالية والجهات الحكومية، يُعد تخصيص البطاقات عملية بالغة الحساسية من الناحية الأمنية. بيئة الإنتاج في Be’eri Printers مبنية على حماية بيانات حاملي البطاقات وسلامة البطاقة واستمرارية العمل في كل مرحلة.",
 "sec.cert3":"PCI CP&P",
-"sec.note":"تُقدَّم الشهادات وبيانات نطاق التقييم وتواريخ الصلاحية الحالية كاملةً مع حزمة عرض السعر وعند الطلب.",
+"sec.iso9001.scope":"أنظمة إدارة الجودة","sec.iso27001.scope":"إدارة أمن المعلومات","sec.iso27001.meta":"معتمد من IQC · #I33811 · صالح حتى 07/2029","sec.pci.scope":"أمن إنتاج البطاقات وتوفيرها",
+"sec.note":"تُقدَّم وثائق الشهادات الكاملة وبيانات نطاق التقييم وتواريخ الصلاحية مع حزمة عرض السعر وعند الطلب.",
 "sec.l1":"نقل مشفّر للبيانات واستلام محكوم","sec.l2":"منطقة إنتاج خاضعة للرقابة والمراقبة","sec.l3":"ضبط الوصول حسب الأدوار وتسجيل الأنشطة","sec.l4":"إجراءات موثَّقة لضمان الجودة",
 "sec.l5":"تتبّع وتسوية على مستوى الدفعة","sec.l6":"اتفاقيات سرية وتدقيق خلفيات الموظفين","sec.l7":"تعامل محكوم مع بيانات التخصيص","sec.l8":"سلسلة حيازة موقّعة لكل إرسالية",
 "cap.eyebrow":"القدرات التشغيلية","cap.h2":"جاهزية تشغيلية لبرامج البطاقات واسعة النطاق",
@@ -1274,7 +1279,8 @@ T.el = {
 "sec.eyebrow":"Ασφάλεια & συμμόρφωση","sec.h2":"Ασφάλεια και ποιότητα σε κάθε διαδικασία",
 "sec.p":"Για τράπεζες, χρηματοπιστωτικά ιδρύματα και δημόσιους φορείς, η εξατομίκευση καρτών είναι κρίσιμη για την ασφάλεια. Το περιβάλλον παραγωγής της Be’eri Printers είναι δομημένο γύρω από την προστασία δεδομένων, την ακεραιότητα των καρτών και τη συνέχεια των εργασιών σε κάθε στάδιο.",
 "sec.cert3":"PCI CP&P",
-"sec.note":"Τα πιστοποιητικά, οι δηλώσεις εύρους αξιολόγησης και οι τρέχουσες ημερομηνίες ισχύος παρέχονται πλήρως στο πακέτο RFQ και κατόπιν αιτήματος.",
+"sec.iso9001.scope":"Συστήματα διαχείρισης ποιότητας","sec.iso27001.scope":"Διαχείριση ασφάλειας πληροφοριών","sec.iso27001.meta":"Πιστοποίηση από IQC · #I33811 · Ισχύει έως 07/2029","sec.pci.scope":"Ασφάλεια παραγωγής και έκδοσης καρτών",
+"sec.note":"Τα πλήρη έγγραφα πιστοποίησης, οι δηλώσεις εύρους αξιολόγησης και οι ημερομηνίες ισχύος παρέχονται στο πακέτο RFQ και κατόπιν αιτήματος.",
 "sec.l1":"Κρυπτογραφημένη μεταφορά δεδομένων και ελεγχόμενη παραλαβή","sec.l2":"Χώρος παραγωγής με ελεγχόμενη πρόσβαση και παρακολούθηση","sec.l3":"Έλεγχος πρόσβασης βάσει ρόλων και καταγραφή δραστηριότητας","sec.l4":"Τεκμηριωμένες διαδικασίες διασφάλισης ποιότητας",
 "sec.l5":"Ιχνηλασιμότητα και συμφωνία δεδομένων σε επίπεδο παρτίδας","sec.l6":"Συμφωνίες εμπιστευτικότητας και έλεγχος προσωπικού","sec.l7":"Ελεγχόμενη διαχείριση δεδομένων εξατομίκευσης","sec.l8":"Υπογεγραμμένη αλυσίδα κατοχής σε κάθε αποστολή",
 "cap.eyebrow":"Λειτουργικές δυνατότητες","cap.h2":"Σχεδιασμένο για προγράμματα καρτών μεγάλης κλίμακας",
@@ -1387,7 +1393,8 @@ T.he = {
 "sec.eyebrow":"אבטחה ותאימות","sec.h2":"אבטחה ואיכות המובנות בכל תהליך",
 "sec.p":"עבור בנקים, מוסדות פיננסיים וגופים ממשלתיים, פרסונליזציה של כרטיסים היא פעולה קריטית מבחינת אבטחה. Be'eri Printers מפעיל סביבת ייצור שנבנתה סביב הגנה על נתוני מחזיקי הכרטיסים, שלמות הכרטיסים והמשכיות עסקית בכל שלב.",
 "sec.cert3":"PCI CP&P",
-"sec.note":"תעודות, הצהרות היקף הערכה ותאריכי תוקף עדכניים מסופקים במלואם עם חבילת ה-RFQ שלנו, וזמינים לפי בקשה.",
+"sec.iso9001.scope":"מערכות ניהול איכות","sec.iso27001.scope":"ניהול אבטחת מידע","sec.iso27001.meta":"הוסמך על ידי IQC · #I33811 · בתוקף עד 07/2029","sec.pci.scope":"אבטחת הפקת כרטיסים והנפקתם",
+"sec.note":"תיעוד הסמכה מלא, הצהרות היקף הערכה ותאריכי תוקף מסופקים עם חבילת ה-RFQ שלנו וזמינים לפי בקשה.",
 "sec.l1":"העברת נתונים מוצפנת וקליטה מבוקרת","sec.l2":"אזור ייצור עם בקרת גישה וניטור","sec.l3":"בקרת גישה מבוססת תפקידים ורישום פעילות","sec.l4":"נהלי הבטחת איכות מתועדים",
 "sec.l5":"עקיבות ברמת האצווה והתאמה","sec.l6":"הסכמי סודיות וסינון עובדים","sec.l7":"טיפול מבוקר בנתוני פרסונליזציה","sec.l8":"שרשרת משמורת חתומה על כל משלוח",
 "cap.eyebrow":"יכולות תפעוליות","cap.h2":"מותאם לתוכניות כרטיסים בהיקף גדול",
@@ -1501,7 +1508,8 @@ T.fr = {
 "sec.eyebrow":"Sécurité et conformité","sec.h2":"Sécurité et qualité intégrées à chaque processus",
 "sec.p":"Pour les banques, les institutions financières et les organismes publics, la personnalisation de cartes est une opération critique en matière de sécurité. Be'eri Printers exploite un environnement de production conçu pour protéger les données des titulaires, l'intégrité des cartes et la continuité d'activité à chaque étape.",
 "sec.cert3":"PCI CP&P",
-"sec.note":"Les certificats, les périmètres d'évaluation et les dates de validité en cours sont fournis intégralement avec notre dossier RFQ et sont disponibles sur demande.",
+"sec.iso9001.scope":"Systèmes de management de la qualité","sec.iso27001.scope":"Management de la sécurité de l'information","sec.iso27001.meta":"Certifié par IQC · #I33811 · Valide jusqu'au 07/2029","sec.pci.scope":"Sécurité de production et d'approvisionnement de cartes",
+"sec.note":"La documentation complète de certification, les périmètres d'évaluation et les dates de validité sont fournis avec notre dossier RFQ et sont disponibles sur demande.",
 "sec.l1":"Transfert de données chiffré et réception contrôlée","sec.l2":"Zone de production sous contrôle d'accès et vidéosurveillance","sec.l3":"Contrôle d'accès basé sur les rôles et journalisation des activités","sec.l4":"Procédures d'assurance qualité documentées",
 "sec.l5":"Traçabilité et rapprochement au niveau du lot","sec.l6":"Accords de confidentialité et vérification des antécédents du personnel","sec.l7":"Gestion contrôlée des données de personnalisation","sec.l8":"Chaîne de traçabilité signée pour chaque envoi",
 "cap.eyebrow":"Capacités opérationnelles","cap.h2":"Conçu pour les programmes de cartes à grande échelle",
@@ -1614,7 +1622,8 @@ T.ro = {
 "sec.eyebrow":"Securitate și conformitate","sec.h2":"Securitate și calitate integrate în fiecare proces",
 "sec.p":"Pentru bănci, instituții financiare și organisme guvernamentale, personalizarea cardurilor este o operațiune critică din punct de vedere al securității. Be'eri Printers operează un mediu de producție construit în jurul protecției datelor deținătorilor de carduri, integrității cardurilor și continuității afacerii în fiecare etapă.",
 "sec.cert3":"PCI CP&P",
-"sec.note":"Certificatele, declarațiile privind domeniul de evaluare și datele de valabilitate curente sunt furnizate integral în pachetul nostru RFQ și sunt disponibile la cerere.",
+"sec.iso9001.scope":"Sisteme de management al calității","sec.iso27001.scope":"Managementul securității informației","sec.iso27001.meta":"Certificat de IQC · #I33811 · Valabil până la 07/2029","sec.pci.scope":"Securitatea producției și provisionării cardurilor",
+"sec.note":"Documentația completă de certificare, declarațiile privind domeniul de evaluare și datele de valabilitate sunt furnizate cu pachetul nostru RFQ și sunt disponibile la cerere.",
 "sec.l1":"Transfer criptat al datelor și preluare controlată","sec.l2":"Zonă de producție cu acces controlat și monitorizat","sec.l3":"Control al accesului bazat pe roluri și jurnalizare a activităților","sec.l4":"Proceduri documentate de asigurare a calității",
 "sec.l5":"Trasabilitate și reconciliere la nivel de lot","sec.l6":"Acorduri de confidențialitate și verificare a personalului","sec.l7":"Gestionare controlată a datelor de personalizare","sec.l8":"Lanț de custodie semnat pentru fiecare transport",
 "cap.eyebrow":"Capabilități operaționale","cap.h2":"Construit pentru programe de carduri la scară largă",
@@ -1728,7 +1737,8 @@ T.sr = {
 "sec.eyebrow":"Bezbednost i usklađenost","sec.h2":"Bezbednost i kvalitet ugrađeni u svaki proces",
 "sec.p":"Za banke, finansijske institucije i državne organe, personalizacija kartica je bezbednosno kritična operacija. Be'eri Printers posluje u proizvodnom okruženju izgrađenom radi zaštite podataka vlasnika kartica, integriteta kartica i kontinuiteta poslovanja u svakoj fazi.",
 "sec.cert3":"PCI CP&P",
-"sec.note":"Sertifikati, izjave o obimu procene i aktuelni datumi važenja dostavljaju se u celosti uz naš RFQ paket i dostupni su na zahtev.",
+"sec.iso9001.scope":"Sistemi upravljanja kvalitetom","sec.iso27001.scope":"Upravljanje bezbednošću informacija","sec.iso27001.meta":"Sertifikovano od IQC · #I33811 · Važi do 07/2029","sec.pci.scope":"Bezbednost proizvodnje i izdavanja kartica",
+"sec.note":"Kompletna sertifikaciona dokumentacija, izjave o obimu procene i datumi važenja dostavljaju se uz naš RFQ paket i dostupni su na zahtev.",
 "sec.l1":"Šifrovani prenos podataka i kontrolisani prijem","sec.l2":"Proizvodni prostor sa kontrolisanim pristupom i nadzorom","sec.l3":"Kontrola pristupa zasnovana na ulogama i evidencija aktivnosti","sec.l4":"Dokumentovane procedure obezbeđenja kvaliteta",
 "sec.l5":"Sledljivost i usaglašavanje na nivou serije","sec.l6":"Ugovori o poverljivosti i provera osoblja","sec.l7":"Kontrolisano rukovanje podacima personalizacije","sec.l8":"Potpisan lanac nadzora za svaku pošiljku",
 "cap.eyebrow":"Operativni kapaciteti","cap.h2":"Izgrađeno za kartične programe velikog obima",
@@ -1841,7 +1851,8 @@ T.bg = {
 "sec.eyebrow":"Сигурност и съответствие","sec.h2":"Сигурност и качество, вградени във всеки процес",
 "sec.p":"За банки, финансови институции и държавни органи персонализацията на карти е операция от критично значение за сигурността. Be'eri Printers оперира в производствена среда, изградена около защитата на данните на картодържателите, целостта на картите и непрекъсваемостта на бизнеса на всеки етап.",
 "sec.cert3":"PCI CP&P",
-"sec.note":"Сертификати, обхват на оценката и актуални дати на валидност се предоставят в пълен обем с нашия пакет за RFQ и са налични при поискване.",
+"sec.iso9001.scope":"Системи за управление на качеството","sec.iso27001.scope":"Управление на информационната сигурност","sec.iso27001.meta":"Сертифицирано от IQC · #I33811 · Валидно до 07/2029","sec.pci.scope":"Сигурност на производството и издаването на карти",
+"sec.note":"Пълната сертификационна документация, обхватът на оценката и датите на валидност се предоставят с нашия пакет за RFQ и са налични при поискване.",
 "sec.l1":"Криптиран трансфер на данни и контролирано приемане","sec.l2":"Производствена зона с контролиран достъп и мониторинг","sec.l3":"Ролеви контрол на достъпа и регистриране на дейностите","sec.l4":"Документирани процедури за осигуряване на качеството",
 "sec.l5":"Проследяемост и съгласуване на ниво партида","sec.l6":"Споразумения за конфиденциалност и проверка на персонала","sec.l7":"Контролирана обработка на данни за персонализация","sec.l8":"Подписан протокол за веригата за проследяване на всяка пратка",
 "cap.eyebrow":"Оперативен капацитет","cap.h2":"Създадени за мащабни картови програми",
@@ -1955,7 +1966,8 @@ T.sq = {
 "sec.eyebrow":"Siguria dhe pajtueshmëria","sec.h2":"Siguria dhe cilësia, të integruara në çdo proces",
 "sec.p":"Për bankat, institucionet financiare dhe organet shtetërore, personalizimi i kartave është një operacion kritik për sigurinë. Be'eri Printers operon në një mjedis prodhimi të ndërtuar rreth mbrojtjes së të dhënave të mbajtësve të kartave, integritetit të kartave dhe vazhdimësisë së biznesit në çdo fazë.",
 "sec.cert3":"PCI CP&P",
-"sec.note":"Certifikatat, deklaratat e fushëveprimit të vlerësimit dhe datat aktuale të vlefshmërisë ofrohen plotësisht me paketën jonë RFQ dhe janë të disponueshme me kërkesë.",
+"sec.iso9001.scope":"Sisteme të menaxhimit të cilësisë","sec.iso27001.scope":"Menaxhimi i sigurisë së informacionit","sec.iso27001.meta":"Certifikuar nga IQC · #I33811 · I vlefshëm deri në 07/2029","sec.pci.scope":"Siguria e prodhimit dhe furnizimit të kartave",
+"sec.note":"Dokumentacioni i plotë i certifikimit, deklaratat e fushëveprimit të vlerësimit dhe datat e vlefshmërisë ofrohen me paketën tonë RFQ dhe janë të disponueshme me kërkesë.",
 "sec.l1":"Transferim i enkriptuar i të dhënave dhe marrje e kontrolluar","sec.l2":"Zonë prodhimi me akses të kontrolluar dhe monitorim","sec.l3":"Kontroll aksesi i bazuar në role dhe regjistrim i aktiviteteve","sec.l4":"Procedura të dokumentuara të sigurimit të cilësisë",
 "sec.l5":"Gjurmueshmëri dhe rakordim në nivel grupi","sec.l6":"Marrëveshje konfidencialiteti dhe kontroll i personelit","sec.l7":"Trajtim i kontrolluar i të dhënave të personalizimit","sec.l8":"Zinxhir kujdestarie i nënshkruar për çdo dërgesë",
 "cap.eyebrow":"Kapacitete operacionale","cap.h2":"Të ndërtuara për programe kartash në shkallë të gjerë",

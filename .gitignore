@@ -2,3 +2,6 @@ __pycache__/
 .DS_Store
 test/test.html
 build/
+node_modules/
+package.json
+package-lock.json

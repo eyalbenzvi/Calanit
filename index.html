@@ -482,7 +482,7 @@ p,li,.hero-body,.form-fail,.fg-err,.footer-col a,.footer-bottom span{text-wrap:p
 .nav-links a.active{color:#fff;background:rgba(255,255,255,.08);}
 .mobile-menu a.active{color:#fff;background:rgba(255,255,255,.07);}
 /* ── REQUIRED LEGEND ───────────────────────────────────── */
-.form-req-legend{font-family:var(--f-util);font-size:.7rem;color:rgba(255,255,255,.45);text-align:end;margin-bottom:.3rem;}
+.form-req-legend{font-family:var(--f-util);font-size:.7rem;color:rgba(255,255,255,.45);text-align:end;margin-bottom:.3rem;grid-column:1/-1;}
 /* ── PRINT ──────────────────────────────────────────────── */
 @media print{
   .nav,.mobile-cta-bar,.mobile-menu,.mobile-menu-scrim,.skip-link,.hero-cards,.lang,.back-top{display:none!important;}
@@ -892,11 +892,11 @@ p,li,.hero-body,.form-fail,.fg-err,.footer-col a,.footer-bottom span{text-wrap:p
     <div class="reveal" style="transition-delay:.1s;">
       <form class="contact-form" id="projectForm" novalidate>
         <p class="form-req-legend" data-i18n="f.legend">* = required field</p>
-        <div class="fg"><label for="f-name" data-i18n="f.name">Name *</label><input type="text" id="f-name" name="name" autocomplete="name" maxlength="120" aria-required="true" aria-invalid="false" aria-describedby="e-name" data-i18n-ph="f.name.ph" placeholder="Your full name" required><span class="fg-err" id="e-name" data-i18n="err.required">This field is required</span></div>
+        <div class="fg full"><label for="f-name" data-i18n="f.name">Name *</label><input type="text" id="f-name" name="name" autocomplete="name" maxlength="120" aria-required="true" aria-invalid="false" aria-describedby="e-name" data-i18n-ph="f.name.ph" placeholder="Your full name" required><span class="fg-err" id="e-name" data-i18n="err.required">This field is required</span></div>
         <div class="fg"><label for="f-company" data-i18n="f.company">Company *</label><input type="text" id="f-company" name="organization" autocomplete="organization" maxlength="160" aria-required="true" aria-invalid="false" aria-describedby="e-company" data-i18n-ph="f.company.ph" placeholder="Organization name" required><span class="fg-err" id="e-company" data-i18n="err.required">This field is required</span></div>
         <div class="fg"><label for="f-title" data-i18n="f.title">Job title</label><input type="text" id="f-title" name="title" autocomplete="organization-title" maxlength="120" data-i18n-ph="f.title.ph" placeholder="Your role or position"></div>
         <div class="fg country-wrap"><label for="f-country" data-i18n="f.country">Country *</label><input type="text" id="f-country" name="country" autocomplete="country-name" maxlength="80" aria-required="true" aria-invalid="false" aria-describedby="e-country" data-i18n-ph="f.country.ph" placeholder="Country of operation" required role="combobox" aria-autocomplete="list" aria-expanded="false" aria-controls="country-list"><ul class="country-menu" id="country-list" role="listbox"></ul><span class="fg-err" id="e-country" data-i18n="err.required">This field is required</span></div>
-        <div class="fg full"><label for="f-phone" data-i18n="f.phone">Phone</label><input type="tel" id="f-phone" name="phone" dir="ltr" autocomplete="tel" maxlength="40" placeholder="+00 000 000 0000"></div>
+        <div class="fg"><label for="f-phone" data-i18n="f.phone">Phone</label><input type="tel" id="f-phone" name="phone" dir="ltr" autocomplete="tel" maxlength="40" placeholder="+00 000 000 0000"></div>
         <div class="fg full"><label for="f-desc" data-i18n="f.desc">Project description</label>
           <textarea id="f-desc" name="description" maxlength="1500" data-i18n-ph="f.desc.ph" placeholder="Briefly describe your project, timeline, specific requirements or questions…"></textarea>
         </div>

@@ -127,6 +127,9 @@ src = re.sub(r'\n?\s*<link rel="preload"[^>]*>', '', src)
 src = re.sub(r'\n?\s*<script type="application/ld\+json">.*?</script>',
              '', src, count=1, flags=re.S)
 
+# ── Google Maps iframe needs network; strip for offline standalone ─────
+src = re.sub(r'\s*<div class="footer-map">.*?</div>', '', src, count=1, flags=re.S)
+
 # data: fonts have to be allowed, and file:// treats every document as its own
 # opaque origin, so 'self' matches nothing — hence the explicit data:.
 src = src.replace("font-src 'self';", "font-src data:;", 1)

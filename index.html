@@ -486,6 +486,16 @@ p,li,.hero-body,.form-fail,.fg-err,.footer-col a,.footer-bottom span{text-wrap:p
 @media(max-width:360px){
   .nav-inner{padding:0 1rem;gap:.5rem;}
 }
+/* ── WIDE VIEWPORTS (zoom-out / ultra-wide) ────────────── */
+@media(min-width:1600px){
+  .nav-inner,.hero-inner,.section-inner,.form-inner,.footer-inner{max-width:1400px;}
+  .hero-card-img{width:clamp(500px,32vw,720px);}
+}
+@media(min-width:2000px){
+  .nav-inner,.hero-inner,.section-inner,.form-inner,.footer-inner{max-width:1600px;}
+  .hero-card-img{width:clamp(600px,30vw,840px);}
+  .hero h1{font-size:clamp(3.2rem,4.5vw,5rem);}
+}
 /* ── PRINT ──────────────────────────────────────────────── */
 @media print{
   .nav,.mobile-cta-bar,.mobile-menu,.skip-link,.hero-cards,.lang{display:none!important;}
@@ -870,7 +880,7 @@ p,li,.hero-body,.form-fail,.fg-err,.footer-col a,.footer-bottom span{text-wrap:p
 </section>
 <!-- CTA BAND -->
 <section class="cta-band" data-i18n-aria="cta.aria" aria-label="Call to action">
-  <div style="max-width:1200px;margin:0 auto;">
+  <div class="section-inner">
     <h2 data-i18n="cta.h2">Ready to discuss your card personalization requirements?</h2>
     <p data-i18n="cta.p">Tell us about your project. Our team will respond within one business day with information relevant to your program.</p>
     <a href="#contact" class="btn-dark" data-i18n="how.cta">Submit your project brief</a>
